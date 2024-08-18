@@ -1,0 +1,41 @@
+\chapter{Dirac delta function}
+\begin{itemize}
+	\item 可以认为以下是定义式,
+	\begin{equation}
+		\delta(x) = \int \frac{dk}{2 \pi} e^{i k x} \iff 1 = \int dx \, \delta(x) e^{- i k x}
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 第一个常用的公式,
+	\begin{equation}
+		\int_{- \infty}^{+ \infty} \delta(f(x)) g(x) dx = \sum_{\{i, f(x_i) = 0\}} \frac{g(x_i)}{|f'(x_i)|}
+	\end{equation}
+	
+	\item 第二个常用的公式 (\href{https://en.wikipedia.org/wiki/Sokhotski%E2%80%93Plemelj_theorem}{Sokhotski-Plemelj theorem}),
+	\begin{equation}
+		\lim_{\epsilon \rightarrow 0^+} \frac{1}{x + i \epsilon} = \mathcal{P} \frac{1}{x} - i \pi \delta(x)
+	\end{equation}
+	其中 $\mathcal{P}$ 表示复函数的主值 (principal value).
+	
+	\begin{tcolorbox}[title=proof:]
+		考虑,
+		\begin{equation}
+			\frac{1}{x + i \epsilon} = \frac{x - i \epsilon}{x^2 + \epsilon^2}
+		\end{equation}
+		且注意到,
+		\begin{equation}
+			\int \frac{\epsilon}{x^2 + \epsilon^2} dx = 2 \pi i \, \mathrm{Res}(f, i \epsilon) = \pi
+		\end{equation}
+		所以...
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		取 $\epsilon = 0.1$ 时, 复变函数的实部, 虚部分别如下,
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.7]{figures/frac{1}{x + i epsilon}.pdf}
+		\end{figure}
+	\end{tcolorbox}
+\end{itemize}
