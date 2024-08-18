@@ -1,0 +1,67 @@
+\chapter{free field theory}
+\section{partition function}
+\begin{itemize}
+	\item 考虑如下标量场,
+	\begin{equation}
+		\mathcal{L} = - \frac{1}{2} (\partial \phi)^2 - V(\phi)
+	\end{equation}
+	
+	\item 含有 source function 的路径积分为,
+	\begin{equation}
+		Z(J) = \int D\phi \, e^{i \int d^d x (- \frac{1}{2} (\partial \phi)^2 - V(\phi) + J(x) \phi(x))}
+	\end{equation}
+	
+	\item 当 $V(\phi) = \frac{1}{2} m^2 \phi^2$ 时, 称作 free or Gaussian theory.
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 计算 free theory 的 partition function, 得到,
+	\begin{equation}
+		Z(J) = \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=proof:]
+		注意 $\partial^\mu \phi \partial_\mu \phi = \partial^\mu(\phi \partial_\mu \phi) - \phi \partial^2 \phi$, 忽略全微分项, 那么,
+		\begin{equation} \label{1.1.4}
+			Z(J) = \int D\phi \, e^{i \int d^d x \frac{1}{2} (\phi (\partial^2 - m^2) \phi + J(x) \phi(x))}
+		\end{equation}
+		代入 \eqref{B.1.1}, 可知,
+		\begin{equation}
+			Z(J) = \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)}
+		\end{equation}
+		其中 $D(x - y)$ 满足,
+		\begin{equation} \label{1.1.6}
+			\begin{dcases}
+				(\partial^2 - m^2) D(x - y) = \delta^{(d)}(x - y) \\
+				(- p^2 - m^2) \tilde{D}(p, q) = (2 \pi)^d \delta^{(d)}(p - q)
+			\end{dcases} \Longrightarrow D(x - y) = \int \frac{d^d k}{(2 \pi)^d} \frac{e^{i k \cdot (x - y)}}{- k^2 - m^2}
+		\end{equation}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{free propagator}
+\begin{itemize}
+	\item 为了使 \eqref{1.1.4} 中的积分在 $\phi$ 较大时收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, 这样被积函数中会出现一项 $e^{- \epsilon \int d^d x \phi^2}$.
+	
+	\item 注意 \eqref{1.1.6} 中的积分会遇到奇点, 必须加入正无穷小量 $\epsilon$ 避免发散,
+	\begin{equation}
+		D(x) = \int \frac{d^d k}{(2 \pi)^d} \frac{e^{i k \cdot x}}{- k^2 - m^2 + i \epsilon} = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} \theta(t) + e^{i (\omega_k t + \vec{k} \cdot \vec{x})} \theta(- t) \Big)
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		对 $k^0$ 积分, 注意有两个奇点 $k^0 = \pm (\omega_k - i \epsilon)$, 当 $t > 0$ 时, contour 处于下半平面, ...
+	\end{tcolorbox}
+	
+	\item $D(x)$ 的取值与 $x$ 的类时, 类空性质关系密切.
+	\begin{itemize}
+		\item 类时区域,
+		\begin{equation}
+			D(t, 0) = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( e^{- i \omega_k t} \theta(t) + e^{i \omega_k t} \theta(- t) \Big)
+		\end{equation}
+		
+		\item 类空区域,
+		\begin{equation}
+			D(0, \vec{x}) = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} e^{i \vec{k} \cdot \vec{x}} \sim e^{- m |\vec{x}|}
+		\end{equation}
+	\end{itemize}
+\end{itemize}

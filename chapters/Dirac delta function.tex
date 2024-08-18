@@ -1,4 +1,5 @@
-\chapter{Dirac delta function}
+\chapter{Dirac delta function \& Fourier transformation}
+\section{Delta function}
 \begin{itemize}
 	\item 可以认为以下是定义式,
 	\begin{equation}
@@ -35,7 +36,23 @@
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.7]{figures/frac{1}{x + i epsilon}.pdf}
+			\includegraphics[scale=0.5]{figures/frac{1}{x + i epsilon}.pdf}
 		\end{figure}
 	\end{tcolorbox}
+\end{itemize}
+
+\section{Fourier transformation}
+\begin{itemize}
+	\item $d$-dim. Fourier transformation 如下,
+	\begin{equation}
+		\begin{dcases}
+			\phi(x) = \int \frac{d^d k}{(2 \pi)^d} e^{i k \cdot x} \tilde{\phi}(k) \\
+			\tilde{\phi}(k) = \int d^d x \, e^{- i k \cdot x} \phi(x)
+		\end{dcases}
+	\end{equation}
+	
+	\item 因此,
+	\begin{equation}
+		\partial_\mu \phi(x) \mapsto i k_\mu \tilde{\phi}(k)
+	\end{equation}
 \end{itemize}
