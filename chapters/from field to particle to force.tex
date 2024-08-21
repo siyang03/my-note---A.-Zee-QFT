@@ -8,5 +8,46 @@
 	\end{align}
 	其中, 如果 $J(x)$ 是实函数, 那么 $\tilde{J}(- k) = \tilde{J}^*(k)$.
 	
-	\item 考虑 $J(x) = J_1(x) + J_2(x)$, 那么 $W(J)$ 共有 4 项, 
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 考虑 $J(x) = J_1(x) + J_2(x)$, 那么 $W(J)$ 共有 4 项, 其中一个交叉项如下,
+	\begin{equation}
+		W_{1 2}(J) = - \frac{1}{2} \int \frac{d^d k}{(2 \pi)^d} \tilde{J}_1(k) \frac{1}{- k^2 - m^2 + i \epsilon} \tilde{J}_2(- k)
+	\end{equation}
+	可见 $W(J)$ 取值较大的条件是:
+	\begin{enumerate}
+		\item $\tilde{J}_1(k), \tilde{J}_2(k)$ 有较大重叠,
+		
+		\item 重叠位置的 $k$ 是 on shell (即 $k^2 = - m^2$).
+	\end{enumerate}
+	
+	\item 可以看出来, 这里有一个粒子从 1 传递到 2 \textcolor{red}{(?)}.
+\end{itemize}
+
+\section{from particle to force}
+\begin{itemize}
+	\item 考虑 $J(x) = \delta^{(D)}(\vec{x} - \vec{x}_1) + \delta^{(D)}(\vec{x} - \vec{x}_1) \Longrightarrow \tilde{J}_a(k) = 2 \pi e^{- i \vec{k} \cdot \vec{x}_a} \delta(k^0)$, 那么,
+	\begin{align}
+		W_{1 2}(J) + W_{2 1}(J) &= \delta(0) \int \frac{d^D k}{(2 \pi)^{D - 1}} \frac{1}{|\vec{k}|^2 + m^2 - i \epsilon} \cos(\vec{k} \cdot (\vec{x}_1 - \vec{x}_2)) \notag \\
+		&\overset{D = 3}{=} 2 \pi \delta(0) \frac{1}{4 \pi r} e^{- m r} \label{2.2.1}
+	\end{align}
+	($- i \epsilon$ 显然可以舍去), 注意到 $\braket{0 | e^{- i H T} | 0} = e^{- i E T}$, 而时间间隔 $T = \int dx^0 = 2 \pi \delta(0)$, 所以,
+	\begin{equation}
+		E = - \frac{W(J)}{T} \overset{D = 3}{=} - \frac{1}{4 \pi r} e^{- m r}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		计算 \eqref{2.2.1} 中的积分, 令 $\vec{x}_1 - \vec{x}_2 = \vec{r}$,
+		\begin{align}
+			I_D &= \int \frac{d^D k}{(2 \pi)^D} \frac{1}{|\vec{k}|^2 + m^2} \overbrace{\cos(\vec{k} \cdot \vec{r})}^{\mapsto e^{i \vec{k} \cdot \vec{r}}} \notag \\
+			&= \frac{1}{(2 \pi)^D} \int (k \sin \theta_1)^{D - 2} d\Omega_{D - 2} \int k d\theta_1 dk \, \frac{1}{k^2 + m^2} e^{i k r \cos \theta_1} \notag \\
+			&= \frac{S_{D - 2}}{(2 \pi)^D} \int k^{D - 1} \sin^{D - 2} \theta_1 d\theta_1 dk \, \frac{1}{k^2 + m^2} e^{i k r \cos \theta_1}
+		\end{align}
+		取 $D = 3$, 那么,
+		\begin{align}
+			I_{D = 3} &= \frac{1}{(2 \pi)^2} \int k^2 \sin \theta_1 d\theta_1 dk \, \frac{1}{k^2 + m^2} e^{i k \cos \theta_1} \notag \\
+			&= \frac{1}{2 \pi^2 r} \int_0^\infty \sin(k r) \frac{k dk}{k^2 + m^2} = \frac{- i}{4 \pi^2 r} \int_{- \infty}^\infty e^{i k r} \frac{k dk}{k^2 + m^2} \notag \\
+			&= \frac{- i}{4 \pi^2 r} 2 \pi i \, \underbrace{\mathrm{Res}(f, i m)}_{= \frac{1}{2} e^{- m r}} = \frac{1}{4 \pi r} e^{- m r}
+		\end{align}
+	\end{tcolorbox}
 \end{itemize}
