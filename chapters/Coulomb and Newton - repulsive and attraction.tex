@@ -1,0 +1,76 @@
+\chapter{Coulomb and Newton: repulsive and attraction}
+\section{massive spin-\texorpdfstring{$1$}{1} particle \& QCD}
+\begin{itemize}
+	\item 构造有质量的光子的 Lagrangian density,
+	\begin{equation}
+		\mathcal{L} = - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} - \frac{1}{2} m^2 A_\mu A^\mu
+	\end{equation}
+	其中 $F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]}$.
+	
+	\item 做路径积分,
+	\begin{equation}
+		Z(J) = \int DA \, e^{i \int d^d x (\mathcal{L} + J_\mu A^\mu)} = \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, J_\mu D^{\mu \nu}(x - y) J_\nu(y)}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		massive photon 的作用量为,
+		\begin{align}
+			S(A) &= \int d^d x \, \frac{1}{2} \Big( - (\partial_\mu A_\nu) (\partial^\mu A^\nu) + (\partial_\mu A_\nu) (\partial^\nu A^\mu) - m^2 A_\mu A^\mu \Big) \notag \\
+			&= \int d^d x \, \frac{1}{2} \Big( A_\nu \partial^2 A^\nu - A_\nu \partial^\nu \partial_\mu A^\mu - m^2 A_\mu A^\mu \Big) + \text{total differential} \notag \\
+			&= \int d^d x \, \frac{1}{2} A_\mu \Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 - m^2) \Big) A_\nu + \text{total differential}
+		\end{align}
+		那么, 需要有,
+		\begin{align}
+			& (- \partial^\mu \partial^\rho + \eta^{\mu \rho} (\partial^2 - m^2)) D_{\rho \nu}(x - y) = \delta^\mu_\nu \delta^{(d)}(x - y) \notag \\
+			\Longrightarrow & \tilde{D}_{\mu \nu}(k) = \frac{k_\mu k_\nu / m^2 + \eta_{\mu \nu}}{- k^2 - m^2}
+		\end{align}
+	\end{tcolorbox}
+	
+	考虑到积分需要收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, (为什么 $A_\mu$ 类空 \textcolor{red}{(?)}).
+	
+	\item 因此,
+	\begin{align}
+		W(J) &= - \frac{1}{2} \int d^d x d^d y \, J_\mu(x) D^{\mu \nu}(x - y) J_\nu(y) \\
+		&= - \frac{1}{2} \int \frac{d^d k}{(2 \pi)^d} \tilde{J}_\mu(- k) \frac{k^\mu k^\nu / m^2 + \eta^{\mu \nu}}{- k^2 - m^2 + i \epsilon} \tilde{J}_\nu(k)
+	\end{align}
+	注意到 current conservation, 有 $\partial_\mu J^\mu = 0 \iff k^\mu \tilde{J}_\mu(k) = 0$, 所以,
+	\begin{equation}
+		W(J) = - \frac{1}{2} \int \frac{d^d k}{(2 \pi)^d} \tilde{J}_\mu(- k) \frac{1}{- k^2 - m^2 + i \epsilon} \tilde{J}^\mu(k)
+	\end{equation}
+\end{itemize}
+
+\subsection{spin \& polarization vector} \label{3.1.1}
+\begin{itemize}
+	\item spin-$1$ particle 可以有 3 个极化方向, 即空间的 $x, y, z$ 方向, 在粒子静止系下, 极化矢量 $(\epsilon^i)_\mu = \delta^i_\mu, i = 1, 2, 3$, 而 $k_\mu = (- m, 0, 0, 0)$, 所以,
+	\begin{equation}
+		k^\mu (\epsilon^i)_\mu = 0
+	\end{equation}
+	
+	\item 在粒子静止系下, 考虑,
+	\begin{equation}
+		\sum_{i = 1}^3 (\epsilon^i)_\mu (\epsilon^i)_\nu = \begin{pmatrix}
+			0 & 0 \\
+			0 & \delta_{i j}
+		\end{pmatrix} = \frac{k_\mu k_\nu}{m^2} + \eta_{\mu \nu}
+	\end{equation}
+	可见,
+	\begin{equation}
+		\tilde{D}_{\mu \nu}(k) = \frac{\sum_{i = 1}^3 (\epsilon^i)_\mu (\epsilon^i)_\nu}{- k^2 - m^2 + i \epsilon}
+	\end{equation}
+\end{itemize}
+
+\section{massive spin-\texorpdfstring{$2$}{2} particle \& gravity}
+\begin{itemize}
+	\item Lagrangian for spin-$2$ particle $=$ linearized Einstein Lagrangian.
+	
+	\item 受 subsection \ref{3.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足,
+	\begin{equation}
+		\begin{dcases}
+			k^\mu (\epsilon^a)_{(\mu \nu)} = 0 \\
+			\eta^{\mu \nu} (\epsilon^a)_{(\mu \nu)} = 0
+		\end{dcases}
+	\end{equation}
+	其中下指标 $\mu, \nu$ 对称, $a = 1, \cdots, 5$, (可以验证 $(\epsilon^a)_{\mu \nu}$ 确实有 5 个独立分量).
+	
+	\item
+\end{itemize}

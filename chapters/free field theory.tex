@@ -5,10 +5,11 @@
 	\begin{equation}
 		\mathcal{L} = - \frac{1}{2} (\partial \phi)^2 - V(\phi)
 	\end{equation}
+	A. Zee 说: 在作用量里, 时间的导数项必须是正的, 包括标量场的 $(\partial_0 \phi)^2$ 和电磁场的 $(\partial_0 A_i)^2$.
 	
 	\item 含有 source function 的路径积分为,
 	\begin{equation}
-		Z(J) = \int D\phi \, e^{i \int d^d x (- \frac{1}{2} (\partial \phi)^2 - V(\phi) + J(x) \phi(x))}
+		Z(J) = \int D\phi \, e^{i \int d^d x \, (- \frac{1}{2} (\partial \phi)^2 - V(\phi) + J(x) \phi(x))}
 	\end{equation}
 	
 	\item 当 $V(\phi) = \frac{1}{2} m^2 \phi^2$ 时, 称作 free or Gaussian theory.
@@ -24,7 +25,7 @@
 	\begin{tcolorbox}[title=proof:]
 		注意 $\partial^\mu \phi \partial_\mu \phi = \partial^\mu(\phi \partial_\mu \phi) - \phi \partial^2 \phi$, 忽略全微分项, 那么,
 		\begin{equation} \label{1.1.4}
-			Z(J) = \int D\phi \, e^{i \int d^d x \frac{1}{2} (\phi (\partial^2 - m^2) \phi + J(x) \phi(x))}
+			Z(J) = \int D\phi \, e^{i \int d^d x \, \frac{1}{2} (\phi (\partial^2 - m^2) \phi + J(x) \phi(x))}
 		\end{equation}
 		代入 \eqref{B.1.1}, 可知,
 		\begin{equation}
