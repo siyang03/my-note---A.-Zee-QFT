@@ -107,4 +107,16 @@
 	\begin{equation}
 		\tilde{D}_{\mu \nu \rho \sigma}(k) = \frac{(G_{\mu \rho} G_{\nu \sigma} + G_{\mu \sigma} G_{\nu \rho}) - \frac{2}{3} G_{\mu \nu} G_{\rho \sigma}}{- k^2 - m^2 + i \epsilon}
 	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 计算路径积分中的 $W(T)$,
+	\begin{equation}
+		W(T) = - \frac{1}{2} \int \frac{d^4 k}{(2 \pi)^4} \tilde{T}_{\mu \nu}(- k) \frac{(G^{\mu \rho} G^{\nu \sigma} + G^{\mu \sigma} G^{\nu \rho}) - \frac{2}{3} G^{\mu \nu} G^{\rho \sigma}}{- k^2 - m^2 + i \epsilon} \tilde{T}_{\rho \sigma}(k)
+	\end{equation}
+	注意到 $\partial_\mu T^{\mu \nu}(x) = 0 \iff k_\mu \tilde{T}^{\mu \nu}(k) = 0$, 并考虑到 $T$ 是对称张量, 所以,
+	\begin{equation}
+		W(T) = - \frac{1}{2} \int \frac{d^4 k}{(2 \pi)^4} \tilde{T}_{\mu \nu}(- k) \frac{2 \eta^{\mu \rho} \eta^{\nu \sigma} - \frac{2}{3} \eta^{\mu \nu} \eta^{\rho \sigma}}{- k^2 - m^2 + i \epsilon} \tilde{T}_{\rho \sigma}(k)
+	\end{equation}
+	考虑能量项, 可见质量互相吸引.
 \end{itemize}
