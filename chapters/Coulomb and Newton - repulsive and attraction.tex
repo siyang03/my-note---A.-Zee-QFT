@@ -1,5 +1,5 @@
 \chapter{Coulomb and Newton: repulsive and attraction}
-\section{massive spin-\texorpdfstring{$1$}{1} particle \& QCD}
+\section{massive spin-\texorpdfstring{$1$}{1} particle \& QED}
 \begin{itemize}
 	\item 构造有质量的光子的 Lagrangian density,
 	\begin{equation}
@@ -45,13 +45,16 @@
 	\begin{equation}
 		k^\mu (\epsilon^i)_\mu = 0
 	\end{equation}
+	\begin{itemize}
+		\item 注意, 一个粒子的极化方向用 $e^i$ (这不是矢量) 表示, 极化矢量为 $\sum_{i = 1}^3 e^i (\epsilon^i)_\mu$.
+	\end{itemize}
 	
 	\item 在粒子静止系下, 考虑,
 	\begin{equation}
 		\sum_{i = 1}^3 (\epsilon^i)_\mu (\epsilon^i)_\nu = \begin{pmatrix}
 			0 & 0 \\
 			0 & \delta_{i j}
-		\end{pmatrix} = \frac{k_\mu k_\nu}{m^2} + \eta_{\mu \nu}
+		\end{pmatrix} = \frac{k_\mu k_\nu}{m^2} + \eta_{\mu \nu} := - G_{\mu \nu}
 	\end{equation}
 	可见,
 	\begin{equation}
@@ -61,16 +64,47 @@
 
 \section{massive spin-\texorpdfstring{$2$}{2} particle \& gravity}
 \begin{itemize}
-	\item Lagrangian for spin-$2$ particle $=$ linearized Einstein Lagrangian.
+	\item Lagrangian for spin-$2$ particle $=$ \colorbox{yellow}{linearized} Einstein Lagrangian.
 	
 	\item 受 subsection \ref{3.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足,
-	\begin{equation}
+	\begin{equation} \label{3.2.1}
 		\begin{dcases}
 			k^\mu (\epsilon^a)_{(\mu \nu)} = 0 \\
 			\eta^{\mu \nu} (\epsilon^a)_{(\mu \nu)} = 0
 		\end{dcases}
 	\end{equation}
 	其中下指标 $\mu, \nu$ 对称, $a = 1, \cdots, 5$, (可以验证 $(\epsilon^a)_{\mu \nu}$ 确实有 5 个独立分量).
+	\begin{itemize}
+		\item 对 $(\epsilon^{a})_{\mu \nu}$ 的归一化条件可以定义为 $\sum_{a = 1}^5 (\epsilon^a)_{1 2} (\epsilon^a)_{1 2} = 1$.
+		
+		\item 与 subsection \ref{3.1.1} 中提示一样, 粒子的极化方向用 $e^a$ 表示.
+	\end{itemize}
 	
-	\item
+	\item 那么,
+	\begin{equation}
+		\sum_{a = 1}^5 (\epsilon^a)_{\mu \nu} (\epsilon^a)_{\rho \sigma} = (G_{\mu \rho} G_{\nu \sigma} + G_{\mu \sigma} G_{\nu \rho}) - \frac{2}{3} G_{\mu \nu} G_{\rho \sigma}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		首先用 $k_\mu$ 和 $\eta_{\mu \nu}$ 构造最一般的关于 $\mu \leftrightarrow \nu, \rho \leftrightarrow \sigma, \mu \nu \leftrightarrow \rho \sigma$ 对称的 4 阶张量, (下式中把 $\frac{k_\mu}{m}$ 略写作 $k_\mu$),
+		\begin{align}
+			&A k_\mu k_\nu k_\rho k_\sigma + B (k_\mu k_\nu \eta_{\rho \sigma} + k_\rho k_\sigma \eta_{\mu \nu}) + C (k_\mu k_\rho \eta_{\nu \sigma} + k_\mu k_\sigma \eta_{\nu \rho} + k_\nu k_\rho \eta_{\mu \sigma} + k_\nu k_\sigma \eta_{\mu \rho}) \notag \\
+			& + D \eta_{\mu \nu} \eta_{\rho \sigma} + E (\eta_{\mu \rho} \eta_{\nu \sigma} + \eta_{\mu \sigma} \eta_{\nu \rho})
+		\end{align}
+		代入 \eqref{3.2.1} 得,
+		\begin{equation}
+			\begin{dcases}
+				0 = - A + B + 2 C = - B + D = - C + E \\
+				0 = - A + 4 B + 4 C = - B + 4 D + 2 E
+			\end{dcases} \Longrightarrow \frac{B = D, C = E}{A} = - \frac{1}{2}, \frac{3}{4}
+		\end{equation}
+		因此, 这个 4 阶张量最终确定为,
+		\begin{equation}
+			\frac{3}{4} A \Big( (G_{\mu \rho} G_{\nu \sigma} + G_{\mu \sigma} G_{\nu \rho}) - \frac{2}{3} G_{\mu \nu} G_{\rho \sigma} \Big)
+		\end{equation}
+	\end{tcolorbox}
+	\item 所以,
+	\begin{equation}
+		\tilde{D}_{\mu \nu \rho \sigma}(k) = \frac{(G_{\mu \rho} G_{\nu \sigma} + G_{\mu \sigma} G_{\nu \rho}) - \frac{2}{3} G_{\mu \nu} G_{\rho \sigma}}{- k^2 - m^2 + i \epsilon}
+	\end{equation}
 \end{itemize}
