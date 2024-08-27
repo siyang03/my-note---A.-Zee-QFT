@@ -1,0 +1,102 @@
+\chapter{perturbation theory in QM}
+\begin{itemize}
+	\item 研究的 Hamiltonian 与 well studied Hamiltonian 有微小差异时, 使用 perturbation theory,
+	\begin{equation}
+		H(\lambda) = H^{(0)} + \lambda \delta H
+	\end{equation}
+	其中 $\lambda \in [0, 1]$.
+	
+	\item 考虑 $H^{(0)}$ 的本征态为,
+	\begin{equation}
+		H^{(0)} \ket{k^{(0)}} = E_k^{(0)} \ket{k^{(0)}}
+	\end{equation}
+	并满足,
+	\begin{equation}
+		\begin{dcases}
+			\braket{k^{(0)} | l^{(0)}} = \delta_{k l} \\
+			E_0^{(0)} \leq E_1^{(0)} \leq E_2^{(0)} \leq \cdots
+		\end{dcases}
+	\end{equation}
+\end{itemize}
+
+\section{non-degenerate perturbation theory}
+\begin{itemize}
+	\item 考虑 non-degenerate 能级 $k$, 有 $\cdots \leq E_{k - 1}^{(0)} < E_k^{(0)} < E_{k + 1}^{(0)} \leq \cdots$, 在 perturbation theory 适用的情况下,
+	\begin{equation} \label{C.1.1}
+		\begin{dcases}
+			\ket{k}_\lambda = \ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots \\
+			E_k(\lambda) = E_k^{(0)} + \lambda E_k^{(1)} + \lambda^2 E_k^{(2)} + \cdots
+		\end{dcases}
+	\end{equation}
+	\begin{itemize}
+			\item 注意, 我们可以选取修正项满足,
+			\begin{equation} \label{C.1.2}
+				\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots
+			\end{equation}
+			
+			\begin{tcolorbox}[title=proof:]
+				假设我们求解得到的修正项不满足 $\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots$, 考虑,
+				\begin{equation}
+					\ket{k^{(n)}}' = \ket{k^{(n)}} + a_n \ket{k^{(0)}} \quad \text{with} \quad \braket{k^{(0)} | k^{(n)}}' = 0
+				\end{equation}
+				那么, (注意到态矢量可以乘一个常数, $\frac{1}{1 - a_1 \lambda - a_2 \lambda^2 - \cdots} = 1 + a_1 \lambda + (a_1^2 + a_2) \lambda^2 + \cdots$),
+				\begin{align}
+					\ket{k}_\lambda &= (1 - a_1 \lambda - a_2 \lambda^2 - \cdots) \ket{k^{(0)}} + \lambda \ket{k^{(1)}}' + \lambda^2 \ket{k^{(2)}}' + \cdots \notag \\
+					\ket{k}'_\lambda &= \ket{k^{(0)}} + \frac{1}{1 - a_1 \lambda - a_2 \lambda^2 - \cdots} \Big( \lambda \ket{k^{(1)}}' + \lambda^2 \ket{k^{(2)}}' + \cdots \Big) \notag \\
+					&= \ket{k^{(0)}} + \lambda \ket{k^{(1)}}' + \lambda^2 (a_1 \ket{k^{(1)}}' + \ket{k^{(2)}}') + \cdots
+				\end{align}
+				可见修正项都与 $\ket{k^{(0)}}$ 正交.
+			\end{tcolorbox}
+			
+			\item 注意, 不能要求 $\leftindex_\lambda {\braket{k | k}}_\lambda = 1$, 否则 $\ket{k^{(n)}}$ 将与 $\lambda$ 相关 (包括 $\ket{k^{(0)}}$),
+			\begin{align}
+				\leftindex_\lambda {\braket{k | k}}_\lambda =& \braket{k^{(0)} | k^{(0)}} \notag \\
+				& + \lambda (\braket{k^{(1)} | k^{(0)}} + \braket{k^{(0)} | k^{(1)}}) \notag \\
+				& + \lambda^2 (\braket{k^{(2)} | k^{(0)}} + \braket{k^{(1)} | k^{(1)}} + \braket{k^{(0)} | k^{(2)}}) \notag \\
+				& \multicolumn{1}{c}{\vdots} \notag \\
+				& + \lambda^n (\braket{k^{(n)} | k^{(0)}} + \braket{k^{(n - 1)} | k^{(1)}} + \cdots + \braket{k^{(0)} | k^{(n)}})
+			\end{align}
+	\end{itemize}
+	
+	\item 将 \eqref{C.1.1} 代入 Schrodinger's eq., 得到,
+	
+	\begin{center}
+		\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+		\begin{tabularx}{\linewidth}{C{2cm}X}
+			\toprule 
+			$\lambda^0$ & $(H^{(0)} - E_k^{(0)}) \ket{k^{(0)}} = 0$ \\
+			$\lambda^1$ & $(H^{(0)} - E_k^{(0)}) \ket{k^{(1)}} = (E_k^{(1)} - \delta H) \ket{k^{(0)}}$ \\
+			$\lambda^2$ & $(H^{(0)} - E_k^{(0)}) \ket{k^{(2)}} = (E_k^{(1)} - \delta H) \ket{k^{(1)}} + E_k^{(2)} \ket{k^{(0)}}$ \\
+			$\vdots$ & \multicolumn{1}{c}{$\vdots$} \\
+			$\lambda^n$ & $(H^{(0)} - E_k^{(0)}) \ket{k^{(n)}} = (E_k^{(1)} - \delta H) \ket{k^{(n - 1)}} + E_k^{(2)} \ket{k^{(n - 2)}} +\cdots + E_k^{(n)} \ket{k^{(0)}}$ \\
+			\bottomrule
+		\end{tabularx}
+	\end{center}
+	
+	\begin{tcolorbox}[title=calculation:]
+		Schrodinger's eq. 为,
+		\begin{equation}
+			(H^{(0)} + \lambda \delta H - E_k(\lambda)) \ket{k}_\lambda = 0
+		\end{equation}
+		展开为,
+		\begin{align}
+			\Big( (H^{(0)} - E_k^{(0)}) + \lambda (\delta H - E_k^{(1)}) - \lambda^2 E_k^{(2)} - \cdots \Big) (\ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots) = 0
+		\end{align}
+	\end{tcolorbox}
+	
+	\item 在等号两边与 $\bra{k^{(0)}}$ 内积, 得到能量修正项,
+	\begin{equation}
+		\begin{dcases}
+			E_k^{(0)} = \braket{k^{(0)} | H^{(0)} | k^{(0)}} \\
+			E_k^{(1)} = \braket{k^{(0)} | \delta H | k^{(0)}} \\
+			E_k^{(2)} = \braket{k^{(0)} | \delta H | k^{(1)}} - E_k^{(1)} \braket{k^{(0)} | k^{(1)}} \\
+			\multicolumn{1}{c}{$\vdots$} \\
+			E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}} - E_k^{(1)} \braket{k^{(0)} | k^{(n - 1)}} - \cdots - E_k^{(n - 1)} \braket{k^{(0)} | k^{(1)}}
+		\end{dcases}
+	\end{equation}
+	其中用到了 $\braket{k^{(0)} | k^{(0)}} = 1$, 如果代入 \eqref{C.1.2}, 表达式可以进一步简化.
+	
+	\item 
+\end{itemize}
+
+\section{degenerate perturbation theory}
