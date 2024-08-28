@@ -1,5 +1,9 @@
-\chapter{perturbation theory in QM}
+\chapter{perturbation theory in QM} \label{C}
 \begin{itemize}
+	\item this chapter is based on MIT OpenCourseWare \href{https://ocw.mit.edu/courses/8-06-quantum-physics-iii-spring-2018/resources/mit8_06s18ch1/}{Quantum Physics III Chapter 1: Perturbation Theory}.
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
 	\item 研究的 Hamiltonian 与 well studied Hamiltonian 有微小差异时, 使用 perturbation theory,
 	\begin{equation}
 		H(\lambda) = H^{(0)} + \lambda \delta H
@@ -8,11 +12,7 @@
 	
 	\item 考虑 $H^{(0)}$ 的本征态为,
 	\begin{equation}
-		H^{(0)} \ket{k^{(0)}} = E_k^{(0)} \ket{k^{(0)}}
-	\end{equation}
-	并满足,
-	\begin{equation}
-		\begin{dcases}
+		H^{(0)} \ket{k^{(0)}} = E_k^{(0)} \ket{k^{(0)}} \quad \text{and} \quad \begin{dcases}
 			\braket{k^{(0)} | l^{(0)}} = \delta_{k l} \\
 			E_0^{(0)} \leq E_1^{(0)} \leq E_2^{(0)} \leq \cdots
 		\end{dcases}
@@ -106,7 +106,7 @@
 	\begin{tcolorbox}[title=calculation:]
 		将 \eqref{C.1.10} 代入 \eqref{C.1.8}, 得到 ($l \neq k$),
 		\begin{equation}
-			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} =& - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}}
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} = - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}}
 		\end{equation}
 		所以,
 		\begin{equation}
@@ -136,7 +136,38 @@
 
 \subsection{validity of the perturbation expansion}
 \begin{itemize}
-	\item 
+	\item 考虑两能级系统, 可以得出微扰展开收敛的条件, 即,
+	\begin{equation}
+		|\lambda V| < \frac{1}{2} \Delta E^{(0)}
+	\end{equation}
+	因此, 对于能级简并的情况, $\Delta E^{(0)} = 0$, 情况会更复杂.
+	
+	\begin{tcolorbox}[title=calculation:]
+		对于两能级系统,
+		\begin{equation}
+			H(\lambda) = H^{(0)} + \lambda \hat{V} = \begin{pmatrix}
+				E_1^{(0)} & \lambda V \\
+				\lambda V^* & E_2^{(0)}
+			\end{pmatrix}
+		\end{equation}
+		$H(\lambda)$ 的本征值可以直接计算,
+		\begin{equation}
+			E_{\pm}(\lambda) = \frac{1}{2} (E_1^{(0)} + E_2^{(0)}) \pm \frac{1}{2} (E_1^{(0)} - E_2^{(0)}) \sqrt{1 + \bigg( \frac{\lambda |V|}{\frac{1}{2} (E_1^{(0)} - E_2^{(0)})} \bigg)^2}
+		\end{equation}
+		考虑 $\sqrt{1 + z^2}$ 的 Taylor 展开,
+		\begin{equation}
+			\sqrt{1 + z^2} = 1 + \frac{z^2}{2} - \frac{z^4}{8} + \cdots + (- 1)^{n + 1} \frac{(2 n - 3)!!}{2^n n!} z^{2 n} + \cdots
+		\end{equation}
+		注意到 $\sqrt{1 + z^2}$ 在 $z = \pm i$ 有 branch cut, 因此 $z = 0$ 附件的 Taylor expansion 只有在 $|z| < 1$ 内才收敛.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{figures/sqrt{1 + z^2}.pdf}
+		\end{figure}
+	\end{tcolorbox}
 \end{itemize}
 
 \section{degenerate perturbation theory}
+\begin{itemize}
+	\item 暂时先跳过.
+\end{itemize}
