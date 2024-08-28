@@ -84,18 +84,58 @@
 		\end{align}
 	\end{tcolorbox}
 	
-	\item 在等号两边与 $\bra{k^{(0)}}$ 内积, 得到能量修正项,
-	\begin{equation}
+	\item 现在来计算 $\braket{l^{(0)} | k^{(n)}}$, 有,
+	\begin{equation} \label{C.1.8}
 		\begin{dcases}
-			E_k^{(0)} = \braket{k^{(0)} | H^{(0)} | k^{(0)}} \\
-			E_k^{(1)} = \braket{k^{(0)} | \delta H | k^{(0)}} \\
-			E_k^{(2)} = \braket{k^{(0)} | \delta H | k^{(1)}} - E_k^{(1)} \braket{k^{(0)} | k^{(1)}} \\
-			\multicolumn{1}{c}{$\vdots$} \\
-			E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}} - E_k^{(1)} \braket{k^{(0)} | k^{(n - 1)}} - \cdots - E_k^{(n - 1)} \braket{k^{(0)} | k^{(1)}}
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(1)}} =& E_k^{(1)} \delta_{l k} - \delta H_{l k} \\
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(1)}} - \braket{l^{(0)} | \delta H | k^{(1)}} + E_k^{(2)} \delta_{l k} \\
+			\multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(n)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(n - 1)}} - \braket{l^{(0)} | \delta H | k^{(n - 1)}} \\
+			& + E_k^{(2)} \braket{l^{(0)} | k^{(n - 2)}} + \cdots + E_k^{(n)} \delta_{l k}
 		\end{dcases}
 	\end{equation}
-	其中用到了 $\braket{k^{(0)} | k^{(0)}} = 1$, 如果代入 \eqref{C.1.2}, 表达式可以进一步简化.
+	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{C.1.2} 的解, 有,
+	\begin{equation}
+		E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}}, n = 1, 2, \cdots
+	\end{equation}
+	并且,
+	\begin{equation} \label{C.1.10}
+		\ket{k^{(1)}} = - \sum_{l \neq k} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} \ket{l^{(0)}} \Longrightarrow E_k^{(2)} = - \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}}
+	\end{equation}
 	
+	\begin{tcolorbox}[title=calculation:]
+		将 \eqref{C.1.10} 代入 \eqref{C.1.8}, 得到 ($l \neq k$),
+		\begin{equation}
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} =& - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}}
+		\end{equation}
+		所以,
+		\begin{equation}
+			\begin{dcases}
+				\ket{k^{(2)}} = \sum_{l \neq k} \Big( - \frac{\delta H_{0 0} \delta H_{l k}}{(E_l^{(0)} - E_k^{(0)})^2} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}} \Big) \ket{l^{(0)}} \\
+				E_k^{(3)} = \sum_{l \neq k} \Big( - \frac{\delta H_{0 0} |\delta H_{l k}|^2}{(E_l^{(0)} - E_k^{(0)})^2} + \sum_{m \neq k} \frac{\delta H_{k l} \delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}} \Big)
+			\end{dcases}
+		\end{equation}
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		计算归一化系数,
+		\begin{equation}
+			\leftindex_\lambda {\braket{k | k}}_\lambda = 1 + \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{(E_l^{(0)} - E_k^{(0)})^2} + O(\lambda^3)
+		\end{equation}
+	\end{tcolorbox}
+\end{itemize}
+
+\subsection{level repulsion or the seesaw mechanism}
+\begin{itemize}
+	\item 能量的展开式为,
+	\begin{equation}
+		E_k(\lambda) = E_k^{(0)} + \lambda \delta H_{k k} - \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}} + O(\lambda^3)
+	\end{equation}
+	二阶项的效果是使能级间距增大, 对于基态能级, 二阶项使其能量减小.
+\end{itemize}
+
+\subsection{validity of the perturbation expansion}
+\begin{itemize}
 	\item 
 \end{itemize}
 
