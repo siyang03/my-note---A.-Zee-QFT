@@ -2,7 +2,7 @@
 \section{massive spin-\texorpdfstring{$1$}{1} particle \& QED}
 \begin{itemize}
 	\item 构造有质量的光子的 Lagrangian density,
-	\begin{equation}
+	\begin{equation} \label{3.1.1}
 		\mathcal{L} = - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} - \frac{1}{2} m^2 A_\mu A^\mu
 	\end{equation}
 	其中 $F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]}$.
@@ -17,7 +17,8 @@
 		\begin{align}
 			S(A) &= \int d^d x \, \frac{1}{2} \Big( - (\partial_\mu A_\nu) (\partial^\mu A^\nu) + (\partial_\mu A_\nu) (\partial^\nu A^\mu) - m^2 A_\mu A^\mu \Big) \notag \\
 			&= \int d^d x \, \frac{1}{2} \Big( A_\nu \partial^2 A^\nu - A_\nu \partial^\nu \partial_\mu A^\mu - m^2 A_\mu A^\mu \Big) + \text{total differential} \notag \\
-			&= \int d^d x \, \frac{1}{2} A_\mu \Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 - m^2) \Big) A_\nu + \text{total differential}
+			&= \int d^d x \, \frac{1}{2} A_\mu \Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 - m^2) \Big) A_\nu + \text{total differential} \notag \\
+			&= \int \frac{d^d k}{(2 \pi)^d} \tilde{A}_\mu(- k) \Big( k^\mu k^\nu + \eta^{\mu \nu} (- k^2 - m^2) \Big) \tilde{A}_\nu(k) + \text{boundary term}
 		\end{align}
 		那么, 需要有,
 		\begin{align}
@@ -26,7 +27,7 @@
 		\end{align}
 	\end{tcolorbox}
 	
-	考虑到积分需要收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, (为什么 $A_\mu$ 类空 \textcolor{red}{(?)}).
+	考虑到积分需要收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, (为什么 $A_\mu$ 类空 \textcolor{red}{(?)}, 只知道 $\tilde{A}_\mu$ 类空, 见 subsection \ref{subsection 3.1.2}, 但路径积分中的 $A$ 显然不满足 field equation).
 	
 	\item 因此,
 	\begin{align}
@@ -40,7 +41,7 @@
 	观察电荷分量, 可见同性相斥, 异性相吸.
 \end{itemize}
 
-\subsection{spin \& polarization vector} \label{3.1.1}
+\subsection{spin \& polarization vector} \label{subsection 3.1.1}
 \begin{itemize}
 	\item spin-$1$ particle 可以有 3 个极化方向, 即空间的 $x, y, z$ 方向, 在粒子静止系下, 极化矢量 $(\epsilon^i)_\mu = \delta^i_\mu, i = 1, 2, 3$, 而 $k_\mu = (- m, 0, 0, 0)$, 所以,
 	\begin{equation}
@@ -63,11 +64,26 @@
 	\end{equation}
 \end{itemize}
 
+\subsection{Maxwell Lagrangian} \label{subsection 3.1.2}
+\begin{itemize}
+	\item 根据 \eqref{3.1.1} 中的 Lagrangian density, 得到 field equation 如下,
+	\begin{equation} \label{3.1.11}
+		\Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 - m^2) \Big) A_\nu
+	\end{equation}
+	\begin{itemize}
+		\item spin-$1$ particle 有 3 个自旋自由度, 而 $A_\mu$ 有 4 个分量, 所以需要一个约束方程,
+		\begin{equation}
+			\partial^\mu A_\mu = 0 \iff k^\mu \tilde{A}_\mu(k) = 0
+		\end{equation}
+		实际上在 \eqref{3.1.11} 左右两边作用一个 $\partial_\mu$ 即可得到这个约束方程.
+	\end{itemize}
+\end{itemize}
+
 \section{massive spin-\texorpdfstring{$2$}{2} particle \& gravity}
 \begin{itemize}
 	\item Lagrangian for spin-$2$ particle $=$ \colorbox{yellow}{linearized} Einstein Lagrangian.
 	
-	\item 受 subsection \ref{3.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足,
+	\item 受 subsection \ref{subsection 3.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足,
 	\begin{equation} \label{3.2.1}
 		\begin{dcases}
 			k^\mu (\epsilon^a)_{(\mu \nu)} = 0 \\
