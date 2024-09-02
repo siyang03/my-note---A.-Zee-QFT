@@ -21,8 +21,12 @@
 %\pagecolor{black}
 %\color{white} % textcolor
 %----------------------------------------------------------------------
-\usepackage{xeCJK}
-\setCJKmainfont{GenRyuMin JP} % 源流明体
+% for XeTeX
+%\usepackage{xeCJK}
+%\setCJKmainfont{GenRyuMin JP} % 源流明体
+% for LuaTeX
+\usepackage{luatexja-fontspec}
+\setmainjfont{GenRyuMin JP} % 源流明体
 %----------------------------------------------------------------------
 % to handle a large project
 \usepackage{import}
@@ -60,6 +64,7 @@
 %\usepackage{tensor} % how to handle indeces: https://tex.stackexchange.com/questions/11542/left-and-right-subscript-superscript
 
 \usepackage{simpler-wick} % to use Wick contraction
+%\usepackage[compat=1.1.0]{tikz-feynman}
 
 % use \, in math environment
 % except for texts embeded in math environment, use \ instead
@@ -85,6 +90,8 @@
 	\import{chapters/}{from field to particle to force}
 	
 	\import{chapters/}{Coulomb and Newton - repulsive and attraction}
+	
+	\import{chapters/}{Feynman diagrams}
 	
 	\appendix
 	

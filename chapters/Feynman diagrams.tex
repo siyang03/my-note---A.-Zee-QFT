@@ -1,0 +1,30 @@
+\chapter{Feynman diagrams}
+\section{a baby problem}
+\begin{itemize}
+	\item 考虑如下积分,
+	\begin{equation}
+		Z(J) = \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4 + J q}
+	\end{equation}
+	
+	\item 把 integrand 对 $\lambda$ 展开, 并将 $q$ 用 $\frac{\partial}{\partial J}$ 替代, 得到,
+	\begin{align}
+		Z(J) &= e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 + J q} \notag \\
+		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}}
+	\end{align}
+	后面的计算中忽略 $Z(J = 0, \lambda = 0)$.
+	
+	\item 每个 vertex 带有 $- \lambda$, 每个 line 带有 $\frac{1}{m^2}$, 剩下的系数通过展开项算, 如下,
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/a baby problem - Feynman diagram.pdf}
+	\end{figure}
+	
+	\begin{tcolorbox}[title=calculation:]
+		在这里计算 $\lambda J^4$ terms,
+		\begin{equation}
+			\includegraphics[scale=1]{figures/a baby problem - lambda J^4 terms.pdf}
+		\end{equation}
+		这和 A. Zee 的不一样, 是因为我把 disconnected diagram 处理错了 \textcolor{red}{(?)}.
+	\end{tcolorbox}
+\end{itemize}
