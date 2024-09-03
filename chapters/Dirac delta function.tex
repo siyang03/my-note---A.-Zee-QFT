@@ -44,7 +44,7 @@
 \section{Fourier transformation}
 \begin{itemize}
 	\item $d$-dim. Fourier transformation 如下,
-	\begin{equation}
+	\begin{equation} \label{A.2.1}
 		\begin{dcases}
 			\phi(x) = \int \frac{d^d k}{(2 \pi)^d} e^{i k \cdot x} \tilde{\phi}(k) \\
 			\tilde{\phi}(k) = \int d^d x \, e^{- i k \cdot x} \phi(x)
@@ -55,4 +55,87 @@
 	\begin{equation}
 		\partial_\mu \phi(x) \mapsto i k_\mu \tilde{\phi}(k)
 	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 对于\textbf{实函数}, Fourier transformation 是正交变换, 其 Jacobi determinant 为,
+	\begin{equation} \label{A.2.3}
+		\Big| \frac{\partial \phi(x) \cdots}{\partial \mathrm{Re} \tilde{\phi}(k) \cdots \partial \mathrm{Im} \tilde{\phi}(k) \cdots} \Big| = \Big( \frac{2}{V} \Big)^{(2 N + 1)^d} \det A = \Big( \frac{2 (2 N)^d}{V^2} \Big)^{\frac{(2 N + 1)^d}{2}}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=proof:]
+		position space 和 momentum space 的格点分别为,
+		\begin{equation}
+			\begin{dcases}
+				x_i^\mu = i^\mu \epsilon \in \{0, \pm \epsilon, \cdots, \frac{L}{2}\} \\
+				k_n^\mu = n^\mu \frac{2 \pi}{L} \in \{0, \pm \frac{2 \pi}{L}, \cdots, \frac{\pi}{\epsilon}\}
+			\end{dcases} \iff i^\mu, n^\mu \in \{0, \pm 1, \cdots, N\}
+		\end{equation}
+		$x^\mu, k^\mu$ 分别有 $2 N + 1$ 个取值, 其中 $N \epsilon = \frac{L}{2}$, 时空总体积为 $V = L^d$, momentum space 的总体积为 $\tilde{V} = \frac{(4 \pi N)^d}{V}$.
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		将 \eqref{A.2.1} 写成格点求和的形式,
+		\begin{equation} \label{A.2.5}
+			\begin{dcases}
+				\begin{aligned}
+					\phi(x_i) &= \frac{1}{(2 \pi)^d} \Big( \frac{2 \pi}{L} \Big)^d \sum_n e^{i k_n \cdot x_i} \tilde{\phi}(k_n) \\
+					&= \frac{2}{V} \sum_{n^0 > 0} \Big( \cos(k_n \cdot x_i) \mathrm{Re} \tilde{\phi}(k_n) - \sin(k_n \cdot x_i) \mathrm{Im} \tilde{\phi}(k_n) \Big) \\
+					\tilde{\phi}(k_n) &= \epsilon^d \sum_i e^{- i k_n \cdot x_i} \phi(x_i) \\
+					&= \frac{V}{(2 N)^d} \sum_i \Big( \cos(k_n \cdot x_i) - i \sin(k_n \cdot x_i) \Big) \phi(x_i)
+				\end{aligned}
+			\end{dcases}
+		\end{equation}
+		
+		\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+		
+		\textbf{proof:}
+		
+		$\phi(x_i)$ 的变换需要做一些说明. 注意到 $\tilde{\phi}$ 的分量的数量是 $\phi$ 的两倍 (考虑到实部与虚部), 但在 $\phi \in \mathbb{R}^{(2 N + 1)^d}$ 时,
+		\begin{equation}
+			\tilde{\phi}^*(k) = \tilde{\phi}(- k)
+		\end{equation}
+		可见 $\tilde{\phi}$ 的分量并不独立, 取 $k^0 > 0$ 的部分为独立分量, 那么...
+		
+		\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+		
+		将 \eqref{A.2.5} 写成矩阵的形式,
+		\begin{equation}
+			\begin{dcases}
+				\begin{pmatrix}
+					\phi(x_0) \\
+					\vdots \\
+					\phi(x_{\max})
+				\end{pmatrix} = \frac{2}{V} \overbrace{\begin{pmatrix}
+					\cos k_0 \cdot x_0 & \cdots & \cos k_{\max} \cdot x_0 & - \sin k_0 \cdot x_0 & \cdots \\
+					\vdots & & \ddots & &
+				\end{pmatrix}}^{= A} \begin{pmatrix}
+					\mathrm{Re} \tilde{\phi}(k_0) \\
+					\vdots \\
+					\mathrm{Im} \tilde{\phi}(k_0) \\
+					\vdots
+				\end{pmatrix} \\
+				\begin{pmatrix}
+					\mathrm{Re} \tilde{\phi}(k_0) \\
+					\vdots \\
+					\mathrm{Im} \tilde{\phi}(k_0) \\
+					\vdots
+				\end{pmatrix} = \frac{V}{(2 N)^d} \begin{pmatrix}
+					\cos k_0 \cdot x_0 & \cdots & \cos k_0 \cdot x_{\max} \\
+					\vdots & \ddots & \\
+					- \sin k_0 \cdot x_0 & \cdots & - \sin k_0 \cdot x_{\max} \\
+					\vdots & & \ddots
+				\end{pmatrix} \begin{pmatrix}
+					\phi(x_0) \\
+					\vdots \\
+					\phi(x_{\max})
+				\end{pmatrix}
+			\end{dcases}
+		\end{equation}
+		观察可见 $\tilde{\phi}$ 的变换中的矩阵是 $A^T$, 所以,
+		\begin{equation}
+			\frac{2}{V} \frac{V}{(2 N)^d} A A^T = I \Longrightarrow \det A = \Big( \frac{(2 N)^d}{2} \Big)^{\frac{(2 N + 1)^d}{2}}
+		\end{equation}
+		因此...
+	\end{tcolorbox}
 \end{itemize}

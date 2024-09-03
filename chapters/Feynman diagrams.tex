@@ -6,14 +6,14 @@
 		Z(J) = \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4 + J q}
 	\end{equation}
 	
-	\item 把 integrand 对 $\lambda$ 展开, 并将 $q$ 用 $\frac{\partial}{\partial J}$ 替代, 得到,
+	\item \textbf{Schwinger's way:} 把 integrand 对 $\lambda$ 展开, 并将 $q$ 用 $\frac{\partial}{\partial J}$ 替代, 得到,
 	\begin{align}
 		Z(J) &= e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 + J q} \notag \\
 		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}} \label{4.1.2}
 	\end{align}
 	后面的计算中忽略 $Z(J = 0, \lambda = 0)$.
 	
-	\item 每个 vertex 带有 $- \lambda$, 每个 line 带有 $\frac{1}{m^2}$, 剩下的系数通过展开项算, 如下 (numerical factors 怎么算 \textcolor{red}{(?)}),
+	\item 每个 vertex 带有 $- \lambda$, 每个 line 带有 $\frac{1}{m^2}$, 剩下的系数通过展开项算, 如下 (numerical factors 最好通过 Wick's way 算, 不过 baby problem 里 $q$ 无法区分, 所以不方便算, 先略了),
 	
 	\begin{figure}[H]
 		\centering
@@ -35,7 +35,7 @@
 	\begin{equation}
 		Z(J) = \sum_{n = 0}^\infty \frac{1}{n!} J^n \underbrace{\int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4} q^n}_{= Z(0, 0) G^{(n)}}
 	\end{equation}
-	其中 Green's function $G^{(n)}$ 对 $\lambda$ 展开后, 可以用 Wick contraction 计算, 见 \eqref{B.1.5}.
+	其中 Green's function $G^{(n)}$ 对 $\lambda$ 展开后, 可以用 Wick contraction 计算 (见 \eqref{B.1.5}), 这就是 \textbf{Wick's way}.
 	
 	\begin{tcolorbox}[title=calculation:]
 		计算 $\lambda J^4$ 项, 它来自 $G^{(4)}$ 对 $\lambda$ 展开的一阶项,
@@ -67,7 +67,7 @@
 	\end{equation}
 	其中 $q^4 = \sum_i q_i^4$.
 	
-	\item 对 $\lambda$ 展开并把 $q$ 替换为 $\frac{\partial}{\partial J}$, 得到,
+	\item \textbf{Schwinger's way:} 对 $\lambda$ 展开并把 $q$ 替换为 $\frac{\partial}{\partial J}$, 得到,
 	\begin{equation}
 		Z(J) = \sqrt{\frac{(2 \pi)^N}{\det A}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{1}{2} J^T \cdot A^{- 1} \cdot J}
 	\end{equation}
@@ -76,7 +76,7 @@
 
 \subsection{\texorpdfstring{$n$}{n}-point Green's function}
 \begin{itemize}
-	\item 对 $J$ 展开获得带 Green's function 的表达式,
+	\item \textbf{Wick's way:} 对 $J$ 展开获得带 Green's function 的表达式,
 	\begin{equation}
 		Z(J) = \sum_{n = 0}^\infty \frac{1}{n!} \sum_{i_1 = 1}^N \cdots \sum_{i_n = 1}^N J_{i_1} \cdots J_{i_n} \underbrace{\int dq_1 \cdots dq_N \, e^{- \frac{1}{2} q^T \cdot A \cdot q - \frac{\lambda}{4!} q^4} q_{i_1} \cdots q_{i_n}}_{= Z(0, 0) G^{(n)}_{i_1 \cdots i_n}}
 	\end{equation}
@@ -102,12 +102,16 @@
 	\end{align}
 	
 	\item 来计算 $2, 3, 4$-point Green's functions,
-	\begin{align}
-		G^{(2)}_{i j} =& A^{- 1}_{i j} - \frac{\lambda}{4!} \sum_m (3 A^{- 1}_{m m} A^{- 1}_{m m} A^{- 1}_{i j} + 12 A^{- 1}_{m m} A^{- 1}_{m i} A^{- 1}_{m j}) + O(\lambda^2) \\
-		G^{(3)}_{i j k} =& 0 \\
-		G^{(4)}_{i j k l} =& A^{- 1}_{i j} A^{- 1}_{k l} + A^{- 1}_{i k} A^{- 1}_{j l} + A^{- 1}_{i l} A^{- 1}_{j k} \notag \\
-		& - \frac{\lambda}{4!} \sum_m (A^{- 1}_{m m} A^{- 1}_{m m} A^{- 1}_{i j} A^{- 1}_{k l} + \cdots + 4! A^{- 1}_{i m} A^{- 1}_{j m} A^{- 1}_{k m} A^{- 1}_{l m}) + O(\lambda^2)
-	\end{align}
+	\begin{equation}
+		\begin{dcases}
+			G^{(2)}_{i j} = A^{- 1}_{i j} - \frac{\lambda}{4!} \sum_m (3 A^{- 1}_{m m} A^{- 1}_{m m} A^{- 1}_{i j} + 12 A^{- 1}_{m m} A^{- 1}_{m i} A^{- 1}_{m j}) + O(\lambda^2) \\
+			G^{(3)}_{i j k} = 0 \\
+			\begin{aligned}
+				G^{(4)}_{i j k l} =& A^{- 1}_{i j} A^{- 1}_{k l} + A^{- 1}_{i k} A^{- 1}_{j l} + A^{- 1}_{i l} A^{- 1}_{j k} \\
+				& - \frac{\lambda}{4!} \sum_m (A^{- 1}_{m m} A^{- 1}_{m m} A^{- 1}_{i j} A^{- 1}_{k l} + \cdots + 4! A^{- 1}_{i m} A^{- 1}_{j m} A^{- 1}_{k m} A^{- 1}_{l m}) + O(\lambda^2)
+			\end{aligned}
+		\end{dcases}
+	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
 		$2$-point Green's function 计算如下,
@@ -138,19 +142,19 @@
 		\end{dcases}
 	\end{equation}
 	
-	\item $\phi^4$ theory 的路径积分,
+	\item \textbf{Schwinger's way:} $\phi^4$ theory 的路径积分,
 	\begin{align}
 		Z(J) &= \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi - \frac{\lambda}{4!} \phi^4 + J(x) \phi(x))} \\
 		&= Z(0, 0) e^{- i \frac{\lambda}{4!} \int d^d z \, (\frac{\delta}{i \delta J(z)})^4} e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)}
 	\end{align}
-	这种方法称作 \textbf{'Schwinger way'}, 其中 $D(x - y)$ 是自由场的 propagator, 见 \eqref{1.2.1}.
+	其中 $D(x - y)$ 是自由场的 propagator, 见 \eqref{1.2.1}.
 	
-	\item 同样, 对 $J$ 展开得到含 Green's functions 的表达式,
+	\item \textbf{Wick's way:} 同样, 对 $J$ 展开得到含 Green's functions 的表达式,
 	\begin{equation}
 		\frac{Z(J)}{Z(0, 0)} = \sum_{n = 0}^\infty \frac{i^n}{n!} \int d^d x_1 \cdots d^d x_n \, J(x_1) \cdots J(x_n) G^{(n)}(x_1, \cdots, x_n)
 	\end{equation}
-	这种方法称作 \textbf{'Wick way'}, 其中,
-	\begin{equation}
+	其中,
+	\begin{equation} \label{4.3.5}
 		G^{(n)}(x_1, \cdots, x_n) = \frac{1}{Z(0, 0)} \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi - \frac{\lambda}{4!} \phi^4)} \phi(x_1) \cdots \phi(x_n)
 	\end{equation}
 	有时 $Z(J)$ 被称为 generating functional, 因为它能生成 Green's functions.
@@ -158,5 +162,42 @@
 
 \subsection{collision between particles}
 \begin{itemize}
-	\item 
+	\item 通过 Wick's way, 考虑 $J(x_1) J(x_2) J(x_3) J(x_4)$ 项, 实际上就是要计算 $G^{(4)}(x_1, x_2, x_3, x_4)$, 它的 0 阶项为,
+	\begin{align}
+		G^{(4)}(x_1, x_2, x_3, x_4, \lambda = 0) &= \frac{\delta}{i \delta J(x_1)} \frac{\delta}{i \delta J(x_2)} \frac{\delta}{i \delta J(x_3)} \frac{\delta}{i \delta J(x_4)} e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)} \notag \\
+		&= - (D_{1 2} D_{3 4} + D_{1 3} D_{2 4} + D_{1 4} D_{2 3})
+	\end{align}
+	其中 $D_{i j}$ 是 $D(x_i - x_j)$ 的简写, 可见, 传播子实际上是 $(- i)^3 D = i D$.
+	
+	\item $G^{(4)}_{1 2 3 4}$ 的 1 阶项为,
+	\begin{align}
+		\text{2nd order term} =& - \frac{i \lambda}{4!} \int d^d z \, \braket{\phi_1 \cdots \phi_4 \phi^4(z)} \notag \\
+		=& - \frac{i \lambda}{4!} \int d^d z \, \frac{\delta}{i \delta J_1} \cdots \frac{\delta}{i \delta J_4} \Big( \frac{\delta}{i \delta J(z)} \Big)^4 e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)} \notag \\
+		=& - \frac{i \lambda}{4!} \int d^d z \, \Big( 4! D_{1 z} D_{2 z} D_{3 z} D_{4 z} \notag \\
+		& + 4 \times 3 D_{1 2} D_{3 z} D_{4 z} D_{z z} + \cdots + 3 D_{1 2} D_{3 4} D_{z z} D_{z z} + \cdots \Big)
+	\end{align}
+	其中各项分别对应如下 Feynman diagrams,
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/collision between particles - Feynman diagrams.pdf}
+	\end{figure}
+	
+	其中 numerical factor 可以从 vertex 的四个 external end 的对称性得出.
+	
+	\item 再举一个例子,
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagrams.pdf}
+	\end{figure}
+\end{itemize}
+
+\subsection{in momentum space}
+\begin{itemize}
+	\item 将 \eqref{4.3.5} 转换到 momentum space, 得到,
+	\begin{equation}
+		\tilde{G}^{(n)}(k_1, \cdots, k_n) = \frac{1}{Z(0, 0)} \int D\tilde{\phi} \, e^{i \int d^d k \, (\frac{1}{2} \tilde{\phi}^* (- k^2 - m^2) \tilde{\phi} - \frac{\lambda}{4!} \tilde{\phi}^4)} \tilde{\phi}(k_1) \cdots \tilde{\phi}(k_n)
+	\end{equation}
+	注意, 这里用到了 Fourier 变换是正交变换的性质, 见 \eqref{A.2.3}.
 \end{itemize}

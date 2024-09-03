@@ -87,11 +87,13 @@
 	\item 现在来计算 $\braket{l^{(0)} | k^{(n)}}$, 有,
 	\begin{equation} \label{C.1.8}
 		\begin{dcases}
-			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(1)}} =& E_k^{(1)} \delta_{l k} - \delta H_{l k} \\
-			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(1)}} - \braket{l^{(0)} | \delta H | k^{(1)}} + E_k^{(2)} \delta_{l k} \\
-			\multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
-			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(n)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(n - 1)}} - \braket{l^{(0)} | \delta H | k^{(n - 1)}} \\
-			& + E_k^{(2)} \braket{l^{(0)} | k^{(n - 2)}} + \cdots + E_k^{(n)} \delta_{l k}
+			\begin{aligned}
+				(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(1)}} =& E_k^{(1)} \delta_{l k} - \delta H_{l k} \\
+				(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(1)}} - \braket{l^{(0)} | \delta H | k^{(1)}} + E_k^{(2)} \delta_{l k} \\
+				\multicolumn{1}{c}{\vdots} & \multicolumn{1}{c}{\vdots} \\
+				(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(n)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(n - 1)}} - \braket{l^{(0)} | \delta H | k^{(n - 1)}} \\
+				& + E_k^{(2)} \braket{l^{(0)} | k^{(n - 2)}} + \cdots + E_k^{(n)} \delta_{l k}
+			\end{aligned}
 		\end{dcases}
 	\end{equation}
 	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{C.1.2} 的解, 有,
