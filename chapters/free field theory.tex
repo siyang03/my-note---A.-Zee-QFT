@@ -25,7 +25,7 @@
 	\begin{tcolorbox}[title=proof:]
 		注意 $\partial^\mu \phi \partial_\mu \phi = \partial^\mu(\phi \partial_\mu \phi) - \phi \partial^2 \phi$, 忽略全微分项, 那么,
 		\begin{equation} \label{1.1.4}
-			Z(J) = \int D\phi \, e^{i \int d^d x \, \frac{1}{2} (\phi (\partial^2 - m^2) \phi + J(x) \phi(x))}
+			Z(J) = \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi + J(x) \phi(x))}
 		\end{equation}
 		代入 \eqref{B.1.1}, 可知,
 		\begin{equation}
@@ -46,7 +46,7 @@
 	\item 为了使 \eqref{1.1.4} 中的积分在 $\phi$ 较大时收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, 这样被积函数中会出现一项 $e^{- \epsilon \int d^d x \phi^2}$.
 	
 	\item 注意 \eqref{1.1.6} 中的积分会遇到奇点, 必须加入正无穷小量 $\epsilon$ 避免发散,
-	\begin{equation}
+	\begin{equation} \label{1.2.1}
 		D(x) = \int \frac{d^d k}{(2 \pi)^d} \frac{e^{i k \cdot x}}{- k^2 - m^2 + i \epsilon} = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} \theta(t) + e^{i (\omega_k t + \vec{k} \cdot \vec{x})} \theta(- t) \Big)
 	\end{equation}
 	
