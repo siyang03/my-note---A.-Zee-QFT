@@ -171,7 +171,7 @@
 	
 	\item $G^{(4)}_{1 2 3 4}$ 的 1 阶项为,
 	\begin{align}
-		\text{2nd order term} =& - \frac{i \lambda}{4!} \int d^d z \, \braket{\phi_1 \cdots \phi_4 \phi^4(z)} \notag \\
+		\text{1st order term} =& - \frac{i \lambda}{4!} \int d^d z \, \braket{\phi_1 \cdots \phi_4 \phi^4(z)} \notag \\
 		=& - \frac{i \lambda}{4!} \int d^d z \, \frac{\delta}{i \delta J_1} \cdots \frac{\delta}{i \delta J_4} \Big( \frac{\delta}{i \delta J(z)} \Big)^4 e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)} \notag \\
 		=& - \frac{i \lambda}{4!} \int d^d z \, \Big( 4! D_{1 z} D_{2 z} D_{3 z} D_{4 z} \notag \\
 		& + 4 \times 3 D_{1 2} D_{3 z} D_{4 z} D_{z z} + \cdots + 3 D_{1 2} D_{3 4} D_{z z} D_{z z} + \cdots \Big)
@@ -189,15 +189,77 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagrams.pdf}
+		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram.pdf}
 	\end{figure}
 \end{itemize}
 
 \subsection{in momentum space}
 \begin{itemize}
-	\item 将 \eqref{4.3.5} 转换到 momentum space, 得到,
-	\begin{equation}
-		\tilde{G}^{(n)}(k_1, \cdots, k_n) = \frac{1}{Z(0, 0)} \int D\tilde{\phi} \, e^{i \int d^d k \, (\frac{1}{2} \tilde{\phi}^* (- k^2 - m^2) \tilde{\phi} - \frac{\lambda}{4!} \tilde{\phi}^4)} \tilde{\phi}(k_1) \cdots \tilde{\phi}(k_n)
-	\end{equation}
-	注意, 这里用到了 Fourier 变换是正交变换的性质, 见 \eqref{A.2.3}.
+	\item 本 subsection 将 \eqref{4.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
+	\begin{align}
+		\tilde{G}^{(n)}(k_1, \cdots, k_n) &= \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} G^{(n)}(x_1, \cdots, x_n) \notag \\
+		&= \sum_{n = 0}^\infty \frac{1}{n!} \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} \braket{\Big( - \frac{i \lambda}{4!} \int d^d z \, \phi_z^4 \Big)^n \phi_1 \cdots \phi_n}
+	\end{align}
+	\begin{itemize}
+		\item propagator 的 Fourier transformation 是,
+		\begin{equation}
+			\tilde{D}_{p q} = \int d^d x d^d y \, e^{- i (p \cdot x + q \cdot y)} D(x - y) = \frac{(2 \pi)^d \delta^{(d)}(p + q)}{- p^2 - m^2 + i \epsilon}
+		\end{equation}
+		但似乎没有用.
+	\end{itemize}
+	
+	\item $\tilde{G}^{(4)}(k_1, k_2, k_3, k_4)$ 的 1 阶项为,
+	\begin{align}
+		\text{1st order term} =& - \frac{i \lambda}{4!} \int d^d x_1 \cdots d^d x_4 \, e^{- i (k_1 \cdot x_1 + \cdots)} \int d^d z \, \braket{\phi_z^4 \phi_1 \cdots \phi_4}
+	\end{align}
+	考虑第 1 项,
+	\begin{align}
+		& - \frac{i \lambda}{4!} \int d^d x_1 \cdots d^d x_4 \, e^{- i (k_1 \cdot x_1 + \cdots)} \int d^d z \, 4! D_{1 z} \cdots D_{4 z} \notag \\
+		=& - i \lambda \int d^d x_1 \cdots d^d x_4 d^d z \, e^{- i (k_1 \cdot x_1 + \cdots)} e^{i (p_1 \cdot (x_1 - z) + \cdots)} \prod_{i = 1}^4 \int \frac{d^d p_i}{(2 \pi)^d} \, \frac{1}{- p_i^2 - m^2 + i \epsilon} \notag \\
+		=& - i \lambda \underbrace{\int d^d z \, e^{- i z \cdot (k_1 + \cdots + k_4)}}_{= (2 \pi)^d \delta^{(d)}(k_1 + \cdots + k_4)} \prod_{i = 1}^4 \frac{1}{- k_i^2 - m^2 + i \epsilon}
+	\end{align}
+	\begin{itemize}
+		\item 出射粒子不一定 on-shell \textcolor{red}{(?)}.
+	\end{itemize}
+	
+	\item 得到这些 Feynman diagrams,
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/collision between particles - Feynman diagrams (in momentum space).pdf}
+	\end{figure}
+	
+	\begin{tcolorbox}[title=calculation:]
+		第 3 幅图的计算如下,
+		\begin{align}
+			& - \frac{i \lambda}{2!} \int d^d x_1 \cdots d^d x_4 \, e^{- i (k_1 \cdot x_1 + \cdots)} \int d^d z \, D_{1 3} D_{2 z} D_{4 z} D_{z z} \notag \\
+			=& - \frac{i \lambda}{2!} \int d^d x_1 \cdots d^d x_4 d^d z \, e^{- i (k_1 \cdot x_1 + \cdots)} e^{i (p_1 \cdot (x_1 - x_3) + p_2 \cdot (x_2 - z) + p_4 \cdot (x_4 - z) + p_4 \cdot 0)} \notag \\
+			& \prod_{i = 1}^4 \int \frac{d^d p_i}{(2 \pi)^d} \, \frac{1}{- p_i^2 - m^2 + i \epsilon} \notag \\
+			=& - \frac{i \lambda}{2!} \int d^d z \, e^{- i z \cdot (p_2 + p_4)} \delta^{(d)}(p_1 - k_1) \delta^{(d)}(p_2 - k_2) \delta^{(d)}(p_1 + k_3) \delta^{(d)}(p_4 - k_4) \notag \\
+			& \prod_{i = 1}^4 \int d^d p_i \frac{1}{- p_i^2 - m^2 + i \epsilon} \notag \\
+			=& - \frac{i \lambda}{2!} (2 \pi)^d \delta^{(d)}(k_1 + k_3) \delta^{(d)}(k_2 + k_4) \prod_{i = 1, 2, 4} \frac{1}{- k_i^2 - m^2 + i \epsilon} \int \frac{d^d p}{- p^2 - m^2 + i \epsilon}
+		\end{align}
+		第 4 幅图的计算如下,
+		\begin{align}
+			& - \frac{i \lambda}{8} \int d^d x_1 \cdots d^d x_4 \, e^{- i (k_1 \cdot x_1 + \cdots)} \int d^d z \, D_{1 3} D_{2 4} D_{z z} D_{z z} \notag \\
+			=& - \frac{i \lambda}{8} \int d^d x_1 \cdots d^d x_4 d^d z \, e^{- i (k_1 \cdot x_1 + \cdots)} e^{i (p_1 \cdot (x_1 - x_3) + p_2 \cdot (x_2 - x_4) + p_3 \cdot 0 + p_4 \cdot 0)} \notag \\
+			& \prod_{i = 1}^4 \int \frac{d^d p_i}{(2 \pi)^d} \, \frac{1}{- p_i^2 - m^2 + i \epsilon} \notag \\
+			=& - \frac{i \lambda}{8} \int d^d z \, \delta^{(d)}(p_1 - k_1) \delta^{(d)}(p_2 - k_2) \delta^{(d)}(p_1 + k_3) \delta^{(d)}(p_2 + k_4) \notag \\
+			& \prod_{i = 1}^4 \int d^d p_i \, \frac{1}{- p_i^2 - m^2 + i \epsilon} \notag \\
+			=& - \frac{i \lambda}{8} (2 \pi)^d \delta^{(d)}(0) \delta^{(d)}(k_1 + k_3) \delta^{(d)}(k_2 + k_4) \prod_{i = 1, 2} \frac{1}{- k_i^2 - m^2 + i \epsilon} \notag \\
+			& \prod_{i = 1, 2} \int d^d p_i \, \frac{1}{- p_i^2 - m^2 + i \epsilon}
+		\end{align}
+	\end{tcolorbox}
+	
+	\item 再举一个例子 (略去了 $\prod_{i = 1}^6 \frac{i}{- k_i^2 - m^2 + i \epsilon}$),
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram (in momentum space).pdf}
+	\end{figure}
+\end{itemize}
+
+\section{loops and a first look at divergence}
+\begin{itemize}
+	\item 
 \end{itemize}
