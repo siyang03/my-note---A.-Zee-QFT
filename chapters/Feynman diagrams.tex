@@ -193,7 +193,7 @@
 	\end{figure}
 \end{itemize}
 
-\subsection{in momentum space}
+\subsection{in momentum space} \label{subsection 4.3.2}
 \begin{itemize}
 	\item 本 subsection 将 \eqref{4.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
 	\begin{align}
@@ -252,14 +252,28 @@
 	\end{tcolorbox}
 	
 	\item 再举一个例子 (略去了 $\prod_{i = 1}^6 \frac{i}{- k_i^2 - m^2 + i \epsilon}$),
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram (in momentum space).pdf}
-	\end{figure}
+	\begin{align}
+		& \includegraphics[scale=1]{figures/collision between particles - another Feynman diagram (in momentum space).pdf} \notag \\
+		=& \frac{(4!)^2}{2!} \times \big( - \frac{i \lambda}{4!} \big)^2 (2 \pi)^{2 d} \int \frac{d^d p}{(2 \pi)^d} \, \frac{i}{- p^2 - m^2 + i \epsilon} \delta^{(d)}(k_1 + k_2 + k_3 + p) \delta^{(d)}(k_4 + k_5 + k_6 - p) \notag \\
+		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4 + k_5 + k_6) \frac{i}{- (k_1 + k_2 + k_3)^2 - m^2 + i \epsilon}
+	\end{align}
 \end{itemize}
 
-\section{loops and a first look at divergence}
+\subsection{loops and a first look at divergence}
 \begin{itemize}
-	\item 
+	\item subsection \ref{subsection 4.3.2} 里的 loop diagrams 出现了如下积分,
+	\begin{equation}
+		\int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \overset{d = 4}{\sim} \int \frac{d^4 p}{p^2}
+	\end{equation}
+	积分发散.
+	
+	\item 再举一个例子 (略去了 $\prod_{i = 1}^4 \frac{i}{- k_i^2 - m^2 + i \epsilon}$),
+	\begin{align}
+		& \includegraphics[scale=1]{figures/another loop diagram.pdf} \notag \\
+		=& (4 \times 3)^2 \times 2 \times \frac{1}{2!} \times \Big( \frac{- i \lambda}{4!} \Big)^2 \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \int \frac{d^d q}{(2 \pi)^d} \frac{i}{- q^2 - m^2 + i \epsilon} \notag \\
+		& (2 \pi)^d \delta^{(d)}(k_1 + k_2 + p - q) (2 \pi)^d \delta^{(d)}(k_3 + k_4 - p + q) \notag \\
+		=& \frac{(- i \lambda)^2}{4} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4) \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \frac{i}{- (k_1 + k_2 + p)^2 - m^2 + i \epsilon} \notag \\
+		\overset{d = 4}{\sim} & \int \frac{d^4 p}{p^4}
+	\end{align}
+	同样, 积分发散.
 \end{itemize}
