@@ -2,14 +2,14 @@
 \section{a baby problem}
 \begin{itemize}
 	\item 考虑如下积分,
-	\begin{equation} \label{4.1.1}
+	\begin{equation} \label{3.1.1}
 		Z(J) = \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4 + J q}
 	\end{equation}
 	
 	\item \textbf{Schwinger's way:} 把 integrand 对 $\lambda$ 展开, 并将 $q$ 用 $\frac{\partial}{\partial J}$ 替代, 得到,
 	\begin{align}
 		Z(J) &= e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 + J q} \notag \\
-		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}} \label{4.1.2}
+		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}} \label{3.1.2}
 	\end{align}
 	后面的计算中忽略 $Z(J = 0, \lambda = 0)$.
 	
@@ -25,13 +25,13 @@
 		\begin{equation}
 			\includegraphics[scale=1]{figures/a baby problem - lambda J^4 terms.pdf}
 		\end{equation}
-		但是直接计算 \eqref{4.1.2} 的展开项, 得到的结果与 \eqref{4.1.5} 一样.
+		但是直接计算 \eqref{3.1.2} 的展开项, 得到的结果与 \eqref{3.1.5} 一样.
 	\end{tcolorbox}
 \end{itemize}
 
 \subsection{Wick contraction and Green's functions}
 \begin{itemize}
-	\item 把积分 \eqref{4.1.1} 对 $J$ 展开,
+	\item 把积分 \eqref{3.1.1} 对 $J$ 展开,
 	\begin{equation}
 		Z(J) = \sum_{n = 0}^\infty \frac{1}{n!} J^n \underbrace{\int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4} q^n}_{= Z(0, 0) G^{(n)}}
 	\end{equation}
@@ -42,7 +42,7 @@
 		\begin{align}
 			- \frac{\lambda}{4!} \int dq \, e^{- \frac{1}{2} m^2 q^2} q^8 &= - \frac{\lambda}{4!} \braket{q^8} \notag \\
 			&= - \frac{\lambda}{4!} \sum_{\text{Wick}} \Big( \frac{1}{m^2} \Big)^4 \notag \\
-			&= - \frac{\lambda}{4!} \frac{7 \times 5 \times 3 \times 1}{m^8} \label{4.1.5}
+			&= - \frac{\lambda}{4!} \frac{7 \times 5 \times 3 \times 1}{m^8} \label{3.1.5}
 		\end{align}
 		所以 $\lambda J^4$ 项等于 $\frac{105}{(4!)^2} \frac{- \lambda J^4}{m^8}$.
 	\end{tcolorbox}
@@ -154,7 +154,7 @@
 		\frac{Z(J)}{Z(0, 0)} = \sum_{n = 0}^\infty \frac{i^n}{n!} \int d^d x_1 \cdots d^d x_n \, J(x_1) \cdots J(x_n) G^{(n)}(x_1, \cdots, x_n)
 	\end{equation}
 	其中,
-	\begin{equation} \label{4.3.5}
+	\begin{equation} \label{3.3.5}
 		G^{(n)}(x_1, \cdots, x_n) = \frac{1}{Z(0, 0)} \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi - \frac{\lambda}{4!} \phi^4)} \phi(x_1) \cdots \phi(x_n)
 	\end{equation}
 	有时 $Z(J)$ 被称为 generating functional, 因为它能生成 Green's functions.
@@ -193,9 +193,9 @@
 	\end{figure}
 \end{itemize}
 
-\subsection{in momentum space} \label{subsection 4.3.2}
+\subsection{in momentum space} \label{subsection 3.3.2}
 \begin{itemize}
-	\item 本 subsection 将 \eqref{4.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
+	\item 本 subsection 将 \eqref{3.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
 	\begin{align}
 		\tilde{G}^{(n)}(k_1, \cdots, k_n) &= \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} G^{(n)}(x_1, \cdots, x_n) \notag \\
 		&= \sum_{n = 0}^\infty \frac{1}{n!} \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} \braket{\Big( - \frac{i \lambda}{4!} \int d^d z \, \phi_z^4 \Big)^n \phi_1 \cdots \phi_n}
@@ -261,7 +261,7 @@
 
 \subsection{loops and a first look at divergence}
 \begin{itemize}
-	\item subsection \ref{subsection 4.3.2} 里的 loop diagrams 出现了如下积分,
+	\item subsection \ref{subsection 3.3.2} 里的 loop diagrams 出现了如下积分,
 	\begin{equation}
 		\int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \overset{d = 4}{\sim} \int \frac{d^4 p}{p^2}
 	\end{equation}
