@@ -2,3 +2,175 @@
 \begin{itemize}
 	\item A. Zee: the canonical and the path integral formalisms often appear complementary, in the sense that results difficult to see in one are clear in the other.
 \end{itemize}
+
+\section{Heisenberg and Dirac}
+\subsection{quantum mechanics}
+\begin{itemize}
+	\item 单粒子的 classical Lagrangian 为,
+	\begin{equation}
+		L = \frac{1}{2} \dot{q}^2 - V(q) \Longrightarrow \begin{dcases}
+			p = \dot{q} \\
+			H = p \dot{q} - L = \frac{1}{2} p^2 + V(q)
+		\end{dcases}
+	\end{equation}
+	
+	\item canonical commutation relation 如下,
+	\begin{equation}
+		[p, q] = - i
+	\end{equation}
+	因此, 算符的演化方程为,
+	\begin{equation}
+		\begin{dcases}
+			\frac{d p}{dt} = i [H, p] = - V'(q) \\
+			\frac{d q}{dt} = i [H, q] = p
+		\end{dcases}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{equation}
+			\begin{dcases}
+				[p, q] = - i \\
+				[p, q^2] = - 2 i q \\
+				\multicolumn{1}{c}{\vdots} \\
+				[p, q^n] = - i q^{n - 1} + q [p, q^{n - 1}]
+			\end{dcases} \Longrightarrow [p, q^n] = - i n q^{n - 1} \Longrightarrow [p, V(q)] = - i V'(q)
+		\end{equation}
+	\end{tcolorbox}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item follow Dirac's approach,
+	\begin{equation}
+		a = \frac{1}{\sqrt{2 \omega}} (\omega q + i p) \iff \begin{dcases}
+			q = \frac{1}{\sqrt{2 \omega}} (a + a^\dag) \\
+			p = - i \sqrt{\frac{\omega}{2}} (a - a^\dag)
+		\end{dcases} \Longrightarrow [a, a^\dag] = 1
+	\end{equation}
+	算符 $a$ 的演化方程为,
+	\begin{equation}
+		\frac{d a}{dt} = - i \sqrt{\frac{\omega}{2}} \Big( \frac{1}{\omega} V'(q) + i p \Big)
+	\end{equation}
+\end{itemize}
+
+\subsection{scalar field}
+\begin{itemize}
+	\item 标量场的 Lagrangian 为,
+	\begin{equation}
+		L = \int d^D x \, \Big( - \frac{1}{2} ((\partial \phi)^2 + m^2 \phi^2) - u(\phi) \Big)
+	\end{equation}
+	canonical commutation relation 为,
+	\begin{equation} \label{4.1.8}
+		\pi(\vec{x}, t) = \frac{\delta L(t)}{\delta \partial_0 \phi(\vec{x}, t)} = \partial_0 \phi(\vec{x}, t) \quad \text{and} \quad [\pi(\vec{x}, t), \phi(\vec{y}, t)] = - i \delta^{(D)}(\vec{x} - \vec{y})
+	\end{equation}
+	标量场的 Hamiltonian 为,
+	\begin{equation} \label{4.1.9}
+		H = \int d^D x \, (\pi \phi - \mathcal{L}) = \int d^D x \, \Big( \frac{1}{2} (\pi^2 + |\vec{\nabla} \phi|^2 + m^2 \phi^2) + u(\phi) \Big)
+	\end{equation}
+	
+	\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+	
+	\item 算符的演化方程为,
+	\begin{equation} \label{4.1.10}
+		\begin{dcases}
+			\partial_0 \phi = i [H, \phi] = \pi \\
+			\partial_0 \pi = i [H, \pi] = (- \vec{\nabla}^2 + m^2) \phi + \frac{d u}{d\phi}
+		\end{dcases} \Longrightarrow (\partial^2 - m^2) \phi - \frac{d u}{d\phi} = 0
+	\end{equation}
+	
+	\item 当 $u(\phi) = 0$ 时, 求解场方程 \eqref{4.1.10} 和 canonical commutation relation \eqref{4.1.8} 得到,
+	\begin{equation} \label{4.1.11}
+		\phi(\vec{x}, t) = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} (\alpha_k(t) e^{i \vec{k} \cdot \vec{x}} + \alpha^\dag_k(t) e^{- i \vec{k} \cdot \vec{x}})
+	\end{equation}
+	其中,
+	\begin{equation}
+		\alpha_k(t) = \sqrt{(2 \pi)^D 2 \omega_k} \, a_{\vec{k}} e^{- i \omega_k t} \quad \text{and} \quad [a_{\vec{p}}, a^\dag_{\vec{q}}] = \delta^{(D)}(\vec{p} - \vec{q})
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		求解场方程 \eqref{4.1.10}, 得到,
+		\begin{equation}
+			\phi(\vec{x}, t) = \int \frac{d^D k}{(2 \pi)^D} (\alpha_{\vec{k}} e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} + \alpha^\dag_{\vec{k}} e^{- i (- \omega_k t + \vec{k} \cdot \vec{x})})
+		\end{equation}
+		代入 canonical commutation relation \eqref{4.1.8}, 有 (其中 $x^0 = y^0 = t, k^0 = \omega_k$),
+		\begin{align}
+			& \int \frac{d^D k_2}{(2 \pi)^D} \Big( - i \omega_{k_1} [\alpha_{\vec{k}_1}, \alpha_{\vec{k}_2}] e^{i (k_1 \cdot x + k_2 \cdot y)} + i \omega_{k_1} [\alpha^\dag_{\vec{k}_1}, \alpha^\dag_{\vec{k}_2}] e^{- i (k_1 \cdot x + k_2 \cdot y)} \notag \\
+			& - i \omega_{k_1} [\alpha_{\vec{k}_1}, \alpha^\dag_{\vec{k}_2}] e^{i (k_1 \cdot x - k_2 \cdot y)} + i \omega_{k_1} [\alpha^\dag_{\vec{k}_1}, \alpha_{\vec{k}_2}] e^{- i (k_1 \cdot x - k_2 \cdot y)} \Big) = - i e^{i \vec{k}_1 \cdot (\vec{x} - \vec{y})} \notag \\
+			\Longrightarrow & \begin{dcases}
+				[\alpha_{\vec{k}_1}, \alpha_{\vec{k}_2}] = \frac{1}{2 \omega_{k_1}} \delta^{(D)}(\vec{k}_1 + \vec{k}_2) \Longrightarrow [\alpha_{\vec{k}}, \alpha_{\vec{k}}] \neq 0 & \text{wrong} \\
+				[\alpha_{\vec{k}_1}, \alpha^\dag_{\vec{k}_2}] = \frac{1}{2 \omega_{\vec{k}_1}} \delta^{(D)}(\vec{k}_1 - \vec{k}_2) & \text{right}
+			\end{dcases}
+		\end{align}
+	\end{tcolorbox}
+	
+	\item 代入 \eqref{4.1.9} 可得 (依然是 $u(\phi) = 0$ 的情况下),
+	\begin{equation}
+		H = \int d^D k \, \omega_k \frac{a^\dag_{\vec{k}} a_{\vec{k}} + a_{\vec{k}} a^\dag_{\vec{k}}}{2} = \int d^D k \, \omega_k \Big( a^\dag_{\vec{k}} a_{\vec{k}} + \frac{1}{2} \delta^{(D)}(0) \Big)
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item vacuum state 定义为 $a_{\vec{k}} \ket{0} = 0$, 有,
+	\begin{equation}
+		\braket{0 | \phi(x) \phi(y) | 0} = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} e^{i k \cdot (x - y)}
+	\end{equation}
+	其中 $k^0 = \omega_k$. 因此, 对比 \eqref{1.2.1}, 有,
+	\begin{equation}
+		\braket{0 | T(\phi(x) \phi(y)) | 0} = i D(x - y)
+	\end{equation}
+\end{itemize}
+
+\section{interaction picture}
+\begin{itemize}
+	\item 注意, 在 $u(\phi) \neq 0$ 的情况下, (即便在 Schrödinger's picture 里, $t = 0$ 时) \eqref{4.1.11} 不再成立, 因此无法通过 Schrödinger's picture or Heisenberg's picture 求解存在相互作用的场论.
+	
+	\item 将 Hamiltonian 分成两个部分,
+	\begin{equation}
+		H = H_0 + H'
+	\end{equation}
+	
+	\item operators 以自由场的 Hamiltonian 演化,
+	\begin{equation} \label{4.2.2}
+		O_I(t) = U_0^\dag(t, 0) O(0) U_0(t, 0) \quad \text{where} \quad U_0(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H_0 \Big)
+	\end{equation}
+	states 以如下方式演化,
+	\begin{equation} \label{4.2.3}
+		\ket{\psi(t)}_I = U_0^\dag(t, 0) U(t, 0) \ket{\psi(0)} \quad \text{where} \quad U(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H \Big)
+	\end{equation}
+	因此,
+	\begin{equation}
+		\ket{\psi(t_2)}_I = U_I(t_2, t_1) \ket{\psi(t_1)}_I \quad \text{where} \quad U_I(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H_I(t) \Big)
+	\end{equation}
+	注意, \eqref{4.2.2} 和 \eqref{4.2.3} 中, $\mathrm{Texp}$ 里的 $H, H_0$ 都是 Schrödinger's picture 里的算符.
+	
+	\begin{tcolorbox}[title=calculation:]
+		首先有,
+		\begin{equation}
+			U_I(t_2, t_1) = U_0^\dag(t_2, 0) U(t_2, t_1) U_0(t_1, 0)
+		\end{equation}
+		因此,
+		\begin{align}
+			\frac{d}{dt} U_I(t, t_0) &= i H_0 U_I(t, t_0) - i U_0^\dag(t, 0) H U(t, t_0) U_0(t_0, 0) \notag \\
+			&= - i \underbrace{U_0^\dag(t, 0) H' U_0(t, 0)}_{= H_I(t)} U_I(t, t_0)
+		\end{align}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{scattering amplitude}
+\begin{itemize}
+	\item 最一般的过程是 $p_1, \cdots, p_m \rightarrow q_1, \cdots, q_n$, 其 scattering amplitude 为,
+	\begin{equation}
+		\braket{q_1, \cdots, q_n | U_0^\dag(- \infty, 0) U_I(+ \infty, - \infty) U_0(- \infty, 0) | p_1, \cdots, p_m}
+	\end{equation}
+	一般会忽略掉 $U_0$ 产生的相位.
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 考虑 $\phi^4$ 理论中的 $k_1, k_2 \rightarrow k_3, k_4$ 过程,
+	\begin{equation}
+		\braket{k_3, k_4 | e^{- i \int d^d x \, \frac{\lambda}{4!} \phi^4} | k_1, k_2}
+	\end{equation}
+	对 $\lambda$ 展开, 0 阶项为,
+	\begin{equation}
+		\text{0th order term} = \braket{k_3, k_4 | k_1, k_2}
+	\end{equation}
+\end{itemize}
