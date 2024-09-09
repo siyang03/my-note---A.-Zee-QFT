@@ -18,12 +18,13 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{figures/a baby problem - Feynman diagram.pdf}
+		\caption{baby problem - Feynman diagram}
 	\end{figure}
 	
 	\begin{tcolorbox}[title=calculation:]
 		在这里计算 $\lambda J^4$ 项,
 		\begin{equation}
-			\includegraphics[scale=1]{figures/a baby problem - lambda J^4 terms.pdf}
+			\vcenter{\hbox{\includegraphics[scale=1]{figures/a baby problem - lambda J^4 terms.pdf}}}
 		\end{equation}
 		但是直接计算 \eqref{3.1.2} 的展开项, 得到的结果与 \eqref{3.1.5} 一样.
 	\end{tcolorbox}
@@ -181,16 +182,17 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{figures/collision between particles - Feynman diagrams.pdf}
+		\caption{position space - Feynman diagrams}
 	\end{figure}
 	
 	其中 numerical factor 可以从 vertex 的四个 external end 的对称性得出.
 	
 	\item 再举一个例子,
+	\begin{equation}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram.pdf}}}
+		= (4 \times 3)^2 \times 2 \times \big( \frac{- i \lambda}{4!} \big)^2 \int d^d z_1 d^d z_2 \, D_{1 z_1} D_{2 z_1} D_{3 z_2} D_{4 z_2} D_{z_1 z_2} D_{z_1 z_2}
+	\end{equation}
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram.pdf}
-	\end{figure}
 \end{itemize}
 
 \subsection{in momentum space} \label{subsection 3.3.2}
@@ -227,6 +229,8 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=1]{figures/collision between particles - Feynman diagrams (in momentum space).pdf}
+		\caption{momentum space - Feynman diagrams}
+		\label{figure 3.3}
 	\end{figure}
 	
 	\begin{tcolorbox}[title=calculation:]
@@ -253,7 +257,7 @@
 	
 	\item 再举一个例子 (略去了 $\prod_{i = 1}^6 \frac{i}{- k_i^2 - m^2 + i \epsilon}$),
 	\begin{align}
-		& \includegraphics[scale=1]{figures/collision between particles - another Feynman diagram (in momentum space).pdf} \notag \\
+		& \vcenter{\hbox{\includegraphics[scale=1]{figures/collision between particles - another Feynman diagram (in momentum space).pdf}}} \notag \\
 		=& \frac{(4!)^2}{2!} \times \big( - \frac{i \lambda}{4!} \big)^2 (2 \pi)^{2 d} \int \frac{d^d p}{(2 \pi)^d} \, \frac{i}{- p^2 - m^2 + i \epsilon} \delta^{(d)}(k_1 + k_2 + k_3 + p) \delta^{(d)}(k_4 + k_5 + k_6 - p) \notag \\
 		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4 + k_5 + k_6) \frac{i}{- (k_1 + k_2 + k_3)^2 - m^2 + i \epsilon}
 	\end{align}
@@ -269,7 +273,7 @@
 	
 	\item 再举一个例子 (略去了 $\prod_{i = 1}^4 \frac{i}{- k_i^2 - m^2 + i \epsilon}$),
 	\begin{align}
-		& \includegraphics[scale=1]{figures/another loop diagram.pdf} \notag \\
+		& \vcenter{\hbox{\includegraphics[scale=1]{figures/another loop diagram.pdf}}} \notag \\
 		=& (4 \times 3)^2 \times 2 \times \frac{1}{2!} \times \Big( \frac{- i \lambda}{4!} \Big)^2 \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \int \frac{d^d q}{(2 \pi)^d} \frac{i}{- q^2 - m^2 + i \epsilon} \notag \\
 		& (2 \pi)^d \delta^{(d)}(k_1 + k_2 + p - q) (2 \pi)^d \delta^{(d)}(k_3 + k_4 - p + q) \notag \\
 		=& \frac{(- i \lambda)^2}{4} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4) \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \frac{i}{- (k_1 + k_2 + p)^2 - m^2 + i \epsilon} \notag \\

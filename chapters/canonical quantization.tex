@@ -85,6 +85,7 @@
 	\begin{equation}
 		\alpha_k(t) = \sqrt{(2 \pi)^D 2 \omega_k} \, a_{\vec{k}} e^{- i \omega_k t} \quad \text{and} \quad [a_{\vec{p}}, a^\dag_{\vec{q}}] = \delta^{(D)}(\vec{p} - \vec{q})
 	\end{equation}
+	另外, 在后面的笔记中使用简记 $\sqrt{(2 \pi)^D 2 \omega_k} = \rho(k)$.
 	
 	\begin{tcolorbox}[title=calculation:]
 		求解场方程 \eqref{4.1.10}, 得到,
@@ -170,7 +171,33 @@
 		\braket{k_3, k_4 | e^{- i \int d^d x \, \frac{\lambda}{4!} \phi^4} | k_1, k_2}
 	\end{equation}
 	对 $\lambda$ 展开, 0 阶项为,
-	\begin{equation}
-		\text{0th order term} = \braket{k_3, k_4 | k_1, k_2}
-	\end{equation}
+	\begin{align}
+		\text{0th order term} &= \braket{k_3, k_4 | k_1, k_2} \notag \\
+		&= \rho(k_1) \rho(k_2) \rho(k_3) \rho(k_4) \braket{0 | a_{\vec{k}_3} a_{\vec{k}_4} a^\dag_{\vec{k}_1} a^\dag_{\vec{k}_2} | 0} \notag \\
+		&= \rho(k_1) \rho(k_2) \rho(k_3) \rho(k_4) \Big( \underbrace{\braket{0 | \wick{
+			\c1 a_{\vec{k}_3} \c2 a_{\vec{k}_4} \c1 a^\dag_{\vec{k}_1} \c2 a^\dag_{\vec{k}_2}
+		} | 0}}_{= \delta^{(D)}_{3 1} \delta^{(D)}_{4 2}} + \underbrace{\braket{0 | \wick{
+			\c1 a_{\vec{k}_3} \c2 a_{\vec{k}_4} \c2 a^\dag_{\vec{k}_1} \c1 a^\dag_{\vec{k}_2}
+		} | 0}}_{= \delta^{(D)}_{3 2} \delta^{(D)}_{4 1}} \Big) \notag \\
+		&= (2 \pi)^{2 D} 4 \omega_{k_1} \omega_{k_2} (\delta^{(D)}(\vec{k}_1 - \vec{k}_3) \delta^{(D)}(\vec{k}_2 - \vec{k}_4) + \delta^{(D)}(\vec{k}_1 - \vec{k}_4) \delta^{(D)}(\vec{k}_2 - \vec{k}_3))
+	\end{align}
+	1 阶项为 (其中 $k^0 = \omega_k$),
+	\begin{align}
+		\text{1st order term} =& \frac{- i \lambda}{4!} \int d^d x \, \braket{k_3, k_4 | \phi^4(x) | k_1, k_2} \notag \\
+		=& \overbrace{4! \times \frac{- i \lambda}{4!} \int d^d x \, e^{i (k_1 + k_2 - k_3 - k_4) \cdot x}}^{= - i \lambda (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4)} + \rho(k_1) \rho(k_4) \delta^{(D)}_{1 4} \times 12 \times \frac{- i \lambda}{4!} (2 \pi)^d \delta^{(d)}_{2 3} \int \frac{d^D p}{\rho(p)} \notag \\
+		& + \cdots + \rho(k_1) \rho(k_2) \rho(k_3) \rho(k_4) \delta^{(D)}_{1 3} \delta^{(D)}_{2 4} \times 3 \times \frac{- i \lambda}{4!} \int d^d x \int \frac{d^D p_1}{\rho(p_1)} \frac{d^D p_1}{\rho(p_1)} + \cdots
+	\end{align}
+	分别对应如下 Feynman diagrams,
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/canonical quantization - Feynman diagrams.pdf}
+		\caption{canonical quantization - Feynman diagrams}
+	\end{figure}
+	
+	观察可见, 上图和 figure \ref{figure 3.3} 有对应关系.
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item to-do: 计算圈图积分, 以及 $\delta^{(d)}(\cdots)$.
 \end{itemize}
