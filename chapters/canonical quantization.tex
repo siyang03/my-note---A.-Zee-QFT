@@ -184,8 +184,8 @@
 	1 阶项为 (其中 $k^0 = \omega_k$),
 	\begin{align}
 		\text{1st order term} =& \frac{- i \lambda}{4!} \int d^d x \, \braket{k_3, k_4 | \phi^4(x) | k_1, k_2} \notag \\
-		=& \overbrace{4! \times \frac{- i \lambda}{4!} \int d^d x \, e^{i (k_1 + k_2 - k_3 - k_4) \cdot x}}^{= - i \lambda (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4)} + \rho(k_1) \rho(k_4) \delta^{(D)}_{1 4} \times 12 \times \frac{- i \lambda}{4!} (2 \pi)^d \delta^{(d)}_{2 3} \int \frac{d^D p}{\rho(p)} \notag \\
-		& + \cdots + \rho(k_1) \rho(k_2) \rho(k_3) \rho(k_4) \delta^{(D)}_{1 3} \delta^{(D)}_{2 4} \times 3 \times \frac{- i \lambda}{4!} \int d^d x \int \frac{d^D p_1}{\rho(p_1)} \frac{d^D p_1}{\rho(p_1)} + \cdots
+		=& \overbrace{4! \times \frac{- i \lambda}{4!} \int d^d x \, e^{i (k_1 + k_2 - k_3 - k_4) \cdot x}}^{= - i \lambda (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4)} + \rho(k_1) \rho(k_4) \delta^{(D)}_{1 4} \times 12 \times \frac{- i \lambda}{4!} (2 \pi)^d \delta^{(d)}_{2 3} \int \frac{d^D p}{\rho^2(p)} \notag \\
+		& + \cdots + \rho(k_1) \rho(k_2) \rho(k_3) \rho(k_4) \delta^{(D)}_{1 3} \delta^{(D)}_{2 4} \times 3 \times \frac{- i \lambda}{4!} \int d^d x \int \frac{d^D p_1}{\rho^2(p_1)} \frac{d^D p_2}{\rho^2(p_2)} + \cdots
 	\end{align}
 	分别对应如下 Feynman diagrams,
 	
@@ -197,7 +197,16 @@
 	
 	观察可见, 上图和 figure \ref{figure 3.3} 有对应关系.
 	
-	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
-	
-	\item to-do: 计算圈图积分, 以及 $\delta^{(d)}(\cdots)$.
+	\item 再举一个例子,
+	\begin{align}
+		& \vcenter{\hbox{\includegraphics[scale=1]{figures/another loop diagram.pdf}}} \notag \\
+		=& (4 \times 3)^2 \times 2 \times \Big( \frac{- i \lambda}{4!} \Big)^2 \rho(k_1) \cdots \int d^d x_1 d^d x_2 \int \frac{d^D p_1 \cdots}{\rho(p_1) \cdots} \frac{d^D q_1 \cdots}{\rho(q_1) \cdots} e^{i (p_1 + p_2 - p_3 - p_4) \cdot x_1} e^{i (q_1 + q_2 - q_3 - q_4) \cdot x_2} \notag \\
+		& \Big( \braket{0 | \wick{
+			\c3 a_{\vec{k}_3} \c4 a_{\vec{k}_4} \c5 a_{\vec{q}_1} \c6 a_{\vec{q}_2} \c3 a^\dag_{\vec{q}_3} \c4 a^\dag_{\vec{q}_4} \c1 a_{\vec{p}_1} \c2 a_{\vec{p}_2} \c5 a^\dag_{\vec{p}_3} \c6 a^\dag_{\vec{p}_4} \c1 a^\dag_{\vec{k}_1} \c2 a^\dag_{\vec{k}_2}
+		} | 0} + \cdots \Big) \notag \\
+		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} e^{i (k_1 + k_2 - p_3 - p_4) \cdot x_1} e^{i (p_3 + p_4 - k_3 - k_4) \cdot x_2} \notag \\
+		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4) \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - p_3 - p_4) \notag \\
+		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4) \int d^D p \, \frac{(2 \pi)^d \delta(\omega_{k_1} + \omega_{k_2} - \omega_p - \omega_{k_1 + k_2 - p})}{\rho^2(p) \rho^2(k_1 + k_2 - p)}
+	\end{align}
+	同样, 与 \eqref{3.3.17} 有对应关系 \textcolor{red}{(?)}.
 \end{itemize}
