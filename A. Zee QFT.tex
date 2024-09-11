@@ -17,13 +17,10 @@
 	urlcolor=purple % color of external links
 } % hidelinks
 %----------------------------------------------------------------------
-% dark mode
-%\pagecolor{black}
-%\color{white} % textcolor
-%----------------------------------------------------------------------
 % for XeTeX
 \usepackage{xeCJK}
 \setCJKmainfont{GenRyuMin JP} % 源流明体
+\setCJKmonofont{GenRyuMin JP} % font used in \texttt{} (just to prevent a warning)
 % for LuaTeX
 %\usepackage{luatexja-fontspec}
 %\setmainjfont{GenRyuMin JP} % 源流明体
@@ -64,7 +61,7 @@
 \usepackage{cancel}
 
 \usepackage{leftindex}
-%\usepackage{tensor} % how to handle indeces: https://tex.stackexchange.com/questions/11542/left-and-right-subscript-superscript
+\usepackage{tensor} % how to handle indeces: https://tex.stackexchange.com/questions/11542/left-and-right-subscript-superscript
 
 \usepackage{simpler-wick} % to use Wick contraction
 %\usepackage[compat=1.1.0]{tikz-feynman}
@@ -108,4 +105,6 @@
 	\import{chapters/}{Gaussian integrals}
 	
 	\import{chapters/}{perturbation theory in QM}
+	
+	\import{chapters/}{classical field theory and Noether's theorem}
 \end{document}

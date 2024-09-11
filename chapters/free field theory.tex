@@ -47,18 +47,18 @@
 	
 	\item 注意 \eqref{1.1.6} 中的积分会遇到奇点, 必须加入正无穷小量 $\epsilon$ 避免发散,
 	\begin{equation} \label{1.2.1}
-		D(x) = \int \frac{d^d k}{(2 \pi)^d} \frac{e^{i k \cdot x}}{- k^2 - m^2 + i \epsilon} = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} \theta(t) + e^{i (\omega_k t + \vec{k} \cdot \vec{x})} \theta(- t) \Big)
+		D(x) = \int \frac{d^d k}{(2 \pi)^d} \frac{e^{i k \cdot x}}{- k^2 - m^2 + i \epsilon} = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( \theta(t) e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} + \theta(- t) e^{i (\omega_k t + \vec{k} \cdot \vec{x})} \Big)
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
-		对 $k^0$ 积分, 注意有两个奇点 $k^0 = \pm (\omega_k - i \epsilon)$, 当 $t > 0$ 时, contour 处于下半平面, ...
+		对 $k^0$ 积分, 注意有两个奇点 $k^0 = \pm (\omega_k - i \epsilon)$, 当 $t > 0$ 时, contour 处于下半平面, ... (另外注意到我们可以任意改变 $\vec{k}$ 的符号).
 	\end{tcolorbox}
 	
 	\item $D(x)$ 的取值与 $x$ 的类时, 类空性质关系密切.
 	\begin{itemize}
 		\item 类时区域,
 		\begin{equation}
-			D(t, 0) = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( e^{- i \omega_k t} \theta(t) + e^{i \omega_k t} \theta(- t) \Big)
+			D(t, 0) = - i \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} \Big( \theta(t) e^{- i \omega_k t} + \theta(- t) e^{i \omega_k t} \Big)
 		\end{equation}
 		
 		\item 类空区域,

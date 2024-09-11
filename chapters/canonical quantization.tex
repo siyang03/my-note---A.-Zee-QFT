@@ -201,12 +201,73 @@
 	\begin{align}
 		& \vcenter{\hbox{\includegraphics[scale=1]{figures/another loop diagram.pdf}}} \notag \\
 		=& (4 \times 3)^2 \times 2 \times \Big( \frac{- i \lambda}{4!} \Big)^2 \rho(k_1) \cdots \int d^d x_1 d^d x_2 \int \frac{d^D p_1 \cdots}{\rho(p_1) \cdots} \frac{d^D q_1 \cdots}{\rho(q_1) \cdots} e^{i (p_1 + p_2 - p_3 - p_4) \cdot x_1} e^{i (q_1 + q_2 - q_3 - q_4) \cdot x_2} \notag \\
-		& \Big( \braket{0 | \wick{
+		& \Big( \theta(t_2 - t_1) \braket{0 | \wick{
 			\c3 a_{\vec{k}_3} \c4 a_{\vec{k}_4} \c5 a_{\vec{q}_1} \c6 a_{\vec{q}_2} \c3 a^\dag_{\vec{q}_3} \c4 a^\dag_{\vec{q}_4} \c1 a_{\vec{p}_1} \c2 a_{\vec{p}_2} \c5 a^\dag_{\vec{p}_3} \c6 a^\dag_{\vec{p}_4} \c1 a^\dag_{\vec{k}_1} \c2 a^\dag_{\vec{k}_2}
 		} | 0} + \cdots \Big) \notag \\
-		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} e^{i (k_1 + k_2 - p_3 - p_4) \cdot x_1} e^{i (p_3 + p_4 - k_3 - k_4) \cdot x_2} \notag \\
-		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4) \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - p_3 - p_4) \notag \\
-		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 - k_3 - k_4) \int d^D p \, \frac{(2 \pi)^d \delta(\omega_{k_1} + \omega_{k_2} - \omega_p - \omega_{k_1 + k_2 - p})}{\rho^2(p) \rho^2(k_1 + k_2 - p)}
+		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} \Big( \theta(t_2 - t_1) e^{i (k_1 + k_2 - p_3 - p_4) \cdot x_1} e^{i (p_3 + p_4 - k_3 - k_4) \cdot x_2} \notag \\
+		& + \theta(t_1 - t_2) e^{i (k_1 + k_2 + p_3 + p_4) \cdot x_1} e^{i (- p_3 - p_4 - k_3 - k_4) \cdot x_2} \Big) \notag \\
+		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 - (k_3 + k_4) \cdot x_2)} \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} \Big( \theta(t_2 - t_1) e^{i (p_3 + p_4) \cdot (x_2 - x_1)} \notag \\
+		& + \theta(t_1 - t_2) e^{i (p_3 + p_4) \cdot (x_1 - x_2)} \Big) \label{4.3.5}
 	\end{align}
-	同样, 与 \eqref{3.3.17} 有对应关系 \textcolor{red}{(?)}.
+	同样, 与 \eqref{3.3.18} 有对应关系, (注意按时间排序 $\braket{k_3 k_4 | T(\phi^4(x_1) \phi^4(x_2)) | k_1 k_2}$).
+	
+	\begin{tcolorbox}[title=calculation:]
+		从 \eqref{3.3.17} 开始 (与 \eqref{1.2.1} 类似, $\vec{p}, \vec{q}$ 的符号可以任意改变),
+		\begin{align}
+			& \int d^d x_1 d^d x_2 \, e^{i (k_1 + k_2 + p - q) \cdot x_1} e^{i (k_3 + k_4 - p + q) \cdot x_2} \int \frac{d^d p}{(2 \pi)^d} \frac{d^d q}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \frac{i}{- q^2 - m^2 + i \epsilon} \notag \\
+			=& \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 + (k_3 + k_4) \cdot x_2)} \int \frac{d^d p}{(2 \pi)^d} \frac{d^d q}{(2 \pi)^d} \frac{i e^{i p \cdot (x_1 - x_2)}}{- p^2 - m^2 + i \epsilon} \frac{i e^{i e^{i q \cdot (x_2 - x_1)}}}{- q^2 - m^2 + i \epsilon} \notag \\
+			=& \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 + (k_3 + k_4) \cdot x_2)} \int \frac{d^D p}{(2 \pi)^d} \frac{d^D q}{(2 \pi)^d} \Big( \theta(t_2 - t_1) \frac{2 \pi i^2 e^{- i p \cdot (x_1 - x_2)}}{- 2 \omega_p} \notag \\
+			& \frac{- 2 \pi i^2 e^{i q \cdot (x_2 - x_1)}}{2 \omega_q} + \theta(t_1 - t_2) \frac{- 2 \pi i^2 e^{i p \cdot (x_1 - x_2)}}{2 \omega_p} \frac{2 \pi i^2 e^{- i q \cdot (x_2 - x_1)}}{- 2 \omega_q} \Big) \notag \\
+			=& \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 + (k_3 + k_4) \cdot x_2)} \int \frac{d^D p}{\rho^2(p)} \frac{d^D q}{\rho^2(q)} \Big( \theta(t_2 - t_1) e^{i (p + q) \cdot (x_2 - x_1)} \notag \\
+			& + \theta(t_1 - t_2) e^{i (p + q) \cdot (x_1 - x_2)} \Big)
+		\end{align}
+		结果与 \eqref{4.3.5} 对应.
+	\end{tcolorbox}
+\end{itemize}
+
+\section{complex scalar field}
+\begin{itemize}
+	\item complex scalar field 的 Lagrangian 为,
+	\begin{equation}
+		\mathcal{L} = - (\partial \psi^\dag) (\partial \psi) - m^2 \psi^\dag \psi
+	\end{equation}
+	实际上, complex scalar field 可以视为 2 个 real scalar fields 的和,
+	\begin{equation}
+		\psi = \frac{1}{\sqrt{2}} (\phi_1 + i \phi_2) \Longrightarrow \Big| \frac{\partial \phi_1, \phi_2}{\partial \psi, \psi^\dag} \Big| = i
+	\end{equation}
+	因此, 也可以把 $\psi, \psi^\dag$ 视为两个独立的场.
+	
+	\item 其 canonical momentum 为,
+	\begin{equation}
+		\pi(x) = \frac{\delta \mathcal{L}}{\delta \partial_0 \psi} = \partial_0 \psi^\dag \quad \pi^\dag = \partial_0 \psi
+	\end{equation}
+	其 Hamiltonian 为,
+	\begin{align}
+		& \mathcal{H} = \pi^\dag \pi + (\vec{\nabla} \psi^\dag) \cdot (\vec{\nabla} \psi) + m^2 \psi^\dag \psi \\
+		\Longrightarrow & \begin{dcases}
+			\partial_0 \pi = i [H, \pi] = \vec{\nabla}^2 \psi^\dag - m^2 \psi^\dag \\
+			\partial_0 \psi = i [H, \psi] = \pi^\dag
+		\end{dcases} \Longrightarrow (- \partial^2 - m^2) \psi = 0
+	\end{align}
+	
+	\item 求解得到 (其中 $k^0 = \omega_k$),
+	\begin{equation}
+		\psi(x) = \int \frac{d^D k}{\rho(k)} (a_{\vec{k}} e^{i k \cdot x} + b^\dag_{\vec{k}} e^{- i k \cdot x})
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 从 path integral 的角度,
+	\begin{align}
+		Z(J, J^\dag) &= \int D\psi D\psi^\dag \, e^{i \int d^d x \, (\psi^\dag (\partial^2 - m^2) \psi + J^\dag \psi + \psi^\dag J)} \\
+		&= \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, 2 J^\dag(x) D(x - y) J(y)}
+	\end{align}
+	
+	\begin{tcolorbox}[title=calculation:]
+		转换为 $\phi_1, \phi_2$ 后计算路径积分,
+		\begin{align}
+			Z(J, J^\dag) &= \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, (J_1(x) D(x - y) J_1(y) + J_2(x) D(x - y) J_2(y))} \notag \\
+			&= \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, 2 J^\dag(x) D(x - y) J(y)}
+		\end{align}
+	\end{tcolorbox}
 \end{itemize}
