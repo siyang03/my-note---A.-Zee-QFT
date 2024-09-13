@@ -1,6 +1,13 @@
 \chapter{canonical quantization}
 \begin{itemize}
 	\item A. Zee: the canonical and the path integral formalisms often appear complementary, in the sense that results difficult to see in one are clear in the other.
+	
+	\item \textbf{nobody is perfect:}
+	\begin{itemize}
+		\item \textbf{canonical quantization:} 如何定义场算符乘积的顺序.
+		
+		\item \textbf{path integral:} integration measure.
+	\end{itemize}
 \end{itemize}
 
 \section{Heisenberg and Dirac}
@@ -104,9 +111,10 @@
 	\end{tcolorbox}
 	
 	\item 代入 \eqref{4.1.9} 可得 (依然是 $u(\phi) = 0$ 的情况下),
-	\begin{equation}
-		H = \int d^D k \, \omega_k \frac{a^\dag_{\vec{k}} a_{\vec{k}} + a_{\vec{k}} a^\dag_{\vec{k}}}{2} = \int d^D k \, \omega_k \Big( a^\dag_{\vec{k}} a_{\vec{k}} + \frac{1}{2} \delta^{(D)}(0) \Big)
+	\begin{equation} \label{4.1.15}
+		H = \int d^D k \, \omega_k \frac{a^\dag_{\vec{k}} a_{\vec{k}} + a_{\vec{k}} a^\dag_{\vec{k}}}{2} = \int d^D k \, \omega_k \Big( a^\dag_{\vec{k}} a_{\vec{k}} + \frac{1}{2} \delta^{(D)}(0) \Big) \Longrightarrow \braket{0 | H | 0} = V \int \frac{d^D k}{(2 \pi)^D} \frac{1}{2} \omega_k
 	\end{equation}
+	其中, $V = \int d^D x = (2 \pi)^D \delta^{(D)}(0)$.
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
@@ -270,4 +278,39 @@
 			&= \mathcal{C} e^{- \frac{i}{2} \int d^d x d^d y \, 2 J^\dag(x) D(x - y) J(y)}
 		\end{align}
 	\end{tcolorbox}
+\end{itemize}
+
+\subsection{charge}
+\begin{itemize}
+	\item 对场算符做如下变换,
+	\begin{equation}
+		\psi(x, \lambda) = e^{i \lambda} \psi(x) \Longrightarrow D_\lambda \mathcal{L} = 0
+	\end{equation}
+	
+	\item 因此, 得到 conserved current,
+	\begin{equation}
+		J^\mu = \pi^\mu D_\lambda \psi + \pi^{\dag \mu} D_\lambda \psi^{\dag} = i (\psi \partial^\mu \psi^\dag - \psi^\dag \partial^\mu \psi)
+	\end{equation}
+	其 $0$ 分量对空间积分就是 charge,
+	\begin{align}
+		Q &= \int d^D x \, J^0 = \int d^D x \, i (\psi^\dag \partial_0 \psi - \psi \partial_0 \psi^\dag) \notag \\
+		&= \int d^D k \, (a^\dag_{\vec{k}} a_{\vec{k}} - b^\dag_{\vec{k}} b_{\vec{k}})
+	\end{align}
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{align}
+			Q =& \int d^D x \int \frac{d^D p}{\rho(p)} \frac{d^D q}{\rho(q)} i \Big( (a^\dag_{\vec{p}} e^{- i p \cdot x} + b_{\vec{p}} e^{i p \cdot x}) (- i \omega_q) (a_{\vec{q}} e^{i q \cdot x} - b^\dag_{\vec{q}} e^{- i q \cdot x}) \notag \\
+			& - (a_{\vec{q}} e^{i q \cdot x} + b^\dag_{\vec{q}} e^{- i q \cdot x}) (i \omega_p) (a^\dag_{\vec{p}} e^{- i p \cdot x} - b_{\vec{p}} e^{i p \cdot x}) \Big) \notag \\
+			=& \int d^D x \int \frac{d^D p}{\rho(p)} \frac{d^D q}{\rho(q)} \Big( (\omega_p a_{\vec{q}} a^\dag_{\vec{p}} + \omega_q a^\dag_{\vec{p}} a_{\vec{q}}) e^{- i (p - q) \cdot x} - (\omega_p b^\dag_{\vec{q}} b_{\vec{p}} + \omega_q b_{\vec{p}} b^\dag_{\vec{q}}) e^{i (p - q) \cdot x} \notag \\
+			& + a^\dag_{\vec{p}} b^\dag_{\vec{q}} (\omega_p - \omega_q) e^{- i (p + q) \cdot x} - a_{\vec{q}} b_{\vec{p}} (\omega_p - \omega_q) e^{i (p + q) \cdot x} \Big) \notag \\
+			=& \int \frac{d^D p}{\rho(p)} \frac{d^D q}{\rho(q)} \Big( \Big( (\omega_p a_{\vec{q}} a^\dag_{\vec{p}} + \omega_q a^\dag_{\vec{p}} a_{\vec{q}}) e^{i (\omega_p - \omega_q) \cdot t} - (\omega_p b^\dag_{\vec{q}} b_{\vec{p}} + \omega_q b_{\vec{p}} b^\dag_{\vec{q}}) e^{- i (\omega_p - \omega_q) \cdot t} \Big) (2 \pi)^D \delta^{(D)}(\vec{p} - \vec{q}) \notag \\
+			& + \Big( a^\dag_{\vec{p}} b^\dag_{\vec{q}} (\omega_p - \omega_q) e^{i (\omega_p + \omega_q) \cdot x} - a_{\vec{q}} b_{\vec{p}} (\omega_p - \omega_q) e^{- i (\omega_p + \omega_q) \cdot x} \Big) (2 \pi)^D \delta^{(D)}(\vec{p} + \vec{q}) \Big) \notag \\
+			=& \int \frac{d^D k}{2} \, (a_{\vec{k}} a^\dag_{\vec{k}} + a^\dag_{\vec{k}} a_{\vec{k}} - b_{\vec{k}} b^\dag_{\vec{k}} - b^\dag_{\vec{k}} b_{\vec{k}}) = \int d^D k \, (a^\dag_{\vec{k}} a_{\vec{k}} - b^\dag_{\vec{k}} b_{\vec{k}})
+		\end{align}
+	\end{tcolorbox}
+	
+	\item 代入 \eqref{D.3.2}, 有 $i [Q, \psi] = - i \psi$, 所以,
+	\begin{equation}
+		e^{- i \lambda Q} \psi e^{i \lambda Q} = e^{i \lambda} \psi
+	\end{equation}
 \end{itemize}
