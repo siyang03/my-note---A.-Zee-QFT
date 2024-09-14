@@ -1,2 +1,92 @@
 \chapter{the Dirac equation}
+\begin{itemize}
+	\item 整个 Part \ref{part II} 中, 我们使用 $(+, -, -, -)$ 号差, 因为 $\mathrm{Cl}_{1, 3}(\mathbb{R}) \cancel{\simeq} \mathrm{Cl}_{3, 1}(\mathbb{R})$.
+\end{itemize}
 
+\section{gamma matrices}
+\begin{itemize}
+	\item Pauli 矩阵如下,
+	\begin{equation}
+		\sigma_1 = \begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix} \quad \sigma_2 = \begin{pmatrix}
+			0 & - i \\
+			i & 0
+		\end{pmatrix} \quad \sigma_3 = \begin{pmatrix}
+			1 & 0 \\
+			0 & - 1
+		\end{pmatrix}
+	\end{equation}
+	
+	\item gamma 矩阵 (also called Dirac matrices) 如下 (其中 $i = 1, 2, 3$),
+	\begin{equation}
+		\gamma^0 = \begin{pmatrix}
+			I & \\
+			& - I
+		\end{pmatrix} = I \otimes \tau_3 \quad \gamma^i = \begin{pmatrix}
+			& \sigma_i \\
+			- \sigma_i &
+		\end{pmatrix} = i \sigma_i \otimes \tau_2 \quad \Omega = \gamma^0 \gamma^1 \gamma^2 \gamma^3 = - i \begin{pmatrix}
+			& I \\
+			I &
+		\end{pmatrix} = - i I \otimes \tau_1
+	\end{equation}
+	其中 $\tau_{2, 3}$ 也是 Pauli 矩阵, 最后, 按照惯例, 定义 $\gamma^5 = i \Omega = I \otimes \tau_1$.
+	\begin{itemize}
+		\item 另外,
+		\begin{equation}
+			\begin{dcases}
+				\gamma^0 \gamma^i = \sigma_i \otimes \tau_1 \\
+				\gamma^i \gamma^j = - (\sigma_i \sigma_j) \otimes I
+			\end{dcases} \quad \begin{dcases}
+				\Omega \gamma^0 = - I \otimes \sigma_2 \\
+				\Omega \gamma^i = i \sigma_i \otimes \tau_3
+			\end{dcases}
+		\end{equation}
+	\end{itemize}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item gamma 矩阵满足,
+	\begin{equation}
+		\begin{dcases}
+			(\gamma^\mu)^2 = \eta^{\mu \mu} \\
+			\gamma^\mu \gamma^\nu = - \gamma^\nu \gamma^\mu & \mu \neq \nu
+		\end{dcases} \Longrightarrow \{\gamma^\mu, \gamma^\nu\} = 2 \eta^{\mu \nu}
+	\end{equation}
+	
+	\item 且存在如下关系,
+	\begin{equation}
+		\Omega \gamma^0 = - \gamma^1 \gamma^2 \gamma^3 \quad \Omega \gamma^1 = - \gamma^0 \gamma^2 \gamma^3 \quad \Omega \gamma^2 = \gamma^0 \gamma^1 \gamma^3 \quad \Omega \gamma^3 = - \gamma^0 \gamma^1 \gamma^2
+	\end{equation}
+	并且有 (注意到 $\Omega^2 = - 1$),
+	\begin{equation}
+		\{\Omega, \gamma^\mu\} = 0 \quad \{\Omega, \Omega \gamma^\mu\} = 0 \quad [\Omega, \gamma^\mu \gamma^\nu] = 0
+	\end{equation}
+\end{itemize}
+
+\section{Dirac equation}
+\begin{itemize}
+	\item the Dirac equation is,
+	\begin{equation}
+		(i \gamma^\mu \partial_\mu - m) \psi = 0 \iff (\gamma^\mu p_\mu - m) \tilde{\psi} = 0
+	\end{equation}
+	首先可以看出 $\psi$ 满足 Klein-Gordan equation,
+	\begin{align}
+		& (i \gamma^\mu \partial_\mu - m) (i \gamma^\nu \partial_\nu - m) \psi = \Big( - \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} \partial_\mu \partial_\nu - 2 i m \gamma^\mu \partial_\mu + m^2 \Big) \psi = 0 \notag \\
+		\Longrightarrow & (- \partial^2 - m^2) \psi = 0
+	\end{align}
+	\begin{itemize}
+		\item 在粒子静止系下 $p_\mu = (m, 0, 0, 0)$, Dirac 方程给出,
+		\begin{equation}
+			(\gamma^0 - 1) \tilde{\psi} = 0 \Longrightarrow \begin{pmatrix}
+				0 & \\
+				& I
+			\end{pmatrix} \tilde{\psi} = 0
+		\end{equation}
+		因此, $\tilde{\psi}$ 的后两个分量为零 $\Longrightarrow \psi$ 只有两个自由度.
+		
+		\item A. Zee: our discussion provides a unified view of the equations of motion in relativistic physics: they just project out the unphysical components.
+	\end{itemize}
+\end{itemize}
