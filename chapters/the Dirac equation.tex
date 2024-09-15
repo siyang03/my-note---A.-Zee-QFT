@@ -64,10 +64,37 @@
 	\begin{equation}
 		\{\Omega, \gamma^\mu\} = 0 \quad \{\Omega, \Omega \gamma^\mu\} = 0 \quad [\Omega, \gamma^\mu \gamma^\nu] = 0
 	\end{equation}
+	
+	\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+	
+	\item 定义 $\sigma^{\mu \nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]$,
+	\begin{equation}
+		\gamma^\mu \gamma^\nu = \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} + \frac{1}{2} [\gamma^\mu, \gamma^\nu] = \eta^{\mu \nu} - i \sigma^{\mu \nu} \Longrightarrow \begin{dcases}
+			\sigma^{0 i} = i \begin{pmatrix}
+				& \sigma_i \\
+				\sigma_i &
+			\end{pmatrix} = i \sigma_i \otimes \tau_1 \\
+			\sigma^{i j} = \epsilon^{i j k} \begin{pmatrix}
+				\sigma_k & \\
+				& \sigma_k
+			\end{pmatrix} = \epsilon^{i j k} \sigma_k \otimes I
+		\end{dcases}
+	\end{equation}
+\end{itemize}
+
+\section{Lorentz transformation}
+\begin{itemize}
+	\item Lorentz 变换可以写成如下形式,
+	\begin{equation}
+		\Lambda = e^{- \frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}}
+	\end{equation}
+	其中 $\omega_{\mu \nu}$ 反对称, $J^{0 i}$ generate boosts and $J^{i j}$ generate rotations.
 \end{itemize}
 
 \section{Dirac equation}
 \begin{itemize}
+	\item A. Zee: our discussion provides a unified view of the equations of motion in relativistic physics: they just project out the unphysical components.
+	
 	\item the Dirac equation is,
 	\begin{equation}
 		(i \gamma^\mu \partial_\mu - m) \psi = 0 \iff (\gamma^\mu p_\mu - m) \tilde{\psi} = 0
@@ -86,7 +113,5 @@
 			\end{pmatrix} \tilde{\psi} = 0
 		\end{equation}
 		因此, $\tilde{\psi}$ 的后两个分量为零 $\Longrightarrow \psi$ 只有两个自由度.
-		
-		\item A. Zee: our discussion provides a unified view of the equations of motion in relativistic physics: they just project out the unphysical components.
 	\end{itemize}
 \end{itemize}
