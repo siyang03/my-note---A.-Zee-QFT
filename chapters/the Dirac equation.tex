@@ -188,6 +188,14 @@
 		\begin{equation}
 			e^{\frac{1}{4} \omega_{\mu \nu} \mathrm{ad}_{\sigma^{\mu \nu}}} \gamma^\rho = \sum_{n = 0}^\infty \frac{1}{n!} \tensor{\Big( \Big( - \frac{1}{2} \omega_{\mu \nu} J^{\mu \nu} \Big)^n \Big)}{^\rho_\sigma} \gamma^\sigma = \tensor{(\Lambda^{- 1})}{^\rho_\sigma} \gamma^\sigma
 		\end{equation}
+		
+		\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+		
+		可以用 "无穷小" Lorentz 变换来验证以上计算,
+		\begin{align}
+			\Pi(1 + \delta \tensor{\omega}{^\mu_\nu}) \gamma^\rho \Pi^{- 1}(1 + \delta \tensor{\omega}{^\mu_\nu}) &= \gamma^\rho + \frac{1}{4} \delta \omega_{\mu \nu} [\sigma^{\mu \nu}, \gamma^\rho] \notag \\
+			&= (1 - \delta \tensor{\omega}{^\rho_\sigma}) \gamma^\sigma
+		\end{align}
 	\end{tcolorbox}
 	
 	\item 对于 Dirac spinor,
