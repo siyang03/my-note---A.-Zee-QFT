@@ -1,6 +1,21 @@
 \chapter{the Dirac equation}
 \begin{itemize}
 	\item 整个 Part \ref{part II} 中, 我们使用 $(+, -, -, -)$ 号差, 因为 $\mathrm{Cl}_{1, 3}(\mathbb{R}) \cancel{\simeq} \mathrm{Cl}_{3, 1}(\mathbb{R})$.
+	
+	\item 本笔记中的算符的定义与 A. Zee 的定义不同, 存在如下对应关系,
+	
+	\begin{center}
+		\newcolumntype{K}{>{\centering\arraybackslash}X}
+		\begin{tabularx}{\linewidth}{KK}
+			\toprule 
+			A. Zee's def. & my def. \\
+			\midrule 
+			$\omega_{\mu \nu}$ & $\omega_{\mu \nu}$ \\
+			$J^{\mu \nu}$ & $i J^{\mu \nu}$ \\
+			$\sigma^{\mu \nu}$ & $i \sigma^{\mu \nu}$ \\
+			\bottomrule
+		\end{tabularx}
+	\end{center}
 \end{itemize}
 
 \section{gamma matrices}
@@ -57,9 +72,10 @@
 	\end{equation}
 	
 	\item 且存在如下关系,
-	\begin{equation}
-		\Omega \gamma^0 = - \gamma^1 \gamma^2 \gamma^3 \quad \Omega \gamma^1 = - \gamma^0 \gamma^2 \gamma^3 \quad \Omega \gamma^2 = \gamma^0 \gamma^1 \gamma^3 \quad \Omega \gamma^3 = - \gamma^0 \gamma^1 \gamma^2
-	\end{equation}
+	\begin{align}
+		& \Omega \gamma^0 = - \gamma^1 \gamma^2 \gamma^3 \quad \Omega \gamma^1 = - \gamma^0 \gamma^2 \gamma^3 \quad \Omega \gamma^2 = \gamma^0 \gamma^1 \gamma^3 \quad \Omega \gamma^3 = - \gamma^0 \gamma^1 \gamma^2 \notag \\
+		\iff & - \tensor{\epsilon}{^{\mu \nu \rho}_\sigma} \Omega \gamma^\sigma = \gamma^\mu \gamma^\nu \gamma^\rho \quad \text{when} \quad \mu \neq \nu \neq \rho
+	\end{align}
 	并且有 (注意到 $\Omega^2 = - 1$),
 	\begin{equation}
 		\{\Omega, \gamma^\mu\} = 0 \quad \{\Omega, \Omega \gamma^\mu\} = 0 \quad [\Omega, \gamma^\mu \gamma^\nu] = 0
@@ -67,28 +83,138 @@
 	
 	\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
 	
-	\item 定义 $\sigma^{\mu \nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]$,
+	\item 定义 $\sigma^{\mu \nu} = \frac{1}{2} [\gamma^\mu, \gamma^\nu]$ (注意, 我们的定义中没有虚数 $i$, 与 A. Zee 的定义不同),
 	\begin{equation}
-		\gamma^\mu \gamma^\nu = \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} + \frac{1}{2} [\gamma^\mu, \gamma^\nu] = \eta^{\mu \nu} - i \sigma^{\mu \nu} \Longrightarrow \begin{dcases}
-			\sigma^{0 i} = i \begin{pmatrix}
+		\gamma^\mu \gamma^\nu = \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} + \frac{1}{2} [\gamma^\mu, \gamma^\nu] = \eta^{\mu \nu} + \sigma^{\mu \nu} \Longrightarrow \begin{dcases}
+			\sigma^{0 i} = \begin{pmatrix}
 				& \sigma_i \\
 				\sigma_i &
-			\end{pmatrix} = i \sigma_i \otimes \tau_1 \\
-			\sigma^{i j} = \epsilon^{i j k} \begin{pmatrix}
+			\end{pmatrix} = \sigma_i \otimes \tau_1 \\
+			\sigma^{i j} = - i \epsilon^{i j k} \begin{pmatrix}
 				\sigma_k & \\
 				& \sigma_k
-			\end{pmatrix} = \epsilon^{i j k} \sigma_k \otimes I
+			\end{pmatrix} = - i \epsilon^{i j k} \sigma_k \otimes I
 		\end{dcases}
 	\end{equation}
 \end{itemize}
 
-\section{Lorentz transformation}
+\section{Lorentz transformation and the \texorpdfstring{$(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$}{(1/2, 0)+(0, 1/2)} representation}
 \begin{itemize}
 	\item Lorentz 变换可以写成如下形式,
 	\begin{equation}
-		\Lambda = e^{- \frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}}
+		\Lambda = e^{\frac{1}{2} \omega_{\mu \nu} J^{\mu \nu}}
 	\end{equation}
-	其中 $\omega_{\mu \nu}$ 反对称, $J^{0 i}$ generate boosts and $J^{i j}$ generate rotations.
+	其中 $\omega_{\mu \nu}$ 反对称, $J^{0 i}$ generate boosts and $J^{i j}$ generate rotations, (详见笔记 \href{https://github.com/siyang03/my-note---Lie-Groups-and-Lie-Algebras}{Lie Groups and Lie Algebras}).
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{figures/Lorentz transformation.pdf}
+		\caption{Lorentz transformation}
+	\end{figure}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 有 $\pi_{(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})}(J^{\mu \nu}) = \frac{1}{2} \sigma^{\mu \nu}$ (up to a similarity transformation).
+	
+	\begin{tcolorbox}[title=calculation:]
+		做如下相似变换,
+		\begin{equation}
+			P = \frac{\sqrt{2}}{2} \begin{pmatrix}
+				I & I \\
+				- I & I
+			\end{pmatrix} \iff P^{- 1} = \frac{\sqrt{2}}{2} \begin{pmatrix}
+				I & - I \\
+				I & I
+			\end{pmatrix}
+		\end{equation}
+		得到,
+		\begin{equation}
+			P^{- 1} \sigma^{0 i} P = \begin{pmatrix}
+				- \sigma_i & \\
+				& \sigma_i
+			\end{pmatrix} \quad P^{- 1} \sigma^{i j} P = - i \epsilon^{i j k} \begin{pmatrix}
+				\sigma_k & \\
+				& \sigma_k
+			\end{pmatrix}
+		\end{equation}
+		得到的结果和笔记中 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ 表示是完全一样的.
+	\end{tcolorbox}
+	
+	\item Dirac spinor 是 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ rep. 的 vector space 中的元素,
+	\begin{equation}
+		\psi = \begin{pmatrix}
+			\phi \\
+			\chi
+		\end{pmatrix} \quad \text{with} \quad P^{- 1} \psi = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			\phi - \chi \\
+			\phi + \chi
+		\end{pmatrix}
+	\end{equation}
+	其中,
+	\begin{equation}
+		\frac{\sqrt{2}}{2} \begin{pmatrix}
+			\phi \\
+			- \phi
+		\end{pmatrix} \in (\frac{1}{2}, 0) \quad \text{and} \quad \frac{\sqrt{2}}{2} \begin{pmatrix}
+			\chi \\
+			\chi
+		\end{pmatrix} \in (0, \frac{1}{2})
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 对于 gamma 矩阵, 有,
+	\begin{equation}
+		\Pi(\Lambda) \gamma^\rho \Pi^{- 1}(\Lambda) = e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \gamma^\rho e^{- \frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} = \tensor{(\Lambda^{- 1})}{^\rho_\sigma} \gamma^\sigma
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		利用 Campbell's identity,
+		\begin{equation}
+			e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \gamma^\rho e^{- \frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} = e^{\frac{1}{4} \omega_{\mu \nu} \mathrm{ad}_{\sigma^{\mu \nu}}} \gamma^\rho
+		\end{equation}
+		其中 (注意 $\tensor{(J^{\mu \nu})}{^\rho_\sigma} = 2 \eta^{[\mu| \rho} \tensor{\delta}{^{|\nu]}_\sigma}$, 其中度规号差与笔记 \href{https://github.com/siyang03/my-note---Lie-Groups-and-Lie-Algebras}{Lie Groups and Lie Algebras} 中的不同),
+			\begin{align}
+			& \begin{dcases}
+				\rho \neq \mu, \nu & \begin{aligned}
+					[\sigma^{\mu \nu}, \gamma^\rho] &= \frac{1}{2} (\gamma^\mu \gamma^\nu \gamma^\rho - \gamma^\nu \gamma^\mu \gamma^\rho - \gamma^\rho \gamma^\mu \gamma^\nu + \gamma^\rho \gamma^\nu \gamma^\mu) \\
+					&= - \frac{1}{2} \underbrace{(\epsilon^{\mu \nu \rho \sigma} - \epsilon^{\nu \mu \rho \sigma} - \epsilon^{\rho \mu \nu \sigma} + \epsilon^{\rho \nu \mu \sigma})}_{= 0} \Omega \gamma_\sigma = 0
+				\end{aligned} \\
+				\rho = \mu \ \text{or} \ \nu \ \text{and} \ \mu \neq \nu & [\sigma^{\mu \nu}, \gamma^\rho] = 2 (\eta^{\mu \rho} \gamma^\mu - \eta^{\nu \rho} \gamma^\nu)
+			\end{dcases} \notag \\
+			\Longrightarrow & [\sigma^{\mu \nu}, \gamma^\rho] = 2 (\eta^{\nu \rho} \gamma^\mu - \eta^{\mu \rho} \gamma^\nu) = - 2 \tensor{(J^{\mu \nu})}{^\rho_\sigma} \gamma^\sigma
+		\end{align}
+		代入, 得到,
+		\begin{equation}
+			e^{\frac{1}{4} \omega_{\mu \nu} \mathrm{ad}_{\sigma^{\mu \nu}}} \gamma^\rho = \sum_{n = 0}^\infty \frac{1}{n!} \tensor{\Big( \Big( - \frac{1}{2} \omega_{\mu \nu} J^{\mu \nu} \Big)^n \Big)}{^\rho_\sigma} \gamma^\sigma = \tensor{(\Lambda^{- 1})}{^\rho_\sigma} \gamma^\sigma
+		\end{equation}
+	\end{tcolorbox}
+	
+	\item 对于 Dirac spinor,
+	\begin{equation}
+		\Pi(\Lambda) \psi(x) = \psi'(\Lambda x)
+	\end{equation}
+	注意 $\partial'_\mu = \tensor{\Lambda}{_\mu^\nu} \partial_\nu$, 所以,
+	\begin{equation}
+		(i \gamma^\mu \partial_\mu - m) \psi(x) = 0 \iff (i \gamma^\mu \partial'_\mu - m) \psi'(\Lambda x) = 0
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		首先,
+		\begin{equation}
+			\Lambda^T \eta \Lambda = \eta \Longrightarrow \tensor{(\Lambda^{- 1})}{^\mu_\nu} = \tensor{(\eta \Lambda^T \eta)}{^\mu_\nu} = \tensor{\Lambda}{_\nu^\mu}
+		\end{equation}
+		考虑,
+		\begin{equation}
+			\Pi^{- 1}(\Lambda) \gamma^\mu \Pi(\Lambda) = \tensor{\Lambda}{^\mu_\nu} \gamma^\nu \Longrightarrow \gamma^\mu \Pi(\Lambda) = \tensor{\Lambda}{^\mu_\nu} \Pi(\Lambda) \gamma^\nu
+		\end{equation}
+		代入,
+		\begin{align}
+			(i \gamma^\mu \partial'_\mu - m) \psi'(\Lambda x) &= (i \gamma^\mu \tensor{\Lambda}{_\mu^\nu} \partial_\nu - m) \Pi(\Lambda) \psi(x) \notag \\
+			&= \Pi(\Lambda) (i \gamma^\rho \underbrace{\tensor{\Lambda}{^\mu_\rho} \tensor{\Lambda}{_\mu^\nu}}_{= \delta^\nu_\rho} \partial_\nu - m) \psi(x) \notag \\
+			&= \Pi(\Lambda) (i \gamma^\mu \partial_\mu - m) \psi(x) = 0
+		\end{align}
+	\end{tcolorbox}
 \end{itemize}
 
 \section{Dirac equation}
