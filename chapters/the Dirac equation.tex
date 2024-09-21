@@ -119,20 +119,20 @@
 	\begin{tcolorbox}[title=calculation:]
 		做如下相似变换,
 		\begin{equation}
-			P = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			S = \frac{\sqrt{2}}{2} \begin{pmatrix}
 				I & I \\
 				- I & I
-			\end{pmatrix} \iff P^{- 1} = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			\end{pmatrix} \iff S^{- 1} = \frac{\sqrt{2}}{2} \begin{pmatrix}
 				I & - I \\
 				I & I
 			\end{pmatrix}
 		\end{equation}
 		得到,
 		\begin{equation}
-			P^{- 1} \sigma^{0 i} P = \begin{pmatrix}
+			S^{- 1} \sigma^{0 i} S = \begin{pmatrix}
 				- \sigma_i & \\
 				& \sigma_i
-			\end{pmatrix} \quad P^{- 1} \sigma^{i j} P = - i \epsilon^{i j k} \begin{pmatrix}
+			\end{pmatrix} \quad S^{- 1} \sigma^{i j} S = - i \epsilon^{i j k} \begin{pmatrix}
 				\sigma_k & \\
 				& \sigma_k
 			\end{pmatrix}
@@ -145,7 +145,7 @@
 		\psi = \begin{pmatrix}
 			\phi \\
 			\chi
-		\end{pmatrix} \quad \text{with} \quad P^{- 1} \psi = \frac{\sqrt{2}}{2} \begin{pmatrix}
+		\end{pmatrix} \quad \text{with} \quad S^{- 1} \psi = \frac{\sqrt{2}}{2} \begin{pmatrix}
 			\phi - \chi \\
 			\phi + \chi
 		\end{pmatrix}
@@ -197,7 +197,10 @@
 			&= (1 - \delta \tensor{\omega}{^\rho_\sigma}) \gamma^\sigma
 		\end{align}
 	\end{tcolorbox}
-	
+\end{itemize}
+
+\subsection{Dirac spinor}
+\begin{itemize}
 	\item 对于 Dirac spinor,
 	\begin{equation}
 		\Pi(\Lambda) \psi(x) = \psi'(\Lambda x)
@@ -229,6 +232,88 @@
 			\gamma^\mu \psi'(\Lambda x) = \gamma^\mu \Pi(\Lambda) \psi(x) = \Pi(\Lambda) \tensor{\Lambda}{^\mu_\nu} \gamma^\nu \psi(x)
 		\end{equation}
 	\end{itemize}
+\end{itemize}
+
+\subsection{Dirac bilinears}
+\begin{itemize}
+	\item $\gamma^0$ 是 Hermitian 矩阵, 而 $\gamma^i$ 不是, 有,
+	\begin{equation}
+		\gamma^{i \dag} = - \gamma^i = \gamma^0 \gamma^i \gamma^0
+	\end{equation}
+	可以统一写作 $\gamma^{\mu \dag} = \gamma^0 \gamma^\mu \gamma^0$, 并且有,
+	\begin{equation}
+		\sigma^{\mu \nu \dag} = - \gamma^0 \sigma^{\mu \nu} \gamma^0 \quad \Pi^\dag(\Lambda) = \gamma^0 \Pi(\Lambda^{- 1}) \gamma^0
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		对于 $\sigma^{\mu \nu}$,
+		\begin{equation}
+			\sigma^{\mu \nu \dag} = \frac{1}{2} (\gamma^{\nu \dag} \gamma^{\mu \dag} - \gamma^{\mu \dag} \gamma^{\nu \dag}) = \gamma^0 \sigma^{\mathcolor{red}{\nu \mu}} \gamma^0 = - \gamma^0 \sigma^{\mu \nu} \gamma^0
+		\end{equation}
+		所以,
+		\begin{equation}
+			((\omega_{\mu \nu} \sigma^{\mu \nu})^\dag)^n = \gamma^0 (- \omega_{\mu \nu} \sigma^{\mu \nu})^n \gamma^0 \Longrightarrow \Pi^\dag(\Lambda) = \gamma^0 \Pi(\Lambda^{- 1}) \gamma^0
+		\end{equation}
+	\end{tcolorbox}
+	
+	\item 所以,
+	\begin{equation}
+		\begin{dcases}
+			\bar{\psi}'(\Lambda x) \psi'(\Lambda x) = \bar{\psi} \psi & \text{scalar field} \\
+			\bar{\psi}' \gamma^\mu \psi' = \tensor{\Lambda}{^\mu_\nu} \bar{\psi} \gamma^\nu \psi & \text{vector field}
+		\end{dcases}
+	\end{equation}
+	其中 $\bar{\psi} = \psi^\dag \gamma^0$.
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{equation}
+			\begin{dcases}
+				\psi'^\dag(\Lambda x) \gamma^0 \psi'(\Lambda x) = \psi^\dag(x) \gamma^0 \Pi(\Lambda^{- 1}) (\gamma^0)^2 \Pi(\Lambda) \psi(x) = \psi^\dag \gamma^0 \psi \\
+				\psi'^\dag \gamma^0 \gamma^\mu \psi' = \psi^\dag(x) \gamma^0 \Pi(\Lambda^{- 1}) (\gamma^0)^2 \gamma^\mu \Pi(\Lambda) \psi(x) = \tensor{\Lambda}{^\mu_\nu} \psi^\dag \gamma^0 \gamma^\nu \psi
+			\end{dcases}
+		\end{equation}
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		此外,
+		\begin{equation}
+			\begin{dcases}
+				\bar{\psi}' \sigma^{\mu \nu} \psi' = \psi^\dag \gamma^0 \Pi(\Lambda^{- 1}) (\gamma^0)^2 \sigma^{\mu \nu} \Pi(\Lambda) \psi = \tensor{\Lambda}{^\mu_\rho} \tensor{\Lambda}{^\nu_\sigma} \bar{\psi} \sigma^{\rho \sigma} \psi & \text{order 2 tensor} \\
+				\bar{\psi}' \Omega \gamma^\mu \psi' = \bar{\psi} \Pi(\Lambda^{- 1}) \Omega \gamma^\mu \Pi(\Lambda) \psi = \det(\Lambda) \tensor{\Lambda}{^\mu_\nu} \bar{\psi} \Omega \gamma^\nu \psi & \text{pseudovector} \\
+				\bar{\psi}' \Omega \psi' = \bar{\psi} \Pi(\Lambda^{- 1}) \Omega \Pi(\Lambda) \psi = \det(\Lambda) \bar{\psi} \Omega \psi & \text{4-form, aka. pseudoscalar}
+			\end{dcases}
+		\end{equation}
+		其中 (注意到下面的计算中, 第二个等号后, 含 $\eta$ 的项都等于零; 由此可以看出, 对 $\mu_i$ 求和的过程中, 任何两个 $\mu_i, \mu_j$ 相等的项求和之后都等于零),
+		\begin{align}
+			\Pi(\Lambda^{- 1}) \Omega \Pi(\Lambda) &= \prod_{i = 0}^3 \tensor{\Lambda}{^i_{\mu_i}} \gamma^{\mu_0} \gamma^{\mu_1} \gamma^{\mu_2} \gamma^{\mu_3} \notag \\
+			&= \prod_{i = 0}^3 \tensor{\Lambda}{^i_{\mu_i}} (\eta^{\mu_0 \mu_1} + \sigma^{\mu_0 \mu_1}) (\eta^{\mu_2 \mu_3} + \sigma^{\mu_2 \mu_3}) \notag \\
+			&= \prod_{i = 0}^3 \tensor{\Lambda}{^i_{\mu_i}} \gamma^{\mu_0} \gamma^{\mu_1} \gamma^{\mu_2} \gamma^{\mu_3} \quad \text{with} \quad \mu_0 \neq \mu_1 \neq \mu_2 \neq \mu_3 \notag \\
+			&= \det(\Lambda) \Omega
+		\end{align}
+	\end{tcolorbox}
+\end{itemize}
+
+\subsection{parity and time reversal}
+\begin{itemize}
+	\item 这里沿用笔记 \href{https://github.com/siyang03/my-note---Lie-Groups-and-Lie-Algebras}{Lie Groups and Lie Algebras} 中的记号, 选择 $\mathrm{O}(3, 1)$ 而非 $\mathrm{O}(1, 3)$, 因为他们没有区别.
+	
+	\item $\mathrm{O}(3, 1)$ 有 4 个联通分支,
+	\begin{equation}
+		I \in \mathrm{SO}_+(3, 1) \quad P T \in \mathrm{SO}_-(3, 1) \quad P \in \mathrm{O}'_+(3, 1) \quad T \in \mathrm{O}'_-(3, 1)
+	\end{equation}
+	其中,
+	\begin{equation}
+		P = \mathrm{diag}(+ 1, - 1, - 1, - 1) \quad T = \mathrm{diag}(- 1, + 1, + 1, + 1)
+	\end{equation}
+	另外, $\eta P \eta = P, \eta T \eta = T$.
+\end{itemize}
+
+\subsubsection{parity}
+\begin{itemize}
+	\item 对于 parity, 有,
+	\begin{equation}
+		\Pi(P) = \gamma^0 \quad \gamma^0 \gamma^\mu = \tensor{P}{^\mu_\nu} \gamma^\nu \gamma^0
+	\end{equation}
 \end{itemize}
 
 \section{Dirac equation}
