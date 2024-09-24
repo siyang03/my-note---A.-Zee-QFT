@@ -17,7 +17,10 @@
 		\end{tabularx}
 	\end{center}
 	
-	\item $\Pi(\Lambda)$ 的写法可能不准确, 要考虑 universal cover, $\mathrm{Spin}(1, 3) \simeq \mathrm{Spin}(3, 1)$.
+	\item $\Pi(\Lambda)$ 的写法可能不准确, (要考虑 universal cover, $\mathrm{Spin}(1, 3) \simeq \mathrm{Spin}(3, 1)$), 因为 Lorentz transform 对 spinor 的操作是 "path dependent", 因此本 chapter 中的 $\Lambda$ 都默认沿着以下的 path 做变换,
+	\begin{equation}
+		\Lambda(\lambda) = e^{\frac{\lambda}{2} \omega_{\mu \nu} J^{\mu \nu}}, \lambda \in [0, 1]
+	\end{equation}
 \end{itemize}
 
 \section{gamma matrices}
@@ -308,6 +311,10 @@
 		P = \mathrm{diag}(+ 1, - 1, - 1, - 1) \quad T = \mathrm{diag}(- 1, + 1, + 1, + 1)
 	\end{equation}
 	另外, $\eta P \eta = P, \eta T \eta = T$.
+	
+	\item 另外, Lorentz algebra 的 representation 不能自然的生成对 $P, T$ 的表示, 因为本质上它只能生成 spin group 的表示, 是 $\mathrm{SO}_+(3, 1)$ 的 universal cover, 与 Lorentz group 的其它三个连通分支没有直接联系.
+	
+	\item 因此, 对 $P, T$ 的表示要从物理的角度定义, (可能) 无法单纯靠数学的方法给出.
 \end{itemize}
 
 \subsubsection{parity}
