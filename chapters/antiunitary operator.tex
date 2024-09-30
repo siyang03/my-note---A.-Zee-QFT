@@ -1,0 +1,70 @@
+\chapter{antiunitary operator and time reversal}
+\section{complex conjugation operator}
+\begin{itemize}
+	\item complex conjugation operator, $K$, is an antiunitary operator on the complex plane,
+	\begin{equation}
+		\begin{dcases}
+			K z = z^* \\
+			z K^* = z^*
+		\end{dcases} \Longrightarrow K^2 = K^{* 2} = 1
+	\end{equation}
+	
+	\item $K^* I : V^* \rightarrow V^*$ 是 dual space 上的算符.
+	
+	\item 对于一组 orthonormal basis, 有,
+	\begin{equation}
+		\braket{i | K^* I K | j} = \delta_{i j}
+	\end{equation}
+	并且可以证明在基矢变换后这个等式依然成立.
+	
+	\begin{tcolorbox}[title=proof:]
+		\begin{itemize}
+			\item 对基矢做 unitary transformation,
+			\begin{equation}
+				\ket{i'} = U \ket{i} = \sum_j \ket{j} U_{j i} \quad \text{where} \quad U_{j i} = \braket{j | U | i}
+			\end{equation}
+			那么,
+			\begin{equation}
+				\braket{i' | K^* I K | j'} = \sum_{k l} \braket{k | U^*_{k i} K^* I K U_{l j} | l} = \sum_{k l} U_{k i} U^*_{l j} \delta_{k l} = \delta_{i j}
+			\end{equation}
+			
+			\item 对基矢做 antiunitary transformation, 只需要证明 $\ket{i'} = K \ket{i}$ 的情况, 此时,
+			\begin{equation}
+				\braket{i' | K^* I K | j'} = \braket{i | j} = \delta_{i j}
+			\end{equation}
+		\end{itemize}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{antiunitary operator}
+\begin{itemize}
+	\item 对于一个 unitary operator, $U$, $\Omega = U K$ 是一个 antiunitary operator.
+	
+	\item 定义其 Hermitian conjugate,
+	\begin{equation}
+		\Omega^\dag = K^* U^\dag \iff \braket{i | \Omega j} = \braket{j | \Omega^\dag i}^*
+	\end{equation}
+	那么,
+	\begin{equation}
+		\begin{dcases}
+			\braket{\phi | \Omega \psi} = \braket{\psi | \Omega^\dag \phi}^* \\
+			\braket{\Omega \phi | \Omega \psi} = \braket{\psi | \phi}
+		\end{dcases}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=proof:]
+		首先,
+		\begin{align}
+			\braket{\phi | \Omega \psi} &= \sum_{i j} \braket{i | \phi^*_i U K \psi_j | j} \notag \\
+			&= \sum_{i j} \phi^*_i \psi^*_j \braket{i | U K | j} \notag \\
+			&= \Big( \sum_{i j} \braket{j | K^* U^\dag | i} \phi_i \psi_j \Big)^* \notag \\
+			&= \Big( \sum_{i j} \braket{j | \psi^*_j K^* U^\dag \phi_i | i} \Big)^* = \braket{\psi | K^* U^\dag | \phi}^*
+		\end{align}
+		其次,
+		\begin{align}
+			\braket{\Omega \phi | \Omega \psi} &= \braket{\phi | \Omega^\dag \Omega \psi} = \braket{\phi | K^* I K | \psi} \notag \\
+			&= \sum_{i j} \braket{i | \phi^*_i K^* I K \psi_j | j} \notag \\
+			&= \sum_{i j} \phi_i \psi^*_j \braket{i | K^* I K | j} = \braket{\psi | \phi}
+		\end{align}
+	\end{tcolorbox}
+\end{itemize}
