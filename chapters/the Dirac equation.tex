@@ -146,6 +146,10 @@
 \end{itemize}
 
 \section{charge conjugation, parity and time reversal}
+\begin{itemize}
+	\item 沿用 A. Zee 的 notation, 变换映射分别用 $\mathcal{C}, \mathcal{P}, \mathcal{T}$ 表示, 相应的矩阵用 $C, P, T$ 表示.
+\end{itemize}
+
 \subsection{charge conjugation and antimatter}
 \begin{itemize}
 	\item 定义矩阵 $C$,
@@ -169,6 +173,7 @@
 		\begin{equation}
 			\gamma^0 C^{- 1} \gamma^0 C \gamma^0 = - \gamma^{\mu *} \Longrightarrow C^{- 1} \gamma^0 C = - \gamma^0 \gamma^{\mu *} \gamma^0 = - (\underbrace{\gamma^0 \gamma^\mu \gamma^0}_{= \gamma^{\mu \dag}})^*
 		\end{equation}
+		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{6.2.17}.
 	\end{tcolorbox}
 	
 	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程,
@@ -186,6 +191,7 @@
 			\Psi_c \mapsto \gamma^2 \underbrace{(\gamma^2)^{- 1}  e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \gamma^2 \Psi^*}_{= (\Psi'(x'))^*} = e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \Psi_c
 		\end{dcases}
 	\end{equation}
+	可见 $\Psi_c$ 与 $\Psi$ 的变换形式相同.
 \end{itemize}
 
 \subsection{parity}
@@ -196,13 +202,59 @@
 	\end{equation}
 	因此,
 	\begin{equation}
-		P : \Psi(x) \mapsto \Psi'(x') = \gamma^0 \Psi(x)
+		\mathcal{P} : \Psi(x) \mapsto \Psi'(x') = \gamma^0 \Psi(x)
 	\end{equation}
 \end{itemize}
 
 \subsection{time reversal}
 \begin{itemize}
-	\item 
+	\item 时间反演算符为,
+	\begin{equation}
+		T = (i \sigma_2 \otimes I) K = \gamma^1 \gamma^3 K
+	\end{equation}
+	其中 $K$ 是 complex conjugation operator (见 appendix \ref{E}). 另外, 有 $T^2 = - 1$, 符合预期.
+	
+	\begin{tcolorbox}[title=proof:]
+		时间反演之后, $\Psi'(t') = T \Psi(t)$ 满足如下方程,
+		\begin{equation}
+			i \frac{\partial}{\partial t'} \Psi'(t') = H \Psi'(x')
+		\end{equation}
+		其中,
+		\begin{equation}
+			H = - i \gamma^0 \gamma^i \frac{\partial}{\partial x^i} + \gamma^0 m
+		\end{equation}
+		且 Hamiltonian 满足时间反演不变, $H'(t') \equiv T H(t) T^\dag = H(t)$, 即 (其中 $T = U K$),
+		\begin{equation}
+			\begin{dcases}
+				T (i \gamma^0 \gamma^i) T^\dag = i \gamma^0 \gamma^i \\
+				T \gamma^0 T^\dag = \gamma^0
+			\end{dcases} \Longrightarrow \begin{dcases}
+				U (- i \gamma^0 \gamma^{i *}) U^\dag = U (- i \gamma^0 \gamma^2 \gamma^i \gamma^2) U^\dag = i \gamma^0 \gamma^i \\
+				[U, \gamma^0] = 0
+			\end{dcases}
+		\end{equation}
+		满足以上要求的 $U$ 具有一下形式,
+		\begin{equation}
+			U = \begin{pmatrix}
+				a \sigma_2 & b \sigma_2 \\
+				b \sigma_2 & a \sigma_2
+			\end{pmatrix} \quad \text{with} \quad \begin{dcases}
+				|a|^2 + |b|^2 = 1 \\
+				a^* b + b^* a = 0
+			\end{dcases}
+		\end{equation}
+		不妨令 $a = i, b = 0$.
+	\end{tcolorbox}
+\end{itemize}
+
+\subsection{CPT theorem}
+\begin{itemize}
+	\item 在 CPT 变换下,
+	\begin{equation}
+		\mathcal{CPT} : \Psi(x) \mapsto \gamma^1 \gamma^3 K (\gamma^0 \gamma^2 \Psi^*) = \Omega \Psi = - i \gamma^5 \Psi
+	\end{equation}
+	
+	\item 任何 Lorentz covariant theory 都满足 CPT 不变性.
 \end{itemize}
 
 \section{interaction in QED}

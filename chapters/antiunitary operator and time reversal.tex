@@ -1,4 +1,4 @@
-\chapter{antiunitary operator and time reversal}
+\chapter{antiunitary operator and time reversal} \label{E}
 \section{complex conjugation operator}
 \begin{itemize}
 	\item complex conjugation operator, $K$, is an antiunitary operator on the complex plane,
@@ -66,5 +66,83 @@
 			&= \sum_{i j} \braket{i | \phi^*_i K^* I K \psi_j | j} \notag \\
 			&= \sum_{i j} \phi_i \psi^*_j \braket{i | K^* I K | j} = \braket{\psi | \phi}
 		\end{align}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{time reversal in QM}
+\begin{itemize}
+	\item 在量子力学中,
+	\begin{equation}
+		\mathcal{T} : \ket{\psi} \mapsto \ket{\psi'(t')} = \int d^D x \, \ket{x} K \braket{x | \psi(t)} \quad \text{where} \quad t' = - t
+	\end{equation}
+	\begin{itemize}
+		\item 因此, 对于动量本征态,
+		\begin{equation}
+			T \ket{p} = \int d^D x \, \ket{x} K e^{i \vec{p} \cdot \vec{x}} = \ket{- p}
+		\end{equation}
+		
+		\item 对于动量算符,
+		\begin{equation}
+			T P T^\dag = \int d^D p \, \ket{- p} p \bra{- p} = - P
+		\end{equation}
+		
+		\item 对于角动量算符,
+		\begin{equation}
+			T L T^\dag = T (X \times P) T^{- 1} = - L
+		\end{equation}
+	\end{itemize}
+	
+	\item 对于平面波,
+	\begin{equation}
+		\psi(t) = e^{i (\vec{k} \cdot \vec{x} - E t)} \mapsto \psi'(t') = \braket{x | K^* I K | \psi(t)} = e^{- i (\vec{k} \cdot \vec{x} - E t)}
+	\end{equation}
+	注意到 $t' = - t$, 代入,
+	\begin{equation}
+		\psi'(t) = e^{i (- \vec{k} \cdot \vec{x} - E t)}
+	\end{equation}
+\end{itemize}
+
+\subsection{spin-\texorpdfstring{$\frac{1}{2}$}{1/2} non-relativistic electron}
+\begin{itemize}
+	\item 时间反演算符作用到 spin-up state 应该得到 spin-down state, 所以,
+	\begin{equation}
+		T = \sigma_2 K
+	\end{equation}
+	\begin{itemize}
+		\item 因此,
+		\begin{equation}
+			T^2 = \sigma_2 K \sigma_2 K = \sigma_2^* \sigma_2 = - 1
+		\end{equation}
+		
+		\item 具体地,
+		\begin{equation}
+			T \begin{pmatrix}
+				1 \\
+				0
+			\end{pmatrix} = \begin{pmatrix}
+				0 \\
+				i
+			\end{pmatrix} \quad T \begin{pmatrix}
+				0 \\
+				1
+			\end{pmatrix} = \begin{pmatrix}
+				- i \\
+				0
+			\end{pmatrix}
+		\end{equation}
+	\end{itemize}
+	
+	\item \textbf{Kramer's degeneracy:} 含有奇数个电子的时间反演不变系统, 其能级是 twofold degenerate.
+	
+	\begin{tcolorbox}[title=proof:]
+		因为系统时间反演不变, 所以 $\psi$ 和 $T \psi$ 有相同的能级, 且 $T \psi \neq e^{i \alpha} \psi, \forall \alpha$.
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		考虑 $T \psi = e^{i \alpha} \psi$, 那么,
+		\begin{equation}
+			T^2 \psi = T e^{i \alpha} \psi = e^{- i \alpha} e^{i \alpha} \psi = \psi
+		\end{equation}
+		与 $T^2 = - 1$ 矛盾.
 	\end{tcolorbox}
 \end{itemize}
