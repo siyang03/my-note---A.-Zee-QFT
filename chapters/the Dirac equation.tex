@@ -5,7 +5,10 @@
 	
 	\item the Dirac equation is,
 	\begin{equation}
-		(i \gamma^\mu \partial_\mu - m) \Psi = 0 \iff (\gamma^\mu p_\mu - m) \tilde{\Psi} = 0
+		(i \gamma^\mu \partial_\mu - m) \Psi = 0 \iff (\gamma^\mu p_\mu - m) \tilde{\Psi} = 0 \Longrightarrow \begin{dcases}
+			i \sigma^\mu \partial_\mu \psi_R - m \psi_L = 0 \\
+			i \bar{\sigma}^\mu \partial_\mu \psi_L - m \psi_R = 0
+		\end{dcases}
 	\end{equation}
 	首先可以看出 $\Psi$ 满足 Klein-Gordan equation,
 	\begin{align}
@@ -66,7 +69,7 @@
 	
 	\begin{tcolorbox}[title=calculation:]
 		计算广义动量,
-		\begin{equation}
+		\begin{equation} \label{7.3.4}
 			\begin{dcases}
 				\pi_\Psi^\mu = \frac{\delta \mathcal{L}}{\delta \partial_\mu \Psi} = \bar{\Psi} i \gamma^\mu \\
 				\pi_{\bar{\Psi}}^\mu = 0

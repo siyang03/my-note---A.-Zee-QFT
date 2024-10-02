@@ -1,1 +1,37 @@
 \chapter{quantizing the Dirac field}
+\section{anticommutation}
+\begin{itemize}
+	\item 用 $\alpha, \beta$ 表示电子的量子态 (包括动量和自旋), 那么,
+	\begin{equation}
+		\begin{dcases}
+			\{b_\alpha, b_\beta\} = 0 \\
+			\{b_\alpha, b^\dag_\beta\} = \delta_{\alpha \beta}
+		\end{dcases}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=comment:]
+		反对称关系 $\{b_\alpha, b_\beta\} = 0$ 由实验发现, 我们希望电子有 number operator,
+		\begin{equation}
+			N = \sum_\alpha b^\dag_\alpha b_\alpha \quad \text{with} \quad \begin{dcases}
+				[N, b_\alpha] = - b_\alpha \\
+				[N, b^\dag_\alpha] = b^\dag_\alpha
+			\end{dcases}
+		\end{equation}
+		考虑到 $[A B, C] = A B C - C A B = A \{B, C\} - \{A, C\} B$, 所以,
+		\begin{equation}
+			\begin{dcases}
+				[N, b_\alpha] = \sum_\beta (b^\dag_\beta \{b_\beta, b_\alpha\} - \{b^\dag_\beta, b_\alpha\} b_\beta) = - \sum_\beta \{b^\dag_\beta, b_\alpha\} b_\beta \\
+				[N, b^\dag_\alpha] = \sum_\beta (b^\dag_\beta \{b_\beta, b^\dag_\alpha\} - \{b^\dag_\beta, b^\dag_\alpha\} b_\beta) = \sum_\beta b^\dag_\beta \{b_\beta, b^\dag_\alpha\}
+			\end{dcases}
+		\end{equation}
+		可见 $\{b_\alpha, b^\dag_\beta\} = \delta_{\alpha \beta}$.
+	\end{tcolorbox}
+\end{itemize}
+
+\section{the Dirac field}
+\begin{itemize}
+	\item $\Psi$ 的 momentum conjecture 为 ($\pi_\Psi^\mu$ 见 \eqref{7.3.4}),
+	\begin{equation}
+		\pi = \frac{\delta \mathcal{L}}{\delta \partial_0 \Psi} = \pi_\Psi^0 = \bar{\Psi} i \gamma^0 = i \Psi^\dag
+	\end{equation}
+\end{itemize}
