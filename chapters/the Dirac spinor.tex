@@ -42,28 +42,29 @@
 	\item gamma 矩阵 (also called Dirac matrices) 如下 (其中 $i = 1, 2, 3$),
 	\begin{equation}
 		\gamma^0 = \begin{pmatrix}
-			I & \\
-			& - I
-		\end{pmatrix} = I \otimes \tau_3 \quad \gamma^i = \begin{pmatrix}
-			& \sigma_i \\
-			- \sigma_i &
-		\end{pmatrix} = i \sigma_i \otimes \tau_2 \quad \Omega = \gamma^0 \gamma^1 \gamma^2 \gamma^3 = - i \begin{pmatrix}
 			& I \\
 			I &
-		\end{pmatrix} = - i I \otimes \tau_1
+		\end{pmatrix} = I \otimes \tau_1 \quad \gamma^i = \begin{pmatrix}
+			& \sigma_i \\
+			- \sigma_i &
+		\end{pmatrix} = i \sigma_i \otimes \tau_2 \quad \gamma^5 = i \Omega = \begin{pmatrix}
+			- I & \\
+			& I
+		\end{pmatrix} = - I \otimes \tau_3
 	\end{equation}
-	其中 $\tau_{2, 3}$ 也是 Pauli 矩阵, 最后, 按照惯例, 定义 $\gamma^5 = i \Omega = I \otimes \tau_1$.
+	其中 $\tau_{2, 3}$ 也是 Pauli 矩阵, $\Omega = \gamma^0 \gamma^1 \gamma^2 \gamma^3$, 有时候使用符号 $\sigma^\mu = (I, \vec{\sigma}), \bar{\sigma}^\mu = (I, - \vec{\sigma})$.
 	\begin{itemize}
 		\item 另外,
 		\begin{equation}
 			\begin{dcases}
-				\gamma^0 \gamma^i = \sigma_i \otimes \tau_1 \\
-				\gamma^i \gamma^j = - (\sigma_i \sigma_j) \otimes I
+				\gamma^0 \gamma^i = - \sigma_i \otimes \tau_3 \\
+				\gamma^i \gamma^j = - (\sigma_i \sigma_j) \otimes I = - i \epsilon_{i j k} \sigma_k \otimes I
 			\end{dcases} \quad \begin{dcases}
-				\Omega \gamma^0 = - I \otimes \sigma_2 \\
-				\Omega \gamma^i = i \sigma_i \otimes \tau_3
+				\Omega \gamma^0 = - I \otimes \tau_2 \\
+				\Omega \gamma^i = - \sigma_i \otimes \tau_2
 			\end{dcases}
 		\end{equation}
+		其中, 用到了 $\sigma_i \sigma_j = i \epsilon_{i j k} \sigma_k$.
 	\end{itemize}
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
@@ -92,33 +93,64 @@
 	\begin{equation}
 		\gamma^\mu \gamma^\nu = \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} + \frac{1}{2} [\gamma^\mu, \gamma^\nu] = \eta^{\mu \nu} + \sigma^{\mu \nu} \Longrightarrow \begin{dcases}
 			\sigma^{0 i} = \begin{pmatrix}
-				& \sigma_i \\
-				\sigma_i &
-			\end{pmatrix} = \sigma_i \otimes \tau_1 \\
+				- \sigma_i & \\
+				& \sigma_i
+			\end{pmatrix} = - \sigma_i \otimes \tau_3 \\
 			\sigma^{i j} = - i \epsilon^{i j k} \begin{pmatrix}
 				\sigma_k & \\
 				& \sigma_k
 			\end{pmatrix} = - i \epsilon^{i j k} \sigma_k \otimes I
 		\end{dcases}
 	\end{equation}
+	与笔记 \href{https://github.com/siyang03/my-note---Lie-Groups-and-Lie-Algebras}{Lie Groups and Lie Algebras} 中 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ 表示对比, 可见 $\pi_{(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})}(J^{\mu \nu}) = \frac{1}{2} \sigma^{\mu \nu}$.
 \end{itemize}
 
-\subsection{gamma matrices under Weyl basis}
+\subsection{gamma matrices under Dirac basis}
 \begin{itemize}
-	\item 做 \eqref{6.2.2} 中的相似变换,
+	\item 做如下相似变换,
 	\begin{equation}
-		\gamma^0 = \begin{pmatrix}
-			& I \\
-			I &
-		\end{pmatrix} \quad \gamma^i = \begin{pmatrix}
-			& \sigma_i \\
-			- \sigma_i &
-		\end{pmatrix} \quad \gamma^5 = \begin{pmatrix}
-			- I & \\
-			& I
+		S = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			I & - I \\
+			I & I
+		\end{pmatrix} \iff S^{- 1} = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			I & I \\
+			- I & I
 		\end{pmatrix}
 	\end{equation}
-	有时候使用符号 $\sigma^\mu = (I, \vec{\sigma}), \bar{\sigma}^\mu = (I, - \vec{\sigma})$.
+	得到,
+	\begin{equation}
+		\gamma^0 = \begin{pmatrix}
+			I & \\
+			& - I
+		\end{pmatrix} = I \otimes \tau_3 \quad \gamma^i = \begin{pmatrix}
+			& \sigma_i \\
+			- \sigma_i &
+		\end{pmatrix} = i \sigma_i \otimes \tau_2 \quad \gamma^5 = \begin{pmatrix}
+			& I \\
+			I &
+		\end{pmatrix} = I \otimes \tau_1
+	\end{equation}
+	
+	\item 另外,
+	\begin{equation}
+		\begin{dcases}
+			\gamma^0 \gamma^i = \sigma_i \otimes \tau_1 \\
+			\gamma^i \gamma^j = - i \epsilon_{i j k} \sigma_k \otimes I
+		\end{dcases} \quad \begin{dcases}
+			\Omega \gamma^0 = - I \otimes \tau_2 \\
+			\Omega \gamma^i = i \sigma_i \otimes \tau_3
+		\end{dcases}
+	\end{equation}
+	以及,
+	\begin{equation}
+		\sigma^{0 i} = \begin{pmatrix}
+			& \sigma_i \\
+			\sigma_i &
+		\end{pmatrix} = \sigma_i \otimes \tau_1 \quad \sigma^{i j} = - i \epsilon^{i j k} \begin{pmatrix}
+			\sigma_k & \\
+			& \sigma_k
+		\end{pmatrix} = - i \epsilon^{i j k} \sigma_k \otimes I
+	\end{equation}
 \end{itemize}
 
 \section{Lorentz transformation and the \texorpdfstring{$(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$}{(1/2, 0)+(0, 1/2)} representation}
@@ -137,53 +169,20 @@
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
-	\item 有 $\pi_{(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})}(J^{\mu \nu}) = \frac{1}{2} \sigma^{\mu \nu}$ (up to a similarity transformation).
-	
-	\begin{tcolorbox}[title=calculation:]
-		做如下相似变换,
-		\begin{equation} \label{6.2.2}
-			S = \frac{\sqrt{2}}{2} \begin{pmatrix}
-				I & I \\
-				- I & I
-			\end{pmatrix} \iff S^{- 1} = \frac{\sqrt{2}}{2} \begin{pmatrix}
-				I & - I \\
-				I & I
-			\end{pmatrix}
-		\end{equation}
-		得到,
-		\begin{equation}
-			S^{- 1} \sigma^{0 i} S = \begin{pmatrix}
-				- \sigma_i & \\
-				& \sigma_i
-			\end{pmatrix} \quad S^{- 1} \sigma^{i j} S = - i \epsilon^{i j k} \begin{pmatrix}
-				\sigma_k & \\
-				& \sigma_k
-			\end{pmatrix}
-		\end{equation}
-		得到的结果和笔记 \href{https://github.com/siyang03/my-note---Lie-Groups-and-Lie-Algebras}{Lie Groups and Lie Algebras} 中 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ 表示是完全一样的.
-	\end{tcolorbox}
-	
-	\item Dirac spinor 是 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ rep. 的 vector space 中的元素,
+	\item Weyl spinor 是 $(\frac{1}{2}, 0) \oplus (0, \frac{1}{2})$ rep. 的 vector space 中的元素,
 	\begin{equation}
 		\Psi = \begin{pmatrix}
-			\phi \\
-			\chi
-		\end{pmatrix} \quad \text{with} \quad S^{- 1} \Psi = \frac{\sqrt{2}}{2} \begin{pmatrix}
-			\phi - \chi \\
-			\phi + \chi
+			\psi_L \\
+			\psi_R
+		\end{pmatrix} \quad \text{with} \quad \Psi_\text{Dirac} = S^{- 1} \Psi = \frac{\sqrt{2}}{2} \begin{pmatrix}
+			\psi_L + \psi_R \\
+			- \psi_L + \psi_R
 		\end{pmatrix}
 	\end{equation}
-	其中,
+	在 Weyl basis 下很容易看出,
 	\begin{equation}
-		\Psi_L = \frac{\sqrt{2}}{2} \begin{pmatrix}
-			\psi_L \\
-			- \psi_L
-		\end{pmatrix} \in (\frac{1}{2}, 0) \quad \text{and} \quad \Psi_R = \frac{\sqrt{2}}{2} \begin{pmatrix}
-			\psi_R \\
-			\psi_R
-		\end{pmatrix} \in (0, \frac{1}{2})
+		\Psi_L = \frac{1}{2} (1 - \gamma^5) \Psi \quad \Psi_R = \frac{1}{2} (1 + \gamma^5) \Psi
 	\end{equation}
-	在 Weyl basis 下很容易看出 $\Psi_L = \frac{1}{2} (1 - \gamma^5) \Psi, \Psi_R = \frac{1}{2} (1 + \gamma^5) \Psi$.
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
@@ -230,7 +229,7 @@
 		\Pi(\Lambda) \Psi(x) = \Psi'(\Lambda x)
 	\end{equation}
 	注意 $\partial'_\mu = \tensor{\Lambda}{_\mu^\nu} \partial_\nu$, 所以,
-	\begin{equation} \label{6.2.12}
+	\begin{equation} \label{6.2.10}
 		(i \gamma^\mu \partial_\mu - m) \Psi(x) = 0 \iff (i \gamma^\mu \partial'_\mu - m) \Psi'(\Lambda x) = 0
 	\end{equation}
 	\begin{itemize}
@@ -261,7 +260,7 @@
 \subsection{Dirac bilinears}
 \begin{itemize}
 	\item $\gamma^0$ 是 Hermitian 矩阵, 而 $\gamma^i$ 不是, 有,
-	\begin{equation} \label{6.2.17}
+	\begin{equation} \label{6.2.15}
 		\gamma^{i \dag} = - \gamma^i = \gamma^0 \gamma^i \gamma^0
 	\end{equation}
 	可以统一写作 $\gamma^{\mu \dag} = \gamma^0 \gamma^\mu \gamma^0$, 并且有,
@@ -281,7 +280,7 @@
 	\end{tcolorbox}
 	
 	\item 所以,
-	\begin{equation} \label{6.2.21}
+	\begin{equation} \label{6.2.19}
 		\begin{dcases}
 			\bar{\Psi}'(\Lambda x) \Psi'(\Lambda x) = \bar{\Psi} \Psi & \text{scalar field} \\
 			\bar{\Psi}' \gamma^\mu \Psi' = \tensor{\Lambda}{^\mu_\nu} \bar{\Psi} \gamma^\nu \Psi & \text{vector field}
@@ -300,7 +299,7 @@
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
 		此外,
-		\begin{equation} \label{6.2.23}
+		\begin{equation} \label{6.2.21}
 			\begin{dcases}
 				\bar{\Psi}' \sigma^{\mu \nu} \Psi' = \Psi^\dag \gamma^0 \Pi(\Lambda^{- 1}) (\gamma^0)^2 \sigma^{\mu \nu} \Pi(\Lambda) \Psi = \tensor{\Lambda}{^\mu_\rho} \tensor{\Lambda}{^\nu_\sigma} \bar{\Psi} \sigma^{\rho \sigma} \Psi & \text{order 2 tensor} \\
 				\bar{\Psi}' \Omega \gamma^\mu \Psi' = \bar{\Psi} \Pi(\Lambda^{- 1}) \Omega \gamma^\mu \Pi(\Lambda) \Psi = \det(\Lambda) \tensor{\Lambda}{^\mu_\nu} \bar{\Psi} \Omega \gamma^\nu \Psi & \text{pseudovector} \\

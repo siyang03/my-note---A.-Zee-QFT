@@ -13,22 +13,22 @@
 		\Longrightarrow & (- \partial^2 - m^2) \Psi = 0
 	\end{align}
 	\begin{itemize}
-		\item 在粒子静止系下 $p_\mu = (m, 0, 0, 0)$, Dirac 方程给出,
+		\item 在粒子静止系下 $p_\mu = (m, 0, 0, 0)$, Dirac 方程给出 (这里采用 Dirac basis),
 		\begin{equation}
-			(\gamma^0 - 1) \tilde{\Psi} = 0 \Longrightarrow \begin{pmatrix}
+			(\gamma^0 - 1) \tilde{\Psi}_\text{Dirac} = 0 \Longrightarrow \begin{pmatrix}
 				0 & \\
 				& I
-			\end{pmatrix} \tilde{\Psi} = 0
+			\end{pmatrix} \tilde{\Psi}_\text{Dirac} = 0
 		\end{equation}
 		因此, $\tilde{\Psi}$ 的后两个分量为零 $\Longrightarrow \Psi$ 只有两个自由度.
 	\end{itemize}
 	
-	\item Dirac 方程的 Lorentz covariance 见 \eqref{6.2.12}.
+	\item Dirac 方程的 Lorentz covariance 见 \eqref{6.2.10}.
 \end{itemize}
 
 \section{Dirac Lagrangian}
 \begin{itemize}
-	\item 根据 \eqref{6.2.21} 以及之前标量场的计算经验, 可知,
+	\item 根据 \eqref{6.2.19} 以及之前标量场的计算经验, 可知,
 	\begin{equation} \label{7.2.1}
 		\mathcal{L} = \bar{\Psi} (i \gamma^\mu \partial_\mu - m) \Psi = (- i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi}) \Psi + \text{total diff.}
 	\end{equation}
@@ -37,8 +37,6 @@
 
 \section{chirality or handedness}
 \begin{itemize}
-	\item 本 section 使用 Weyl basis.
-	
 	\item parity transformation 会把 left spinor 变成 right spinor and vice versa,
 	\begin{equation}
 		\gamma^0 \Psi_L = \begin{pmatrix}
@@ -116,7 +114,7 @@
 	\begin{equation}
 		J_A^\mu = \bar{\Psi} \gamma^\mu \gamma^5 \Psi
 	\end{equation}
-	根据 \eqref{6.2.23}, 是一个 pseudovector.
+	根据 \eqref{6.2.21}, 是一个 pseudovector.
 \end{itemize}
 
 \section{energy-momentum tensor and angular momentum}
@@ -173,7 +171,7 @@
 		\begin{equation}
 			\gamma^0 C^{- 1} \gamma^0 C \gamma^0 = - \gamma^{\mu *} \Longrightarrow C^{- 1} \gamma^0 C = - \gamma^0 \gamma^{\mu *} \gamma^0 = - (\underbrace{\gamma^0 \gamma^\mu \gamma^0}_{= \gamma^{\mu \dag}})^*
 		\end{equation}
-		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{6.2.17}.
+		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{6.2.15}.
 	\end{tcolorbox}
 	
 	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程,
