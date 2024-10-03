@@ -179,9 +179,9 @@
 	
 	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程,
 	\begin{equation}
-		(- i \gamma^{\mu *} (\partial_\mu + i e A_\mu) - m) \Psi^* = 0 \Longrightarrow (\gamma^2)^{- 1} (i \gamma^\mu (\partial_\mu + i e A_\mu) - m) \Psi_c = 0
+		(- i \gamma^{\mu *} (\partial_\mu - i e A_\mu) - m) \Psi^* = 0 \Longrightarrow (\gamma^2)^{- 1} (i \gamma^\mu (\partial_\mu - i e A_\mu) - m) \Psi_c = 0
 	\end{equation}
-	可见 $\Psi_c$ 满足 $e \mapsto - e$ 后的 Dirac 方程, $\Psi_c$ is the field of positron.
+	可见 $\Psi_c$ 满足 $- e \mapsto + e$ 后的 Dirac 方程, $\Psi_c$ is the field of positron.
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
@@ -260,19 +260,21 @@
 
 \section{interaction in QED}
 \begin{itemize}
+	\item 注意, 我们采用通常的符号 $e > 0$, 与 A. Zee 的符号 $e = - |e|$ 不同.
+	
 	\item QED 的 Lagrangian 为,
 	\begin{equation}
 		\mathcal{L}_\text{QED} = \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} - \frac{1}{2} \mu^2 A^\mu A_\mu
 	\end{equation}
 	其中,
 	\begin{equation}
-		D_\mu = \partial_\mu - i e A_\mu
+		D_\mu = \partial_\mu + i e A_\mu
 	\end{equation}
-	可见电子和电磁场耦合项为 $e A_\mu J_V^\mu$, 其中 $J_V^\mu$ 是 internal vector symmetry 的守恒流, 见 \eqref{7.3.3}.
+	可见电子和电磁场耦合项为 $- e A_\mu J_V^\mu$, 其中 $J_V^\mu$ 是 internal vector symmetry 的守恒流, 见 \eqref{7.3.3}.
 	
 	\item QED 里的 Dirac 方程为,
 	\begin{equation}
-		(i \gamma^\mu (\partial_\mu - i e A_\mu) - m) \Psi = 0 \quad \text{and} \quad - i (\partial_\mu + i e A_\mu) \bar{\Psi} \gamma^\mu - m \bar{\Psi} = 0
+		(i \gamma^\mu (\partial_\mu + i e A_\mu) - m) \Psi = 0 \quad \text{and} \quad - i (\partial_\mu - i e A_\mu) \bar{\Psi} \gamma^\mu - m \bar{\Psi} = 0
 	\end{equation}
 \end{itemize}
 

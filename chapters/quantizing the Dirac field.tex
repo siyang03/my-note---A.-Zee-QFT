@@ -1,5 +1,5 @@
 \chapter{quantizing the Dirac field}
-\section{anticommutation}
+\section{anticommutation} \label{8.1}
 \begin{itemize}
 	\item 用 $\alpha, \beta$ 表示电子的量子态 (包括动量和自旋), 那么,
 	\begin{equation}
@@ -30,8 +30,113 @@
 
 \section{the Dirac field}
 \begin{itemize}
+	\item $\Psi(x), \bar{\Psi}$ 有如下形式,
+	\begin{equation}
+		\begin{dcases}
+			\Psi(x) = \sum_{s = \pm 1} \int \frac{d^D p}{(2 \pi)^{D / 2} \sqrt{\omega_p / m}} \, (b^s_{\vec{p}} u(\vec{p}, s) e^{- i p \cdot x} + c^{s \dag}_{\vec{p}} v(\vec{p}, s) e^{i p \cdot x}) \\
+			\bar{\Psi}(x) = \sum_{s = \pm 1} \int \frac{d^D p}{(2 \pi)^{D / 2} \sqrt{\omega_p / m}} \, (b^{s \dag}_{\vec{p}} \bar{u}(\vec{p}, s) e^{i p \cdot x} + c^s_{\vec{p}} \bar{v}(\vec{p}, s) e^{- i p \cdot x})
+		\end{dcases}
+	\end{equation}
+		其中 $\bar{u} = u^\dag \gamma^0, \bar{v} = v^\dag \gamma^0$, 且 $p^0 = \omega_p$, 参数 $u(\vec{p}, s), v(\vec{p}, s)$ 分别满足,
+	\begin{equation}
+		\begin{dcases}
+			(\cancel{p} - m) u(\vec{p}, s) = 0 \\
+			(- \cancel{p} - m) v(\vec{p}, s) = 0
+		\end{dcases}
+	\end{equation}
+	并选择归一化条件,
+	\begin{equation}
+		\begin{dcases}
+			\bar{u}(\vec{p}, s) u(\vec{p}, s') = \delta_{s s'} \\
+			\bar{v}(\vec{p}, s) v(\vec{p}, s') = - \delta_{s s'}
+		\end{dcases} \quad \text{and} \quad \bar{u}(\vec{p}, s) v(\vec{p}, s') = 0
+	\end{equation}
+	\begin{itemize}
+		\item 在\textbf{粒子静止系}下, 方程化为 $(\gamma^0 - 1) u(\vec{p}_r, s) = (\gamma^0 + 1) v(\vec{p}_r, s) = 0$, (其中 $p_r = (m, 0, 0, 0)$), 解为,
+		\begin{equation}
+			\begin{dcases}
+				u(\vec{p}_r, + 1) = \frac{\sqrt{2}}{2} \begin{pmatrix}
+					1 \\
+					0 \\
+					1 \\
+					0
+				\end{pmatrix} \quad u(\vec{p}_r, - 1) = \frac{\sqrt{2}}{2} \begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					1
+				\end{pmatrix} \\
+				v(\vec{p}_r, + 1) = \frac{\sqrt{2}}{2} \begin{pmatrix}
+					- 1 \\
+					0 \\
+					1 \\
+					0
+				\end{pmatrix} \quad v(\vec{p}_r, - 1) = \frac{\sqrt{2}}{2} \begin{pmatrix}
+					0 \\
+					- 1 \\
+					0 \\
+					1
+				\end{pmatrix}
+			\end{dcases}
+		\end{equation}
+		可见 $s = \pm 1$ 分别代表 spin-up 和 spin-down.
+		
+		\item 一般情况下, 解为,
+		\begin{equation}
+			\begin{dcases}
+				u(\vec{p}, + 1) = \sqrt{\frac{\omega_p + m}{2 m}} S \begin{pmatrix}
+					1 \\
+					0 \\
+					\frac{p_3}{m + \omega_p} \\
+					\frac{p_1 + i p_2}{m + \omega_p}
+				\end{pmatrix} \quad u(\vec{p}, - 1) = \sqrt{\frac{\omega_p + m}{2 m}} S \begin{pmatrix}
+					0 \\
+					1 \\
+					\frac{p_1 - i p_2}{m + \omega_p} \\
+					- \frac{p_3}{m + \omega_p}
+				\end{pmatrix} \\
+				v(\vec{p}, + 1) = \sqrt{\frac{\omega_p + m}{2 m}} S \begin{pmatrix}
+					p_3 \frac{\omega_p - m}{|p|^2} \\
+					(p_1 + i p_2) \frac{\omega_p - m}{|p|^2} \\
+					1 \\
+					0
+				\end{pmatrix} \quad v(\vec{p}, - 1) = \sqrt{\frac{\omega_p + m}{2 m}} S \begin{pmatrix}
+					(p_1 - i p_2) \frac{\omega_p - m}{|p|^2} \\
+					- p_3 \frac{\omega_p - m}{|p|^2} \\
+					0 \\
+					1
+				\end{pmatrix}
+			\end{dcases}
+		\end{equation}
+		其中 $S$ 是相似变换矩阵, 见 \eqref{6.1.8}, 可以验证解满足归一化条件.
+		
+		\item 另外,
+		\begin{equation}
+			\begin{dcases}
+				\sum_{s = \pm 1} u(\vec{p}, s) \bar{u}(\vec{p}, s) = \frac{\cancel{p} + m}{2 m} \\
+				\sum_{s = \pm 1} v(\vec{p}, s) \bar{v}(\vec{p}, s) = \frac{\cancel{p} - m}{2 m}
+			\end{dcases}
+		\end{equation}
+	\end{itemize}
+	
+	\item 回顾 section \ref{4.4} 关于 complex scalar field 的内容, 可知 $b^\dag$ 和 $c^\dag$ 产生的粒子具有相反的电荷, 不妨令 $b^\dag$ 产生 electron (带电荷 $- e$), $c^\dag$ 产生 position (带电荷 $e$).
+	
+	\item section \ref{8.1} 中的讨论说明,
+	\begin{equation}
+		\begin{dcases}
+			\{b^s_{\vec{p}}, b^{s'}_{\vec{p}'}\} = 0 \\
+			\{b^s_{\vec{p}}, b^{s' \dag}_{\vec{p}'}\} = \delta^{(D)}(\vec{p} - \vec{p}') \delta_{s s'}
+		\end{dcases}
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
 	\item $\Psi$ 的 momentum conjecture 为 ($\pi_\Psi^\mu$ 见 \eqref{7.3.4}),
 	\begin{equation}
 		\pi = \frac{\delta \mathcal{L}}{\delta \partial_0 \Psi} = \pi_\Psi^0 = \bar{\Psi} i \gamma^0 = i \Psi^\dag
+	\end{equation}
+	存在如下 anticommutation relation,
+	\begin{equation}
+		\{\Psi_\alpha(t, \vec{x}), i \Psi^\dag_\beta(t, \vec{y})\} = i \delta^{(D)}(\vec{x} - \vec{y}) \delta_{\alpha \beta}
 	\end{equation}
 \end{itemize}
