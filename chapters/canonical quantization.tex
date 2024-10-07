@@ -123,9 +123,18 @@
 		\braket{0 | \phi(x) \phi(y) | 0} = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} e^{i k \cdot (x - y)}
 	\end{equation}
 	其中 $k^0 = \omega_k$. 因此, 对比 \eqref{1.2.1}, 有,
-	\begin{equation}
+	\begin{equation} \label{4.1.17}
 		\braket{0 | T(\phi(x) \phi(y)) | 0} = i D(x - y)
 	\end{equation}
+\end{itemize}
+
+\subsubsection{energy-momentum tensor}
+\begin{itemize}
+	\item scalar field 的动量算符为,
+	\begin{equation}
+		P^\mu = \int d^D x \, T^{0 \mu} = \int d^D k \, k^\mu a^\dag_{\vec{k}} a_{\vec{k}}
+	\end{equation}
+	其中, energy-momentum tensor 见 subsection \ref{D.2.3}, 另外 $P^0 = H$ 还有一个 vacuum energy.
 \end{itemize}
 
 \section{interaction picture}
