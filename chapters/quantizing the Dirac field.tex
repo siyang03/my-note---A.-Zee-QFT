@@ -75,7 +75,10 @@
 				m \xi'
 			\end{pmatrix} \Longrightarrow \xi = \sqrt{p \cdot \sigma} \xi' \Longrightarrow \cdots
 		\end{equation}
-		其中 $\xi$ 可以任意选取.
+		其中 $\xi$ 可以任意选取, 并且注意到了 $[(p \cdot \sigma), (p \cdot \bar{\sigma})] = 0$, 因此,
+		\begin{equation}
+			\sqrt{p \cdot \sigma} \sqrt{p \cdot \bar{\sigma}} = \sqrt{(p \cdot \sigma) (p \cdot \bar{\sigma})} = m
+		\end{equation}
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
@@ -115,11 +118,7 @@
 				\end{pmatrix}
 			\end{dcases}
 		\end{equation}
-		其中,
-		\begin{equation}
-			\alpha = \sqrt{|\vec{p}| + \omega_p} \quad \beta = \sqrt{- |\vec{p}| + \omega_p}
-		\end{equation}
-		并且 $\sqrt{p \cdot \sigma} \sqrt{p \cdot \bar{\sigma}} = \sqrt{(p \cdot \sigma) (p \cdot \bar{\sigma})} = m$ 似乎并不 trivial \textcolor{red}{(?)}.
+		其中 $\alpha = \sqrt{|\vec{p}| + \omega_p}, \beta = \sqrt{- |\vec{p}| + \omega_p}$.
 	\end{tcolorbox}
 	
 	\item 选择归一化条件,
