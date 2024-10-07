@@ -99,6 +99,27 @@
 				m \chi'
 			\end{pmatrix} \Longrightarrow \chi = - \sqrt{p \cdot \sigma} \chi' \Longrightarrow \cdots
 		\end{equation}
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		最后,
+		\begin{equation}
+			\begin{dcases}
+				\sqrt{p \cdot \sigma} = \begin{pmatrix}
+					\frac{p^3 (\alpha - \beta) + |\vec{p}| (\alpha + \beta)}{2 |\vec{p}|} & \frac{p_1 - i p_2}{\alpha + \beta} \\
+					\frac{p_1 + i p_2}{\alpha + \beta} & \frac{- p_3 (\alpha - \beta) + |\vec{p}| (\alpha + \beta)}{2 |\vec{p}|}
+				\end{pmatrix} \\
+				\sqrt{p \cdot \bar{\sigma}} = \begin{pmatrix}
+					\frac{- p_3 (\alpha - \beta) + |\vec{p}| (\alpha + \beta)}{2 |\vec{p}|} & - \frac{(p_1 - i p_2)}{\alpha + \beta} \\
+					- \frac{(p_1 + i p_2)}{\alpha + \beta} & \frac{p^3 (\alpha - \beta) + |\vec{p}| (\alpha + \beta)}{2 |\vec{p}|}
+				\end{pmatrix}
+			\end{dcases}
+		\end{equation}
+		其中,
+		\begin{equation}
+			\alpha = \sqrt{|\vec{p}| + \omega_p} \quad \beta = \sqrt{- |\vec{p}| + \omega_p}
+		\end{equation}
+		并且 $\sqrt{p \cdot \sigma} \sqrt{p \cdot \bar{\sigma}} = \sqrt{(p \cdot \sigma) (p \cdot \bar{\sigma})} = m$ 似乎并不 trivial \textcolor{red}{(?)}.
 	\end{tcolorbox}
 	
 	\item 选择归一化条件,
@@ -326,7 +347,7 @@
 \begin{itemize}
 	\item Dirac field 的角动量算符为,
 	\begin{equation}
-		J^{i j} = \int d^3 \, M^{0 i j} =
+		J^{i j} = \int d^3 \, M^{0 i j} = \textcolor{red}{(?)}
 	\end{equation}
 	其中, $M^{\mu \nu \rho}$ 见 \eqref{7.4.2}.
 	
