@@ -41,8 +41,8 @@
 			\sqrt{p \cdot \sigma} \xi \\
 			\sqrt{p \cdot \bar{\sigma}} \xi
 		\end{pmatrix} \quad v = \begin{pmatrix}
-			\sqrt{p \cdot \sigma} \chi \\
-			- \sqrt{p \cdot \bar{\sigma}} \chi
+			- \sqrt{p \cdot \sigma} \chi \\
+			\sqrt{p \cdot \bar{\sigma}} \chi
 		\end{pmatrix}
 	\end{equation}
 	其中 $\xi, \chi$ 为任意 $2-\dim$ 列向量, 因此 $u(\vec{p}), v(\vec{p})$ 各有两个独立解, 分别用 $u(\vec{p}, s), v(\vec{p}, s), s = \pm 1$ 表示.
@@ -92,7 +92,7 @@
 				p \cdot \bar{\sigma} v_1 = - m v_2
 			\end{dcases}
 		\end{equation}
-		令 $v_1 = \sqrt{p \cdot \sigma}$, 那么...
+		令 $v_1 = - \sqrt{p \cdot \sigma} \chi$, 那么...
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
@@ -122,33 +122,27 @@
 	\end{equation}
 	可以选取,
 	\begin{equation}
-		\xi^{+ 1} = \chi^{+ 1} = \begin{pmatrix}
-			1 \\
-			0
-		\end{pmatrix} \quad \xi^{- 1} = \chi^{- 1} = \begin{pmatrix}
-			0 \\
-			1
-		\end{pmatrix}
+		\xi^{+ 1} = \chi^{+ 1} = (1, 0)^T \quad \xi^{- 1} = \chi^{- 1} = (0, 1)^T
 	\end{equation}
 	\begin{itemize}
 		\item 在粒子静止系下, $p_r = (m, 0, 0, 0)$,
 		\begin{equation}
-			u(\vec{p}_r, + 1) = m \begin{pmatrix}
+			\frac{u(\vec{p}_r, + 1)}{\sqrt{m}} = \begin{pmatrix}
 				1 \\
 				0 \\
 				1 \\
 				0
-			\end{pmatrix} \quad u(\vec{p}_r, - 1) = m \begin{pmatrix}
+			\end{pmatrix} \quad \frac{u(\vec{p}_r, - 1)}{\sqrt{m}} = \begin{pmatrix}
 				0 \\
 				1 \\
 				0 \\
 				1
-			\end{pmatrix} v(\vec{p}_r, + 1) = m \begin{pmatrix}
+			\end{pmatrix} \quad \frac{v(\vec{p}_r, + 1)}{\sqrt{m}} = \begin{pmatrix}
 				- 1 \\
 				0 \\
 				1 \\
 				0
-			\end{pmatrix} \quad v(\vec{p}_r, - 1) = m \begin{pmatrix}
+			\end{pmatrix} \quad \frac{v(\vec{p}_r, - 1)}{\sqrt{m}} = \begin{pmatrix}
 				0 \\
 				- 1 \\
 				0 \\
@@ -156,6 +150,17 @@
 			\end{pmatrix}
 		\end{equation}
 		可见 $s = \pm 1$ 分别代表 spin-up 和 spin-down.
+		
+		\item 另外, 我们注意到 (对 $v$ 同样适用),
+		\begin{equation}
+			\begin{pmatrix}
+				\omega_p \\
+				\vec{p}
+			\end{pmatrix} = e^{\lambda J^{0 1}} \begin{pmatrix}
+				m \\
+				0
+			\end{pmatrix} \iff u(\vec{p}, s) = e^{\frac{1}{2} \lambda \sigma^{0 1}} u(\vec{p}_r, s) \quad \text{with} \quad \frac{p_1}{m} = \sinh \lambda
+		\end{equation}
 	\end{itemize}
 	
 	\item 最后,
