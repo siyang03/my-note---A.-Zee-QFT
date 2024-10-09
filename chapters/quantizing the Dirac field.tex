@@ -99,11 +99,10 @@
 		最后,
 		\begin{equation}
 			\begin{dcases}
-				\sqrt{p \cdot \sigma} = \frac{\alpha + \beta}{2} I + \frac{1}{\alpha + \beta} \vec{p} \cdot \vec{\sigma} \\
-				\sqrt{p \cdot \bar{\sigma}} = \frac{\alpha + \beta}{2} I - \frac{1}{\alpha + \beta} \vec{p} \cdot \vec{\sigma}
+				\sqrt{p \cdot \sigma} = \sqrt{\frac{m + \omega_p}{2}} I + \frac{1}{\sqrt{2 (m + \omega_p)}} \vec{p} \cdot \vec{\sigma} \\
+				\sqrt{p \cdot \bar{\sigma}} = \sqrt{\frac{m + \omega_p}{2}} I - \frac{1}{\sqrt{2 (m + \omega_p)}} \vec{p} \cdot \vec{\sigma}
 			\end{dcases}
 		\end{equation}
-		其中 $\alpha = \sqrt{|\vec{p}| + \omega_p}, \beta = \sqrt{- |\vec{p}| + \omega_p}$.
 	\end{tcolorbox}
 	
 	\item 选择归一化条件,
@@ -323,8 +322,7 @@
 		\end{align}
 		代入,
 		\begin{align}
-			P^\mu =& \int d^3 x \, \cdots \notag \\
-			=& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( p^\mu b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) b^{s_2}_{\vec{p}} u(\vec{p}, s_2) - (- p^\mu) b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) c^{s_2 \dag}_{- \vec{p}} v(- \vec{p}, s_2) e^{2 i \omega_p t} \notag \\
+			P^\mu =& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( p^\mu b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) b^{s_2}_{\vec{p}} u(\vec{p}, s_2) - (- p^\mu) b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) c^{s_2 \dag}_{- \vec{p}} v(- \vec{p}, s_2) e^{2 i \omega_p t} \notag \\
 			& + (- p^\mu) c^{s_1}_{\vec{p}} v^\dag(\vec{p}, s_1) b^{s_2}_{- \vec{p}} u(- \vec{p}, s_2) - p^\mu c^{s_1}_{\vec{p}} v^\dag(\vec{p}, s_1) c^{s_2 \dag}_{\vec{p}} v(\vec{p}, s_2) \Big) \notag \\
 			=& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( p^\mu b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} (2 \omega_p \delta_{s_1 s_2}) - p^\mu c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}} (2 \omega_p \delta_{s_1 s_2}) \Big) \notag \\
 			=& \int d^3 p \, p^\mu (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} - c^s_{\vec{p}} c^{s \dag}_{\vec{p}})
@@ -334,12 +332,18 @@
 
 \subsection{angular momentum}
 \begin{itemize}
-	\item Dirac field 的角动量算符为,
+	\item Dirac field 的角动量算符为 (这部分在 Peskin 上有),
 	\begin{align}
 		J^{i j} &= \int d^3 \, M^{0 i j} \notag \\
-		&= \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} m (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2} + \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i})
+		&= \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int d^3 p \, \frac{m}{2 \omega_p} (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2} + \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i})
 	\end{align}
 	其中, $M^{\mu \nu \rho}$ 见 \eqref{7.4.2}.
+	\begin{itemize}
+		\item 把角动量算符中 spin 的部分表示为 $S^{i j}$, 那么,
+		\begin{equation}
+			S^{1 2} b^{s \dag}_{\vec{p}} \ket{0} = s \frac{m}{2 \omega_p} b^{s \dag}_{\vec{p}} \ket{0} \quad S^{1 2} c^{s \dag}_{\vec{p}} \ket{0} = - s \frac{m}{2 \omega_p} c^{s \dag}_{\vec{p}} \ket{0}
+		\end{equation}
+	\end{itemize}
 	
 	\begin{tcolorbox}[title=calculation:]
 		角动量张量为,
@@ -350,7 +354,7 @@
 		\end{align}
 		代入,
 		\begin{align}
-			J^{\mu \nu} - \int d^3 x \, (x^\mu T^{0 \nu} - x^\nu T^{0 \mu}) =& \frac{i}{2} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} \Big( b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) \sigma^{\mu \nu} b^{s_2}_{\vec{p}} u(\vec{p}, s_2) \notag \\
+			J^{\mu \nu} - \int d^3 x \, (x^\mu T^{0 \nu} - x^\nu T^{0 \mu}) =& \frac{i}{2} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) \sigma^{\mu \nu} b^{s_2}_{\vec{p}} u(\vec{p}, s_2) \notag \\
 			& + b^{s_1 \dag}_{\vec{p}} u^\dag(\vec{p}, s_1) \sigma^{\mu \nu} c^{s_2 \dag}_{- \vec{p}} v(- \vec{p}, s_2) e^{2 i \omega_p t} \notag \\
 			& + c^{s_1}_{\vec{p}} v^\dag(\vec{p}, s_1) \sigma^{\mu \nu} b^{s_2}_{- \vec{p}} u(- \vec{p}, s_2) e^{- 2 i \omega_p t} \notag \\
 			& + c^{s_1}_{\vec{p}} v^\dag(\vec{p}, s_1) \sigma^{\mu \nu} c^{s_2 \dag}_{\vec{p}} v(\vec{p}, s_2) \Big)
@@ -358,15 +362,15 @@
 		其中,
 		\begin{equation}
 			\begin{dcases}
-				u^\dag(\vec{p}, s_1) \sigma^{i j} u(\vec{p}, s_2) = - 2 i \epsilon^{i j k} \underbrace{\Big( \Big( \frac{\alpha + \beta}{2} \Big)^2 - \frac{|\vec{p}|^2}{(\alpha + \beta)^2} \Big)}_{= m} \xi^{s_1 \dag} \sigma_k \xi^{s_2} \\
+				u^\dag(\vec{p}, s_1) \sigma^{i j} u(\vec{p}, s_2) = - 2 i \epsilon^{i j k} m \xi^{s_1 \dag} \sigma_k \xi^{s_2} \\
 				u^\dag(\vec{p}, s_1) \sigma^{i j} v(- \vec{p}, s_2) = 0 \\
 				v^\dag(\vec{p}, s_1) \sigma^{i j} u(- \vec{p}, s_2) = 0 \\
-				v^\dag(\vec{p}, s_1) \sigma^{i j} v(\vec{p}, s_2) = - 2 i \epsilon^{i j k} \Big( \Big( \frac{\alpha + \beta}{2} \Big)^2 - \frac{|\vec{p}|^2}{(\alpha + \beta)^2} \Big) \chi^{s_1 \dag} \sigma_k \chi^{s_2}
+				v^\dag(\vec{p}, s_1) \sigma^{i j} v(\vec{p}, s_2) = - 2 i \epsilon^{i j k} m \chi^{s_1 \dag} \sigma_k \chi^{s_2}
 			\end{dcases}
 		\end{equation}
 		代入 (注意到 $\xi^s = \chi^s$),
 		\begin{equation}
-			J^{i j} - \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i}) = \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} m (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2}
+			J^{i j} - \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i}) = \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} m (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2}
 		\end{equation}
 	\end{tcolorbox}
 \end{itemize}
