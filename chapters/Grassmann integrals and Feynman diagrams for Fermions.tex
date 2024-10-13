@@ -1,5 +1,84 @@
 \chapter{Grassmann integrals and Feynman diagrams for Fermions}
 \section{Grassmann number and Grassmann integrals}
 \begin{itemize}
+	\item 对于 Grassmann number $\theta_1, \theta_2$, 有反对易关系,
+	\begin{equation}
+		\theta_1 \theta_2 = - \theta_2 \theta_1
+	\end{equation}
+	因此 $\theta^2 = 0$, 且关于 Grassmann number 最一般的函数为,
+	\begin{equation}
+		f(\theta) = a \theta + b
+	\end{equation}
+	其中 $a, b \in \mathbb{C}$.
+	
+	\item 注意到 $(\theta_1 \theta_2) \theta_3 = \theta_3 (\theta_1 \theta_2)$, 所以有 $\theta_1 \theta_2 \in \mathbb{C}$.
+	
+	\item 定义 Grassmann integral (也称作 Berezin integral),
+	\begin{equation}
+		\int d\theta \, \theta = 1 \quad \int d\theta = 0
+	\end{equation}
+	并且具有 linearity.
+	
+	\begin{tcolorbox}[title=comment:]
+		我们希望积分在 integration variable been shifted 之后 ($\theta \mapsto \theta + \eta$) 保持不变,
+		\begin{equation}
+			\int d\theta \, (a \theta + b) = \int d\theta \, (a \theta + a \eta + b)
+		\end{equation}
+		因此, 积分结果应该与常数无关, 只与斜率有关, 所以直接定义,
+		\begin{equation}
+			\int d\theta \, (a \theta + b) = a
+		\end{equation}
+	\end{tcolorbox}
+	
+	\begin{itemize}
+		\item 另外, 对于 $f(\theta) = \eta \theta + b$, 有,
+		\begin{equation}
+			\int d\theta \, (\eta \theta + b) = \int d\theta \, (- \theta \eta + b) = - \eta
+		\end{equation}
+	\end{itemize}
+\end{itemize}
+
+\subsection{Gaussian-Berezin integrals}
+\begin{itemize}
+	\item 回顾 section \ref{1.4} 和 \eqref{8.4.2}, 我们希望 Gauss 积分中出现正号而不是符号, 即,
+	\begin{equation}
+		\int dx \, e^{- \frac{1}{2} a x^2} = \sqrt{2 \pi} e^{- \frac{1}{2} \ln a} \mapsto \propto e^{\mathcolor{red}{+} \frac{1}{2} \ln a}
+	\end{equation}
+	
+	\item 对于两个独立的 Grassmann number $\theta, \bar{\theta}$, 有 Gauss 积分,
+	\begin{equation}
+		\int d\theta \int d\bar{\theta} \, e^{\bar{\theta} a \theta} = \int d\theta \int d\bar{\theta} \, (1 + \bar{\theta} a \theta) = a = e^{\mathcolor{red}{+} \ln a}
+	\end{equation}
+	
+	\item 推广以上积分, 对于 $\theta = (\theta_1, \cdots, \theta_N) \in V, \bar{\theta} = (\bar{\theta}_1, \cdots, \bar{\theta}_N) \in V^*$, 有,
+	\begin{equation}
+		\int d\theta \int d\bar{\theta} \, e^{\bar{\theta} A \theta} = \det A
+	\end{equation}
+	其中 $A$ 是 $N \times N$ normal matrix.
+	
+	\begin{tcolorbox}[title=calculation:]
+		对向量做幺正变换, $\eta = U \theta, \bar{\eta} = \bar{\theta} U^\dag$, 使得 $A$ 对角化 $D = U A U^\dag$,
+		\begin{align}
+			I &= \int d\eta \int d\bar{\eta} \, e^{\bar{\eta} D \eta} \notag \\
+			&= \sum_{n = 0}^\infty \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{\big( \sum_{i = 1}^N \bar{\eta}_i D_i \eta_i \big)^n}{n!}
+		\end{align}
+		其中, 唯一不为零的项是 $\propto \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)$, 并且注意到 $\bar{\eta}_i D_i \eta_i \in \mathbb{C}$, 所以,
+		\begin{align}
+			I &= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{n! \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)}{n!} \notag \\
+			&= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, (\bar{\eta}_N D_N \eta_N) \cdots (\bar{\eta}_1 D_1 \eta_1) \notag \\
+			&= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_{N - 1} \, \overbrace{(\bar{\eta}_{N - 1} D_{N - 1} \eta_{N - 1}) \cdots (\bar{\eta}_1 D_1 \eta_1)}^{\in \mathbb{C}} D_N \eta_N \notag \\
+			&= \cdots = \int d\eta_1 \cdots d\eta_N \, D_N \eta_N \cdots D_1 \eta_1 = \prod_{i = 1}^N D_i = \det A
+		\end{align}
+	\end{tcolorbox}
+	
+	\item 进一步推广,
+	\begin{equation}
+		\int d\theta \int d\bar{\theta} \, e^{\bar{\theta} A \theta + \bar{J} \theta + \bar{\theta} J} = \det A \, e^{- \bar{J} A^{- 1} J}
+	\end{equation}
+	只需要注意到 $(\bar{\theta} + \bar{J} A^{- 1}) A (\theta + A^{- 1} J) = \bar{\theta} A \theta + \bar{J} \theta + \bar{\theta} J + \bar{J} A^{- 1} J$, 其中 $J \in V, \bar{J} \in V^*$ 都是 Grassmann number 组成的向量.
+\end{itemize}
+
+\section{Grassmann path integral}
+\begin{itemize}
 	\item 
 \end{itemize}
