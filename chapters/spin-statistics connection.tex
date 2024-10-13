@@ -1,2 +1,55 @@
 \chapter{spin-statistics connection}
+\begin{itemize}
+	\item \textbf{spin-statistics theorem:} 在 3 维空间中, 具有整数自旋的粒子遵守 Bose-Einstein statistics, 具有半整数自旋的粒子遵守 Fermi-Dirac statistics.
+	
+	\item 本 chapter 不对此做出证明, 只是举例说明不能满足 spin-statistics theorem 会导致什么样的后果.
+\end{itemize}
 
+\section{the price of perversity}
+\subsection{scalar field}
+\begin{itemize}
+	\item 如果 scalar field 满足 anticommutation relation, 那么,
+	\begin{equation}
+		\{\phi(\vec{x}, t), \phi(\vec{y}, t)\} = \int \frac{d^D k}{(2 \pi)^D \omega_k} \cos(\vec{k} \cdot (\vec{x} - \vec{y})) \neq 0
+	\end{equation}
+	违反狭义相对论.
+	
+	\begin{tcolorbox}[title=calculation:]
+		代入 \eqref{4.1.11},
+		\begin{equation}
+			\{\phi(\vec{x}, t), \phi(\vec{y}, t)\} = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} (e^{i \vec{k} \cdot (\vec{x} - \vec{y})} + e^{- i \vec{k} \cdot (\vec{x} - \vec{y})}) = \cdots
+		\end{equation}
+	\end{tcolorbox}
+\end{itemize}
+
+\subsection{Dirac field}
+\begin{itemize}
+	\item 如果 Dirac field 满足 commutation relation, 那么,
+	\begin{equation}
+		[\Psi(\vec{x}, t), \Psi^\dag(\vec{y}, t)] = \int \frac{d^3 p}{(2 \pi)^3 \omega_p} (i \cancel{p} \gamma^0 \sin(\vec{p} \cdot (\vec{x} - \vec{y})) + m \gamma^0 \cos(\vec{p} \cdot (\vec{x} - \vec{y})))
+	\end{equation}
+	考虑可观测量 $J_V^0 = \Psi^\dag \Psi$ (其中 $x = (\vec{x}, t), y = (\vec{y}, t)$),
+	\begin{equation}
+		[J_V^0(x), J_V^0(y)] = \Psi^\dag_\alpha(x) [\Psi_\alpha(x), \Psi^\dag_\beta(y)] \Psi_\beta(y) - \Psi^\dag_\beta(y) [\Psi_\beta(y), \Psi^\dag_\alpha(x)] \Psi_\alpha(x)
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		代入 \eqref{8.3.1},
+		\begin{align}
+			[\Psi(\vec{x}, t), \Psi^\dag(\vec{y}, t)] &= \sum_{s = \pm 1} \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} (u(\vec{p}, s) u^\dag(\vec{p}, s) e^{i \vec{p} \cdot (\vec{x} - \vec{y})} - v(\vec{p}, s) v^\dag(\vec{p}, s) e^{- i \vec{p} \cdot (\vec{x} - \vec{y})}) \notag \\
+			&= \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} ((\cancel{p} + m) \gamma^0 e^{i \vec{p} \cdot (\vec{x} - \vec{y})} - (\cancel{p} - m) \gamma^0 e^{- i \vec{p} \cdot (\vec{x} - \vec{y})}) \notag \\
+			&= \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} (2 i \cancel{p} \gamma^0 \sin(\vec{p} \cdot (\vec{x} - \vec{y})) + 2 m \gamma^0 \cos(\vec{p} \cdot (\vec{x} - \vec{y})))
+		\end{align}
+		
+		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+		
+		然后,
+		\begin{align}
+			[J_V^0(x), J_V^0(y)] =& \Psi^\dag_\alpha(x) [\Psi_\alpha(x), \Psi^\dag_\beta(y)] \Psi_\beta(y) - \Psi^\dag_\beta(y) [\Psi_\beta(y), \Psi^\dag_\alpha(x)] \Psi_\alpha(x) \notag \\
+			=& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p_1 d^3 p_2 d^3 q}{(2 \pi)^6 \sqrt{4 \omega_{p_1} \omega_{p_2}} \omega_q} (b^{s_1 \dag}_{\vec{p}_1} u^\dag(\vec{p}_1, s_1) e^{i p_1 \cdot x} + c^{s_1}_{\vec{p}_1} v^\dag(\vec{p}_1, s_1) e^{- i p_1 \cdot x}) \notag \\
+			& (i \cancel{q} \gamma^0 \sin(\vec{q} \cdot (\vec{x} - \vec{y})) + m \gamma^0 \cos(\vec{q} \cdot (\vec{x} - \vec{y}))) \notag \\
+			& (b^{s_2}_{\vec{p}_2} u(\vec{p}_2, s_2) e^{- i p_2 \cdot y} + c^{s_2}_{\vec{p}_2} v(\vec{p}_2, s_2) e^{i p_2 \cdot y}) - (x \leftrightarrow y)
+		\end{align}
+		注意到 $p_1 \neq p_2$, 这种情况怎么算 \textcolor{red}{(?)}.
+	\end{tcolorbox}
+\end{itemize}

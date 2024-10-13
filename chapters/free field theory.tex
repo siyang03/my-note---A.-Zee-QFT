@@ -122,3 +122,60 @@
 	\end{tcolorbox}
 \end{itemize}
 
+\section{vacuum energy}
+\begin{itemize}
+	\item 注意到,
+	\begin{equation} \label{1.4.1}
+		Z(J = 0) = \braket{0 | e^{- i H T} | 0}
+	\end{equation}
+	所以,
+	\begin{equation}
+		E_0 = \braket{0 | H | 0} = \int \frac{d^D k}{(2 \pi)^D} \frac{1}{2} \omega_k + \text{irrelevant terms}
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		代入 \eqref{B.1.1} (其中 $N$ 是时空格点总数),
+		\begin{equation}
+			Z(J = 0) = (2 \pi)^{\frac{N}{2}} (\det A)^{- \frac{1}{2}}
+		\end{equation}
+		其中 $A = - i (\partial^2 - m^2 + i \epsilon)$.
+		\begin{itemize}
+			\item 注意到 $\det e^A = e^{\mathrm{tr} \, A} \Longrightarrow \det A = e^{\mathrm{tr} \, \ln A}$, 代入, 并有,
+			\begin{equation}
+				(\ln A) \phi(x) = \int \frac{d^d k}{(2 \pi)^d} e^{i k \cdot x} \ln(- i (- k^2 - m^2 + i \epsilon)) \tilde{\phi}(k)
+			\end{equation}
+			对于 $A : v \mapsto u$ 以及变换 $P : v \mapsto \tilde{v}$, 有 $P A P^{- 1} : \tilde{v} \mapsto \tilde{u}$, 且 $\mathrm{tr} \, A = \mathrm{tr} \, P A P^{- 1}$, 所以,
+			\begin{align}
+				- \frac{1}{2} \mathrm{tr} \, \ln A = - \frac{1}{2} \mathrm{tr} \, \ln(- i (- k^2 - m^2 + i \epsilon)) &= - \frac{1}{2} \sum_k \ln(- i (- k^2 - m^2 + i \epsilon)) \notag \\
+				&= - \frac{1}{2} \frac{V T}{(2 \pi)^d} \int d^d k \, \ln(- i (- k^2 - m^2 + i \epsilon))
+			\end{align}
+			其中, 参考 \eqref{A.2.5}, 有 $\sum_k = \frac{V T}{(2 \pi)^d} \int d^d k$.
+		\end{itemize}
+		
+		代入 \eqref{1.4.1},
+		\begin{align}
+			E_0 &= \frac{i}{T} \Big( \frac{N}{2} \ln (2 \pi) - \frac{1}{2} \frac{V T}{(2 \pi)^d} \int d^d k \, \ln(- i (- k^2 - m^2 + i \epsilon)) \Big) \notag \\
+			&= \frac{i N}{2 T} \ln (2 \pi) - \frac{i}{2} V \int \frac{d^d k}{(2 \pi)^d} \Big( \ln(\underbrace{- k^2 - m^2 + i \epsilon}_{= (k^0)^2 - \omega_k^2 + i \epsilon}) - \frac{\pi}{2} i \Big)
+		\end{align}
+		略去与 $m$ 无关的常数项,
+		\begin{equation}
+			\frac{\Delta E_0}{V} = - \frac{i}{2} \int \frac{d^D k}{(2 \pi)^D} \int \frac{dk^0}{2 \pi} \ln((k^0)^2 - \omega_k^2 + i \epsilon)
+		\end{equation}
+		做分部积分,
+		\begin{equation}
+			\ln((k^0)^2 - \omega_k^2 + i \epsilon) = \frac{d}{dk^0} (k^0 \ln((k^0)^2 - \omega_k^2 + i \epsilon)) - k^0 \frac{2 k^0}{(k^0)^2 - \omega_k^2 + i \epsilon}
+		\end{equation}
+		代入,
+		\begin{align}
+			\frac{E_0}{V} &= \frac{i}{2} \int \frac{d^D k}{(2 \pi)^D} \int \frac{dk^0}{2 \pi} \frac{2 (k^0)^2}{(k^0)^2 - \omega_k^2 + i \epsilon} \notag \\
+			&= \frac{i}{2} \int \frac{d^D k}{(2 \pi)^D} \Big( \frac{1}{2 \pi} 2 \pi i \frac{2 (- \omega_k)^2}{- 2 \omega_k} \Big) = \int \frac{d^D k}{(2 \pi)^D} \frac{1}{2} \omega_k
+		\end{align}
+		另外, $\ln(z^2 - 1 + i \epsilon)$ 的图像如下,
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{figures/ln(z^2 - 1 + i epsilon).pdf}
+			\caption{graph of $\ln(z^2 - 1 + i \epsilon)$}
+		\end{figure}
+	\end{tcolorbox}
+\end{itemize}

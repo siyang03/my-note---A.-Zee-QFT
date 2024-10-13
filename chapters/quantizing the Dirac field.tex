@@ -103,6 +103,28 @@
 				\sqrt{p \cdot \bar{\sigma}} = \sqrt{\frac{m + \omega_p}{2}} I - \frac{1}{\sqrt{2 (m + \omega_p)}} \vec{p} \cdot \vec{\sigma}
 			\end{dcases}
 		\end{equation}
+		以及一些有用的公式,
+		\begin{equation}
+			\begin{dcases}
+				\sqrt{p \cdot \sigma} \sigma^\mu \sqrt{p \cdot \sigma} = \begin{cases}
+					\omega_p + \vec{p} \cdot \vec{\sigma} & \mu = 0 \\
+					\omega_p \sigma^i + p^i + \frac{\vec{p} \cdot \vec{\sigma}}{2 (m + \omega_p)} 2 i \epsilon_{i j k} p^j \sigma^k & \mu = i
+				\end{cases} \\
+				\sqrt{p \cdot \bar{\sigma}} \sigma^\mu \sqrt{p \cdot \bar{\sigma}} = \begin{cases}
+					\omega_p - \vec{p} \cdot \vec{\sigma} & \mu = 0 \\
+					\omega_p \sigma^i - p^i + \frac{\vec{p} \cdot \vec{\sigma}}{2 (m + \omega_p)} 2 i \epsilon_{i j k} p^j \sigma^k & \mu = i
+				\end{cases} \\
+				\sqrt{p \cdot \sigma} \sigma^\mu \sqrt{p \cdot \bar{\sigma}} = \begin{cases}
+					m & \mu = 0 \\
+					m \sigma^i - \frac{\sqrt{p \cdot \sigma}}{\sqrt{2 (m + \omega_p)}} 2 i \epsilon_{i j k} p^j \sigma_k & \mu = i
+				\end{cases} \\
+				\sqrt{p \cdot \bar{\sigma}} \sigma^\mu \sqrt{p \cdot \sigma} = \begin{cases}
+					m & \mu = 0 \\
+					m \sigma^i + \frac{\sqrt{p \cdot \bar{\sigma}}}{\sqrt{2 (m + \omega_p)}} 2 i \epsilon_{i j k} p^j \sigma_k & \mu = i
+				\end{cases}
+			\end{dcases}
+		\end{equation}
+		另外 $(- p) \cdot \sigma = p \cdot \bar{\sigma}, (- p) \cdot \bar{\sigma} = p \cdot \sigma$, 其中 $(- p) = (\omega_p, - \vec{p})$.
 	\end{tcolorbox}
 	
 	\item 选择归一化条件,
@@ -164,7 +186,10 @@
 	
 	\item 最后,
 	\begin{equation}
-		\sum_{s = \pm 1} u(\vec{p}, s) \bar{u}(\vec{p}, s) = \cancel{p} + m \quad \sum_{s = \pm 1} v(\vec{p}, s) \bar{v}(\vec{p}, s) = \cancel{p} - m
+		\begin{dcases}
+			\sum_{s = \pm 1} u(\vec{p}, s) \bar{u}(\vec{p}, s) = \cancel{p} + m \\
+			\sum_{s = \pm 1} v(\vec{p}, s) \bar{v}(\vec{p}, s) = \cancel{p} - m
+		\end{dcases}
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
@@ -210,7 +235,7 @@
 \section{the Dirac field}
 \begin{itemize}
 	\item $\Psi(x), \bar{\Psi}$ 有如下形式,
-	\begin{equation}
+	\begin{equation} \label{8.3.1}
 		\begin{dcases}
 			\Psi(x) = \sum_{s = \pm 1} \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (b^s_{\vec{p}} u(\vec{p}, s) e^{- i p \cdot x} + c^{s \dag}_{\vec{p}} v(\vec{p}, s) e^{i p \cdot x}) \\
 			\bar{\Psi}(x) = \sum_{s = \pm 1} \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (b^{s \dag}_{\vec{p}} \bar{u}(\vec{p}, s) e^{i p \cdot x} + c^s_{\vec{p}} \bar{v}(\vec{p}, s) e^{- i p \cdot x})
@@ -268,11 +293,11 @@
 	\begin{equation}
 		H = \sum_{s = \pm 1} \int d^3 p \, \omega_p (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} - c^s_{\vec{p}} c^{s \dag}_{\vec{p}}) = \sum_{s = \pm 1} \int d^3 p \, \omega_p (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} + c^{s \dag}_{\vec{p}} c^s_{\vec{p}}) + E_0
 	\end{equation}
-	其中,
+	其中 vacuum energy,
 	\begin{equation}
 		E_0 = - 2 \delta^{(3)}(0) \int d^3 p \, \omega_p
 	\end{equation}
-	这与标量场的符号正好相反.
+	的符号与标量场的正好相反.
 	
 	\begin{tcolorbox}[title=calculation:]
 		the Hamiltonian density is,
@@ -283,8 +308,7 @@
 		\end{align}
 		代入,
 		\begin{align}
-			H = \int d^3 x \, \mathcal{H} =& \int d^3 x \, \cdots \notag \\
-			=& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( b^{s_1 \dag}_{\vec{p}} \bar{u}(\vec{p}, s_1) \omega_p \gamma^0 b^{s_2}_{\vec{p}} u(\vec{p}, s_2) \notag \\
+			H = \int d^3 x \, \mathcal{H} =& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( b^{s_1 \dag}_{\vec{p}} \bar{u}(\vec{p}, s_1) \omega_p \gamma^0 b^{s_2}_{\vec{p}} u(\vec{p}, s_2) \notag \\
 			& - b^{s_1 \dag}_{\vec{p}} \bar{u}(\vec{p}, s_1) \omega_p \gamma^0 c^{s_2 \dag}_{- \vec{p}} v(- \vec{p}, s_2) e^{2 i \omega_p t} \notag \\
 			& + c^{s_1}_{\vec{p}} \bar{v}(\vec{p}, s_1) \omega_p \gamma^0 b^{s_2}_{- \vec{p}} u(- \vec{p}, s_2) e^{- 2 i \omega_p t} \notag \\
 			& - c^{s_1}_{\vec{p}} \bar{v}(\vec{p}, s_1) \omega_p \gamma^0 c^{s_2 \dag}_{\vec{p}} v(\vec{p}, s_2) \Big)
@@ -341,7 +365,10 @@
 	\begin{itemize}
 		\item 把角动量算符中 spin 的部分表示为 $S^{i j}$, 那么,
 		\begin{equation}
-			S^{1 2} b^{s \dag}_{\vec{p}} \ket{0} = s \frac{m}{2 \omega_p} b^{s \dag}_{\vec{p}} \ket{0} \quad S^{1 2} c^{s \dag}_{\vec{p}} \ket{0} = - s \frac{m}{2 \omega_p} c^{s \dag}_{\vec{p}} \ket{0}
+			\begin{dcases}
+				S^{1 2} b^{s \dag}_{\vec{p}} \ket{0} = s \frac{m}{2 \omega_p} b^{s \dag}_{\vec{p}} \ket{0} \\
+				S^{1 2} c^{s \dag}_{\vec{p}} \ket{0} = - s \frac{m}{2 \omega_p} c^{s \dag}_{\vec{p}} \ket{0}
+			\end{dcases}
 		\end{equation}
 	\end{itemize}
 	
@@ -372,6 +399,40 @@
 		\begin{equation}
 			J^{i j} - \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i}) = \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} m (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2}
 		\end{equation}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{electric current}
+\begin{itemize}
+	\item internal vector symmetry 对应的守恒流就是电流, 见 subsection \ref{subsection 7.3.1}, 有,
+	\begin{equation}
+		Q = \int d^3 x \, J_V^0 = \sum_{s = \pm 1} \int d^3 p \, (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} - c^{s \dag}_{\vec{p}} c^s_{\vec{p}}) - 2 \delta^{(3)}(0) \int d^3 p
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		首先,
+		\begin{align}
+			\int d^3 x \, J_V^\mu = \int d^3 x \, \bar{\Psi} \gamma^\mu \Psi =& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p}{2 \omega_p} \Big( b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} \bar{u}(\vec{p}, s_1) \gamma^\mu u(\vec{p}, s_2) \notag \\
+			& + b^{s_1 \dag}_{\vec{p}} c^{s_2 \dag}_{- \vec{p}} \bar{u}(\vec{p}, s_1) \gamma^\mu v(- \vec{p}, s_2) e^{2 i \omega_p t} \notag \\
+			& + c^{s_1}_{\vec{p}} b^{s_2}_{- \vec{p}} \bar{v}(\vec{p}, s_1) \gamma^\mu u(- \vec{p}, s_2) e^{- 2 i \omega_p t} \notag \\
+			& + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}} \bar{v}(\vec{p}, s_1) \gamma^\mu v(\vec{p}, s_2) \Big)
+		\end{align}
+		其中,
+		\begin{equation}
+			\begin{dcases}
+				\bar{u}(\vec{p}, s_1) \gamma^\mu u(\vec{p}, s_2) = 2 p_\mu \delta_{s_1 s_2} \quad \textcolor{red}{(?)} \\
+				\bar{u}(\vec{p}, s_1) \gamma^0 v(- \vec{p}, s_2) = 0 \\
+				\bar{u}(\vec{p}, s_1) \gamma^i v(- \vec{p}, s_2) = \xi^{s_1 \dag} (2 m \sigma^i) \xi^{s_2} \\
+				\bar{v}(\vec{p}, s_1) \gamma^\mu u(- \vec{p}, s_2) = \bar{u}(\vec{p}, s_1) \gamma^\mu v(- \vec{p}, s_2) \\
+				\bar{v}(\vec{p}, s_1) \gamma^\mu v(\vec{p}, s_2) = \bar{u}(\vec{p}, s_1) \gamma^\mu u(\vec{p}, s_2)
+			\end{dcases}
+		\end{equation}
+		代入,
+		\begin{align}
+			Q =& \sum_{s = \pm 1} \int d^3 p \, (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} + c^s_{\vec{p}} c^{s \dag}_{\vec{p}}) \\
+			J^i = \int d^3 x \, J_V^i \overset{\textcolor{red}{(?)}}{=}& \int d^3 p \, \Big( \sum_{s = \pm 1} - \frac{p^i}{\omega_p} (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} + c^s_{\vec{p}} c^{s \dag}_{\vec{p}}) \notag \\
+			& + \sum_{s_1, s_2 = \pm 1} (b^{s_1 \dag}_{\vec{p}} c^{s_2 \dag}_{- \vec{p}} e^{2 i \omega_p t} + c^{s_1}_{\vec{p}} b^{s_2}_{- \vec{p}} e^{- 2 i \omega_p t}) \xi^{s_1 \dag} (2 m \sigma^i) \xi^{s_2} \Big)
+		\end{align}
 	\end{tcolorbox}
 \end{itemize}
 
