@@ -11,7 +11,7 @@
 	\end{equation}
 	其中 $a, b \in \mathbb{C}$.
 	
-	\item 注意到 $(\theta_1 \theta_2) \theta_3 = \theta_3 (\theta_1 \theta_2)$, 所以有 $\theta_1 \theta_2 \in \mathbb{C}$.
+	\item 注意到 $(\theta_1 \theta_2) \theta_3 = \theta_3 (\theta_1 \theta_2)$, 但是 $(\theta_1 \theta_2)^2 = 0$, 所以 $\theta_1 \theta_2 \notin \mathbb{C}$.
 	
 	\item 定义 Grassmann integral (也称作 Berezin integral),
 	\begin{equation}
@@ -62,14 +62,14 @@
 			I &= \int d\eta \int d\bar{\eta} \, e^{\bar{\eta} D \eta} \notag \\
 			&= \sum_{n = 0}^\infty \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{\big( \sum_{i = 1}^N \bar{\eta}_i D_i \eta_i \big)^n}{n!}
 		\end{align}
-		其中, 唯一不为零的项是 $\propto \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)$, 并且注意到 $(\bar{\eta}_i D_i \eta_i) \in \mathbb{C}$, 所以,
+		其中, 唯一不为零的项是 $\propto \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)$, 并且注意到 $(\bar{\eta}_i D_i \eta_i)$ 互相对易, 所以,
 		\begin{align}
 			I &= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{n! \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)}{n!} \notag \\
 			&= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, (\bar{\eta}_N D_N \eta_N) \cdots (\bar{\eta}_1 D_1 \eta_1) \notag \\
-			&= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_{N - 1} \, \overbrace{(\bar{\eta}_{N - 1} D_{N - 1} \eta_{N - 1}) \cdots (\bar{\eta}_1 D_1 \eta_1)}^{\in \mathbb{C}} D_N \eta_N \notag \\
+			&= \int d\eta_1 \cdots d\eta_N \int d\bar{\eta}_1 \cdots d\bar{\eta}_{N - 1} \, \overbrace{(\bar{\eta}_{N - 1} D_{N - 1} \eta_{N - 1}) \cdots (\bar{\eta}_1 D_1 \eta_1)}^{\text{commutes with} \ \eta_N} D_N \eta_N \notag \\
 			&= \cdots = \int d\eta_1 \cdots d\eta_N \, D_N \eta_N \cdots D_1 \eta_1 = \prod_{i = 1}^N D_i = \det A
 		\end{align}
-		注意到, 由于 $(\bar{\eta}_i D_i \eta_i) \in \mathbb{C}$, 所以 $\eta, \bar{\eta}$ 的积分顺序并不重要, 唯一的要求是 $\eta$ 和 $\bar{\eta}$ 的积分顺序互相对应, 即 $d\eta_i d\eta_j \leftrightarrow d\bar{\eta}_i d\bar{\eta}_j$.
+		注意到, 由于 $(\bar{\eta}_i D_i \eta_i)$ 互相对易, 所以 $\eta, \bar{\eta}$ 的积分顺序并不重要, 唯一的要求是 $\eta$ 和 $\bar{\eta}$ 的积分顺序互相对应, 即 $d\eta_i d\eta_j \leftrightarrow d\bar{\eta}_i d\bar{\eta}_j$.
 	\end{tcolorbox}
 	
 	\item 进一步推广,
