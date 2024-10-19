@@ -1,0 +1,167 @@
+\chapter{Gaussian integrals and Gaussian-Berezin integrals}
+\begin{itemize}
+	\item 最基本的几个 Gaussian integral 如下,
+	\begin{align}
+		\int dx \, e^{- \frac{1}{2} a x^2} &= \sqrt{\frac{2 \pi}{a}} \\
+		\braket{x^{2 n}} &= \frac{\int dx \, e^{- \frac{1}{2} a x^2} x^{2 n}}{\int dx \, e^{- \frac{1}{2} a x^2}} = \frac{1}{a^n} (2 n - 1)!! \label{B.0.2}
+	\end{align}
+	其中 $(2 n - 1)!! = 1 \cdot 3 \cdots (2 n - 3) (2 n - 1)$.
+	
+	\item 一个重要的变体如下,
+	\begin{equation}
+		\int dx \, e^{- \frac{a}{2} x^2 + J x} = \sqrt{\frac{2 \pi}{a}} e^{\frac{J^2}{2 a}}
+	\end{equation}
+	另外, 将 $a, J$ 分别替换为 $- i a, i J$ 也是重要的变体.
+\end{itemize}
+
+\section{generalize to \texorpdfstring{$N$}{N}-dim.}
+\begin{itemize}
+	\item 考虑如下积分,
+	\begin{equation} \label{B.1.1}
+		Z(A, J) = \int dx_1 \cdots dx_N \, e^{- \frac{1}{2} x^T \cdot A \cdot x + J^T \cdot x} = \sqrt{\frac{(2 \pi)^N}{\det A}} e^{\frac{1}{2} J^T \cdot A^{- 1} \cdot J}
+	\end{equation}
+	其中 $x, J$ 是 $N$-dim. 列向量, $A$ 是 $N \times N$ 实对称矩阵.
+	
+	\begin{tcolorbox}[title=calculation:]
+		根据 spectral theorem for normal matrices (对称矩阵是厄密矩阵在实数域上的对应), 可知存在 orthogonal transformation 使得,
+		\begin{equation}
+			A = O^{- 1} \cdot D \cdot O
+		\end{equation}
+		其中 $D$ 是一个 diagonal matrix. 令 $y = O \cdot x$, 那么,
+		\begin{align}
+			Z(A, J) &= \int dy_1 \cdots dy_N \, e^{- \frac{1}{2} y^T \cdot D \cdot y + (O J)^T \cdot y} \notag \\
+			&= \prod_{i = 1}^N \sqrt{\frac{2 \pi}{D_{i i}}} e^{\frac{1}{2 D_{i i}} {(O J)_i}^2} = \sqrt{\frac{(2 \pi)^N}{\det A}} e^{\frac{1}{2} J^T \cdot A^{- 1} \cdot J}
+		\end{align}
+		其中, 注意到了 $\frac{1}{D_{i i}} = (O \cdot A^{- 1} \cdot O^{- 1})_{i i}$ 以及 $\mathrm{tr} \, D = \det A$.
+	\end{tcolorbox}
+	
+	\item 一个重要的变体是 $A \mapsto - i A, J \mapsto i J$.
+	
+	\item 考虑 \eqref{B.0.2} 的变体, (注意 $A$ 是对称的),
+	\begin{align}
+		\braket{x_i x_j} &= \frac{1}{Z(A, 0)} \frac{\partial}{\partial J_i} \frac{\partial}{\partial J_j} Z(A, J) \Big|_{J = 0} = A^{- 1}_{i j} \\
+		\braket{x_i x_j \cdots x_k x_l} &= \sum_{\text{Wick}} A^{- 1}_{i' j'} \cdots A^{- 1}_{k' l'} \label{B.1.5}
+	\end{align}
+	其中 \eqref{B.1.5} 中有偶数个 $x$, 否则等于零.
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{equation}
+			\braket{x_i x_j \cdots x_k x_l} = \frac{1}{Z(A, 0)} \frac{\partial}{\partial J_i} \frac{\partial}{\partial J_j} \cdots \frac{\partial}{\partial J_k} \frac{\partial}{\partial J_l} Z(A, J) \Big|_{J = 0} = \cdots
+		\end{equation}
+		例如,
+		\begin{equation}
+			\braket{x_i x_j x_k x_l} = A^{- 1}_{i j} A^{- 1}_{k l} + A^{- 1}_{i k} A^{- 1}_{j l} + A^{- 1}_{i l} A^{- 1}_{j k}
+		\end{equation}
+		其中, 可以用 Wick contraction 计算上式, 如下,
+		\begin{equation}
+			\braket{\wick{
+				\c1 x_i \c2 x_j \c1 x_k \c2 x_l
+			}} = A^{- 1}_{i k} A^{- 1}_{j l}
+		\end{equation}
+	\end{tcolorbox}
+\end{itemize}
+
+\section{Grassmann number and Grassmann integrals} \label{B.2}
+\begin{itemize}
+	\item 对于 Grassmann number $\theta_1, \theta_2$, 有反对易关系,
+	\begin{equation}
+		\theta_1 \theta_2 = - \theta_2 \theta_1
+	\end{equation}
+	因此 $\theta^2 = 0$, 且关于 Grassmann number 最一般的函数为,
+	\begin{equation}
+		f(\theta) = a \theta + b
+	\end{equation}
+	其中 $a, b \in \mathbb{C}$.
+	
+	\item 注意到 $(\theta_1 \theta_2) \theta_3 = \theta_3 (\theta_1 \theta_2)$, (但是 $(\theta_1 \theta_2)^2 = 0$, 所以 $\theta_1 \theta_2 \notin \mathbb{C}$), 且有,
+	\begin{equation}
+		(\theta_1 \theta_2) (\theta_3 \theta_4) = \theta_3 (\theta_1 \theta_2) \theta_4 = (\theta_3 \theta_4) (\theta_1 \theta_2)
+	\end{equation}
+	
+	\item 定义 Grassmann integral (也称作 Berezin integral),
+	\begin{equation}
+		\int d\theta \, \theta = 1 \quad \int d\theta = 0
+	\end{equation}
+	并且具有 linearity.
+	
+	\begin{tcolorbox}[title=comment:]
+		我们希望积分在 integration variable been shifted 之后 ($\theta \mapsto \theta + \eta$) 保持不变,
+		\begin{equation}
+			\int d\theta \, (a \theta + b) = \int d\theta \, (a \theta + a \eta + b)
+		\end{equation}
+		因此, 积分结果应该与常数无关, 只与斜率有关, 所以直接定义,
+		\begin{equation}
+			\int d\theta \, (a \theta + b) = a
+		\end{equation}
+	\end{tcolorbox}
+	
+	\begin{itemize}
+		\item 另外, 对于 $f(\theta) = \eta \theta + b$, 有,
+		\begin{equation}
+			\int d\theta \, (\eta \theta + b) = \int d\theta \, (- \theta \eta + b) = - \eta
+		\end{equation}
+	\end{itemize}
+\end{itemize}
+
+\subsection{Gaussian-Berezin integrals}
+\begin{itemize}
+	\item 回顾 section \ref{1.4} 和 \eqref{8.4.2}, 我们希望 Gauss 积分中出现正号而不是符号, 即,
+	\begin{equation}
+		\int dx \, e^{- \frac{1}{2} a x^2} = \sqrt{2 \pi} e^{- \frac{1}{2} \ln a} \mapsto \propto e^{\mathcolor{red}{+} \frac{1}{2} \ln a}
+	\end{equation}
+	
+	\item 对于两个独立的 Grassmann number $\theta, \bar{\theta}$, 有 Gauss 积分,
+	\begin{equation}
+		\int d\theta \int d\bar{\theta} \, e^{\bar{\theta} a \theta} = \int d\theta \int d\bar{\theta} \, (1 + \bar{\theta} a \theta) = a = e^{\mathcolor{red}{+} \ln a}
+	\end{equation}
+	
+	\item 推广以上积分, 对于 $\theta = (\theta_1, \cdots, \theta_N) \in V, \bar{\theta} = (\bar{\theta}_1, \cdots, \bar{\theta}_N) \in V^*$, 有,
+	\begin{equation}
+		\int d\theta \int d\bar{\theta} \, e^{\bar{\theta} A \theta} = \det A
+	\end{equation}
+	其中 $A$ 是 $N \times N$ normal matrix.
+	
+	\begin{tcolorbox}[title=calculation:]
+		对向量做幺正变换, $\eta = U \theta, \bar{\eta} = \bar{\theta} U^\dag$, 使得 $A$ 对角化 $D = U A U^\dag$, (注意对\textbf{积分顺序}的定义),
+		\begin{equation}
+			I = \int d\eta \int d\bar{\eta} \, e^{\bar{\eta} D \eta} = \sum_{n = 0}^\infty \int d\eta_N \cdots d\eta_1 \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{\big( \sum_{i = 1}^N \bar{\eta}_i D_i \eta_i \big)^n}{n!}
+		\end{equation}
+		其中, 唯一不为零的项是 $\propto \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)$, 并且注意到 $(\bar{\eta}_i D_i \eta_i)$ 互相对易, 所以,
+		\begin{align}
+			I &= \int d\eta_N \cdots d\eta_1 \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, \frac{n! \prod_{i = 1}^N (\bar{\eta}_i D_i \eta_i)}{n!} \notag \\
+			&= \int d\eta_N \cdots d\eta_1 \int d\bar{\eta}_1 \cdots d\bar{\eta}_N \, (\bar{\eta}_N D_N \eta_N) \cdots (\bar{\eta}_1 D_1 \eta_1) \notag \\
+			&= \int d\eta_N \cdots d\eta_1 \int d\bar{\eta}_1 \cdots d\bar{\eta}_{N - 1} \, \overbrace{(\bar{\eta}_{N - 1} D_{N - 1} \eta_{N - 1}) \cdots (\bar{\eta}_1 D_1 \eta_1)}^{\text{commutes with} \ \eta_N} D_N \eta_N \notag \\
+			&= \cdots = \int d\eta_N \cdots d\eta_1 \, D_1 \eta_1 \cdots D_N \eta_N = \prod_{i = 1}^N D_i = \det A
+		\end{align}
+		注意到, 由于 $(\bar{\eta}_i D_i \eta_i)$ 互相对易, 所以 $\eta, \bar{\eta}$ 的积分顺序并不重要, 唯一的要求是 $\eta$ 和 $\bar{\eta}$ 的积分顺序互相对应 (顺序正好\textbf{相反}), 即 $d\eta_j d\eta_i \leftrightarrow d\bar{\eta}_i d\bar{\eta}_j$, (Coleman 对积分顺序的定义是 $d\eta d\bar{\eta} = d\eta_1 d\bar{\eta}_1 \cdots d\eta_N d\bar{\eta}_N$, 这与我们的定义是等效的).
+	\end{tcolorbox}
+	
+	\item 进一步推广,
+	\begin{equation} \label{10.1.13}
+		Z(A, \eta, \bar{\eta}) = \int d\theta \int d\bar{\theta} \, e^{\bar{\theta} A \theta + \bar{\eta} \theta + \bar{\theta} \eta} = \det A \, e^{- \bar{\eta} A^{- 1} \eta}
+	\end{equation}
+	只需要注意到 $(\bar{\theta} + \bar{\eta} A^{- 1}) A (\theta + A^{- 1} \eta) = \bar{\theta} A \theta + \bar{\eta} \theta + \bar{\theta} \eta + \bar{\eta} A^{- 1} \eta$, 其中 $\eta \in V, \bar{\eta} \in V^*$ 都是 Grassmann number 组成的向量.
+	
+	\item 最后, 考虑 \eqref{B.1.5} 的变体,
+	\begin{align}
+		\braket{\theta_i} &= \braket{\bar{\theta}_j} = 0 \\
+		\braket{\cdots \theta_i \theta_j \bar{\theta}_k \bar{\theta}_l \cdots} &= \underbrace{\braket{\wick{
+			\cdots \c1 \theta_i \c2 \theta_j \c2 {\bar{\theta}}_k \c1 {\bar{\theta}}_l \cdots
+		}}}_{= \cdots (- A^{- 1}_{j k}) (- A^{- 1}_{i l}) \cdots} + \underbrace{\braket{\wick{
+			\cdots \c1 \theta_i \c2 \theta_j \c1 {\bar{\theta}}_k \c2 {\bar{\theta}}_l \cdots
+		}}}_{= - \cdots (- A^{- 1}_{i k}) (- A^{- 1}_{j l}) \cdots} + \cdots \label{B.2.15}
+	\end{align}
+	技巧在于先把 $\cdots \theta_i \theta_j \bar{\theta}_k \bar{\theta}_l \cdots$ 的顺序调整到 $\theta, \bar{\theta}$ 互相对应 (像 \eqref{B.2.15} 等号右边第一项), 然后再做 contraction.
+	
+	\begin{tcolorbox}[title=calculation:]
+		考虑,
+		\begin{align}
+			\braket{\theta_i \theta_j \bar{\theta}_k \bar{\theta}_l} &= \frac{\partial}{\partial \bar{\eta}_i} \frac{\partial}{\partial \bar{\eta}_j} \Big( - \frac{\partial}{\partial \eta_k} \Big) \Big( - \frac{\partial}{\partial \eta_l} \Big) e^{- \bar{\eta} A^{- 1} \eta} = \frac{\partial}{\partial \bar{\eta}_i} \frac{\partial}{\partial \bar{\eta}_j} (- \eta_{j'} A^{- 1}_{j' k}) (- \eta_{i'} A^{- 1}_{i' l}) \notag \\
+			&= \underbrace{\braket{\wick{
+						\c1 \theta_i \c2 \theta_j \c2 {\bar{\theta}}_k \c1 {\bar{\theta}}_l
+			}}}_{= (- A^{- 1}_{j k}) (- A^{- 1}_{i l})} + \underbrace{\braket{\wick{
+						\c1 \theta_i \c2 \theta_j \c1 {\bar{\theta}}_k \c2 {\bar{\theta}}_l
+			}}}_{= - (- A^{- 1}_{i k}) (- A^{- 1}_{j l})}
+		\end{align}
+	\end{tcolorbox}
+\end{itemize}

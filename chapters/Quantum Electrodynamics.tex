@@ -1,0 +1,22 @@
+\chapter{Quantum Electrodynamics}
+\section{Maxwell's equations}
+\begin{itemize}
+	\item 电磁场的 Lagrangian 为 (现实中 $\mu = 0$),
+	\begin{equation}
+		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu \quad \text{with} \quad F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]}
+	\end{equation}
+	其中 $A^\mu = (\phi, \vec{A})$, 对作用量变分得到运动方程,
+	\begin{equation}
+		\partial^\nu F_{\nu \mu} - \mu^2 A_\mu = 0
+	\end{equation}
+	
+	\item 令,
+	\begin{equation}
+		F_{\mu \nu} = \begin{pmatrix}
+			0 & E_1 & E_2 & E_3 \\
+			- E_1 & 0 & - B_3 & B_2 \\
+			- E_2 & B_3 & 0 & - B_1 \\
+			- E_3 & - B_2 & B_1 & 0
+		\end{pmatrix}
+	\end{equation}
+\end{itemize}
