@@ -258,14 +258,58 @@
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
-	\item 以 electromagnetic field 为例, $d = 4$,
-	\begin{equation}
-		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} - \frac{1}{2} m^2 A^\mu A_\mu \Longrightarrow \begin{dcases}
-			T_{\mu \nu} = F_{\mu \rho} \tensor{F}{_\nu^\rho} + m^2 A_{\mu \nu} + g_{\mu \nu} \mathcal{L}_M \\
-			T = - m^2 A^\mu A_\mu
-		\end{dcases}
-	\end{equation}
-	可见 the energy-momentum tensor of electromagnetic field (when $m = 0$) is traceless.
-	
 	\item $\mathcal{L} = - \frac{1}{2} ((\partial \phi)^2 - m^2 \phi^2)$ 和 $\mathcal{L} = \frac{1}{2} \phi (\partial^2 - m^2) \phi$ 对应的 energy-momentum tensor 一样吗 \textcolor{red}{(?)}.
+\end{itemize}
+
+\subsection{example: energy-momentum tensor of the electromagnetic field} \label{subsection D.4.1}
+\begin{itemize}
+	\item 在 $(+, -, -, -)$ 号差下, 定义 $A_\mu = (\phi, - \vec{A})$, 这很容易让人误以为 4-potential 是 vector, 而事实上它是 covector, 按照这种定义,
+	\begin{equation}
+		\frac{\delta F_{\rho \sigma}}{\delta g^{\mu \nu}} = 0
+	\end{equation}
+	\begin{itemize}
+		\item Wikipedia: \href{https://en.wikipedia.org/wiki/Maxwell%27s_equations_in_curved_spacetime#Electromagnetic_potential}{Maxwell's equations in curved spacetime, Electromagnetic potential}.
+	\end{itemize}
+	
+	\item 代入电磁场的 Lagrangian, 见 \eqref{11.1.1}, 所以,
+	\begin{equation}
+		T_{\mu \nu} = \tensor{F}{_\mu^\rho} F_{\nu \rho} - \mu^2 A_\mu A_\nu + g_{\mu \nu} \mathcal{L}
+	\end{equation}
+	
+	\begin{itemize}
+		\item 在 Minkowski 时空中,
+		\begin{align}
+			& T_{\mu \nu} \notag \\
+			=& \begin{pmatrix}
+				- \mathcal{E} - \frac{1}{2} \mu^2 (\phi^2 + |\vec{A}|^2) & (\vec{E} \times \vec{B})_i - \mu^2 \phi A_i \\
+				\vdots & - \delta_{i j} (\mathcal{E} + \frac{1}{2} \mu^2 (\phi^2 - |\vec{A}|^2)) - \mu^2 A_i A_j + E_i E_j + B_i B_j
+			\end{pmatrix} \notag \\
+			=& \begin{pmatrix}
+				- \mathcal{E} & (\vec{E} \times \vec{B})_i \\
+				\vdots & - \delta_{i j} \mathcal{E} + E_i E_j + B_i B_j
+			\end{pmatrix} + \begin{pmatrix}
+				- \frac{1}{2} \mu^2 (\phi^2 + |\vec{A}|^2) & - \mu^2 \phi A_i \\
+				\vdots & - \frac{\delta_{i j}}{2} \mu^2 (\phi^2 - |\vec{A}|^2) - \mu^2 A_i A_j
+			\end{pmatrix}
+		\end{align}
+		其中 $\mathcal{E} = \frac{1}{2} (|\vec{E}|^2 + |\vec{B}|^2)$.
+		
+		\begin{tcolorbox}[title=calculate:]
+			在 Minkowski 时空中,
+			\begin{equation}
+				\begin{dcases}
+					\mathcal{L} = \frac{1}{2} (|\vec{E}|^2 - |\vec{B}|^2) + \frac{1}{2} \mu^2 (\phi^2 - |\vec{A}|^2) \\
+					\tensor{F}{_0^\mu} F_{0 \mu} = - |\vec{E}|^2 \\
+					\tensor{F}{_i^\mu} F_{0 \mu} = (\vec{E} \times \vec{B})_i \\
+					\tensor{F}{_i^\mu} F_{j \mu} = E_i E_j - \delta^i_j |\vec{B}|^2 + B_i B_j
+				\end{dcases}
+			\end{equation}
+		\end{tcolorbox}
+		
+		\item 另外注意到,
+		\begin{equation}
+			T = - \mu^2 A^\mu A_\mu
+		\end{equation}
+		可见 the energy-momentum tensor of electromagnetic field (when $m = 0$) is traceless.
+	\end{itemize}
 \end{itemize}

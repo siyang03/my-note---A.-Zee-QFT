@@ -1,0 +1,72 @@
+\chapter{Maxwell's equations}
+\section{Maxwell's equations}
+\begin{itemize}
+	\item 电磁场的 Lagrangian 为 (现实中 $\mu = 0$),
+	\begin{equation} \label{11.1.1}
+		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu \quad \text{with} \quad F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]}
+	\end{equation}
+	其中 $A_\mu = (\phi, - \vec{A})$, 对作用量变分得到运动方程,
+	\begin{equation} \label{11.1.2}
+		\partial^\nu F_{\nu \mu} + \mu^2 A_\mu = 0
+	\end{equation}
+	\begin{itemize}
+		\item 如果引入 Lorentz gauge condition,
+		\begin{equation}
+			\begin{dcases}
+				\text{field eq. \eqref{11.1.2}} \\
+				\partial^\mu A_\mu = 0
+			\end{dcases} \Longrightarrow (\partial^2 + \mu^2) A_\mu = 0
+		\end{equation}
+	\end{itemize}
+	
+	\item 此外, $F_{\mu \nu}$ 满足 Bianchi identity,
+	\begin{equation} \label{11.1.4}
+		\nabla_\rho F_{\mu \nu} + \nabla_\nu F_{\rho \mu} + \nabla_\mu F_{\nu \rho} = 0
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		代入定义式,
+		\begin{align}
+			\nabla_\rho \nabla_{[\mu} A_{\nu]} + \cdots =& + \mathcolor{red}{\rho \mu \nu} - \mathcolor{blue}{\rho \nu \mu} \notag \\
+			& + \mathcolor{blue}{\nu \rho \mu} - \mathcolor{orange}{\nu \mu \rho} \notag \\
+			& + \mathcolor{orange}{\mu \nu \rho} - \mathcolor{red}{\mu \rho \nu} \notag \\
+			=& (\underbrace{\tensor{R}{_{\rho \mu \nu}^\sigma} + \tensor{R}{_{\nu \rho \mu}^\sigma} + \tensor{R}{_{\mu \nu \rho}^\sigma}}_{= 0}) A_\sigma
+		\end{align}
+	\end{tcolorbox}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 令,
+	\begin{equation}
+		F_{\mu \nu} = \begin{pmatrix}
+			0 & E_1 & E_2 & E_3 \\
+			- E_1 & 0 & - B_3 & B_2 \\
+			- E_2 & B_3 & 0 & - B_1 \\
+			- E_3 & - B_2 & B_1 & 0
+		\end{pmatrix} \iff \begin{dcases}
+			F_{0 i} = \vec{E} = - \vec{\nabla} \phi - \frac{\partial \vec{A}}{\partial t} \\
+			- \frac{1}{2} \epsilon^{i j k} F_{j k} = \vec{B} = \vec{\nabla} \times \vec{A}
+		\end{dcases}
+	\end{equation}
+	代入 \eqref{11.1.2},
+	\begin{equation}
+		\begin{dcases}
+			\vec{\nabla} \cdot \vec{E} + \mu^2 \phi = 0 \\
+			- \frac{\partial \vec{E}}{\partial t} + \vec{\nabla} \times \vec{B} + \mu^2 \vec{A} = 0
+		\end{dcases}
+	\end{equation}
+	代入 \eqref{11.1.4},
+	\begin{equation}
+		\begin{dcases}
+			\vec{\nabla} \cdot \vec{B} = 0 & \rho, \mu, \nu = 1, 2, 3 \\
+			\vec{\nabla} \times \vec{E} - \frac{\partial \vec{B}}{\partial t} = 0 & \rho, \mu, \nu = 0, i, j
+		\end{dcases}
+	\end{equation}
+	
+	\item 最后, 电磁场的能动量张量见 subsection \ref{subsection D.4.1}.
+\end{itemize}
+
+\section{gauge symmetry}
+\begin{itemize}
+	\item 
+\end{itemize}
