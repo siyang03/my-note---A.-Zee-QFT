@@ -6,14 +6,14 @@
 		\begin{dcases}
 			K z = z^* \\
 			z K^* = z^*
-		\end{dcases} \Longrightarrow K^2 = K^{* 2} = 1
+		\end{dcases} \Longrightarrow K^2 = K^{* 2} = 1.
 	\end{equation}
 	
 	\item $K^* I : V^* \rightarrow V^*$ 是 dual space 上的算符.
 	
-	\item 对于一组 orthonormal basis, 有,
+	\item 对于一组 orthonormal basis, 有
 	\begin{equation}
-		\braket{i | K^* I K | j} = \delta_{i j}
+		\braket{i | K^* I K | j} = \delta_{i j},
 	\end{equation}
 	并且可以证明在基矢变换后这个等式依然成立.
 	
@@ -21,16 +21,16 @@
 		\begin{itemize}
 			\item 对基矢做 unitary transformation,
 			\begin{equation}
-				\ket{i'} = U \ket{i} = \sum_j \ket{j} U_{j i} \quad \text{where} \quad U_{j i} = \braket{j | U | i}
+				\ket{i'} = U \ket{i} = \sum_j \ket{j} U_{j i} \quad \text{where} \quad U_{j i} = \braket{j | U | i},
 			\end{equation}
-			那么,
+			那么
 			\begin{equation}
-				\braket{i' | K^* I K | j'} = \sum_{k l} \braket{k | U^*_{k i} K^* I K U_{l j} | l} = \sum_{k l} U_{k i} U^*_{l j} \delta_{k l} = \delta_{i j}
+				\braket{i' | K^* I K | j'} = \sum_{k l} \braket{k | U^*_{k i} K^* I K U_{l j} | l} = \sum_{k l} U_{k i} U^*_{l j} \delta_{k l} = \delta_{i j}.
 			\end{equation}
 			
-			\item 对基矢做 antiunitary transformation, 只需要证明 $\ket{i'} = K \ket{i}$ 的情况, 此时,
+			\item 对基矢做 antiunitary transformation, 只需要证明 $\ket{i'} = K \ket{i}$ 的情况, 此时
 			\begin{equation}
-				\braket{i' | K^* I K | j'} = \braket{i | j} = \delta_{i j}
+				\braket{i' | K^* I K | j'} = \braket{i | j} = \delta_{i j}.
 			\end{equation}
 		\end{itemize}
 	\end{tcolorbox}
@@ -40,16 +40,16 @@
 \begin{itemize}
 	\item 对于一个 unitary operator, $U$, $\Omega = U K$ 是一个 antiunitary operator.
 	
-	\item 定义其 Hermitian conjugate,
+	\item 定义其 Hermitian conjugate
 	\begin{equation}
-		\Omega^\dag = K^* U^\dag \iff \braket{i | \Omega j} = \braket{j | \Omega^\dag i}^*
+		\Omega^\dag = K^* U^\dag \iff \braket{i | \Omega j} = \braket{j | \Omega^\dag i}^*,
 	\end{equation}
-	那么,
+	那么
 	\begin{equation}
 		\begin{dcases}
 			\braket{\phi | \Omega \psi} = \braket{\psi | \Omega^\dag \phi}^* \\
 			\braket{\Omega \phi | \Omega \psi} = \braket{\psi | \phi}
-		\end{dcases}
+		\end{dcases}.
 	\end{equation}
 	
 	\begin{tcolorbox}[title=proof:]
@@ -58,13 +58,13 @@
 			\braket{\phi | \Omega \psi} &= \sum_{i j} \braket{i | \phi^*_i U K \psi_j | j} \notag \\
 			&= \sum_{i j} \phi^*_i \psi^*_j \braket{i | U K | j} \notag \\
 			&= \Big( \sum_{i j} \braket{j | K^* U^\dag | i} \phi_i \psi_j \Big)^* \notag \\
-			&= \Big( \sum_{i j} \braket{j | \psi^*_j K^* U^\dag \phi_i | i} \Big)^* = \braket{\psi | K^* U^\dag | \phi}^*
+			&= \Big( \sum_{i j} \braket{j | \psi^*_j K^* U^\dag \phi_i | i} \Big)^* = \braket{\psi | K^* U^\dag | \phi}^*,
 		\end{align}
 		其次,
 		\begin{align}
 			\braket{\Omega \phi | \Omega \psi} &= \braket{\phi | \Omega^\dag \Omega \psi} = \braket{\phi | K^* I K | \psi} \notag \\
 			&= \sum_{i j} \braket{i | \phi^*_i K^* I K \psi_j | j} \notag \\
-			&= \sum_{i j} \phi_i \psi^*_j \braket{i | K^* I K | j} = \braket{\psi | \phi}
+			&= \sum_{i j} \phi_i \psi^*_j \braket{i | K^* I K | j} = \braket{\psi | \phi}.
 		\end{align}
 	\end{tcolorbox}
 \end{itemize}
@@ -73,45 +73,45 @@
 \begin{itemize}
 	\item 在量子力学中,
 	\begin{equation}
-		\mathcal{T} : \ket{\psi} \mapsto \ket{\psi'(t')} = \int d^D x \, \ket{x} K \braket{x | \psi(t)} \quad \text{where} \quad t' = - t
+		\mathcal{T} : \ket{\psi} \mapsto \ket{\psi'(t')} = \int d^D x \, \ket{x} K \braket{x | \psi(t)}, \quad \text{where} \quad t' = - t.
 	\end{equation}
 	\begin{itemize}
 		\item 因此, 对于动量本征态,
 		\begin{equation}
-			T \ket{p} = \int d^D x \, \ket{x} K e^{i \vec{p} \cdot \vec{x}} = \ket{- p}
+			T \ket{p} = \int d^D x \, \ket{x} K e^{i \vec{p} \cdot \vec{x}} = \ket{- p}.
 		\end{equation}
 		
 		\item 对于动量算符,
 		\begin{equation}
-			T P T^\dag = \int d^D p \, \ket{- p} p \bra{- p} = - P
+			T P T^\dag = \int d^D p \, \ket{- p} p \bra{- p} = - P.
 		\end{equation}
 		
 		\item 对于角动量算符,
 		\begin{equation}
-			T L T^\dag = T (X \times P) T^{- 1} = - L
+			T L T^\dag = T (X \times P) T^{- 1} = - L.
 		\end{equation}
 	\end{itemize}
 	
 	\item 对于平面波,
 	\begin{equation}
-		\psi(t) = e^{i (\vec{k} \cdot \vec{x} - E t)} \mapsto \psi'(t') = \braket{x | K^* I K | \psi(t)} = e^{- i (\vec{k} \cdot \vec{x} - E t)}
+		\psi(t) = e^{i (\vec{k} \cdot \vec{x} - E t)} \mapsto \psi'(t') = \braket{x | K^* I K | \psi(t)} = e^{- i (\vec{k} \cdot \vec{x} - E t)},
 	\end{equation}
 	注意到 $t' = - t$, 代入,
 	\begin{equation}
-		\psi'(t) = e^{i (- \vec{k} \cdot \vec{x} - E t)}
+		\psi'(t) = e^{i (- \vec{k} \cdot \vec{x} - E t)}.
 	\end{equation}
 \end{itemize}
 
 \subsection{spin-\texorpdfstring{$\frac{1}{2}$}{1/2} non-relativistic electron}
 \begin{itemize}
-	\item 时间反演算符作用到 spin-up state 应该得到 spin-down state, 所以,
+	\item 时间反演算符作用到 spin-up state 应该得到 spin-down state, 所以
 	\begin{equation}
-		T = \sigma_2 K
+		T = \sigma_2 K.
 	\end{equation}
 	\begin{itemize}
-		\item 因此,
+		\item 因此
 		\begin{equation}
-			T^2 = \sigma_2 K \sigma_2 K = \sigma_2^* \sigma_2 = - 1
+			T^2 = \sigma_2 K \sigma_2 K = \sigma_2^* \sigma_2 = - 1.
 		\end{equation}
 		
 		\item 具体地,
@@ -122,13 +122,13 @@
 			\end{pmatrix} = \begin{pmatrix}
 				0 \\
 				i
-			\end{pmatrix} \quad T \begin{pmatrix}
+			\end{pmatrix}, \quad T \begin{pmatrix}
 				0 \\
 				1
 			\end{pmatrix} = \begin{pmatrix}
 				- i \\
 				0
-			\end{pmatrix}
+			\end{pmatrix}.
 		\end{equation}
 	\end{itemize}
 	
@@ -139,9 +139,9 @@
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		考虑 $T \psi = e^{i \alpha} \psi$, 那么,
+		考虑 $T \psi = e^{i \alpha} \psi$, 那么
 		\begin{equation}
-			T^2 \psi = T e^{i \alpha} \psi = e^{- i \alpha} e^{i \alpha} \psi = \psi
+			T^2 \psi = T e^{i \alpha} \psi = e^{- i \alpha} e^{i \alpha} \psi = \psi,
 		\end{equation}
 		与 $T^2 = - 1$ 矛盾.
 	\end{tcolorbox}

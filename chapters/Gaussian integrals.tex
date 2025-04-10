@@ -1,0 +1,62 @@
+\chapter{Gaussian integrals}
+\begin{itemize}
+	\item 最基本的几个 Gaussian integral 如下,
+	\begin{align}
+		\int dx \, e^{- \frac{1}{2} a x^2} &= \sqrt{\frac{2 \pi}{a}} \\
+		\braket{x^{2 n}} &= \frac{\int dx \, e^{- \frac{1}{2} a x^2} x^{2 n}}{\int dx \, e^{- \frac{1}{2} a x^2}} = \frac{1}{a^n} (2 n - 1)!! \label{B.0.2}
+	\end{align}
+	其中 $(2 n - 1)!! = 1 \cdot 3 \cdots (2 n - 3) (2 n - 1)$.
+	
+	\item 一个重要的变体如下,
+	\begin{equation}
+		\int dx \, e^{- \frac{a}{2} x^2 + J x} = \sqrt{\frac{2 \pi}{a}} e^{\frac{J^2}{2 a}}
+	\end{equation}
+	另外, 将 $a, J$ 分别替换为 $- i a, i J$ 也是重要的变体.
+\end{itemize}
+
+\section{\texorpdfstring{$N$}{N}-dim. generalization}
+\begin{itemize}
+	\item 考虑如下积分,
+	\begin{equation} \label{B.1.1}
+		Z(A, J) = \int dx_1 \cdots dx_N \, e^{- \frac{1}{2} x^T \cdot A \cdot x + J^T \cdot x} = \sqrt{\frac{(2 \pi)^N}{\det A}} e^{\frac{1}{2} J^T \cdot A^{- 1} \cdot J}
+	\end{equation}
+	其中 $x, J$ 是 $N$-dim. 列向量, $A$ 是 $N \times N$ 实对称矩阵.
+	
+	\begin{tcolorbox}[title=calculation:]
+		根据 spectral theorem for normal matrices (对称矩阵是厄密矩阵在实数域上的对应), 可知存在 orthogonal transformation 使得,
+		\begin{equation}
+			A = O^{- 1} \cdot D \cdot O
+		\end{equation}
+		其中 $D$ 是一个 diagonal matrix. 令 $y = O \cdot x$, 那么,
+		\begin{align}
+			Z(A, J) &= \int dy_1 \cdots dy_N \, e^{- \frac{1}{2} y^T \cdot D \cdot y + (O J)^T \cdot y} \notag \\
+			&= \prod_{i = 1}^N \sqrt{\frac{2 \pi}{D_{i i}}} e^{\frac{1}{2 D_{i i}} {(O J)_i}^2} = \sqrt{\frac{(2 \pi)^N}{\det A}} e^{\frac{1}{2} J^T \cdot A^{- 1} \cdot J}
+		\end{align}
+		其中, 注意到了 $\frac{1}{D_{i i}} = (O \cdot A^{- 1} \cdot O^{- 1})_{i i}$ 以及 $\mathrm{tr} \, D = \det A$.
+	\end{tcolorbox}
+	
+	\item 一个重要的变体是 $A \mapsto - i A, J \mapsto i J$.
+	
+	\item 考虑 \eqref{B.0.2} 的变体, (注意 $A$ 是对称的),
+	\begin{align}
+		\braket{x_i x_j} &= \frac{1}{Z(A, 0)} \frac{\partial}{\partial J_i} \frac{\partial}{\partial J_j} Z(A, J) \Big|_{J = 0} = A^{- 1}_{i j} \\
+		\braket{x_i x_j \cdots x_k x_l} &= \sum_{\text{Wick}} A^{- 1}_{i' j'} \cdots A^{- 1}_{k' l'} \label{B.1.5}
+	\end{align}
+	其中 \eqref{B.1.5} 中有偶数个 $x$, 否则等于零.
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{equation}
+			\braket{x_i x_j \cdots x_k x_l} = \frac{1}{Z(A, 0)} \frac{\partial}{\partial J_i} \frac{\partial}{\partial J_j} \cdots \frac{\partial}{\partial J_k} \frac{\partial}{\partial J_l} Z(A, J) \Big|_{J = 0} = \cdots
+		\end{equation}
+		例如,
+		\begin{equation}
+			\braket{x_i x_j x_k x_l} = A^{- 1}_{i j} A^{- 1}_{k l} + A^{- 1}_{i k} A^{- 1}_{j l} + A^{- 1}_{i l} A^{- 1}_{j k}
+		\end{equation}
+		其中, 可以用 Wick contraction 计算上式, 如下,
+		\begin{equation}
+			\braket{\wick{
+				\c1 x_i \c2 x_j \c1 x_k \c2 x_l
+			}} = A^{- 1}_{i k} A^{- 1}_{j l}
+		\end{equation}
+	\end{tcolorbox}
+\end{itemize}

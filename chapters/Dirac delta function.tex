@@ -3,32 +3,32 @@
 \begin{itemize}
 	\item 可以认为以下是定义式,
 	\begin{equation}
-		\delta(x) = \int \frac{dk}{2 \pi} e^{i k x} \iff \tilde{\delta}(k) = 1 = \int dx \, \delta(x) e^{- i k x}
+		\delta(x) = \int \frac{dk}{2 \pi} e^{i k x} \iff \tilde{\delta}(k) = 1 = \int dx \, \delta(x) e^{- i k x}.
 	\end{equation}
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
 	\item 第一个常用的公式,
 	\begin{equation}
-		\int_{- \infty}^{+ \infty} \delta(f(x)) g(x) dx = \sum_{\{i, f(x_i) = 0\}} \frac{g(x_i)}{|f'(x_i)|}
+		\int_{- \infty}^{+ \infty} \delta(f(x)) g(x) dx = \sum_{\{i, f(x_i) = 0\}} \frac{g(x_i)}{|f'(x_i)|}.
 	\end{equation}
 	
 	\item 第二个常用的公式 (\href{https://en.wikipedia.org/wiki/Sokhotski%E2%80%93Plemelj_theorem}{Sokhotski-Plemelj theorem}),
 	\begin{equation}
-		\lim_{\epsilon \rightarrow 0^+} \frac{1}{x + i \epsilon} = \mathcal{P} \frac{1}{x} - i \pi \delta(x)
+		\lim_{\epsilon \rightarrow 0^+} \frac{1}{x + i \epsilon} = \mathcal{P} \frac{1}{x} - i \pi \delta(x),
 	\end{equation}
 	其中 $\mathcal{P}$ 表示复函数的主值 (principal value).
 	
 	\begin{tcolorbox}[title=proof:]
-		考虑,
+		考虑
 		\begin{equation}
-			\frac{1}{x + i \epsilon} = \frac{x - i \epsilon}{x^2 + \epsilon^2} \quad \text{and} \quad \int \frac{\epsilon}{x^2 + \epsilon^2} dx = 2 \pi i \, \mathrm{Res}(f, i \epsilon) = \pi
+			\frac{1}{x + i \epsilon} = \frac{x - i \epsilon}{x^2 + \epsilon^2} \quad \text{and} \quad \int \frac{\epsilon}{x^2 + \epsilon^2} dx = 2 \pi i \, \mathrm{Res}(f, i \epsilon) = \pi,
 		\end{equation}
 		所以...
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		取 $\epsilon = 0.1$ 时, 复变函数的实部, 虚部分别如下,
+		取 $\epsilon = 0.1$ 时, 复变函数的实部, 虚部分别如下:
 		
 		\begin{figure}[H]
 			\centering
@@ -47,28 +47,28 @@
 		\begin{dcases}
 			\phi(x) = \int \frac{d^d k}{(2 \pi)^d} e^{i k \cdot x} \tilde{\phi}(k) \\
 			\tilde{\phi}(k) = \int d^d x \, e^{- i k \cdot x} \phi(x)
-		\end{dcases}
+		\end{dcases},
 	\end{equation}
 	
-	\item 因此,
+	\item 因此
 	\begin{equation}
-		\partial_\mu \phi(x) \mapsto i k_\mu \tilde{\phi}(k)
+		\partial_\mu \phi(x) \mapsto i k_\mu \tilde{\phi}(k).
 	\end{equation}
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
-	\item 对于\textbf{实函数}, Fourier transformation 是正交变换, 其 Jacobi determinant 为,
+	\item 对于\textbf{实函数}, Fourier transformation 是正交变换, 其 Jacobi determinant 为
 	\begin{equation} \label{A.2.3}
-		\Big| \frac{\partial \phi(x) \cdots}{\partial \mathrm{Re} \tilde{\phi}(k) \cdots \partial \mathrm{Im} \tilde{\phi}(k) \cdots} \Big| = \Big( \frac{2}{V} \Big)^{(2 N + 1)^d} \det A = \Big( \frac{2 (2 N)^d}{V^2} \Big)^{\frac{(2 N + 1)^d}{2}}
+		\Big| \frac{\partial \phi(x) \cdots}{\partial \mathrm{Re} \tilde{\phi}(k) \cdots \partial \mathrm{Im} \tilde{\phi}(k) \cdots} \Big| = \Big( \frac{2}{V} \Big)^{(2 N + 1)^d} \det A = \Big( \frac{2 (2 N)^d}{V^2} \Big)^{\frac{(2 N + 1)^d}{2}}.
 	\end{equation}
 	
 	\begin{tcolorbox}[title=proof:]
-		position space 和 momentum space 的格点分别为,
+		position space 和 momentum space 的格点分别为
 		\begin{equation}
 			\begin{dcases}
 				x_i^\mu = i^\mu \epsilon \in \{0, \pm \epsilon, \cdots, \frac{L}{2}\} \\
 				k_n^\mu = n^\mu \frac{2 \pi}{L} \in \{0, \pm \frac{2 \pi}{L}, \cdots, \frac{\pi}{\epsilon}\}
-			\end{dcases} \iff i^\mu, n^\mu \in \{0, \pm 1, \cdots, \pm N\}
+			\end{dcases} \iff i^\mu, n^\mu \in \{0, \pm 1, \cdots, \pm N\},
 		\end{equation}
 		$x^\mu, k^\mu$ 分别有 $2 N + 1$ 个取值, 其中 $N \epsilon = \frac{L}{2}$, 时空总体积为 $V = L^d$, momentum space 的总体积为 $\tilde{V} = \frac{(4 \pi N)^d}{V}$.
 		
@@ -83,7 +83,7 @@
 					\tilde{\phi}(k_n) &= \epsilon^d \sum_i e^{- i k_n \cdot x_i} \phi(x_i) \\
 					&= \frac{V}{(2 N)^d} \sum_i \Big( \cos(k_n \cdot x_i) - i \sin(k_n \cdot x_i) \Big) \phi(x_i)
 				\end{aligned}
-			\end{dcases}
+			\end{dcases}.
 		\end{equation}
 		
 		\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
@@ -92,7 +92,7 @@
 		
 		$\phi(x_i)$ 的变换需要做一些说明. 注意到 $\tilde{\phi}$ 的分量的数量是 $\phi$ 的两倍 (考虑到实部与虚部), 但在 $\phi \in \mathbb{R}^{(2 N + 1)^d}$ 时,
 		\begin{equation}
-			\tilde{\phi}^*(k) = \tilde{\phi}(- k)
+			\tilde{\phi}^*(k) = \tilde{\phi}(- k),
 		\end{equation}
 		可见 $\tilde{\phi}$ 的分量并不独立, 取 $k^0 > 0$ 的部分为独立分量, 那么...
 		
@@ -129,11 +129,11 @@
 					\vdots \\
 					\phi(x_{\max})
 				\end{pmatrix}
-			\end{dcases}
+			\end{dcases},
 		\end{equation}
-		观察可见 $\tilde{\phi}$ 的变换中的矩阵是 $A^T$, 所以,
+		观察可见 $\tilde{\phi}$ 的变换中的矩阵是 $A^T$, 所以
 		\begin{equation}
-			\frac{2}{V} \frac{V}{(2 N)^d} A A^T = I \Longrightarrow \det A = \Big( \frac{(2 N)^d}{2} \Big)^{\frac{(2 N + 1)^d}{2}}
+			\frac{2}{V} \frac{V}{(2 N)^d} A A^T = I \Longrightarrow \det A = \Big( \frac{(2 N)^d}{2} \Big)^{\frac{(2 N + 1)^d}{2}},
 		\end{equation}
 		因此...
 	\end{tcolorbox}
@@ -141,7 +141,7 @@
 	\begin{itemize}
 		\item 顺便,
 		\begin{equation}
-			\int d^d x \, f(x) g(x) = \int \frac{d^d k}{(2 \pi)^d} \tilde{f}(- k) \tilde{g}(k)
+			\int d^d x \, f(x) g(x) = \int \frac{d^d k}{(2 \pi)^d} \tilde{f}(- k) \tilde{g}(k).
 		\end{equation}
 	\end{itemize}
 \end{itemize}

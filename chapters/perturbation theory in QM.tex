@@ -6,16 +6,16 @@
 	
 	\item 研究的 Hamiltonian 与 well studied Hamiltonian 有微小差异时, 使用 perturbation theory,
 	\begin{equation}
-		H(\lambda) = H^{(0)} + \lambda \delta H
+		H(\lambda) = H^{(0)} + \lambda \delta H,
 	\end{equation}
 	其中 $\lambda \in [0, 1]$.
 	
-	\item 考虑 $H^{(0)}$ 的本征态为,
+	\item 考虑 $H^{(0)}$ 的本征态为
 	\begin{equation}
 		H^{(0)} \ket{k^{(0)}} = E_k^{(0)} \ket{k^{(0)}} \quad \text{and} \quad \begin{dcases}
 			\braket{k^{(0)} | l^{(0)}} = \delta_{k l} \\
 			E_0^{(0)} \leq E_1^{(0)} \leq E_2^{(0)} \leq \cdots
-		\end{dcases}
+		\end{dcases}.
 	\end{equation}
 \end{itemize}
 
@@ -26,24 +26,24 @@
 		\begin{dcases}
 			\ket{k}_\lambda = \ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots \\
 			E_k(\lambda) = E_k^{(0)} + \lambda E_k^{(1)} + \lambda^2 E_k^{(2)} + \cdots
-		\end{dcases}
+		\end{dcases}.
 	\end{equation}
 	\begin{itemize}
-			\item 注意, 我们可以选取修正项满足,
+			\item 注意, 我们可以选取修正项满足
 			\begin{equation} \label{C.1.2}
-				\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots
+				\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots.
 			\end{equation}
 			
 			\begin{tcolorbox}[title=proof:]
-				假设我们求解得到的修正项不满足 $\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots$, 考虑,
+				假设我们求解得到的修正项不满足 $\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots$, 考虑
 				\begin{equation}
-					\ket{k^{(n)}}' = \ket{k^{(n)}} + a_n \ket{k^{(0)}} \quad \text{with} \quad \braket{k^{(0)} | k^{(n)}}' = 0
+					\ket{k^{(n)}}' = \ket{k^{(n)}} + a_n \ket{k^{(0)}} \quad \text{with} \quad \braket{k^{(0)} | k^{(n)}}' = 0,
 				\end{equation}
-				那么, (注意到态矢量可以乘一个常数, $\frac{1}{1 - a_1 \lambda - a_2 \lambda^2 - \cdots} = 1 + a_1 \lambda + (a_1^2 + a_2) \lambda^2 + \cdots$),
+				那么 (注意到态矢量可以乘一个常数, $\frac{1}{1 - a_1 \lambda - a_2 \lambda^2 - \cdots} = 1 + a_1 \lambda + (a_1^2 + a_2) \lambda^2 + \cdots$)
 				\begin{align}
 					\ket{k}_\lambda &= (1 - a_1 \lambda - a_2 \lambda^2 - \cdots) \ket{k^{(0)}} + \lambda \ket{k^{(1)}}' + \lambda^2 \ket{k^{(2)}}' + \cdots \notag \\
 					\ket{k}'_\lambda &= \ket{k^{(0)}} + \frac{1}{1 - a_1 \lambda - a_2 \lambda^2 - \cdots} \Big( \lambda \ket{k^{(1)}}' + \lambda^2 \ket{k^{(2)}}' + \cdots \Big) \notag \\
-					&= \ket{k^{(0)}} + \lambda \ket{k^{(1)}}' + \lambda^2 (a_1 \ket{k^{(1)}}' + \ket{k^{(2)}}') + \cdots
+					&= \ket{k^{(0)}} + \lambda \ket{k^{(1)}}' + \lambda^2 (a_1 \ket{k^{(1)}}' + \ket{k^{(2)}}') + \cdots,
 				\end{align}
 				可见修正项都与 $\ket{k^{(0)}}$ 正交.
 			\end{tcolorbox}
@@ -54,11 +54,11 @@
 				& + \lambda (\braket{k^{(1)} | k^{(0)}} + \braket{k^{(0)} | k^{(1)}}) \notag \\
 				& + \lambda^2 (\braket{k^{(2)} | k^{(0)}} + \braket{k^{(1)} | k^{(1)}} + \braket{k^{(0)} | k^{(2)}}) \notag \\
 				& \multicolumn{1}{c}{\vdots} \notag \\
-				& + \lambda^n (\braket{k^{(n)} | k^{(0)}} + \braket{k^{(n - 1)} | k^{(1)}} + \cdots + \braket{k^{(0)} | k^{(n)}})
+				& + \lambda^n (\braket{k^{(n)} | k^{(0)}} + \braket{k^{(n - 1)} | k^{(1)}} + \cdots + \braket{k^{(0)} | k^{(n)}}).
 			\end{align}
 	\end{itemize}
 	
-	\item 将 \eqref{C.1.1} 代入 Schrödinger's eq., 得到,
+	\item 将 \eqref{C.1.1} 代入 Schrödinger's eq., 得到:
 	
 	\begin{center}
 		\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
@@ -74,17 +74,17 @@
 	\end{center}
 	
 	\begin{tcolorbox}[title=calculation:]
-		Schrödinger's eq. 为,
+		Schrödinger's eq. 为
 		\begin{equation}
-			(H^{(0)} + \lambda \delta H - E_k(\lambda)) \ket{k}_\lambda = 0
+			(H^{(0)} + \lambda \delta H - E_k(\lambda)) \ket{k}_\lambda = 0,
 		\end{equation}
-		展开为,
+		展开为
 		\begin{align}
-			\Big( (H^{(0)} - E_k^{(0)}) + \lambda (\delta H - E_k^{(1)}) - \lambda^2 E_k^{(2)} - \cdots \Big) (\ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots) = 0
+			\Big( (H^{(0)} - E_k^{(0)}) + \lambda (\delta H - E_k^{(1)}) - \lambda^2 E_k^{(2)} - \cdots \Big) (\ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots) = 0.
 		\end{align}
 	\end{tcolorbox}
 	
-	\item 现在来计算 $\braket{l^{(0)} | k^{(n)}}$, 有,
+	\item 现在来计算 $\braket{l^{(0)} | k^{(n)}}$, 有
 	\begin{equation} \label{C.1.8}
 		\begin{dcases}
 			\begin{aligned}
@@ -94,71 +94,71 @@
 				(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(n)}} =& E_k^{(1)} \braket{l^{(0)} | k^{(n - 1)}} - \braket{l^{(0)} | \delta H | k^{(n - 1)}} \\
 				& + E_k^{(2)} \braket{l^{(0)} | k^{(n - 2)}} + \cdots + E_k^{(n)} \delta_{l k}
 			\end{aligned}
-		\end{dcases}
+		\end{dcases},
 	\end{equation}
-	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{C.1.2} 的解, 有,
+	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{C.1.2} 的解, 有
 	\begin{equation}
-		E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}}, n = 1, 2, \cdots
+		E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}}, n = 1, 2, \cdots,
 	\end{equation}
-	并且,
+	并且
 	\begin{equation} \label{C.1.10}
-		\ket{k^{(1)}} = - \sum_{l \neq k} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} \ket{l^{(0)}} \Longrightarrow E_k^{(2)} = - \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}}
+		\ket{k^{(1)}} = - \sum_{l \neq k} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} \ket{l^{(0)}} \Longrightarrow E_k^{(2)} = - \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}}.
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
-		将 \eqref{C.1.10} 代入 \eqref{C.1.8}, 得到 ($l \neq k$),
+		将 \eqref{C.1.10} 代入 \eqref{C.1.8}, 得到 ($l \neq k$)
 		\begin{equation}
-			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} = - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}}
+			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} = - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}},
 		\end{equation}
-		所以,
+		所以
 		\begin{equation}
 			\begin{dcases}
 				\ket{k^{(2)}} = \sum_{l \neq k} \Big( - \frac{\delta H_{0 0} \delta H_{l k}}{(E_l^{(0)} - E_k^{(0)})^2} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}} \Big) \ket{l^{(0)}} \\
 				E_k^{(3)} = \sum_{l \neq k} \Big( - \frac{\delta H_{0 0} |\delta H_{l k}|^2}{(E_l^{(0)} - E_k^{(0)})^2} + \sum_{m \neq k} \frac{\delta H_{k l} \delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}} \Big)
-			\end{dcases}
+			\end{dcases}.
 		\end{equation}
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		计算归一化系数,
+		计算归一化系数
 		\begin{equation}
-			\leftindex_\lambda {\braket{k | k}}_\lambda = 1 + \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{(E_l^{(0)} - E_k^{(0)})^2} + O(\lambda^3)
+			\leftindex_\lambda {\braket{k | k}}_\lambda = 1 + \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{(E_l^{(0)} - E_k^{(0)})^2} + O(\lambda^3).
 		\end{equation}
 	\end{tcolorbox}
 \end{itemize}
 
 \subsection{level repulsion or the seesaw mechanism} \label{subsection C.1.1}
 \begin{itemize}
-	\item 能量的展开式为,
+	\item 能量的展开式为
 	\begin{equation}
-		E_k(\lambda) = E_k^{(0)} + \lambda \delta H_{k k} - \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}} + O(\lambda^3)
+		E_k(\lambda) = E_k^{(0)} + \lambda \delta H_{k k} - \lambda^2 \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}} + O(\lambda^3),
 	\end{equation}
 	二阶项的效果是使能级间距增大, 对于基态能级, 二阶项使其能量减小.
 \end{itemize}
 
 \subsection{validity of the perturbation expansion}
 \begin{itemize}
-	\item 考虑两能级系统, 可以得出微扰展开收敛的条件, 即,
+	\item 考虑两能级系统, 可以得出微扰展开收敛的条件, 即
 	\begin{equation}
-		|\lambda V| < \frac{1}{2} \Delta E^{(0)}
+		|\lambda V| < \frac{1}{2} \Delta E^{(0)},
 	\end{equation}
 	因此, 对于能级简并的情况, $\Delta E^{(0)} = 0$, 情况会更复杂.
 	
 	\begin{tcolorbox}[title=calculation:]
-		对于两能级系统,
+		对于两能级系统
 		\begin{equation}
 			H(\lambda) = H^{(0)} + \lambda \hat{V} = \begin{pmatrix}
 				E_1^{(0)} & \lambda V \\
 				\lambda V^* & E_2^{(0)}
-			\end{pmatrix}
+			\end{pmatrix},
 		\end{equation}
 		$H(\lambda)$ 的本征值可以直接计算,
 		\begin{equation}
-			E_{\pm}(\lambda) = \frac{1}{2} (E_1^{(0)} + E_2^{(0)}) \pm \frac{1}{2} (E_1^{(0)} - E_2^{(0)}) \sqrt{1 + \bigg( \frac{\lambda |V|}{\frac{1}{2} (E_1^{(0)} - E_2^{(0)})} \bigg)^2}
+			E_{\pm}(\lambda) = \frac{1}{2} (E_1^{(0)} + E_2^{(0)}) \pm \frac{1}{2} (E_1^{(0)} - E_2^{(0)}) \sqrt{1 + \bigg( \frac{\lambda |V|}{\frac{1}{2} (E_1^{(0)} - E_2^{(0)})} \bigg)^2},
 		\end{equation}
 		考虑 $\sqrt{1 + z^2}$ 的 Taylor 展开,
 		\begin{equation}
-			\sqrt{1 + z^2} = 1 + \frac{z^2}{2} - \frac{z^4}{8} + \cdots + (- 1)^{n + 1} \frac{(2 n - 3)!!}{2^n n!} z^{2 n} + \cdots
+			\sqrt{1 + z^2} = 1 + \frac{z^2}{2} - \frac{z^4}{8} + \cdots + (- 1)^{n + 1} \frac{(2 n - 3)!!}{2^n n!} z^{2 n} + \cdots,
 		\end{equation}
 		注意到 $\sqrt{1 + z^2}$ 在 $z = \pm i$ 有 branch cut, 因此 $z = 0$ 附近的 Taylor expansion 只有在 $|z| < 1$ 内才收敛.
 		

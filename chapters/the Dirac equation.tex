@@ -3,25 +3,25 @@
 \begin{itemize}
 	\item A. Zee: our discussion provides a unified view of the equations of motion in relativistic physics: they just project out the unphysical components.
 	
-	\item the Dirac equation is,
+	\item the Dirac equation is
 	\begin{equation}
 		(i \gamma^\mu \partial_\mu - m) \Psi = 0 \iff (\gamma^\mu p_\mu - m) \tilde{\Psi} = 0 \Longrightarrow \begin{dcases}
 			i \sigma^\mu \partial_\mu \psi_R - m \psi_L = 0 \\
 			i \bar{\sigma}^\mu \partial_\mu \psi_L - m \psi_R = 0
-		\end{dcases}
+		\end{dcases}.
 	\end{equation}
 	首先可以看出 $\Psi$ 满足 Klein-Gordan equation,
 	\begin{align}
 		& (i \gamma^\mu \partial_\mu - m) (i \gamma^\nu \partial_\nu - m) \Psi = \Big( - \frac{1}{2} \{\gamma^\mu, \gamma^\nu\} \partial_\mu \partial_\nu - 2 i m \gamma^\mu \partial_\mu + m^2 \Big) \Psi = 0 \notag \\
-		\Longrightarrow & (- \partial^2 - m^2) \Psi = 0
+		\Longrightarrow & (- \partial^2 - m^2) \Psi = 0.
 	\end{align}
 	\begin{itemize}
-		\item 在粒子静止系下 $p_\mu = (m, 0, 0, 0)$, Dirac 方程给出 (这里采用 Dirac basis),
+		\item 在粒子静止系下 $p_\mu = (m, 0, 0, 0)$, Dirac 方程给出 (这里采用 Dirac basis)
 		\begin{equation}
 			(\gamma^0 - 1) \tilde{\Psi}_\text{Dirac} = 0 \Longrightarrow \begin{pmatrix}
 				0 & \\
 				& I
-			\end{pmatrix} \tilde{\Psi}_\text{Dirac} = 0
+			\end{pmatrix} \tilde{\Psi}_\text{Dirac} = 0.
 		\end{equation}
 		因此, $\tilde{\Psi}$ 的后两个分量为零 $\Longrightarrow \Psi$ 只有两个自由度.
 	\end{itemize}
@@ -31,9 +31,9 @@
 
 \section{Dirac Lagrangian}
 \begin{itemize}
-	\item 根据 \eqref{6.2.19} 以及之前标量场的计算经验, 可知,
+	\item 根据 \eqref{6.2.19} 以及之前标量场的计算经验, 可知
 	\begin{equation} \label{7.2.1}
-		\mathcal{L} = \bar{\Psi} (i \gamma^\mu \partial_\mu - m) \Psi = (- i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi}) \Psi + \text{total diff.}
+		\mathcal{L} = \bar{\Psi} (i \gamma^\mu \partial_\mu - m) \Psi = (- i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi}) \Psi + \text{total diff.},
 	\end{equation}
 	其中, 与复标量场论中类似, 可以把 $\Psi, \Psi^\dag$ 或 $\Psi, \bar{\Psi}$ 视为独立变量.
 \end{itemize}
@@ -45,16 +45,16 @@
 		\gamma^0 \Psi_L = \begin{pmatrix}
 			0 \\
 			\psi_L
-		\end{pmatrix} \quad \gamma^0 \Psi_R = \begin{pmatrix}
+		\end{pmatrix}, \quad \gamma^0 \Psi_R = \begin{pmatrix}
 			\psi_R \\
 			0
-		\end{pmatrix}
+		\end{pmatrix}.
 	\end{equation}
 	
 	\item 把 Lagrangian 中的 $\Psi$ 拆开,
 	\begin{align}
 		\mathcal{L} &= \bar{\Psi}_L (i \cancel{\partial}) \Psi_L + \bar{\Psi}_R (i \cancel{\partial}) \Psi_R - m (\bar{\Psi}_L \Psi_R + \bar{\Psi}_R \Psi_L) \notag \\
-		&= \psi_L^\dag i \bar{\sigma}^\mu \partial_\mu \psi_L + \psi_R^\dag i \sigma^\mu \partial_\mu \psi_R - m (\psi_L^\dag \psi_R + \psi_R^\dag \psi_L)
+		&= \psi_L^\dag i \bar{\sigma}^\mu \partial_\mu \psi_L + \psi_R^\dag i \sigma^\mu \partial_\mu \psi_R - m (\psi_L^\dag \psi_R + \psi_R^\dag \psi_L),
 	\end{align}
 	其中注意到了 $\gamma^0 \gamma^\mu$ 的非对角分块为零.
 \end{itemize}
@@ -63,7 +63,7 @@
 \begin{itemize}
 	\item 做变换 $\Psi \mapsto e^{i \theta} \Psi$, Lagrangian 保持不变, 利用 Noether's theorem 得到守恒流 (见 section \ref{D.2}),
 	\begin{equation} \label{7.3.3}
-		J_V^\mu = \bar{\Psi} \gamma^\mu \Psi
+		J_V^\mu = \bar{\Psi} \gamma^\mu \Psi,
 	\end{equation}
 	其中, 按照惯例省略了虚数 $i$.
 	
@@ -76,12 +76,12 @@
 			\end{dcases} \quad \text{or} \quad \begin{dcases}
 				\pi_\Psi^\mu = 0 \\
 				\pi_{\bar{\Psi}}^\mu = \frac{\delta \mathcal{L}}{\delta \partial_\mu \bar{\Psi}} = - i \gamma^\mu \Psi
-			\end{dcases}
+			\end{dcases}.
 		\end{equation}
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		这里看起来有点奇怪, 需要再说明一下. 对于 \eqref{7.2.1} 第一个等号后边,
+		这里看起来有点奇怪 (canonical transformation), 需要再说明一下. 对于 \eqref{7.2.1} 第一个等号后边,
 		\begin{equation}
 			\begin{dcases}
 				\pi_\Psi^\mu = \frac{\delta \mathcal{L}}{\delta \partial_\mu \Psi} = \bar{\Psi} i \gamma^\mu & \frac{\delta \mathcal{L}}{\delta \Psi} = - m \bar{\Psi} \\
@@ -89,7 +89,7 @@
 			\end{dcases} \Longrightarrow \begin{dcases}
 				- (\partial_\mu \bar{\Psi}) i \gamma^\mu - m \bar{\Psi} = 0 \\
 				(i \gamma^\mu \partial_\mu - m) \Psi = 0
-			\end{dcases}
+			\end{dcases},
 		\end{equation}
 		对于 \eqref{7.2.1} 第二个等号后边, 忽略掉全微分项,
 		\begin{equation}
@@ -99,49 +99,49 @@
 			\end{dcases} \Longrightarrow \begin{dcases}
 				- i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi} = 0 \\
 				(i \gamma^\mu \partial_\mu - m) \Psi = 0
-			\end{dcases}
+			\end{dcases}.
 		\end{equation}
 	\end{tcolorbox}
 \end{itemize}
 
 \subsection{axial symmetry}
 \begin{itemize}
-	\item 做变换,
+	\item 做变换
 	\begin{equation}
 		\Psi \mapsto e^{i \theta \gamma^5} \Psi = \begin{pmatrix}
 			e^{- i \theta} \Psi_L \\
 			e^{i \theta} \Psi_R
-		\end{pmatrix}
+		\end{pmatrix},
 	\end{equation}
-	在 $m = 0$ 时 Lagrangian 保持不变, 对应的守恒流为,
+	在 $m = 0$ 时 Lagrangian 保持不变, 对应的守恒流为
 	\begin{equation}
-		J_A^\mu = \bar{\Psi} \gamma^\mu \gamma^5 \Psi
+		J_A^\mu = \bar{\Psi} \gamma^\mu \gamma^5 \Psi,
 	\end{equation}
 	根据 \eqref{6.2.21}, 是一个 pseudovector.
 \end{itemize}
 
 \section{energy-momentum tensor and angular momentum}
 \begin{itemize}
-	\item Dirac 场的 energy-momentum tensor 为,
+	\item Dirac 场的 energy-momentum tensor 为
 	\begin{equation} \label{7.4.1}
-		T_{\mu \nu} = i \bar{\Psi} \gamma_\mu \partial_\nu \Psi - \eta_{\mu \nu} \mathcal{L}
+		T_{\mu \nu} = i \bar{\Psi} \gamma_\mu \partial_\nu \Psi - \eta_{\mu \nu} \mathcal{L},
 	\end{equation}
 	其中, 对于满足运动方程的 Dirac 场, $\mathcal{L} = 0$.
 	
-	\item  Dirac 场的 angular momentum 为,
+	\item  Dirac 场的 angular momentum 为
 	\begin{equation} \label{7.4.2}
-		M^{\mu \nu \rho} = \frac{i}{2} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + (x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu})
+		M^{\mu \nu \rho} = \frac{i}{2} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + (x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu}).
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
-		做变换 $x \mapsto e^{\frac{1}{2} \lambda \omega_{\mu \nu} J^{\mu \nu}} x$, 那么,
+		做变换 $x \mapsto e^{\frac{1}{2} \lambda \omega_{\mu \nu} J^{\mu \nu}} x$, 那么
 		\begin{align}
 			& \Psi(x) \mapsto \Psi'(x') = e^{\frac{1}{4} \lambda \omega_{\mu \nu} \sigma^{\mu \nu}} \Psi(x) \notag \\
-			\Longrightarrow & D_\lambda \Psi'(\mathcolor{red}{x}) = \frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu} \Psi(x) - \frac{1}{2} \omega_{\mu \nu} \tensor{(J^{\mu \nu})}{^\rho_\sigma} x^\sigma \partial_\rho \Psi(x)
+			\Longrightarrow & D_\lambda \Psi'(\mathcolor{red}{x}) = \frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu} \Psi(x) - \frac{1}{2} \omega_{\mu \nu} \tensor{(J^{\mu \nu})}{^\rho_\sigma} x^\sigma \partial_\rho \Psi(x),
 		\end{align}
-		所以,
+		所以
 		\begin{equation}
-			J^\mu = \frac{i}{4} \omega_{\nu \rho} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + \cdots \Longrightarrow M^{\mu \nu \rho} = \frac{i}{2} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + (x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu})
+			J^\mu = \frac{i}{4} \omega_{\nu \rho} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + \cdots \Longrightarrow M^{\mu \nu \rho} = \frac{i}{2} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + (x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu}).
 		\end{equation}
 	\end{tcolorbox}
 \end{itemize}
@@ -163,7 +163,7 @@
 		\end{pmatrix} = \gamma^2 \Longrightarrow \begin{dcases}
 			(\gamma^2)^{- 1} \gamma^\mu \gamma^2 = - \gamma^{\mu *} \\
 			C^{- 1} \gamma^\mu C = - (\gamma^\mu)^T
-		\end{dcases}
+		\end{dcases},
 	\end{equation}
 	因此 $- \gamma^{\mu *}$ 同样满足 Clifford algebra.
 	\begin{itemize}
@@ -172,59 +172,59 @@
 	
 	\begin{tcolorbox}[title=calculation:]
 		\begin{equation}
-			\gamma^0 C^{- 1} \gamma^0 C \gamma^0 = - \gamma^{\mu *} \Longrightarrow C^{- 1} \gamma^0 C = - \gamma^0 \gamma^{\mu *} \gamma^0 = - (\underbrace{\gamma^0 \gamma^\mu \gamma^0}_{= \gamma^{\mu \dag}})^*
+			\gamma^0 C^{- 1} \gamma^0 C \gamma^0 = - \gamma^{\mu *} \Longrightarrow C^{- 1} \gamma^0 C = - \gamma^0 \gamma^{\mu *} \gamma^0 = - (\underbrace{\gamma^0 \gamma^\mu \gamma^0}_{= \gamma^{\mu \dag}})^*,
 		\end{equation}
 		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{6.2.15}.
 	\end{tcolorbox}
 	
 	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程,
 	\begin{equation}
-		(- i \gamma^{\mu *} (\partial_\mu - i e A_\mu) - m) \Psi^* = 0 \Longrightarrow (\gamma^2)^{- 1} (i \gamma^\mu (\partial_\mu - i e A_\mu) - m) \Psi_c = 0
+		(- i \gamma^{\mu *} (\partial_\mu - i e A_\mu) - m) \Psi^* = 0 \Longrightarrow (\gamma^2)^{- 1} (i \gamma^\mu (\partial_\mu - i e A_\mu) - m) \Psi_c = 0,
 	\end{equation}
-	可见 $\Psi_c$ 满足 $- e \mapsto + e$ 后的 Dirac 方程, $\Psi_c$ is the field of positron.
+	可见 $\Psi_c$ 满足变换 $- e \mapsto + e$ 后的 Dirac 方程, $\Psi_c$ is the field of positron.
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
-	\item 对于 Lorentz 变换, $e^{\frac{1}{2} \lambda \omega_{\mu \nu} J^{\mu \nu}}, \lambda \in [0, 1]$, 有,
+	\item 对于 Lorentz 变换, $e^{\frac{1}{2} \lambda \omega_{\mu \nu} J^{\mu \nu}}, \lambda \in [0, 1]$, 有
 	\begin{equation}
 		\begin{dcases}
 			\Psi \mapsto \Psi'(x') = e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \Psi \\
 			\Psi_c \mapsto \gamma^2 \underbrace{(\gamma^2)^{- 1}  e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \gamma^2 \Psi^*}_{= (\Psi'(x'))^*} = e^{\frac{1}{4} \omega_{\mu \nu} \sigma^{\mu \nu}} \Psi_c
-		\end{dcases}
+		\end{dcases},
 	\end{equation}
 	可见 $\Psi_c$ 与 $\Psi$ 的变换形式相同.
 \end{itemize}
 
 \subsection{parity}
 \begin{itemize}
-	\item 对于 parity, 有 $x \rightarrow x' = (x^0, - \vec{x})$, 在 Dirac eq. 中,
+	\item 对于 parity, 有 $x \rightarrow x' = (x^0, - \vec{x})$, 在 Dirac eq. 中
 	\begin{equation}
-		\gamma^0 \gamma^\mu = \tensor{P}{^\mu_\nu} \gamma^\nu \gamma^0 \Longrightarrow (i \gamma^\mu \partial'_\mu - m) \gamma^0 \Psi(x) = 0
+		\gamma^0 \gamma^\mu = \tensor{P}{^\mu_\nu} \gamma^\nu \gamma^0 \Longrightarrow (i \gamma^\mu \partial'_\mu - m) \gamma^0 \Psi(x) = 0,
 	\end{equation}
-	因此,
+	因此
 	\begin{equation}
-		\mathcal{P} : \Psi(x) \mapsto \Psi'(x') = \gamma^0 \Psi(x)
+		\mathcal{P} : \Psi(x) \mapsto \Psi'(x') = \gamma^0 \Psi(x).
 	\end{equation}
 \end{itemize}
 
 \subsection{time reversal}
 \begin{itemize}
-	\item 时间反演算符为,
+	\item 时间反演算符为
 	\begin{equation}
-		T = (i \sigma_2 \otimes I) K = \gamma^1 \gamma^3 K
+		T = (i \sigma_2 \otimes I) K = \gamma^1 \gamma^3 K,
 	\end{equation}
 	其中 $K$ 是 complex conjugation operator (见 appendix \ref{E}). 另外, 有 $T^2 = - 1$, 符合预期.
 	
 	\begin{tcolorbox}[title=proof:]
 		时间反演之后, $\Psi'(t') = T \Psi(t)$ 满足如下方程,
 		\begin{equation}
-			i \frac{\partial}{\partial t'} \Psi'(t') = H \Psi'(x')
+			i \frac{\partial}{\partial t'} \Psi'(t') = H \Psi'(x'),
 		\end{equation}
-		其中,
+		其中
 		\begin{equation}
-			H = - i \gamma^0 \gamma^i \frac{\partial}{\partial x^i} + \gamma^0 m
+			H = - i \gamma^0 \gamma^i \frac{\partial}{\partial x^i} + \gamma^0 m,
 		\end{equation}
-		且 Hamiltonian 满足时间反演不变, $H'(t') \equiv T H(t) T^\dag = H(t)$, 即 (其中 $T = U K$),
+		且 Hamiltonian 满足时间反演不变, $H'(t') \equiv T H(t) T^\dag = H(t)$, 即 (其中 $T = U K$)
 		\begin{equation}
 			\begin{dcases}
 				T (i \gamma^0 \gamma^i) T^\dag = i \gamma^0 \gamma^i \\
@@ -232,17 +232,17 @@
 			\end{dcases} \Longrightarrow \begin{dcases}
 				U (- i \gamma^0 \gamma^{i *}) U^\dag = U (- i \gamma^0 \gamma^2 \gamma^i \gamma^2) U^\dag = i \gamma^0 \gamma^i \\
 				[U, \gamma^0] = 0
-			\end{dcases}
+			\end{dcases},
 		\end{equation}
-		满足以上要求的 $U$ 具有一下形式,
+		满足以上要求的 $U$ 具有以下形式,
 		\begin{equation}
 			U = \begin{pmatrix}
 				a \sigma_2 & b \sigma_2 \\
 				b \sigma_2 & a \sigma_2
-			\end{pmatrix} \quad \text{with} \quad \begin{dcases}
+			\end{pmatrix}, \quad \text{with} \quad \begin{dcases}
 				|a|^2 + |b|^2 = 1 \\
 				a^* b + b^* a = 0
-			\end{dcases}
+			\end{dcases},
 		\end{equation}
 		不妨令 $a = i, b = 0$.
 	\end{tcolorbox}
@@ -250,9 +250,9 @@
 
 \subsection{CPT theorem}
 \begin{itemize}
-	\item 在 CPT 变换下,
+	\item 在 CPT 变换下
 	\begin{equation}
-		\mathcal{CPT} : \Psi(x) \mapsto \gamma^1 \gamma^3 K (\gamma^0 \gamma^2 \Psi^*) = \Omega \Psi = - i \gamma^5 \Psi
+		\mathcal{CPT} : \Psi(x) \mapsto \gamma^1 \gamma^3 K (\gamma^0 \gamma^2 \Psi^*) = \Omega \Psi = - i \gamma^5 \Psi.
 	\end{equation}
 	
 	\item 任何 Lorentz covariant theory 都满足 CPT 不变性.
@@ -262,19 +262,19 @@
 \begin{itemize}
 	\item 注意, 我们采用通常的符号 $e > 0$, 与 A. Zee 的符号 $e = - |e|$ 不同.
 	
-	\item QED 的 Lagrangian 为,
-	\begin{equation}
-		\mathcal{L}_\text{QED} = \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu
+	\item QED 的 Lagrangian 为
+	\begin{equation} \label{7.6.1}
+		\mathcal{L}_\text{QED} = \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu,
 	\end{equation}
-	其中,
+	其中
 	\begin{equation}
-		D_\mu = \partial_\mu + i e A_\mu
+		D_\mu = \partial_\mu + i e A_\mu,
 	\end{equation}
 	可见电子和电磁场耦合项为 $- e A_\mu J_V^\mu$, 其中 $J_V^\mu$ 是 internal vector symmetry 的守恒流, 见 \eqref{7.3.3}.
 	
-	\item QED 里的 Dirac 方程为,
+	\item QED 里的 Dirac 方程为
 	\begin{equation}
-		(i \gamma^\mu (\partial_\mu + i e A_\mu) - m) \Psi = 0 \quad \text{and} \quad - i (\partial_\mu - i e A_\mu) \bar{\Psi} \gamma^\mu - m \bar{\Psi} = 0
+		(i \gamma^\mu (\partial_\mu + i e A_\mu) - m) \Psi = 0 \quad \text{and} \quad - i (\partial_\mu - i e A_\mu) \bar{\Psi} \gamma^\mu - m \bar{\Psi} = 0.
 	\end{equation}
 \end{itemize}
 
@@ -282,50 +282,50 @@
 \begin{itemize}
 	\item 因为在 Lorentz 变换下, $\Psi, \Psi_c$ 行为相同, 因此 Majorana 方程同样满足 Lorentz covariance,
 	\begin{equation}
-		i \cancel{\partial} \Psi - m \Psi_c = 0 \quad \text{and} \quad i \cancel{\partial} \Psi_c - m \Psi = 0
+		i \cancel{\partial} \Psi - m \Psi_c = 0 \quad \text{and} \quad i \cancel{\partial} \Psi_c - m \Psi = 0,
 	\end{equation}
-	因此,
+	因此
 	\begin{equation}
-		(- \partial^2 - m^2) \Psi = 0
+		(- \partial^2 - m^2) \Psi = 0,
 	\end{equation}
 	满足 Klein-Gordon 方程.
 	
 	\begin{tcolorbox}[title=calculation:]
 		\begin{equation}
-			- \gamma^\mu \gamma^\nu \partial_\mu \partial_\nu \Psi = m (i \cancel{\partial}) \Psi_c = m^2 \Psi
+			- \gamma^\mu \gamma^\nu \partial_\mu \partial_\nu \Psi = m (i \cancel{\partial}) \Psi_c = m^2 \Psi.
 		\end{equation}
 	\end{tcolorbox}
 	
-	\item Majorana 方程对应的 Lagrangian 为,
+	\item Majorana 方程对应的 Lagrangian 为
 	\begin{equation}
-		\mathcal{L} = \bar{\Psi} i \cancel{\partial} \Psi - \frac{1}{2} m (\Psi^T C \Psi + \bar{\Psi} C \bar{\Psi}^T)
+		\mathcal{L} = \bar{\Psi} i \cancel{\partial} \Psi - \frac{1}{2} m (\Psi^T C \Psi + \bar{\Psi} C \bar{\Psi}^T),
 	\end{equation}
-	相应的广义动量为,
+	相应的广义动量为
 	\begin{equation}
 		\begin{dcases}
 			\pi_\Psi^\mu = \bar{\Psi} i \gamma^\mu & \frac{\delta \mathcal{L}}{\delta \Psi} = - m \Psi^T C \\
 			\pi_{\bar{\Psi}}^\mu = 0 & \frac{\delta \mathcal{L}}{\delta \bar{\Psi}} = i \cancel{\partial} \Psi - m C \bar{\Psi}^T = i \cancel{\partial} \Psi - m \Psi_c
-		\end{dcases}
+		\end{dcases}.
 	\end{equation}
 	\begin{itemize}
 		\item 注意, $\Psi$ 应该被当作 Grassmann numbers, 因此, 对于反对称矩阵 $C$, 有 $\Psi^T C \Psi, \bar{\Psi} C \bar{\Psi}^T \neq 0$.
 	\end{itemize}
 	
 	\begin{tcolorbox}[title=calculation:]
-		对 $\Psi$ 变分得到,
+		对 $\Psi$ 变分得到
 		\begin{align}
 			0 &= \frac{\delta \mathcal{L}}{\delta \Psi} - \partial_\mu \pi_\Psi^\mu \notag \\
 			&= - m \Psi^T C - i \partial_\mu \bar{\Psi} \gamma^\mu \notag \\
 			&= (- m \Psi^T - i \partial_\mu \bar{\Psi} \gamma^\mu C) C \notag \\
-			&= (- m \Psi + i C (\gamma^\mu)^T \gamma^0 \partial_\mu \Psi^*)^T C
+			&= (- m \Psi + i C (\gamma^\mu)^T \gamma^0 \partial_\mu \Psi^*)^T C,
 		\end{align}
-		其中,
+		其中
 		\begin{equation}
-			C (\gamma^\mu)^T \gamma^0 = C (- C^{- 1} \gamma^\mu C) \gamma^0 = - \gamma^\mu C \gamma^0 = - \gamma^\mu \gamma^2
+			C (\gamma^\mu)^T \gamma^0 = C (- C^{- 1} \gamma^\mu C) \gamma^0 = - \gamma^\mu C \gamma^0 = - \gamma^\mu \gamma^2,
 		\end{equation}
 		代入, 得到 \textcolor{red}{(?)},
 		\begin{equation}
-			- i \cancel{\partial} \Psi_c - m \Psi = 0
+			- i \cancel{\partial} \Psi_c - m \Psi = 0.
 		\end{equation}
 	\end{tcolorbox}
 	
