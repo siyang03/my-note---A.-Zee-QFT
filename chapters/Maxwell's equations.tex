@@ -7,25 +7,40 @@
 \section{Maxwell's equations}
 \begin{itemize}
 	\item 电磁场的 Lagrangian 为 (现实中 $\mu = 0$)
-	\begin{equation} \label{11.1.1}
-		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu \quad \text{with} \quad F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]},
+	\begin{equation} \label{11.2.1}
+		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu, \quad \text{with} \quad F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]},
 	\end{equation}
 	其中 $A_\mu = (\phi, - \vec{A})$, 对作用量变分得到运动方程,
-	\begin{equation} \label{11.1.2}
+	\begin{equation} \label{11.2.2}
 		\partial^\nu F_{\nu \mu} + \mu^2 A_\mu = 0.
 	\end{equation}
-	\begin{itemize}
-		\item 如果引入 Lorentz gauge condition,
+	
+	\begin{tcolorbox}[title=calculation:]
+		场方程还可以写成
+		\begin{equation}
+			\Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 + \mu^2) \Big) A_\nu = 0 \iff (k^2 - \mu^2) \tilde{A}_\mu(k) = k_\mu k^\nu \tilde{A}_\nu(k)
+		\end{equation}
+		和
 		\begin{equation}
 			\begin{dcases}
-				\text{field eq. \eqref{11.1.2}} \\
+				- \nabla^2 A_0 - \nabla \cdot \frac{\partial \vec{A}}{\partial t} + \mu^2 A_0 = 0 \\
+				\frac{\partial}{\partial t} \Big( - \nabla A_0 - \frac{\partial \vec{A}}{\partial t} \Big) + \Big( \underbrace{\nabla^2 \vec{A} - \nabla (\nabla \cdot \vec{A})}_{= - \nabla \times (\nabla \times \vec{A})} \Big) - \mu^2 \vec{A} = 0
+			\end{dcases}.
+		\end{equation}
+	\end{tcolorbox}
+	
+	\begin{itemize}
+		\item 如果引入 Lorentz gauge condition (如 \eqref{2.1.12} 所示, 在 $\mu \neq 0$ 时必然成立),
+		\begin{equation}
+			\text{field eq. \eqref{11.2.2}} \overset{\mu \neq 0}{\iff} \begin{dcases}
+				(\partial^2 + \mu^2) A_\mu = 0 \\
 				\partial^\mu A_\mu = 0
-			\end{dcases} \Longrightarrow (\partial^2 + \mu^2) A_\mu = 0.
+			\end{dcases}.
 		\end{equation}
 	\end{itemize}
 	
 	\item 此外, $F_{\mu \nu}$ 满足 Bianchi identity,
-	\begin{equation} \label{11.1.4}
+	\begin{equation} \label{11.2.4}
 		\nabla_\rho F_{\mu \nu} + \nabla_\nu F_{\rho \mu} + \nabla_\mu F_{\nu \rho} = 0.
 	\end{equation}
 	
@@ -49,24 +64,57 @@
 			- E_2 & B_3 & 0 & - B_1 \\
 			- E_3 & - B_2 & B_1 & 0
 		\end{pmatrix} \iff \begin{dcases}
-			F_{0 i} = \vec{E} = - \vec{\nabla} \phi - \frac{\partial \vec{A}}{\partial t} \\
-			- \frac{1}{2} \epsilon^{i j k} F_{j k} = \vec{B} = \vec{\nabla} \times \vec{A}
+			F_{0 i} = \vec{E} = - \nabla \phi - \frac{\partial \vec{A}}{\partial t} \\
+			- \frac{1}{2} \epsilon^{i j k} F_{j k} = \vec{B} = \nabla \times \vec{A}
 		\end{dcases},
 	\end{equation}
-	代入 \eqref{11.1.2},
+	代入场方程 \eqref{11.2.2},
 	\begin{equation}
 		\begin{dcases}
-			\vec{\nabla} \cdot \vec{E} + \mu^2 \phi = 0 \\
-			- \frac{\partial \vec{E}}{\partial t} + \vec{\nabla} \times \vec{B} + \mu^2 \vec{A} = 0
+			\nabla \cdot \vec{E} + \mu^2 \phi = 0 \\
+			- \frac{\partial \vec{E}}{\partial t} + \nabla \times \vec{B} + \mu^2 \vec{A} = 0
 		\end{dcases},
 	\end{equation}
-	代入 \eqref{11.1.4},
+	代入 Bianchi identity \eqref{11.2.4},
 	\begin{equation}
 		\begin{dcases}
-			\vec{\nabla} \cdot \vec{B} = 0 & \rho, \mu, \nu = 1, 2, 3 \\
-			\vec{\nabla} \times \vec{E} - \frac{\partial \vec{B}}{\partial t} = 0 & \rho, \mu, \nu = 0, i, j
+			\nabla \cdot \vec{B} = 0 & \rho, \mu, \nu = 1, 2, 3 \\
+			\nabla \times \vec{E} - \frac{\partial \vec{B}}{\partial t} = 0 & \rho, \mu, \nu = 0, i, j
 		\end{dcases}.
 	\end{equation}
 	
 	\item 最后, 电磁场的能动量张量见 subsection \ref{subsection D.4.1}.
+\end{itemize}
+
+\subsection{gauge symmetry}
+\begin{itemize}
+	\item $A_\mu$ 有 4 个分量, 但光子只有 2 个自由度 (偏振态).
+	
+	\item 首先, 考虑 $\tilde{A}_\mu$ 的场方程, 对于 $\mu = 0$ 有
+	\begin{equation}
+		\tilde{A}_0 = \frac{k^0}{\omega_k^2} \vec{k} \cdot \vec{\tilde{A}},
+	\end{equation}
+	这是一个约束条件, 将此式代入剩余的场方程, 得到
+	\begin{equation} \label{11.2.12}
+		(k^2 - \mu^2) \vec{\tilde{A}} = (k^2 - \mu^2) \frac{\vec{k} (\vec{k} \cdot \vec{\tilde{A}})}{\omega_k^2},
+	\end{equation}
+	因此
+	\begin{equation}
+		\begin{dcases}
+			\text{when} \ \mu = 0: & \tilde{A}_0 = \frac{k^0}{|\vec{k}|} |\vec{\tilde{A}}|, \vec{\tilde{A}} = |\vec{\tilde{A}}| \hat{e}_k \\
+			\text{when} \ \mu \neq 0: & (k^2 - \mu^2) (\vec{k} \cdot \vec{\tilde{A}}) = 0
+		\end{dcases}.
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		对 \eqref{11.2.12} 两边同时内积 $\vec{k}$, 有
+		\begin{equation}
+			(k^2 - \mu^2) (\vec{k} \cdot \vec{\tilde{A}}) = 0 \quad \text{or} \quad \omega_k = |\vec{k}|,
+		\end{equation}
+		因此 $\mu = 0$ 时 \eqref{11.2.12} 自然成立, 而 massive 情况下 $\tilde{A}_0 = \vec{k} \cdot \vec{\tilde{A}} = 0$ 除非 on-shell.
+	\end{tcolorbox}
+	
+	\item 除此之外还需要一个约束条件.
+	
+	\item 
 \end{itemize}
