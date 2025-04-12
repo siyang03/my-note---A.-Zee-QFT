@@ -98,13 +98,24 @@
 	\begin{equation} \label{11.2.12}
 		(k^2 - \mu^2) \vec{\tilde{A}} = (k^2 - \mu^2) \frac{\vec{k} (\vec{k} \cdot \vec{\tilde{A}})}{\omega_k^2},
 	\end{equation}
-	因此
-	\begin{equation}
-		\begin{dcases}
-			\text{when} \ \mu = 0: & \tilde{A}_0 = \frac{k^0}{|\vec{k}|} |\vec{\tilde{A}}|, \vec{\tilde{A}} = |\vec{\tilde{A}}| \hat{e}_k \\
-			\text{when} \ \mu \neq 0: & (k^2 - \mu^2) (\vec{k} \cdot \vec{\tilde{A}}) = 0
-		\end{dcases}.
-	\end{equation}
+	因此:
+	\begin{itemize}
+		\item 当 $\mu = 0$ 时,
+		\begin{equation}
+			\begin{dcases}
+				\text{on-shell:} & \vec{\tilde{A}} \ \text{取值任意} \\
+				\text{not on-shell:} & \tilde{A}_0 = \frac{k^0}{|\vec{k}|} |\vec{\tilde{A}}|, \vec{\tilde{A}} = |\vec{\tilde{A}}| \hat{e}_k
+			\end{dcases}.
+		\end{equation}
+		
+		\item 当 $\mu \neq 0$ 时,
+		\begin{equation}
+			\begin{dcases}
+				\text{on-shell:} & \vec{\tilde{A}} \ \text{取值任意} \\
+				\text{not on-shell:} & \vec{k} \cdot \vec{\tilde{A}} = 0 \Longrightarrow \vec{\tilde{A}} = \tilde{A}_0 = 0
+			\end{dcases}.
+		\end{equation}
+	\end{itemize}
 	
 	\begin{tcolorbox}[title=calculation:]
 		对 \eqref{11.2.12} 两边同时内积 $\vec{k}$, 有
