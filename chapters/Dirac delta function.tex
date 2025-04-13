@@ -145,3 +145,34 @@
 		\end{equation}
 	\end{itemize}
 \end{itemize}
+
+\subsection{an important example} \label{subsection A.2.1}
+\begin{itemize}
+	\item 考虑如下 PDE,
+	\begin{equation}
+		(\nabla^2 - \mu^2) \phi(\vec{x}) = f(\vec{x}),
+	\end{equation}
+	其 Green's function 为
+	\begin{equation}
+		G(\vec{x}) = - \frac{1}{4 \pi} \frac{e^{- \mu r}}{r},
+	\end{equation}
+	其中 $r = |\vec{x}|$.
+	
+	\begin{tcolorbox}[title=calculation:]
+		Green's function 满足
+		\begin{equation}
+			(\nabla^2 - \mu^2) G(\vec{x}) = \delta^{(3)}(\vec{x}) \Longrightarrow \tilde{G}(\vec{k}) = - \frac{1}{|\vec{k}|^2 + \mu^2},
+		\end{equation}
+		因此
+		\begin{align}
+			G(\vec{x}) &= - \int \frac{d^3 k}{(2 \pi)^3} \frac{e^{i \vec{k} \cdot \vec{x}}}{|\vec{k}|^2 + \mu^2} \notag \\
+			&= - \int \frac{k^2 \sin \theta d\theta d\phi dk}{(2 \pi)^3} \frac{e^{i \cos \theta k r}}{k^2 + \mu^2} = - \frac{1}{(2 \pi)^3} \int_0^\pi \sin \theta d\theta \int_0^{2 \pi} d\phi \int_0^\infty dk \, \frac{k^2 e^{i \cos \theta k r}}{k^2 + \mu^2} \notag \\
+			&= - \frac{1}{(2 \pi)^2} \int_0^\infty \frac{k^2}{k^2 + \mu^2} \frac{2 \sin k r}{k r} dk,
+		\end{align}
+		注意到 (在复平面上考虑以下积分并使用 residue theorem)
+		\begin{align}
+			\int_0^\infty \frac{k \sin k r}{k^2 + \mu^2} dk &= \frac{1}{2} \int_{- \infty}^{+ \infty} \frac{k \sin k r}{k^2 + \mu^2} dk = \frac{1}{2 i} \int_{- \infty}^{+ \infty} \frac{k e^{i k r}}{k^2 + \mu^2} dk \notag \\
+			&= \frac{1}{2 i} \int_{- \infty}^{+ \infty} \frac{k e^{i k r}}{(k + i \mu) (k - i \mu)} dk = \frac{1}{2 i} 2 \pi i {\rm Res}(f, k = i \mu) = \frac{\pi}{2} e^{- \mu r}.
+		\end{align}
+	\end{tcolorbox}
+\end{itemize}
