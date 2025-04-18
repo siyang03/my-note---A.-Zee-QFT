@@ -52,6 +52,28 @@
 	
 	\begin{tcolorbox}[title=calculation:]
 		对 $k^0$ 积分, 注意有两个奇点 $k^0 = \pm (\omega_k - i \epsilon)$, 当 $t > 0$ 时, contour 处于下半平面, ... (另外注意到我们可以任意改变 $\vec{k}$ 的符号).
+		
+		取 $D = 3$, 可以尝试在球坐标下继续计算, 考虑 $\theta(t)$ 项,
+		\begin{align}
+			i I(x) &= \frac{1}{(2 \pi)^3} \int_0^\pi \sin \theta d\theta \int_0^{2 \pi} d\phi \int_0^\infty k^2 dk \, \frac{e^{- i (\omega_k t - k r \cos \theta)}}{2 (k^2 + m^2)} \notag \\
+			&= \frac{1}{(2 \pi)^2 r} \frac{1}{2 i} \int_{- \infty}^{+ \infty} \frac{k}{k^2 + m^2} e^{- i (\omega_k t - k r)} dk,
+		\end{align}
+		注意到 $k = \pm i m$ 既是极点也是 branch cut 的顶点.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=1]{figures/contour for evaluating the integral of the free field propagator.pdf}
+			\caption{contour for evaluating the integral of the free field propagator.}
+		\end{figure}
+		
+		参考 figure \ref{graph of sqrt{1 + z^2}.}, 可知 $\omega_k$ 在 branch cut 两侧的取值分别为
+		\begin{equation}
+			\omega_k = \begin{dcases}
+				i \sqrt{\kappa^2 - m^2} & k = \pm (i \kappa + 0^+) \\
+				- i \sqrt{\kappa^2 - m^2} & k = \pm (i \kappa + 0^-)
+			\end{dcases},
+		\end{equation}
+		其中 $\kappa > m$. 注意到 $\theta(t)$ 决定了 $t > 0$, 那么 contour 的两个上半平面的弧中, 左侧的弧对积分不贡献, 但右侧的弧在 $t > r$ (类时) 情况下会发散, 在 $t < r$ (类空) 的情况下才收敛到零.
 	\end{tcolorbox}
 	
 	\item $D(x)$ 的取值与 $x$ 的类时, 类空性质关系密切.
@@ -176,7 +198,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.5]{figures/ln(z^2 - 1 + i epsilon).pdf}
-			\caption{graph of $\ln(z^2 - 1 + i \epsilon)$}
+			\caption{graph of $\ln(z^2 - 1 + i \epsilon)$.}
 		\end{figure}
 	\end{tcolorbox}
 \end{itemize}

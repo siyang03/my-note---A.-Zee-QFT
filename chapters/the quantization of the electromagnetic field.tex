@@ -155,14 +155,14 @@
 
 \subsection{in Lorentz gauge}
 \begin{itemize}
-	\item 没搞懂怎么回事, 先算再说.
+	\item \textcolor{red}{完全没懂.}
 	
 	\item 在 Lorentz gauge 下, 算符 $\partial_\mu A^\mu \neq 0$, 并修改 Lagrangian 为
 	\begin{equation}
 		\mathcal{L} = - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} - \frac{1}{2 \alpha} (\partial_\mu A^\mu)^2,
 	\end{equation}
 	那么
-	\begin{equation}
+	\begin{equation} \label{12.2.13}
 		\begin{dcases}
 			(1 - \frac{1}{\alpha}) \partial_\mu \partial_\nu A^\nu - \partial_\nu \partial^\nu A_\mu = 0 \\
 			\pi^{\mu, \nu} = \frac{\delta \mathcal{L}}{\delta \partial_\mu A_\nu} = F^{\nu \mu} - \frac{1}{\alpha} (\partial_\rho A^\rho) \eta^{\mu \nu}
@@ -170,8 +170,13 @@
 	\end{equation}
 	因此 $\pi^0 = - \frac{1}{\alpha} \partial_\mu A^\mu, \vec{\pi} = \vec{E}$.
 	\begin{itemize}
-		\item $\alpha = 1$ 称作 Feynman gauge, $\alpha = 0$ 称作 Landau gauge.
+		\item $\alpha = 1$ 称作 Feynman gauge, $\alpha = 0$ 称作 Landau gauge, $\alpha \rightarrow \infty$ 称作 unitary gauge.
 	\end{itemize}
+	
+	\item 场方程 \eqref{12.2.13} 的 Green's function 为
+	\begin{equation}
+		\tilde{G}^{(\pm) \mu \nu}(k) = - \frac{1}{k^2 \pm i \epsilon} \Big( \eta^{\mu \nu} - (1 - \alpha) \frac{k^\mu k^\nu}{k^2} \Big).
+	\end{equation}
 	
 	\item 取 $\alpha = 1$, 那么场算符为
 	\begin{equation}
@@ -182,7 +187,7 @@
 		\begin{dcases}
 			\epsilon^{(\mu)}(\vec{k}) \cdot \epsilon^{(\nu)}(\vec{k}) = \eta^{\mu \nu} \\
 			\sum_{\rho, \sigma = 0}^3 \epsilon^{(\rho)}_\mu(\vec{k}) \epsilon^{(\sigma)}_\nu(\vec{k}) \eta_{\rho \sigma} = \eta_{\mu \nu} \\
-			k \cdot \epsilon^{(\mu = 1, 2)}(\vec{k}) = 0
+			k \cdot \epsilon^{(\mu = 1, 2)}(\vec{k}) = 0, \quad k \cdot \epsilon^{(\mu = 0, 3)}(\vec{k}) = |\vec{k}|
 		\end{dcases}.
 	\end{equation}
 	\begin{itemize}
@@ -193,17 +198,17 @@
 				0 \\
 				0 \\
 				0
-			\end{pmatrix}, \quad \epsilon^{(0)}_\mu(\vec{k}) = \begin{pmatrix}
+			\end{pmatrix}, \quad \epsilon^{(1)}_\mu(\vec{k}) = \begin{pmatrix}
 				0 \\
 				1 \\
 				0 \\
 				0
-			\end{pmatrix}, \quad \epsilon^{(0)}_\mu(\vec{k}) = \begin{pmatrix}
+			\end{pmatrix}, \quad \epsilon^{(2)}_\mu(\vec{k}) = \begin{pmatrix}
 				0 \\
 				0 \\
 				1 \\
 				0
-			\end{pmatrix}, \quad \epsilon^{(0)}_\mu(\vec{k}) = \begin{pmatrix}
+			\end{pmatrix}, \quad \epsilon^{(3)}_\mu(\vec{k}) = \begin{pmatrix}
 				0 \\
 				0 \\
 				0 \\
@@ -217,7 +222,14 @@
 		\end{equation}
 		
 		\begin{tcolorbox}[title=calculation:]
-			content...
+			首先计算 $\pi^\mu(x)$,
+			\begin{align}
+				\pi^0(x) &= - \partial_\mu A^\mu = i \int \frac{d^3 k}{(2 \pi)^{3 / 2} \sqrt{2 |\vec{k}|}} \sum_{\mu = 0, 3} \Big( k \cdot \epsilon^{(\mu)}(\vec{k}) a^{(\mu)}_{\vec{k}} e^{- i k \cdot x} - k \cdot \epsilon^{(\mu) *}(\vec{k}) a^{(\mu) \dag}_{\vec{k}} e^{i k \cdot x} \Big) \notag \\
+				&= i \int \frac{d^3 k}{(2 \pi)^{3 / 2} \sqrt{2 |\vec{k}|}} |\vec{k}| \sum_{\mu = 0, 3} \Big( a^{(\mu)}_{\vec{k}} e^{- i k \cdot x} - a^{(\mu) \dag}_{\vec{k}} e^{i k \cdot x} \Big)
+			\end{align}
+			注意到 $\sum_{\mu = 0}^3 \epsilon^{(\mu) 0}(\vec{k}) a^{(\mu)}_{\vec{k}} = \sum_{\mu = 0, 3} a^{(\mu)}_{\vec{k}}$ \textcolor{red}{(?)}.
+			
+			David Tong 的 (6.40) 式不满足 $\pi^0 = - \partial_\mu A^\mu$ \textcolor{red}{(?)}.
 		\end{tcolorbox}
 	\end{itemize}
 \end{itemize}
