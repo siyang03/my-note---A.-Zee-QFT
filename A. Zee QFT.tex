@@ -17,6 +17,19 @@
 	urlcolor=purple, % color of external links
 } % hidelinks
 %----------------------------------------------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}  % Clear all headers and footers
+
+% Redefine chapter mark to include chapter number and title
+\renewcommand{\chaptermark}[1]{%
+	\markboth{Chapter \thechapter\ #1}{}%
+}
+
+\fancyhead[L]{\nouppercase{\leftmark}}  % Header always on the left
+\fancyfoot[C]{\thepage}                 % Centered page number
+%----------------------------------------------------------------------
 % for XeTeX
 \usepackage{xeCJK}
 \setCJKmainfont{GenRyuMin JP} % 源流明体
@@ -50,7 +63,7 @@
 %	\includegraphics[scale=1]{figures/file-name}
 %	\caption{...}
 %\end{figure}
-\usepackage{subfigure}
+\usepackage{subcaption}
 % following David Tong's convention, one should always add a caption to figures, but not to tables.
 % use \vcenter{\hbox{\includegraphics[...]{...}}} to insert figures (e.g. Feynman diagrams) in equation environment.
 %----------------------------------------------------------------------
@@ -120,6 +133,10 @@
 	% Add the appendix to the table of contents and bookmarks
 	\part*{Appendices}
 	\addcontentsline{toc}{part}{Appendices}
+	% --- Appendices get "Appendix <letter> <title>" ---
+	\renewcommand{\chaptermark}[1]{%
+		\markboth{Appendix \thechapter\ #1}{}%
+	}
 	
 	\import{chapters/}{Dirac delta function}
 	
