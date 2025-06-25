@@ -1,0 +1,116 @@
+\documentclass[10pt, a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs} % to use \mathscr{...}
+\usepackage{xcolor} % \textcolor{red}{...} & \mathcolor{red}{...}
+\usepackage{nameref}
+\usepackage{hyperref} %Automatically links \label and \ref commands; Always load last
+\hypersetup{
+	linktocpage,
+	colorlinks=true, % false: boxed links; true: colored links
+	linkcolor=red, % color of internal links
+	citecolor=blue, % color of links to bibliography
+	filecolor=magenta, % color of file links
+	urlcolor=purple, % color of external links
+} % hidelinks
+%----------------------------------------------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}  % Clear all headers and footers
+
+% Redefine chapter mark to include chapter number and title
+\renewcommand{\chaptermark}[1]{%
+	\markboth{Chapter \thechapter\ #1}{}%
+}
+
+\fancyhead[L]{\nouppercase{\leftmark}}  % Header always on the left
+\fancyfoot[C]{\thepage}                 % Centered page number
+%----------------------------------------------------------------------
+% for XeTeX
+\usepackage{xeCJK}
+\setCJKmainfont{GenRyuMin JP} % 源流明体
+\setCJKmonofont{GenRyuMin JP} % font used in \texttt{} (just to prevent a warning)
+% for LuaTeX
+%\usepackage{luatexja-fontspec}
+%\setmainjfont{GenRyuMin2 JP} % 源流明体
+%----------------------------------------------------------------------
+% to handle a large project
+\usepackage{import}
+%----------------------------------------------------------------------
+\usepackage{indentfirst}
+\setlength{\parindent}{0em} % 首行缩进
+%----------------------------------------------------------------------
+% horizontal line
+%\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+
+\usepackage{dashrule}
+%\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
+%----------------------------------------------------------------------
+\usepackage[breakable]{tcolorbox} % box with color; highlight text \colorbox{yellow}{...}
+\tcbset{breakable, colback=white, colframe=green!30!black, coltext=black!60!white, fonttitle=\bfseries}
+
+\usepackage{tabularx} % LaTeX table
+\usepackage{booktabs}
+
+\usepackage{float} % appropriate way to handle figures
+% example:
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[scale=1]{figures/file-name}
+%	\caption{...}
+%\end{figure}
+\usepackage{subcaption}
+% following David Tong's convention, one should always add a caption to figures, but not to tables.
+% use \vcenter{\hbox{\includegraphics[...]{...}}} to insert figures (e.g. Feynman diagrams) in equation environment.
+%----------------------------------------------------------------------
+\numberwithin{equation}{section}
+\allowdisplaybreaks % allow page breaks inside math environments globally
+
+\usepackage{braket}
+\usepackage{cancel}
+
+\usepackage{leftindex}
+\usepackage{tensor} % how to handle indeces: https://tex.stackexchange.com/questions/11542/left-and-right-subscript-superscript
+
+\usepackage{simpler-wick} % to use Wick contraction
+%\usepackage[compat=1.1.0]{tikz-feynman}
+
+% use \, in math environment
+% except for texts embeded in math environment, use \ instead
+%----------------------------------------------------------------------
+\usepackage{orcidlink}
+\title{\Huge \textbf{Quantum Field Theory}}
+\author{万思扬}
+\date{June 24, 2025}
+%----------------------------------------------------------------------
+\begin{document}
+	\maketitle
+	%\import{chapters/}{title page}
+	
+	\pdfbookmark{\contentsname}{toc} % add pdf bookmark to the ToC
+	\tableofcontents
+	
+	\pagebreak
+	
+	\import{chapters/}{convention, notation, and units}
+	
+	\part{Field Theory}
+	
+	\import{chapters/}{cross sections and decay rates}
+	
+	\import{chapters/}{the S-matrix and time-ordered products}
+	
+	\appendix
+	
+	% Add the appendix to the table of contents and bookmarks
+	\part*{Appendices}
+	\addcontentsline{toc}{part}{Appendices}
+	% --- Appendices get "Appendix <letter> <title>" ---
+	\renewcommand{\chaptermark}[1]{%
+		\markboth{Appendix \thechapter\ #1}{}%
+	}
+\end{document}

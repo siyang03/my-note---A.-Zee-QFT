@@ -1,0 +1,75 @@
+\chapter{cross sections and decay rates}
+\section{cross sections}
+\begin{itemize}
+	\item cross section 定义为
+	\begin{equation} \label{1.1.1}
+		\sigma = \frac{1}{\Phi} \frac{P}{\Delta t},
+	\end{equation}
+	其中 $\Phi := n v = \frac{|\vec{v}_1 - \vec{v}_2|}{V}$ 是 incoming flux, 是入射粒子数密度乘粒子速度, $P$ 是发生散射的概率.
+	
+	\item 实验上定义 luminosity 为
+	\begin{equation}
+		L \Delta t = \frac{dN}{d\sigma},
+	\end{equation}
+	其中 $dN$ 是 $d\Omega$ 内发生散射的粒子数.
+	
+	\item 用 S-matrix elements 来表示 cross section, 有
+	\begin{equation}
+		dP = \frac{|\braket{f | S | i}|^2}{\braket{f | f} \braket{i | i}} d\Pi,
+	\end{equation}
+	其中 $d\Pi$ 是末态动量体元
+	\begin{equation}
+		d\Pi = \prod_i \delta^{(3)}(\vec{p} = 0) d^3 p_{f, i} = \prod_i \frac{V}{(2 \pi)^3} d^3 p_{f, i},
+	\end{equation}
+	这保证了无相互作用时 $\int dP = 1$.
+	
+	\item 对于初末态有
+	\begin{equation}
+		\begin{dcases}
+			\braket{i | i} = \braket{p_1, p_2 | p_1, p_2} = (2 \pi)^3 2 \omega_{p_1} \delta^{(3)}(0) (2 \pi)^3 2 \omega_{p_2} \delta^{(3)}(0) = (2 \omega_{p_1} V) (2 \omega_{p_2} V) \\
+			\braket{f | f} = \prod_i (2 \omega_{p_{f, i}} V)
+		\end{dcases}.
+	\end{equation}
+	
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
+	
+	\item 一般将 S-matrix 写为
+	\begin{equation}
+		S = I + i \mathcal{T}, \quad \mathcal{T} = (2 \pi)^4 \delta^{(4)}({\textstyle \sum_{i, f} p}) \mathcal{M},
+	\end{equation}
+	其中 $\mathcal{T}$ 称为 transfer matrix, 而 $\mathcal{M}$ 才是 S-matrix 的 non-trivial part. 有
+	\begin{equation}
+		\braket{f | S - I | i} = i (2 \pi)^4 \delta^{(4)}({\textstyle \sum_{i, f} p}) \braket{f | \mathcal{M} | i}.
+	\end{equation}
+	
+	\item 对于 $\ket{f} \neq \ket{i}$ 的情况, 有
+	\begin{equation}
+		|\braket{f | S | i}|^2 = (2 \pi)^4 T V \delta^{(4)}({\textstyle \sum_{i, f} p}) |\braket{f | \mathcal{M} | i}|^2,
+	\end{equation}
+	那么
+	\begin{equation}
+		dP = \frac{T}{V} \frac{1}{(2 \omega_{p_1}) (2 \omega_{p_2})} |\braket{f | \mathcal{M} | i}|^2 d\Pi_\text{LIPS},
+	\end{equation}
+	其中 LIPS 表示 Lorentz-invariant phase space,
+	\begin{equation}
+		d\Pi_\text{LIPS} = (2 \pi)^4 \delta^{(4)}({\textstyle \sum_{i, f} p}) \prod_i \frac{d^3 p_{f, i}}{(2 \pi)^3 2 \omega_{p_{f, i}}}.
+	\end{equation}
+	
+	\item 最终有 (将 \eqref{1.1.1} 中的 $\Delta t$ 替换为 $T$)
+	\begin{equation}
+		d\sigma = \frac{1}{|\vec{v}_1 - \vec{v}_2| (2 \omega_{p_1}) (2 \omega_{p_2})} |\braket{f | \mathcal{M} | i}|^2 d\Pi_\text{LIPS}.
+	\end{equation}
+\end{itemize}
+
+\section{decay rates}
+\begin{itemize}
+	\item decay rate, $\Gamma$, 是粒子单位时间发生衰变的概率,
+	\begin{equation}
+		d\Gamma = \frac{dP}{T}.
+	\end{equation}
+	
+	\item 因为 $\ket{f} \neq \ket{i}$, 有
+	\begin{equation}
+		d\Gamma = \frac{1}{2 \omega_p} |\braket{f | \mathcal{M} | i}|^2 d\Pi_\text{LIPS}.
+	\end{equation}
+\end{itemize}
