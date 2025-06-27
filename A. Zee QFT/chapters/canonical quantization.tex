@@ -66,26 +66,26 @@
 		L = \int d^D x \, \Big( - \frac{1}{2} ((\partial \phi)^2 + m^2 \phi^2) - u(\phi) \Big),
 	\end{equation}
 	canonical commutation relation 为
-	\begin{equation} \label{4.1.8}
+	\begin{equation} \label{canonical quantization.1.8}
 		\pi(\vec{x}, t) = \frac{\delta L(t)}{\delta \partial_0 \phi(\vec{x}, t)} = \partial_0 \phi(\vec{x}, t) \quad \text{and} \quad [\pi(\vec{x}, t), \phi(\vec{y}, t)] = - i \delta^{(D)}(\vec{x} - \vec{y}),
 	\end{equation}
 	标量场的 Hamiltonian 为
-	\begin{equation} \label{4.1.9}
+	\begin{equation} \label{canonical quantization.1.9}
 		H = \int d^D x \, (\pi \phi - \mathcal{L}) = \int d^D x \, \Big( \frac{1}{2} (\pi^2 + |\vec{\nabla} \phi|^2 + m^2 \phi^2) + u(\phi) \Big).
 	\end{equation}
 	
 	\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
 	
 	\item 算符的演化方程为
-	\begin{equation} \label{4.1.10}
+	\begin{equation} \label{canonical quantization.1.10}
 		\begin{dcases}
 			\partial_0 \phi = i [H, \phi] = \pi \\
 			\partial_0 \pi = i [H, \pi] = (- \vec{\nabla}^2 + m^2) \phi + \frac{d u}{d\phi}
 		\end{dcases} \Longrightarrow (\partial^2 - m^2) \phi - \frac{d u}{d\phi} = 0.
 	\end{equation}
 	
-	\item 当 $u(\phi) = 0$ 时, 求解场方程 \eqref{4.1.10} 和 canonical commutation relation \eqref{4.1.8} 得到
-	\begin{equation} \label{4.1.11}
+	\item 当 $u(\phi) = 0$ 时, 求解场方程 \eqref{canonical quantization.1.10} 和 canonical commutation relation \eqref{canonical quantization.1.8} 得到
+	\begin{equation} \label{canonical quantization.1.11}
 		\phi(\vec{x}, t) = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} (\alpha_k(t) e^{i \vec{k} \cdot \vec{x}} + \alpha^\dag_k(t) e^{- i \vec{k} \cdot \vec{x}}),
 	\end{equation}
 	其中
@@ -95,11 +95,11 @@
 	另外, 在后面的笔记中使用简记 $\sqrt{(2 \pi)^D 2 \omega_k} = \rho(k)$.
 	
 	\begin{tcolorbox}[title=calculation:]
-		求解场方程 \eqref{4.1.10}, 得到
+		求解场方程 \eqref{canonical quantization.1.10}, 得到
 		\begin{equation}
 			\phi(\vec{x}, t) = \int \frac{d^D k}{(2 \pi)^D} (\alpha_{\vec{k}} e^{i (- \omega_k t + \vec{k} \cdot \vec{x})} + \alpha^\dag_{\vec{k}} e^{- i (- \omega_k t + \vec{k} \cdot \vec{x})}),
 		\end{equation}
-		代入 canonical commutation relation \eqref{4.1.8}, 有 (其中 $x^0 = y^0 = t, k^0 = \omega_k$)
+		代入 canonical commutation relation \eqref{canonical quantization.1.8}, 有 (其中 $x^0 = y^0 = t, k^0 = \omega_k$)
 		\begin{align}
 			& \int \frac{d^D k_2}{(2 \pi)^D} \Big( - i \omega_{k_1} [\alpha_{\vec{k}_1}, \alpha_{\vec{k}_2}] e^{i (k_1 \cdot x + k_2 \cdot y)} + i \omega_{k_1} [\alpha^\dag_{\vec{k}_1}, \alpha^\dag_{\vec{k}_2}] e^{- i (k_1 \cdot x + k_2 \cdot y)} \notag \\
 			& - i \omega_{k_1} [\alpha_{\vec{k}_1}, \alpha^\dag_{\vec{k}_2}] e^{i (k_1 \cdot x - k_2 \cdot y)} + i \omega_{k_1} [\alpha^\dag_{\vec{k}_1}, \alpha_{\vec{k}_2}] e^{- i (k_1 \cdot x - k_2 \cdot y)} \Big) = - i e^{i \vec{k}_1 \cdot (\vec{x} - \vec{y})} \notag \\
@@ -110,8 +110,8 @@
 		\end{align}
 	\end{tcolorbox}
 	
-	\item 代入 \eqref{4.1.9} 可得 (依然是 $u(\phi) = 0$ 的情况下)
-	\begin{equation} \label{4.1.15}
+	\item 代入 \eqref{canonical quantization.1.9} 可得 (依然是 $u(\phi) = 0$ 的情况下)
+	\begin{equation} \label{canonical quantization.1.15}
 		H = \int d^D k \, \omega_k \frac{a^\dag_{\vec{k}} a_{\vec{k}} + a_{\vec{k}} a^\dag_{\vec{k}}}{2} = \int d^D k \, \omega_k \Big( a^\dag_{\vec{k}} a_{\vec{k}} + \frac{1}{2} \delta^{(D)}(0) \Big) \Longrightarrow \braket{0 | H | 0} = V \int \frac{d^D k}{(2 \pi)^D} \frac{1}{2} \omega_k,
 	\end{equation}
 	其中, $V = \int d^D x = (2 \pi)^D \delta^{(D)}(0)$.
@@ -122,8 +122,8 @@
 	\begin{equation}
 		\braket{0 | \phi(x) \phi(y) | 0} = \int \frac{d^D k}{(2 \pi)^D 2 \omega_k} e^{i k \cdot (x - y)},
 	\end{equation}
-	其中 $k^0 = \omega_k$. 因此, 对比 \eqref{1.2.1}, 有
-	\begin{equation} \label{4.1.17}
+	其中 $k^0 = \omega_k$. 因此, 对比 \eqref{free field theory.2.1}, 有
+	\begin{equation} \label{canonical quantization.1.17}
 		\braket{0 | T(\phi(x) \phi(y)) | 0} = i D(x - y).
 	\end{equation}
 \end{itemize}
@@ -134,12 +134,12 @@
 	\begin{equation}
 		P^\mu = \int d^D x \, T^{0 \mu} = \int d^D k \, k^\mu a^\dag_{\vec{k}} a_{\vec{k}},
 	\end{equation}
-	其中, energy-momentum tensor 见 subsection \ref{D.2.3}, 另外 $P^0 = H$ 还有一个 vacuum energy.
+	其中, energy-momentum tensor 见 subsection \ref{classical field theory and Noether's theorem.2.3}, 另外 $P^0 = H$ 还有一个 vacuum energy.
 \end{itemize}
 
 \section{interaction picture}
 \begin{itemize}
-	\item 注意, 在 $u(\phi) \neq 0$ 的情况下, (即便在 Schrödinger's picture 里, $t = 0$ 时) \eqref{4.1.11} 不再成立, 因此无法通过 Schrödinger's picture or Heisenberg's picture 求解存在相互作用的场论.
+	\item 注意, 在 $u(\phi) \neq 0$ 的情况下, (即便在 Schrödinger's picture 里, $t = 0$ 时) \eqref{canonical quantization.1.11} 不再成立, 因此无法通过 Schrödinger's picture or Heisenberg's picture 求解存在相互作用的场论.
 	
 	\item 将 Hamiltonian 分成两个部分,
 	\begin{equation}
@@ -147,18 +147,18 @@
 	\end{equation}
 	
 	\item operators 以自由场的 Hamiltonian 演化,
-	\begin{equation} \label{4.2.2}
+	\begin{equation} \label{canonical quantization.2.2}
 		O_I(t) = U_0^\dag(t, 0) O(0) U_0(t, 0) \quad \text{where} \quad U_0(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H_0 \Big),
 	\end{equation}
 	states 以如下方式演化,
-	\begin{equation} \label{4.2.3}
+	\begin{equation} \label{canonical quantization.2.3}
 		\ket{\psi(t)}_I = U_0^\dag(t, 0) U(t, 0) \ket{\psi(0)} \quad \text{where} \quad U(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H \Big),
 	\end{equation}
 	因此
 	\begin{equation}
 		\ket{\psi(t_2)}_I = U_I(t_2, t_1) \ket{\psi(t_1)}_I \quad \text{where} \quad U_I(t_2, t_1) = \mathrm{Texp} \Big( - i \int_{t_1}^{t_2} dt \, H_I(t) \Big),
 	\end{equation}
-	注意, \eqref{4.2.2} 和 \eqref{4.2.3} 中, $\mathrm{Texp}$ 里的 $H, H_0$ 都是 Schrödinger's picture 里的算符.
+	注意, \eqref{canonical quantization.2.2} 和 \eqref{canonical quantization.2.3} 中, $\mathrm{Texp}$ 里的 $H, H_0$ 都是 Schrödinger's picture 里的算符.
 	
 	\begin{tcolorbox}[title=calculation:]
 		首先有
@@ -212,7 +212,7 @@
 		\caption{canonical quantization - Feynman diagrams.}
 	\end{figure}
 	
-	观察可见, 上图和 figure \ref{figure 3.3} 有对应关系.
+	观察可见, 上图和 figure \ref{figure Feynman diagrams.3} 有对应关系.
 	
 	\item 再举一个例子,
 	\begin{align}
@@ -224,12 +224,12 @@
 		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} \Big( \theta(t_2 - t_1) e^{i (k_1 + k_2 - p_3 - p_4) \cdot x_1} e^{i (p_3 + p_4 - k_3 - k_4) \cdot x_2} \notag \\
 		& + \theta(t_1 - t_2) e^{i (k_1 + k_2 + p_3 + p_4) \cdot x_1} e^{i (- p_3 - p_4 - k_3 - k_4) \cdot x_2} \Big) \notag \\
 		=& \frac{(- i \lambda)^2}{2} \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 - (k_3 + k_4) \cdot x_2)} \int \frac{d^D p_3}{\rho^2(p_3)} \frac{d^D p_4}{\rho^2(p_4)} \Big( \theta(t_2 - t_1) e^{i (p_3 + p_4) \cdot (x_2 - x_1)} \notag \\
-		& + \theta(t_1 - t_2) e^{i (p_3 + p_4) \cdot (x_1 - x_2)} \Big), \label{4.3.5}
+		& + \theta(t_1 - t_2) e^{i (p_3 + p_4) \cdot (x_1 - x_2)} \Big), \label{canonical quantization.3.5}
 	\end{align}
-	同样, 与 \eqref{3.3.18} 有对应关系, (注意按时间排序 $\braket{k_3 k_4 | T(\phi^4(x_1) \phi^4(x_2)) | k_1 k_2}$).
+	同样, 与 \eqref{Feynman diagrams.3.18} 有对应关系, (注意按时间排序 $\braket{k_3 k_4 | T(\phi^4(x_1) \phi^4(x_2)) | k_1 k_2}$).
 	
 	\begin{tcolorbox}[title=calculation:]
-		从 \eqref{3.3.17} 开始 (与 \eqref{1.2.1} 类似, $\vec{p}, \vec{q}$ 的符号可以任意改变),
+		从 \eqref{Feynman diagrams.3.17} 开始 (与 \eqref{free field theory.2.1} 类似, $\vec{p}, \vec{q}$ 的符号可以任意改变),
 		\begin{align}
 			& \int d^d x_1 d^d x_2 \, e^{i (k_1 + k_2 + p - q) \cdot x_1} e^{i (k_3 + k_4 - p + q) \cdot x_2} \int \frac{d^d p}{(2 \pi)^d} \frac{d^d q}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \frac{i}{- q^2 - m^2 + i \epsilon} \notag \\
 			=& \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 + (k_3 + k_4) \cdot x_2)} \int \frac{d^d p}{(2 \pi)^d} \frac{d^d q}{(2 \pi)^d} \frac{i e^{i p \cdot (x_1 - x_2)}}{- p^2 - m^2 + i \epsilon} \frac{i e^{i e^{i q \cdot (x_2 - x_1)}}}{- q^2 - m^2 + i \epsilon} \notag \\
@@ -238,11 +238,11 @@
 			=& \int d^d x_1 d^d x_2 \, e^{i ((k_1 + k_2) \cdot x_1 + (k_3 + k_4) \cdot x_2)} \int \frac{d^D p}{\rho^2(p)} \frac{d^D q}{\rho^2(q)} \Big( \theta(t_2 - t_1) e^{i (p + q) \cdot (x_2 - x_1)} \notag \\
 			& + \theta(t_1 - t_2) e^{i (p + q) \cdot (x_1 - x_2)} \Big),
 		\end{align}
-		结果与 \eqref{4.3.5} 对应.
+		结果与 \eqref{canonical quantization.3.5} 对应.
 	\end{tcolorbox}
 \end{itemize}
 
-\section{complex scalar field} \label{4.4}
+\section{complex scalar field} \label{canonical quantization.4}
 \begin{itemize}
 	\item complex scalar field 的 Lagrangian 为
 	\begin{equation}
@@ -319,7 +319,7 @@
 		\end{align}
 	\end{tcolorbox}
 	
-	\item 代入 \eqref{D.3.2}, 有 $i [Q, \psi] = - i \psi$, 所以
+	\item 代入 \eqref{classical field theory and Noether's theorem.3.2}, 有 $i [Q, \psi] = - i \psi$, 所以
 	\begin{equation}
 		e^{- i \lambda Q} \psi e^{i \lambda Q} = e^{i \lambda} \psi.
 	\end{equation}

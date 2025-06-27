@@ -2,11 +2,108 @@
 \section{the LSZ reduction formula}
 \begin{itemize}
 	\item S-matrix element 为
-	\begin{equation}
+	\begin{equation}\label{the LSZ reduction formula.1.1}
 		\begin{dcases}
 			\ket{i} = \sqrt{(2 \pi)^3 2 \omega_{p_1}} \sqrt{(2 \pi)^3 2 \omega_{p_2}} a^\dag_{\vec{p}_1}(- \infty) a^\dag_{\vec{p}_2}(- \infty) \ket{\Omega} \\
 			\ket{f} = \sqrt{(2 \pi)^3 2 \omega_{p_3}} \cdots \sqrt{(2 \pi)^3 2 \omega_{p_n}} a^\dag_{\vec{p}_3}(+ \infty) \cdots a^\dag_{\vec{p}_n}(+ \infty) \ket{\Omega} \\
-			\braket{f | S | i} = (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}}
-		\end{dcases}
+			\braket{f | S | i} = (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | a_{\vec{p}_3}(+ \infty) \cdots a_{\vec{p}_n}(+ \infty) a^\dag_{\vec{p}_1}(- \infty) a^\dag_{\vec{p}_2}(- \infty) | \Omega}
+		\end{dcases}.
 	\end{equation}
+	
+	\begin{tcolorbox}[title=remark:]
+		注意到
+		\begin{equation}
+			\begin{dcases}
+				a_{\vec{p}}(t) = U^\dag(t) a_{\vec{p}}(0) U(t) \\
+				\ket{\vec{p}(t)} = U(t) \ket{\vec{p}(0)}
+			\end{dcases} \Longrightarrow \ket{\vec{p}(t)} = a^\dag_{\vec{p}}(- t) \ket{\Omega},
+		\end{equation}
+		那么, 对于初末态, 有
+		\begin{align}
+			& \ket{i(- \infty)} = \sqrt{(2 \pi)^3 2 \omega_{p_1}} \sqrt{(2 \pi)^3 2 \omega_{p_2}} a^\dag_{\vec{p}_1}(0) a^\dag_{\vec{p}_2}(0) \ket{\Omega} \notag \\
+			\Longrightarrow & \ket{i(0)} = \cdots,
+		\end{align}
+		可见 \eqref{the LSZ reduction formula.1.1} 中的 $\ket{i}, \ket{f}$ 都是 $t = 0$ 即 Heisenberg picture 中的形式.
+	\end{tcolorbox}
+	
+	\item LSZ 需要用到以下公式,
+	\begin{equation}
+		i \int d^4 x \, e^{i p \cdot x} (\partial^2 + m^2) \phi(x) = \sqrt{(2 \pi)^3 2 \omega_p} (e^{i \omega_p t} a_{\vec{p}}(t)) \Big|^\infty_{- \infty}.
+	\end{equation}
+	
+	\begin{tcolorbox}[title=proof:]
+		注意到
+		\begin{align}
+			& \phi(x) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}}(t) e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}}(t) e^{- i \vec{p} \cdot \vec{x}}) \notag \\
+			\Longrightarrow & (\partial^2 + m^2) \phi(x) = (\partial_t^2 + \omega_p^2) \phi(x),
+		\end{align}
+		代入, 得
+		\begin{align}
+			\text{LHS} &= i \int d^4 x \, e^{i p \cdot x} (\partial_t^2 + \omega_p^2) \phi(x) \notag \\
+			&= i \int dt \, e^{i \omega_p t} \int d^3 x \, e^{- i \vec{p} \cdot \vec{x}} (\partial_t^2 + \omega_p^2) \int \frac{d^3 q}{(2 \pi)^{3 / 2} \sqrt{2 \omega_q}} (a_{\vec{q}}(t) e^{i \vec{q} \cdot \vec{x}} + a^\dag_{\vec{q}}(t) e^{- i \vec{q} \cdot \vec{x}}) \notag \\
+			&= i \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} \int dt \, e^{i \omega_p t} (\partial_t^2 + \omega_p^2) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t)),
+		\end{align}
+		注意到
+		\begin{equation}
+			e^{i \omega_p t} (\partial_t^2 + \omega_p^2) O(t) = \partial_t(e^{i \omega_p t} (\partial_t - i \omega_p) O(t)),
+		\end{equation}
+		因此
+		\begin{equation}
+			\text{LHS} = i \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} (e^{i \omega_p t} (\partial_t - i \omega_p) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t))) \Big|^\infty_{- \infty},
+		\end{equation}
+		注意到 $t = \pm \infty$ 时, fields are free, 所以
+		\begin{equation}
+			\begin{dcases}
+				\lim_{t \rightarrow \pm \infty} a_{\vec{p}}(t) = e^{- i \omega_p t} a_{\vec{p}} \\
+				\lim_{t \rightarrow \pm \infty} a^\dag_{- \vec{p}}(t) = e^{i \omega_p t} a^\dag_{- \vec{p}}
+			\end{dcases} \Longrightarrow \begin{dcases}
+				\lim_{t \rightarrow \pm \infty} (\partial_t - i \omega_p) a_{\vec{p}}(t) = - 2 i \omega_p a_{\vec{p}}(t) \\
+				\lim_{t \rightarrow \pm \infty} (\partial_t - i \omega_p) a^\dag_{- \vec{p}}(t) = 0
+			\end{dcases},
+		\end{equation}
+		代入得到
+		\begin{equation}
+			\text{LHS} = \sqrt{(2 \pi)^3 2 \omega_p} (e^{i \omega_p t} a_{\vec{p}}(t)) \Big|^\infty_{- \infty}.
+		\end{equation}
+	\end{tcolorbox}
+	
+	\item 那么 (up to an infinite phase)
+	\begin{align}
+		& \braket{f | S | i} \notag \\
+		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | a_{\vec{p}_3}(+ \infty) \cdots a_{\vec{p}_n}(+ \infty) a^\dag_{\vec{p}_1}(- \infty) a^\dag_{\vec{p}_2}(- \infty) | \Omega} \notag \\
+		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | T ((a_{\vec{p}_3}(+ \infty) - a_{\vec{p}_3}(- \infty)) \cdots (a^\dag_{\vec{p}_2}(\mathcolor{red}{-} \infty) - a^\dag_{\vec{p}_2}(\mathcolor{red}{+} \infty))) | \Omega} \notag \\
+		=& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega},
+	\end{align}
+	得到 LSZ reduction formula.
+\end{itemize}
+
+\section{LSZ for operators}
+\begin{itemize}
+	\item 考虑
+	\begin{equation}
+		\phi(x) = e^{i P \cdot x} \phi(0) e^{- i P \cdot x},
+	\end{equation}
+	且 $P \ket{\Omega} = 0$, 因此
+	\begin{equation}
+		\begin{dcases}
+			\braket{\Omega | \phi(x) | \Omega} = \braket{\Omega | \phi(0) | \Omega} \\
+			\braket{p | \phi(x) | \Omega} = e^{i p \cdot x} \braket{p | \phi(0) | \Omega}
+		\end{dcases}.
+	\end{equation}
+	
+	\item LSZ reduction formula 的前提是场算符满足
+	\begin{equation}
+		\begin{dcases}
+			\braket{\Omega | \phi(x) | \Omega} = 0 \\
+			\braket{p | \phi(x) | \Omega} = e^{i p \cdot x}
+		\end{dcases}.
+	\end{equation}
+	
+	\begin{tcolorbox}[title=remark:]
+		前提是场算符具有以下形式,
+		\begin{equation}
+			\phi(x) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}}(t) e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}}(t) e^{- i \vec{p} \cdot \vec{x}}),
+		\end{equation}
+		且 $a^\dag_{\vec{p}}(\pm \infty) \ket{\Omega} \in \mathrm{span}(\ket{p})$ 是一个单粒子态.
+	\end{tcolorbox}
 \end{itemize}

@@ -5,7 +5,7 @@
 	\item Lagrangian density, $\mathcal{L}$, 是 $\phi^a(x), \partial_\mu \phi^a(x), t$ 的函数.
 	
 	\item 对作用量变分得到 Euler-Lagrangian equation of motion,
-	\begin{equation} \label{D.1.1}
+	\begin{equation} \label{classical field theory and Noether's theorem.1.1}
 		\frac{\delta \mathcal{L}}{\delta \phi^a} - \partial_\mu \Big( \frac{\delta \mathcal{L}}{\delta (\partial_\mu \phi^a)} \Big) = 0.
 	\end{equation}
 	
@@ -49,7 +49,7 @@
 	\end{itemize}
 \end{itemize}
 
-\section{Noether's theorem} \label{D.2}
+\section{Noether's theorem} \label{classical field theory and Noether's theorem.2}
 \begin{itemize}
 	\item Noether 定理中的对称性是 global symmetry, 不是 gauge symmetry.
 	
@@ -118,11 +118,11 @@
 	\end{equation}
 	
 	\item \textbf{Noether's theorem:} the continuous transform $\lambda$ is a \textbf{continuous symmetry} iff.
-	\begin{equation} \label{D.2.11}
+	\begin{equation} \label{classical field theory and Noether's theorem.2.11}
 		D_\lambda \mathcal{L} = \partial_\mu F^\mu(\phi^a, \partial_\mu \phi^a, t),
 	\end{equation}
 	for some $F^\mu(\phi^a, \partial_\mu \phi^a, t)$, and the \textbf{conserved current} is
-	\begin{equation} \label{D.2.12}
+	\begin{equation} \label{classical field theory and Noether's theorem.2.12}
 		J^\mu = \pi_a^\mu D_\lambda \phi^a - F^\mu.
 	\end{equation}
 	
@@ -131,7 +131,7 @@
 			D_\lambda \mathcal{L} &= \frac{\delta \mathcal{L}}{\delta \phi^a} D_\lambda \phi^a + \frac{\delta \mathcal{L}}{\delta (\partial_\mu \phi^a)} \partial_\mu D_\lambda \phi^a \notag \\
 			&= \Big( \frac{\delta \mathcal{L}}{\delta \phi^a} - \partial_\mu \Big( \frac{\delta \mathcal{L}}{\delta (\partial_\mu \phi^a)} \Big) \Big) D_\lambda \phi^a + \partial_\mu \Big( \underbrace{\frac{\delta \mathcal{L}}{\delta (\partial_\mu \phi^a)}}_{= \pi_a^\mu} D_\lambda \phi^a \Big),
 		\end{align}
-		代入 \eqref{D.1.1}, 得...
+		代入 \eqref{classical field theory and Noether's theorem.1.1}, 得...
 	\end{tcolorbox}
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
@@ -140,7 +140,7 @@
 	\begin{equation}
 		F^\mu \mapsto F'^\mu = F^\mu + \partial_\nu A^{\mu \nu} \quad \text{with} \quad A^{\mu \nu} = A^{[\mu \nu]},
 	\end{equation}
-	新 $F'^\mu$ 依然能满足 \eqref{D.2.11}.
+	新 $F'^\mu$ 依然能满足 \eqref{classical field theory and Noether's theorem.2.11}.
 	
 	\item 但是, 守恒荷是唯一确定的.
 	
@@ -152,7 +152,7 @@
 	\end{tcolorbox}
 \end{itemize}
 
-\subsection{spacetime translations and the energy-momentum tensor} \label{D.2.3}
+\subsection{spacetime translations and the energy-momentum tensor} \label{classical field theory and Noether's theorem.2.3}
 \begin{itemize}
 	\item 时空平移变换为
 	\begin{equation}
@@ -163,7 +163,7 @@
 	\begin{equation}
 		D_\lambda \phi^a = e^\mu \partial_\mu \phi^a \quad \text{and} \quad D_\lambda \mathcal{L} = e^\mu \partial_\mu \mathcal{L},
 	\end{equation}
-	代入 \eqref{D.2.12},
+	代入 \eqref{classical field theory and Noether's theorem.2.12},
 	\begin{equation}
 		J^\mu = e^\nu (\underbrace{\pi_a^\mu \partial_\nu \phi^a - \delta^\mu_\nu \mathcal{L}}_{= \tensor{T}{^\mu_\nu}}).
 	\end{equation}
@@ -171,7 +171,7 @@
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
 	\item 并且有
-	\begin{equation} \label{D.2.19}
+	\begin{equation} \label{classical field theory and Noether's theorem.2.19}
 		\partial_\mu T^{\mu \nu} = 0 \Longrightarrow P^\mu = \int d^3 x \, T^{0 \mu} = \text{Const.},
 	\end{equation}
 	来自守恒流散度为零.
@@ -211,7 +211,7 @@
 	\begin{equation}
 		D_\lambda \phi^a = - \tensor{\epsilon}{^\mu_\nu} x^\nu \partial_\mu \phi^a \quad \text{and} \quad D_\lambda \mathcal{L} = - \tensor{\epsilon}{^\mu_\nu} x^\nu \partial_\mu \mathcal{L} = - \epsilon_{\mu \nu} \partial^\mu(x^\nu \mathcal{L}),
 	\end{equation}
-	代入 \eqref{D.2.12},
+	代入 \eqref{classical field theory and Noether's theorem.2.12},
 	\begin{equation}
 		J^\mu = \frac{1}{2} \epsilon_{\nu \rho} M^{\mu \nu \rho} \quad \text{where} \quad M^{\mu \nu \rho} = x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu},
 	\end{equation}
@@ -230,7 +230,7 @@
 	\begin{equation}
 		0 = \frac{d}{dt} J^{0 i} = \frac{d}{dt} \int d^3 x (t T^{0 i} - x^i T^{0 0}) = P^i - \frac{d}{dt} \int d^3 x \, x^i T^{0 0},
 	\end{equation}
-	其中, 用到了 $\frac{d P^i}{dt} = 0$ (见 \eqref{D.2.19}), 可以将上式的第二项理解为质心运动的动量.
+	其中, 用到了 $\frac{d P^i}{dt} = 0$ (见 \eqref{classical field theory and Noether's theorem.2.19}), 可以将上式的第二项理解为质心运动的动量.
 \end{itemize}
 
 \section{charge as generators}
@@ -240,7 +240,7 @@
 		Q = \int d^D \, J^0 = \int d^D x \, (\pi_a D_\lambda \phi^a - F^0),
 	\end{equation}
 	在 $F^\mu = 0$ 且 $[D_\lambda \phi^a, \phi^a] = 0$ 的情况下,
-	\begin{equation} \label{D.3.2}
+	\begin{equation} \label{classical field theory and Noether's theorem.3.2}
 		i [Q, \phi^a] = D_\lambda \phi^a.
 	\end{equation}
 \end{itemize}
@@ -267,7 +267,7 @@
 	\item $\mathcal{L} = - \frac{1}{2} ((\partial \phi)^2 - m^2 \phi^2)$ 和 $\mathcal{L} = \frac{1}{2} \phi (\partial^2 - m^2) \phi$ 对应的 energy-momentum tensor 一样吗 \textcolor{red}{(?)}.
 \end{itemize}
 
-\subsection{example: energy-momentum tensor of the electromagnetic field} \label{subsection D.4.1}
+\subsection{example: energy-momentum tensor of the electromagnetic field} \label{subsection classical field theory and Noether's theorem.4.1}
 \begin{itemize}
 	\item 在 $(+, -, -, -)$ 号差下, 定义 $A_\mu = (\phi, - \vec{A})$, 这很容易让人误以为 4-potential 是 vector, 而事实上它是 covector, 按照这种定义
 	\begin{equation}
@@ -277,7 +277,7 @@
 		\item Wikipedia: \href{https://en.wikipedia.org/wiki/Maxwell%27s_equations_in_curved_spacetime#Electromagnetic_potential}{Maxwell's equations in curved spacetime, Electromagnetic potential}.
 	\end{itemize}
 	
-	\item 代入电磁场的 Lagrangian, 见 \eqref{11.2.1}, 所以
+	\item 代入电磁场的 Lagrangian, 见 \eqref{Maxwell's equations.2.1}, 所以
 	\begin{equation}
 		T_{\mu \nu} = \tensor{F}{_\mu^\rho} F_{\nu \rho} - \mu^2 A_\mu A_\nu + g_{\mu \nu} \mathcal{L}
 	\end{equation}

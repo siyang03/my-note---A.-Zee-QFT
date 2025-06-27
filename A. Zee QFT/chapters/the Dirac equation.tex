@@ -26,13 +26,13 @@
 		因此, $\tilde{\Psi}$ 的后两个分量为零 $\Longrightarrow \Psi$ 只有两个自由度.
 	\end{itemize}
 	
-	\item Dirac 方程的 Lorentz covariance 见 \eqref{6.2.10}.
+	\item Dirac 方程的 Lorentz covariance 见 \eqref{the Dirac spinor.2.10}.
 \end{itemize}
 
 \section{Dirac Lagrangian}
 \begin{itemize}
-	\item 根据 \eqref{6.2.19} 以及之前标量场的计算经验, 可知
-	\begin{equation} \label{7.2.1}
+	\item 根据 \eqref{the Dirac spinor.2.19} 以及之前标量场的计算经验, 可知
+	\begin{equation} \label{the Dirac equation.2.1}
 		\mathcal{L} = \bar{\Psi} (i \gamma^\mu \partial_\mu - m) \Psi = (- i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi}) \Psi + \text{total diff.},
 	\end{equation}
 	其中, 与复标量场论中类似, 可以把 $\Psi, \Psi^\dag$ 或 $\Psi, \bar{\Psi}$ 视为独立变量.
@@ -59,17 +59,17 @@
 	其中注意到了 $\gamma^0 \gamma^\mu$ 的非对角分块为零.
 \end{itemize}
 
-\subsection{internal vector symmetry} \label{subsection 7.3.1}
+\subsection{internal vector symmetry} \label{subsection the Dirac equation.3.1}
 \begin{itemize}
-	\item 做变换 $\Psi \mapsto e^{i \theta} \Psi$, Lagrangian 保持不变, 利用 Noether's theorem 得到守恒流 (见 section \ref{D.2}),
-	\begin{equation} \label{7.3.3}
+	\item 做变换 $\Psi \mapsto e^{i \theta} \Psi$, Lagrangian 保持不变, 利用 Noether's theorem 得到守恒流 (见 section \ref{classical field theory and Noether's theorem.2}),
+	\begin{equation} \label{the Dirac equation.3.3}
 		J_V^\mu = \bar{\Psi} \gamma^\mu \Psi,
 	\end{equation}
 	其中, 按照惯例省略了虚数 $i$.
 	
 	\begin{tcolorbox}[title=calculation:]
 		计算广义动量,
-		\begin{equation} \label{7.3.4}
+		\begin{equation} \label{the Dirac equation.3.4}
 			\begin{dcases}
 				\pi_\Psi^\mu = \frac{\delta \mathcal{L}}{\delta \partial_\mu \Psi} = \bar{\Psi} i \gamma^\mu \\
 				\pi_{\bar{\Psi}}^\mu = 0
@@ -81,7 +81,7 @@
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		这里看起来有点奇怪 (canonical transformation), 需要再说明一下. 对于 \eqref{7.2.1} 第一个等号后边,
+		这里看起来有点奇怪 (canonical transformation), 需要再说明一下. 对于 \eqref{the Dirac equation.2.1} 第一个等号后边,
 		\begin{equation}
 			\begin{dcases}
 				\pi_\Psi^\mu = \frac{\delta \mathcal{L}}{\delta \partial_\mu \Psi} = \bar{\Psi} i \gamma^\mu & \frac{\delta \mathcal{L}}{\delta \Psi} = - m \bar{\Psi} \\
@@ -91,7 +91,7 @@
 				(i \gamma^\mu \partial_\mu - m) \Psi = 0
 			\end{dcases},
 		\end{equation}
-		对于 \eqref{7.2.1} 第二个等号后边, 忽略掉全微分项,
+		对于 \eqref{the Dirac equation.2.1} 第二个等号后边, 忽略掉全微分项,
 		\begin{equation}
 			\begin{dcases}
 				\pi_\Psi^\mu = 0 & \frac{\delta \mathcal{L}}{\delta \Psi} = - i \partial_\mu \bar{\Psi} \gamma^\mu - m \bar{\Psi} \\
@@ -117,19 +117,19 @@
 	\begin{equation}
 		J_A^\mu = \bar{\Psi} \gamma^\mu \gamma^5 \Psi,
 	\end{equation}
-	根据 \eqref{6.2.21}, 是一个 pseudovector.
+	根据 \eqref{the Dirac spinor.2.21}, 是一个 pseudovector.
 \end{itemize}
 
 \section{energy-momentum tensor and angular momentum}
 \begin{itemize}
 	\item Dirac 场的 energy-momentum tensor 为
-	\begin{equation} \label{7.4.1}
+	\begin{equation} \label{the Dirac equation.4.1}
 		T_{\mu \nu} = i \bar{\Psi} \gamma_\mu \partial_\nu \Psi - \eta_{\mu \nu} \mathcal{L},
 	\end{equation}
 	其中, 对于满足运动方程的 Dirac 场, $\mathcal{L} = 0$.
 	
 	\item  Dirac 场的 angular momentum 为
-	\begin{equation} \label{7.4.2}
+	\begin{equation} \label{the Dirac equation.4.2}
 		M^{\mu \nu \rho} = \frac{i}{2} \bar{\Psi} \gamma^\mu \sigma^{\nu \rho} \Psi(x) + (x^\nu T^{\mu \rho} - x^\rho T^{\mu \nu}).
 	\end{equation}
 	
@@ -174,10 +174,10 @@
 		\begin{equation}
 			\gamma^0 C^{- 1} \gamma^0 C \gamma^0 = - \gamma^{\mu *} \Longrightarrow C^{- 1} \gamma^0 C = - \gamma^0 \gamma^{\mu *} \gamma^0 = - (\underbrace{\gamma^0 \gamma^\mu \gamma^0}_{= \gamma^{\mu \dag}})^*,
 		\end{equation}
-		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{6.2.15}.
+		其中用到了 $\gamma^0 \gamma^\mu \gamma^0 = \gamma^{\mu \dag}$, 见 \eqref{the Dirac spinor.2.15}.
 	\end{tcolorbox}
 	
-	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程 (对比 \eqref{7.6.1}),
+	\item $\Psi_c = \gamma^2 \Psi^*$ 满足如下方程 (对比 \eqref{the Dirac equation.6.1}),
 	\begin{equation}
 		(- i \gamma^{\mu *} (\partial_\mu - i e A_\mu) - m) \Psi^* = 0 \Longrightarrow (\gamma^2)^{- 1} (i \gamma^\mu (\partial_\mu - i e A_\mu) - m) \Psi_c = 0,
 	\end{equation}
@@ -213,7 +213,7 @@
 	\begin{equation}
 		T = (i \sigma_2 \otimes I) K = \gamma^1 \gamma^3 K,
 	\end{equation}
-	其中 $K$ 是 complex conjugation operator (见 appendix \ref{E}). 另外, 有 $T^2 = - 1$, 符合预期.
+	其中 $K$ 是 complex conjugation operator (见 appendix \ref{antiunitary operator and time reversal}). 另外, 有 $T^2 = - 1$, 符合预期.
 	
 	\begin{tcolorbox}[title=proof:]
 		时间反演之后, $\Psi'(t') = T \Psi(t)$ 满足如下方程,
@@ -263,14 +263,14 @@
 	\item 注意, 我们采用通常 (比如 Peskin) 的符号 $\mathcolor{red}{e = - |e|}$, 与 A. Zee 的符号 $e > 0$ 不同.
 	
 	\item QED 的 Lagrangian 为
-	\begin{equation} \label{7.6.1}
+	\begin{equation} \label{the Dirac equation.6.1}
 		\mathcal{L}_\text{QED} = \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu,
 	\end{equation}
 	其中
 	\begin{equation}
 		D_\mu = \partial_\mu + i e A_\mu,
 	\end{equation}
-	可见电子和电磁场耦合项为 $- e A_\mu J_V^\mu$, 其中 $J_V^\mu$ 是 internal vector symmetry 的守恒流, 见 \eqref{7.3.3}.
+	可见电子和电磁场耦合项为 $- e A_\mu J_V^\mu$, 其中 $J_V^\mu$ 是 internal vector symmetry 的守恒流, 见 \eqref{the Dirac equation.3.3}.
 	
 	\item QED 里的 Dirac 方程为
 	\begin{equation}

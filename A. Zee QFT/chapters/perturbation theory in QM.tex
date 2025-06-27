@@ -22,7 +22,7 @@
 \section{non-degenerate perturbation theory}
 \begin{itemize}
 	\item 考虑 non-degenerate 能级 $k$, 有 $\cdots \leq E_{k - 1}^{(0)} < E_k^{(0)} < E_{k + 1}^{(0)} \leq \cdots$, 在 perturbation theory 适用的情况下,
-	\begin{equation} \label{C.1.1}
+	\begin{equation} \label{perturbation theory in QM.1.1}
 		\begin{dcases}
 			\ket{k}_\lambda = \ket{k^{(0)}} + \lambda \ket{k^{(1)}} + \lambda^2 \ket{k^{(2)}} + \cdots \\
 			E_k(\lambda) = E_k^{(0)} + \lambda E_k^{(1)} + \lambda^2 E_k^{(2)} + \cdots
@@ -30,7 +30,7 @@
 	\end{equation}
 	\begin{itemize}
 			\item 注意, 我们可以选取修正项满足
-			\begin{equation} \label{C.1.2}
+			\begin{equation} \label{perturbation theory in QM.1.2}
 				\braket{k^{(0)} | k^{(n)}} = 0, n = 1, 2, \cdots
 			\end{equation}
 			
@@ -58,7 +58,7 @@
 			\end{align}
 	\end{itemize}
 	
-	\item 将 \eqref{C.1.1} 代入 Schrödinger's eq., 得到:
+	\item 将 \eqref{perturbation theory in QM.1.1} 代入 Schrödinger's eq., 得到:
 	
 	\begin{center}
 		\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
@@ -85,7 +85,7 @@
 	\end{tcolorbox}
 	
 	\item 现在来计算 $\braket{l^{(0)} | k^{(n)}}$, 有
-	\begin{equation} \label{C.1.8}
+	\begin{equation} \label{perturbation theory in QM.1.8}
 		\begin{dcases}
 			\begin{aligned}
 				(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(1)}} =& E_k^{(1)} \delta_{l k} - \delta H_{l k} \\
@@ -96,17 +96,17 @@
 			\end{aligned}
 		\end{dcases},
 	\end{equation}
-	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{C.1.2} 的解, 有
+	其中 $\delta H_{l k} = \braket{l^{(0)} | \delta H | k^{(0)}}$, 对于满足 \eqref{perturbation theory in QM.1.2} 的解, 有
 	\begin{equation}
 		E_k^{(n)} = \braket{k^{(0)} | \delta H | k^{(n - 1)}}, n = 1, 2, \cdots,
 	\end{equation}
 	并且
-	\begin{equation} \label{C.1.10}
+	\begin{equation} \label{perturbation theory in QM.1.10}
 		\ket{k^{(1)}} = - \sum_{l \neq k} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} \ket{l^{(0)}} \Longrightarrow E_k^{(2)} = - \sum_{l \neq k} \frac{|\delta H_{l k}|^2}{E_l^{(0)} - E_k^{(0)}}.
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
-		将 \eqref{C.1.10} 代入 \eqref{C.1.8}, 得到 ($l \neq k$)
+		将 \eqref{perturbation theory in QM.1.10} 代入 \eqref{perturbation theory in QM.1.8}, 得到 ($l \neq k$)
 		\begin{equation}
 			(E_l^{(0)} - E_k^{(0)}) \braket{l^{(0)} | k^{(2)}} = - E_k^{(1)} \frac{\delta H_{l k}}{E_l^{(0)} - E_k^{(0)}} + \sum_{m \neq k} \frac{\delta H_{l m} \delta H_{m k}}{E_m^{(0)} - E_k^{(0)}},
 		\end{equation}
@@ -127,7 +127,7 @@
 	\end{tcolorbox}
 \end{itemize}
 
-\subsection{level repulsion or the seesaw mechanism} \label{subsection C.1.1}
+\subsection{level repulsion or the seesaw mechanism} \label{subsection perturbation theory in QM.1.1}
 \begin{itemize}
 	\item 能量的展开式为
 	\begin{equation}

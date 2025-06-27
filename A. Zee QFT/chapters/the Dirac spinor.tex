@@ -1,6 +1,6 @@
 \chapter{the Dirac spinor}
 \begin{itemize}
-	\item 整个 Part \ref{part II} 中, 我们使用 $(+, -, -, -)$ 号差, 因为 $\mathrm{Cl}_{1, 3}(\mathbb{R}) \cancel{\simeq} \mathrm{Cl}_{3, 1}(\mathbb{R})$.
+	\item 整个 Part \ref{Dirac and spinor} 中, 我们使用 $(+, -, -, -)$ 号差, 因为 $\mathrm{Cl}_{1, 3}(\mathbb{R}) \cancel{\simeq} \mathrm{Cl}_{3, 1}(\mathbb{R})$.
 	
 	\item 本笔记中的算符的定义与 A. Zee 的定义不同, 存在如下对应关系:
 	
@@ -108,7 +108,7 @@
 \subsection{gamma matrices under Dirac basis}
 \begin{itemize}
 	\item 做如下相似变换 ($B = S^{- 1} A S$),
-	\begin{equation} \label{6.1.8}
+	\begin{equation} \label{the Dirac spinor.1.8}
 		S = \frac{\sqrt{2}}{2} \begin{pmatrix}
 			I & - I \\
 			I & I
@@ -229,7 +229,7 @@
 		\Pi(\Lambda) \Psi(x) = \Psi'(\Lambda x),
 	\end{equation}
 	注意 $\partial'_\mu = \tensor{\Lambda}{_\mu^\nu} \partial_\nu$, 所以
-	\begin{equation} \label{6.2.10}
+	\begin{equation} \label{the Dirac spinor.2.10}
 		(i \gamma^\mu \partial_\mu - m) \Psi(x) = 0 \iff (i \gamma^\mu \partial'_\mu - m) \Psi'(\Lambda x) = 0.
 	\end{equation}
 	\begin{itemize}
@@ -260,7 +260,7 @@
 \subsection{Dirac bilinears}
 \begin{itemize}
 	\item $\gamma^0$ 是 Hermitian 矩阵, 而 $\gamma^i$ 不是, 有
-	\begin{equation} \label{6.2.15}
+	\begin{equation} \label{the Dirac spinor.2.15}
 		\gamma^{i \dag} = - \gamma^i = \gamma^0 \gamma^i \gamma^0,
 	\end{equation}
 	可以统一写作 $\gamma^{\mu \dag} = \gamma^0 \gamma^\mu \gamma^0$, 并且有
@@ -280,7 +280,7 @@
 	\end{tcolorbox}
 	
 	\item 所以
-	\begin{equation} \label{6.2.19}
+	\begin{equation} \label{the Dirac spinor.2.19}
 		\begin{dcases}
 			\bar{\Psi}'(\Lambda x) \Psi'(\Lambda x) = \bar{\Psi} \Psi & \text{scalar field} \\
 			\bar{\Psi}' \gamma^\mu \Psi' = \tensor{\Lambda}{^\mu_\nu} \bar{\Psi} \gamma^\nu \Psi & \text{vector field}
@@ -299,7 +299,7 @@
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
 		此外
-		\begin{equation} \label{6.2.21}
+		\begin{equation} \label{the Dirac spinor.2.21}
 			\begin{dcases}
 				\bar{\Psi}' \sigma^{\mu \nu} \Psi' = \Psi^\dag \gamma^0 \Pi(\Lambda^{- 1}) (\gamma^0)^2 \sigma^{\mu \nu} \Pi(\Lambda) \Psi = \tensor{\Lambda}{^\mu_\rho} \tensor{\Lambda}{^\nu_\sigma} \bar{\Psi} \sigma^{\rho \sigma} \Psi & \text{order 2 tensor} \\
 				\bar{\Psi}' \Omega \gamma^\mu \Psi' = \bar{\Psi} \Pi(\Lambda^{- 1}) \Omega \gamma^\mu \Pi(\Lambda) \Psi = \det(\Lambda) \tensor{\Lambda}{^\mu_\nu} \bar{\Psi} \Omega \gamma^\nu \Psi & \text{pseudovector} \\

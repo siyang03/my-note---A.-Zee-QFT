@@ -1,0 +1,84 @@
+\chapter{Feynman rules}
+\section{Lagrangian derivation}
+\begin{itemize}
+	\item 假设存在相互作用时, 场算符依然满足
+	\begin{equation}
+		\begin{dcases}
+			[\phi(t, \vec{x}), \phi(t, \vec{y})] = 0 \\
+			[\phi(t, \vec{x}), \partial_t \phi(t, \vec{y})] = i \delta^{(3)}(\vec{x} - \vec{y})
+		\end{dcases},
+	\end{equation}
+	即 causality and canonical commutation relation.
+	
+	\item 一个重要的中间公式为
+	\begin{equation} \label{Feynman rules.1.2}
+		(\partial_x^2 + m^2) \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} = \braket{\Omega | T((\partial_x^2 + m^2) \phi(x) \phi(y)) | \Omega} - i \delta^{(4)}(x - y).
+	\end{equation}
+	
+	\begin{tcolorbox}[title=proof:]
+		考虑
+		\begin{align}
+			\partial_t \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} =& \partial_t (\braket{\Omega | \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(y) \phi(x) | \Omega} \theta(t' - t)) \notag \\
+			=& \braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(x) \phi(y) | \Omega} \delta(t - t') \notag \\
+			& + \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \theta(t' - t) - \braket{\Omega | \phi(y) \phi(x) | \Omega} \delta(t' - t) \notag \\
+			=& \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega} + \braket{\Omega | [\phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
+			=& \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega},
+		\end{align}
+		那么
+		\begin{align}
+			\partial_t^2 \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} =& \partial_t \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega} \notag \\
+			=& \partial_t (\braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \theta(t' - t)) \notag \\
+			=& \braket{\Omega | \partial_t^2 \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \delta(t - t') \notag \\
+			& + \braket{\Omega | \phi(y) \partial_t^2 \phi(x) | \Omega} \theta(t' - t) - \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \delta(t' - t) \notag \\
+			=& \braket{\Omega | T (\partial_t^2 \phi(x) \phi(y)) | \Omega} + \braket{\Omega | [\partial_t \phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
+			=& \braket{\Omega | T (\partial_t^2 \phi(x) \phi(y)) | \Omega} - i \delta^{(4)}(x - y).
+		\end{align}
+	\end{tcolorbox}
+	
+	\item \eqref{Feynman rules.1.2} 可以推广为 (其中 $\phi_i$ 是 $\phi(x_i)$ 的简写)
+	\begin{align}
+		& (\partial_1^2 + m^2) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
+		=& \braket{\Omega | T((\partial_1^2 + m^2) \phi(x_1) \cdots \phi(x_n)) | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}. \label{Feynman rules.1.5}
+	\end{align}
+	
+	\begin{tcolorbox}[title=proof:]
+		首先
+		\begin{equation}
+			\partial_{t_1} \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} = \braket{\Omega | T(\partial_{t_1} \phi(x_1) \cdots \phi(x_n)) | \Omega},
+		\end{equation}
+		那么
+		\begin{equation}
+			\partial_{t_1}^2 \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} = \partial_{t_1} \braket{\Omega | T(\partial_{t_1} \phi(x_1) \cdots \phi(x_n)) | \Omega} = \cdots 
+		\end{equation}
+	\end{tcolorbox}
+	
+	\item canonical commutation relation 保证了 quantum field 满足 Euler--Lagrange equation, 因此
+	\begin{equation} \label{Feynman rules.1.8}
+		(\partial^2 + m^2) \phi = - \frac{\delta}{\delta \phi} V(\phi).
+	\end{equation}
+	
+	\item 结合 \eqref{Feynman rules.1.5} 和 \eqref{Feynman rules.1.8} 得到 Schwinger--Dyson equations,
+	\begin{align}
+		& (\partial_1^2 + m^2) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
+		=& \braket{\Omega | T(- \frac{\delta}{\delta \phi_1} V(\phi_1) \cdots \phi(x_n)) | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}.
+	\end{align}
+\end{itemize}
+
+\subsection{position-space Feynman rules}
+\begin{itemize}
+	\item Feynman propagator 为 ($\phi_0(x)$ 是 free field, 本 chapter 不做特别说明都是存在相互作用的 Heisenberg picture)
+	\begin{equation}
+		D_F(x - y) := \braket{0 | T(\phi_0(x) \phi_0(y)) | 0} = \int \frac{d^4 k}{(2 \pi)^4} \frac{i}{k^2 - m^2 + i \epsilon} e^{i k \cdot (x - y)},
+	\end{equation}
+	满足
+	\begin{equation}
+		(\partial^2 + m^2) D_F(x - y) = - i \delta^{(4)}(x - y).
+	\end{equation}
+	
+	\item 2-point correlation function 可以重写作 (注意到 $\lim_{x \rightarrow \infty} D_{x y} = \lim_{x \rightarrow \infty} \partial_x D_{x y} = 0$)
+	\begin{align}
+		\braket{\Omega | T(\phi_1 \phi_2) | \Omega} &= i \int d^4 x \, ((\partial_x^2 + m^2) D_{x 1}) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
+		&= i \int d^4 x \, D_{x 1} (\partial_x^2 + m^2) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
+		&= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2) | \Omega}.
+	\end{align}
+\end{itemize}

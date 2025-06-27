@@ -1,5 +1,5 @@
 \chapter{quantizing the Dirac field}
-\section{anticommutation} \label{8.1}
+\section{anticommutation} \label{quantizing the Dirac field.1}
 \begin{itemize}
 	\item 用 $\alpha, \beta$ 表示电子的量子态 (包括动量和自旋), 那么
 	\begin{equation}
@@ -235,17 +235,17 @@
 \section{the Dirac field}
 \begin{itemize}
 	\item $\Psi(x), \bar{\Psi}$ 有如下形式,
-	\begin{equation} \label{8.3.1}
+	\begin{equation} \label{quantizing the Dirac field.3.1}
 		\begin{dcases}
 			\Psi(x) = \sum_{s = \pm 1} \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (b^s_{\vec{p}} u(\vec{p}, s) e^{- i p \cdot x} + c^{s \dag}_{\vec{p}} v(\vec{p}, s) e^{i p \cdot x}) \\
 			\bar{\Psi}(x) = \sum_{s = \pm 1} \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (b^{s \dag}_{\vec{p}} \bar{u}(\vec{p}, s) e^{i p \cdot x} + c^s_{\vec{p}} \bar{v}(\vec{p}, s) e^{- i p \cdot x})
 		\end{dcases}.
 	\end{equation}
 	
-	\item 回顾 section \ref{4.4} 关于 complex scalar field 的内容, 可知 $b^\dag$ 和 $c^\dag$ 产生的粒子具有相反的电荷, 不妨令 $b^\dag$ 产生 electron (带电荷 $- e$), $c^\dag$ 产生 position (带电荷 $e$).
+	\item 回顾 section \ref{canonical quantization.4} 关于 complex scalar field 的内容, 可知 $b^\dag$ 和 $c^\dag$ 产生的粒子具有相反的电荷, 不妨令 $b^\dag$ 产生 electron (带电荷 $- e$), $c^\dag$ 产生 position (带电荷 $e$).
 	
-	\item section \ref{8.1} 中的讨论说明
-	\begin{equation} \label{8.3.2}
+	\item section \ref{quantizing the Dirac field.1} 中的讨论说明
+	\begin{equation} \label{quantizing the Dirac field.3.2}
 		\begin{dcases}
 			\{b^s_{\vec{p}}, b^{s'}_{\vec{p}'}\} = 0 \\
 			\{b^s_{\vec{p}}, b^{s' \dag}_{\vec{p}'}\} = \delta^{(3)}(\vec{p} - \vec{p}') \delta_{s s'}
@@ -254,7 +254,7 @@
 	
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
-	\item $\Psi$ 的 momentum conjecture 为 ($\pi_\Psi^\mu$ 见 \eqref{7.3.4})
+	\item $\Psi$ 的 momentum conjecture 为 ($\pi_\Psi^\mu$ 见 \eqref{the Dirac equation.3.4})
 	\begin{equation}
 		\pi_\Psi = \frac{\delta \mathcal{L}}{\delta \partial_0 \Psi} = \pi_\Psi^0 = \bar{\Psi} i \gamma^0 = i \Psi^\dag,
 	\end{equation}
@@ -264,7 +264,7 @@
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
-		代入 \eqref{8.3.2}, (下式中 $x = (t, \vec{x}), y = (t, \vec{y})$, 另外注意到 $u \bar{u} = u u^\dag \gamma^0$),
+		代入 \eqref{quantizing the Dirac field.3.2}, (下式中 $x = (t, \vec{x}), y = (t, \vec{y})$, 另外注意到 $u \bar{u} = u u^\dag \gamma^0$),
 		\begin{align}
 			\{\Psi_\alpha(t, \vec{x}), \Psi^\dag_\beta(t, \vec{y})\} =& \sum_{s = \pm} \int \frac{d^3 p_1 d^3 p_2}{(2 \pi)^3 \sqrt{4 \omega_{p_1} \omega_{p_2}}} \Big( \{b^s_{\vec{p}_1}, b^{s \dag}_{\vec{p}_2}\} u(\vec{p}_1, s) u^\dag(\vec{p}_2, s) e^{i (- p_1 \cdot x + p_2 \cdot y)} \notag \\
 			& + \{c^{s \dag}_{\vec{p}_1}, c^s_{\vec{p}_2}\} v(\vec{p}_1, s) v^\dag(\vec{p}_2, s) e^{i (p_1 \cdot x - p_2 \cdot y)} \Big) \notag \\
@@ -294,7 +294,7 @@
 		H = \sum_{s = \pm 1} \int d^3 p \, \omega_p (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} - c^s_{\vec{p}} c^{s \dag}_{\vec{p}}) = \sum_{s = \pm 1} \int d^3 p \, \omega_p (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} + c^{s \dag}_{\vec{p}} c^s_{\vec{p}}) + E_0,
 	\end{equation}
 	其中 vacuum energy,
-	\begin{equation} \label{8.4.2}
+	\begin{equation} \label{quantizing the Dirac field.4.2}
 		E_0 = - 2 \delta^{(3)}(0) \int d^3 p \, \omega_p = - 2 V \int \frac{d^3 p}{(2 \pi)^3} \omega_p,
 	\end{equation}
 	的符号与标量场的正好相反.
@@ -338,7 +338,7 @@
 	另外 $P^0 = H$ 还有一个 vacuum energy.
 	
 	\begin{tcolorbox}[title=calculation:]
-		energy-momentum tensor 的 $0, \mu$ 分量为 (见 \eqref{7.4.1})
+		energy-momentum tensor 的 $0, \mu$ 分量为 (见 \eqref{the Dirac equation.4.1})
 		\begin{align}
 			T^{0 \mu} =& i \bar{\Psi} \gamma^0 \partial^\mu \Psi = i \Psi^\dag \partial^\mu \Psi \notag \\
 			=& \sum_{s_1, s_2 = \pm 1} \int \frac{d^3 p_1 d^3 p_2}{(2 \pi)^3 \sqrt{4 \omega_{p_1} \omega_{p_2}}} (b^{s_1 \dag}_{\vec{p}_1} u^\dag(\vec{p}_1, s_1) e^{i p_1 \cdot x} + c^{s_1}_{\vec{p}_1} v^\dag(\vec{p}_1, s_1) e^{- i p_1 \cdot x}) \notag \\
@@ -361,7 +361,7 @@
 		J^{i j} &= \int d^3 \, M^{0 i j} \notag \\
 		&= \epsilon^{i j k} \sum_{s_1, s_2 = \pm 1} \int d^3 p \, \frac{m}{2 \omega_p} (b^{s_1 \dag}_{\vec{p}} b^{s_2}_{\vec{p}} + c^{s_1}_{\vec{p}} c^{s_2 \dag}_{\vec{p}}) \xi^{s_1 \dag} \sigma_k \xi^{s_2} + \int d^3 x \, (x^i T^{0 j} - x^j T^{0 i}),
 	\end{align}
-	其中, $M^{\mu \nu \rho}$ 见 \eqref{7.4.2}.
+	其中, $M^{\mu \nu \rho}$ 见 \eqref{the Dirac equation.4.2}.
 	\begin{itemize}
 		\item 把角动量算符中 spin 的部分表示为 $S^{i j}$, 那么
 		\begin{equation}
@@ -404,7 +404,7 @@
 
 \section{electric current}
 \begin{itemize}
-	\item internal vector symmetry 对应的守恒流就是电流, 见 subsection \ref{subsection 7.3.1}, 有
+	\item internal vector symmetry 对应的守恒流就是电流, 见 subsection \ref{subsection the Dirac equation.3.1}, 有
 	\begin{equation}
 		Q = \int d^3 x \, J_V^0 = \sum_{s = \pm 1} \int d^3 p \, (b^{s \dag}_{\vec{p}} b^s_{\vec{p}} - c^{s \dag}_{\vec{p}} c^s_{\vec{p}}) - 2 \delta^{(3)}(0) \int d^3 p.
 	\end{equation}
@@ -438,11 +438,11 @@
 
 \section{free propagator}
 \begin{itemize}
-	\item 参考 scalar field 中的 propagator (见 \eqref{4.1.17}), the propagator of the Dirac field is
+	\item 参考 scalar field 中的 propagator (见 \eqref{canonical quantization.1.17}), the propagator of the Dirac field is
 	\begin{align}
 		i S(x - y) &= \braket{0 | T \Psi(x) \bar{\Psi}(y) | 0} \notag \\
 		&= \int \frac{d^3 p}{(2 \pi)^3 2 \omega_p} \Big( \theta(x^0 - y^0) (\cancel{p} + m) e^{- i p \cdot (x - y)} - \theta(y^0 - x^0) (\cancel{p} - m) e^{- i p \cdot (y - x)} \Big) \notag \\
-		&= \int \frac{d^4 p}{(2 \pi)^4} \frac{i}{\cancel{p} - m + i \epsilon} e^{- i p \cdot (x - y)}, \label{8.6.1}
+		&= \int \frac{d^4 p}{(2 \pi)^4} \frac{i}{\cancel{p} - m + i \epsilon} e^{- i p \cdot (x - y)}, \label{quantizing the Dirac field.6.1}
 	\end{align}
 	其中
 	\begin{equation}

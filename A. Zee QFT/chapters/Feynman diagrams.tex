@@ -2,14 +2,14 @@
 \section{a baby problem}
 \begin{itemize}
 	\item 考虑如下积分,
-	\begin{equation} \label{3.1.1}
+	\begin{equation} \label{Feynman diagrams.1.1}
 		Z(J) = \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4 + J q}.
 	\end{equation}
 	
 	\item \textbf{Schwinger's way:} 把 integrand 对 $\lambda$ 展开, 并将 $q$ 用 $\frac{\partial}{\partial J}$ 替代, 得到
 	\begin{align}
 		Z(J) &= e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} \int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 + J q} \notag \\
-		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}}, \label{3.1.2}
+		&= \sqrt{\frac{2 \pi}{m^2}} e^{- \frac{\lambda}{4!} (\frac{\partial}{\partial J})^4} e^{\frac{J^2}{2 m^2}}, \label{Feynman diagrams.1.2}
 	\end{align}
 	后面的计算中忽略 $Z(J = 0, \lambda = 0)$.
 	
@@ -26,24 +26,24 @@
 		\begin{equation}
 			\vcenter{\hbox{\includegraphics[scale=1]{figures/a baby problem - lambda J^4 terms.pdf}}},
 		\end{equation}
-		但是直接计算 \eqref{3.1.2} 的展开项, 得到的结果与 \eqref{3.1.5} 一样.
+		但是直接计算 \eqref{Feynman diagrams.1.2} 的展开项, 得到的结果与 \eqref{Feynman diagrams.1.5} 一样.
 	\end{tcolorbox}
 \end{itemize}
 
 \subsection{Wick contraction and Green's functions}
 \begin{itemize}
-	\item 把积分 \eqref{3.1.1} 对 $J$ 展开,
+	\item 把积分 \eqref{Feynman diagrams.1.1} 对 $J$ 展开,
 	\begin{equation}
 		Z(J) = \sum_{n = 0}^\infty \frac{1}{n!} J^n \underbrace{\int_{- \infty}^{+ \infty} dq \, e^{- \frac{1}{2} m^2 q^2 - \frac{\lambda}{4!} q^4} q^n}_{= Z(0, 0) G^{(n)}},
 	\end{equation}
-	其中 Green's function $G^{(n)}$ 对 $\lambda$ 展开后, 可以用 Wick contraction 计算 (见 \eqref{B.1.5}), 这就是 \textbf{Wick's way}.
+	其中 Green's function $G^{(n)}$ 对 $\lambda$ 展开后, 可以用 Wick contraction 计算 (见 \eqref{Gaussian integrals and Gaussian-Berezin integrals.1.5}), 这就是 \textbf{Wick's way}.
 	
 	\begin{tcolorbox}[title=calculation:]
 		计算 $\lambda J^4$ 项, 它来自 $G^{(4)}$ 对 $\lambda$ 展开的一阶项,
 		\begin{align}
 			- \frac{\lambda}{4!} \int dq \, e^{- \frac{1}{2} m^2 q^2} q^8 &= - \frac{\lambda}{4!} \braket{q^8} \notag \\
 			&= - \frac{\lambda}{4!} \sum_{\text{Wick}} \Big( \frac{1}{m^2} \Big)^4 \notag \\
-			&= - \frac{\lambda}{4!} \frac{7 \times 5 \times 3 \times 1}{m^8}, \label{3.1.5}
+			&= - \frac{\lambda}{4!} \frac{7 \times 5 \times 3 \times 1}{m^8}, \label{Feynman diagrams.1.5}
 		\end{align}
 		所以 $\lambda J^4$ 项等于 $\frac{105}{(4!)^2} \frac{- \lambda J^4}{m^8}$.
 	\end{tcolorbox}
@@ -148,14 +148,14 @@
 		Z(J) &= \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi - \frac{\lambda}{4!} \phi^4 + J(x) \phi(x))} \\
 		&= Z(0, 0) e^{- i \frac{\lambda}{4!} \int d^d z \, (\frac{\delta}{i \delta J(z)})^4} e^{- \frac{i}{2} \int d^d x d^d y \, J(x) D(x - y) J(y)},
 	\end{align}
-	其中 $D(x - y)$ 是自由场的 propagator, 见 \eqref{1.2.1}.
+	其中 $D(x - y)$ 是自由场的 propagator, 见 \eqref{free field theory.2.1}.
 	
 	\item \textbf{Wick's way:} 同样, 对 $J$ 展开得到含 Green's functions 的表达式,
 	\begin{equation}
 		\frac{Z(J)}{Z(0, 0)} = \sum_{n = 0}^\infty \frac{i^n}{n!} \int d^d x_1 \cdots d^d x_n \, J(x_1) \cdots J(x_n) G^{(n)}(x_1, \cdots, x_n),
 	\end{equation}
 	其中
-	\begin{equation} \label{3.3.5}
+	\begin{equation} \label{Feynman diagrams.3.5}
 		G^{(n)}(x_1, \cdots, x_n) = \frac{1}{Z(0, 0)} \int D\phi \, e^{i \int d^d x \, (\frac{1}{2} \phi (\partial^2 - m^2) \phi - \frac{\lambda}{4!} \phi^4)} \phi(x_1) \cdots \phi(x_n),
 	\end{equation}
 	有时 $Z(J)$ 被称为 generating functional, 因为它能生成 Green's functions.
@@ -195,9 +195,9 @@
 	
 \end{itemize}
 
-\subsection{in momentum space} \label{subsection 3.3.2}
+\subsection{in momentum space} \label{subsection Feynman diagrams.3.2}
 \begin{itemize}
-	\item 本 subsection 将 \eqref{3.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
+	\item 本 subsection 将 \eqref{Feynman diagrams.3.5} 转换到 momentum space, 注意到 $\tilde{J}(k)$ 和 $\tilde{J}(- k)$ 并不独立, 所以 $\frac{\partial}{\partial i \tilde{J}}$ 不适用. 最方便的办法是直接对 position space 下的结果做 Fourier transformation,
 	\begin{align}
 		\tilde{G}^{(n)}(k_1, \cdots, k_n) &= \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} G^{(n)}(x_1, \cdots, x_n) \notag \\
 		&= \sum_{n = 0}^\infty \frac{1}{n!} \int d^d x_1 \cdots d^d x_n \, e^{- i (k_1 \cdot x_1 + \cdots)} \braket{\Big( - \frac{i \lambda}{4!} \int d^d z \, \phi_z^4 \Big)^n \phi_1 \cdots \phi_n}.
@@ -230,7 +230,7 @@
 		\centering
 		\includegraphics[scale=1]{figures/collision between particles - Feynman diagrams (in momentum space).pdf}
 		\caption{momentum space - Feynman diagrams.}
-		\label{figure 3.3}
+		\label{figure Feynman diagrams.3}
 	\end{figure}
 	
 	\begin{tcolorbox}[title=calculation:]
@@ -265,7 +265,7 @@
 
 \subsection{loops and a first look at divergence}
 \begin{itemize}
-	\item subsection \ref{subsection 3.3.2} 里的 loop diagrams 出现了如下积分,
+	\item subsection \ref{subsection Feynman diagrams.3.2} 里的 loop diagrams 出现了如下积分,
 	\begin{equation}
 		\int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} = \int \frac{d^D p}{(2 \pi)^D 2 \omega_p} \sim \int \frac{d^D p}{|p|},
 	\end{equation}
@@ -275,10 +275,10 @@
 	\begin{align}
 		& \vcenter{\hbox{\includegraphics[scale=1]{figures/another loop diagram.pdf}}} \notag \\
 		=& (4 \times 3)^2 \times 2 \times \Big( \frac{- i \lambda}{4!} \Big)^2 \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \int \frac{d^d q}{(2 \pi)^d} \frac{i}{- q^2 - m^2 + i \epsilon} \notag \\
-		& (2 \pi)^d \delta^{(d)}(k_1 + k_2 + p - q) (2 \pi)^d \delta^{(d)}(k_3 + k_4 - p + q) \label{3.3.17} \\
+		& (2 \pi)^d \delta^{(d)}(k_1 + k_2 + p - q) (2 \pi)^d \delta^{(d)}(k_3 + k_4 - p + q) \label{Feynman diagrams.3.17} \\
 		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4) \int \frac{d^d p}{(2 \pi)^d} \frac{i}{- p^2 - m^2 + i \epsilon} \frac{i}{- (k_1 + k_2 + p)^2 - m^2 + i \epsilon} \notag \\
 		=& \frac{(- i \lambda)^2}{2} (2 \pi)^d \delta^{(d)}(k_1 + k_2 + k_3 + k_4) \int \frac{d^D p}{(2 \pi)^D} \Big( \frac{1}{2 \omega_p} \frac{i}{(k_1^0 + k_2^0 - \omega_p)^2 - \omega_{k_1 + k_2 + p}^2} \notag \\
-		& + \frac{i}{(\omega_{k_1 + k_2 + p} - k_1^0 - k_2^0)^2 - \omega_p^2} \frac{1}{2 \omega_{k_1 + k_2 + p}} \Big) \label{3.3.18} \\
+		& + \frac{i}{(\omega_{k_1 + k_2 + p} - k_1^0 - k_2^0)^2 - \omega_p^2} \frac{1}{2 \omega_{k_1 + k_2 + p}} \Big) \label{Feynman diagrams.3.18} \\
 		\sim & \int \frac{d^D p}{p^3},
 	\end{align}
 	同样, 积分发散.

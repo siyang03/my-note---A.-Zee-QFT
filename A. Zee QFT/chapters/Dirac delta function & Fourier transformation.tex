@@ -43,7 +43,7 @@
 \section{Fourier transformation}
 \begin{itemize}
 	\item $d$-dim. Fourier transformation 如下,
-	\begin{equation} \label{A.2.1}
+	\begin{equation} \label{Dirac delta function & Fourier transformation.2.1}
 		\begin{dcases}
 			\phi(x) = \int \frac{d^d k}{(2 \pi)^d} e^{i k \cdot x} \tilde{\phi}(k) \\
 			\tilde{\phi}(k) = \int d^d x \, e^{- i k \cdot x} \phi(x)
@@ -58,7 +58,7 @@
 	\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 	
 	\item 对于\textbf{实函数}, Fourier transformation 是正交变换, 其 Jacobi determinant 为
-	\begin{equation} \label{A.2.3}
+	\begin{equation} \label{Dirac delta function & Fourier transformation.2.3}
 		\Big| \frac{\partial \phi(x) \cdots}{\partial \mathrm{Re} \tilde{\phi}(k) \cdots \partial \mathrm{Im} \tilde{\phi}(k) \cdots} \Big| = \Big( \frac{2}{V} \Big)^{(2 N + 1)^d} \det A = \Big( \frac{2 (2 N)^d}{V^2} \Big)^{\frac{(2 N + 1)^d}{2}}.
 	\end{equation}
 	
@@ -74,8 +74,8 @@
 		
 		\noindent\rule[0.5ex]{\linewidth}{0.5pt} % horizontal line
 		
-		将 \eqref{A.2.1} 写成格点求和的形式,
-		\begin{equation} \label{A.2.5}
+		将 \eqref{Dirac delta function & Fourier transformation.2.1} 写成格点求和的形式,
+		\begin{equation} \label{Dirac delta function & Fourier transformation.2.5}
 			\begin{dcases}
 				\begin{aligned}
 					\phi(x_i) &= \frac{1}{(2 \pi)^d} \Big( \frac{2 \pi}{L} \Big)^d \sum_n e^{i k_n \cdot x_i} \tilde{\phi}(k_n) \\
@@ -98,7 +98,7 @@
 		
 		\noindent\hdashrule[0.5ex]{\linewidth}{0.5pt}{1mm} % horizontal dashed line
 		
-		将 \eqref{A.2.5} 写成矩阵的形式,
+		将 \eqref{Dirac delta function & Fourier transformation.2.5} 写成矩阵的形式,
 		\begin{equation}
 			\begin{dcases}
 				\begin{pmatrix}
@@ -146,7 +146,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection{an important example} \label{subsection A.2.1}
+\subsection{an important example} \label{subsection Dirac delta function & Fourier transformation.2.1}
 \begin{itemize}
 	\item 考虑如下 PDE,
 	\begin{equation}

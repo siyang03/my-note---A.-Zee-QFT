@@ -2,7 +2,7 @@
 \section{massive spin-\texorpdfstring{$1$}{1} particle \& QED}
 \begin{itemize}
 	\item 构造有质量的光子的 Lagrangian density,
-	\begin{equation} \label{2.1.1}
+	\begin{equation} \label{Coulomb and Newton: repulsive and attraction.1.1}
 		\mathcal{L} = - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} - \frac{1}{2} m^2 A_\mu A^\mu,
 	\end{equation}
 	其中 $F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]}$.
@@ -27,7 +27,7 @@
 		\end{align}
 	\end{tcolorbox}
 	
-	考虑到积分需要收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, (为什么 $A_\mu$ 类空, 只知道 $\tilde{A}_\mu$ 类空, 见 subsection \ref{subsection 2.1.2}, 但路径积分中的 $A$ 显然不满足 field equation $\Longrightarrow$ 路径积分中起主要作用的 $\tilde{A}$ 类空, 因此 $- \epsilon |\tilde{A}|^2 < 0$).
+	考虑到积分需要收敛, 作替换 $m^2 \mapsto m^2 - i \epsilon$, (为什么 $A_\mu$ 类空, 只知道 $\tilde{A}_\mu$ 类空, 见 subsection \ref{subsection Coulomb and Newton: repulsive and attraction.1.2}, 但路径积分中的 $A$ 显然不满足 field equation $\Longrightarrow$ 路径积分中起主要作用的 $\tilde{A}$ 类空, 因此 $- \epsilon |\tilde{A}|^2 < 0$).
 	
 	\item 因此
 	\begin{align}
@@ -41,7 +41,7 @@
 	观察电荷分量, 可见同性相斥, 异性相吸.
 \end{itemize}
 
-\subsection{spin \& polarization vector} \label{subsection 2.1.1}
+\subsection{spin \& polarization vector} \label{subsection Coulomb and Newton: repulsive and attraction.1.1}
 \begin{itemize}
 	\item spin-$1$ particle 可以有 3 个极化方向, 即空间的 $x, y, z$ 方向, 在粒子静止系下, 极化矢量 $(\epsilon^i)_\mu = \delta^i_\mu, i = 1, 2, 3$, 而 $k_\mu = (- m, 0, 0, 0)$, 所以
 	\begin{equation}
@@ -64,18 +64,18 @@
 	\end{equation}
 \end{itemize}
 
-\subsection{Maxwell Lagrangian} \label{subsection 2.1.2}
+\subsection{Maxwell Lagrangian} \label{subsection Coulomb and Newton: repulsive and attraction.1.2}
 \begin{itemize}
-	\item 根据 \eqref{2.1.1} 中的 Lagrangian density, 得到 field equation,
-	\begin{equation} \label{2.1.11}
+	\item 根据 \eqref{Coulomb and Newton: repulsive and attraction.1.1} 中的 Lagrangian density, 得到 field equation,
+	\begin{equation} \label{Coulomb and Newton: repulsive and attraction.1.11}
 		\Big( - \partial^\mu \partial^\nu + \eta^{\mu \nu} (\partial^2 - m^2) \Big) A_\nu = 0.
 	\end{equation}
 	\begin{itemize}
 		\item spin-$1$ particle 有 3 个自旋自由度, 而 $A_\mu$ 有 4 个分量, 所以需要一个约束方程 (只在 $m \neq 0$ 情况下存在),
-		\begin{equation} \label{2.1.12}
+		\begin{equation} \label{Coulomb and Newton: repulsive and attraction.1.12}
 			\partial^\mu A_\mu = 0 \iff k^\mu \tilde{A}_\mu(k) = 0.
 		\end{equation}
-		来源: 在 \eqref{2.1.11} 左右两边作用一个 $\partial_\mu$ 即可得到这个约束方程.
+		来源: 在 \eqref{Coulomb and Newton: repulsive and attraction.1.11} 左右两边作用一个 $\partial_\mu$ 即可得到这个约束方程.
 	\end{itemize}
 \end{itemize}
 
@@ -83,8 +83,8 @@
 \begin{itemize}
 	\item Lagrangian for spin-$2$ particle $=$ \colorbox{yellow}{linearized} Einstein Lagrangian.
 	
-	\item 受 subsection \ref{subsection 2.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足
-	\begin{equation} \label{2.2.1}
+	\item 受 subsection \ref{subsection Coulomb and Newton: repulsive and attraction.1.1} 启发, 对于 spin-$2$ particle, 其极化矢量有 5 个方向, 满足
+	\begin{equation} \label{Coulomb and Newton: repulsive and attraction.2.1}
 		\begin{dcases}
 			k^\mu (\epsilon^a)_{(\mu \nu)} = 0 \\
 			\eta^{\mu \nu} (\epsilon^a)_{(\mu \nu)} = 0
@@ -94,7 +94,7 @@
 	\begin{itemize}
 		\item 对 $(\epsilon^{a})_{\mu \nu}$ 的归一化条件可以定义为 $\sum_{a = 1}^5 (\epsilon^a)_{1 2} (\epsilon^a)_{1 2} = 1$.
 		
-		\item 与 subsection \ref{subsection 2.1.1} 中提示一样, 粒子的极化方向用 $e^a$ 表示.
+		\item 与 subsection \ref{subsection Coulomb and Newton: repulsive and attraction.1.1} 中提示一样, 粒子的极化方向用 $e^a$ 表示.
 	\end{itemize}
 	
 	\item 那么
@@ -108,7 +108,7 @@
 			&A k_\mu k_\nu k_\rho k_\sigma + B (k_\mu k_\nu \eta_{\rho \sigma} + k_\rho k_\sigma \eta_{\mu \nu}) + C (k_\mu k_\rho \eta_{\nu \sigma} + k_\mu k_\sigma \eta_{\nu \rho} + k_\nu k_\rho \eta_{\mu \sigma} + k_\nu k_\sigma \eta_{\mu \rho}) \notag \\
 			& + D \eta_{\mu \nu} \eta_{\rho \sigma} + E (\eta_{\mu \rho} \eta_{\nu \sigma} + \eta_{\mu \sigma} \eta_{\nu \rho}),
 		\end{align}
-		代入 \eqref{2.2.1} 得
+		代入 \eqref{Coulomb and Newton: repulsive and attraction.2.1} 得
 		\begin{equation}
 			\begin{dcases}
 				0 = - A + B + 2 C = - B + D = - C + E \\
@@ -140,7 +140,7 @@
 
 \section{remarks}
 \begin{itemize}
-	\item 由于 seesaw mechanism (见 subsection \ref{C.1.1}), 引入扰动一般会降低基态能量, 因此大多数相互作用表现为吸引, 而 spin-$1$ 表现为同性相斥是因为 $\eta^{0 0} = - 1$.
+	\item 由于 seesaw mechanism (见 subsection \ref{perturbation theory in QM.1.1}), 引入扰动一般会降低基态能量, 因此大多数相互作用表现为吸引, 而 spin-$1$ 表现为同性相斥是因为 $\eta^{0 0} = - 1$.
 	
 	\item 本 chapter 中的计算都是 $m \neq 0$ 的粒子, 与真实世界有差异.
 \end{itemize}

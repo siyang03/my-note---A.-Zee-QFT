@@ -7,11 +7,11 @@
 \section{Maxwell's equations}
 \begin{itemize}
 	\item 电磁场的 Lagrangian 为 (现实中 $\mu = 0$)
-	\begin{equation} \label{11.2.1}
+	\begin{equation} \label{Maxwell's equations.2.1}
 		\mathcal{L} = - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} + \frac{1}{2} \mu^2 A^\mu A_\mu, \quad \text{with} \quad F_{\mu \nu} = 2 \partial_{[\mu} A_{\nu]},
 	\end{equation}
 	其中 $A_\mu = (\phi, - \vec{A})$, 对作用量变分得到运动方程 (Proca equation),
-	\begin{equation} \label{11.2.2}
+	\begin{equation} \label{Maxwell's equations.2.2}
 		\partial^\nu F_{\nu \mu} + \mu^2 A_\mu = 0.
 	\end{equation}
 	
@@ -30,9 +30,9 @@
 	\end{tcolorbox}
 	
 	\begin{itemize}
-		\item 如果引入 Lorentz gauge condition (如 \eqref{2.1.12} 所示, 在 $\mu \neq 0$ 时必然成立),
+		\item 如果引入 Lorentz gauge condition (如 \eqref{Coulomb and Newton: repulsive and attraction.1.12} 所示, 在 $\mu \neq 0$ 时必然成立),
 		\begin{equation}
-			\text{field eq. \eqref{11.2.2}} \overset{\mu \neq 0}{\iff} \begin{dcases}
+			\text{field eq. \eqref{Maxwell's equations.2.2}} \overset{\mu \neq 0}{\iff} \begin{dcases}
 				(\partial^2 + \mu^2) A_\mu = 0 \\
 				\partial^\mu A_\mu = 0
 			\end{dcases}.
@@ -40,7 +40,7 @@
 	\end{itemize}
 	
 	\item 此外, $F_{\mu \nu}$ 满足 Bianchi identity,
-	\begin{equation} \label{11.2.4}
+	\begin{equation} \label{Maxwell's equations.2.4}
 		\nabla_\rho F_{\mu \nu} + \nabla_\nu F_{\rho \mu} + \nabla_\mu F_{\nu \rho} = 0.
 	\end{equation}
 	
@@ -68,14 +68,14 @@
 			- \frac{1}{2} \epsilon^{i j k} F_{j k} = \vec{B} = \nabla \times \vec{A}
 		\end{dcases},
 	\end{equation}
-	代入场方程 \eqref{11.2.2},
+	代入场方程 \eqref{Maxwell's equations.2.2},
 	\begin{equation}
 		\begin{dcases}
 			\nabla \cdot \vec{E} + \mu^2 \phi = 0 \\
 			- \frac{\partial \vec{E}}{\partial t} + \nabla \times \vec{B} + \mu^2 \vec{A} = 0
 		\end{dcases},
 	\end{equation}
-	代入 Bianchi identity \eqref{11.2.4},
+	代入 Bianchi identity \eqref{Maxwell's equations.2.4},
 	\begin{equation}
 		\begin{dcases}
 			\nabla \cdot \vec{B} = 0 & \rho, \mu, \nu = 1, 2, 3 \\
@@ -83,19 +83,19 @@
 		\end{dcases}.
 	\end{equation}
 	
-	\item 最后, 电磁场的能动量张量见 subsection \ref{subsection D.4.1}.
+	\item 最后, 电磁场的能动量张量见 subsection \ref{subsection classical field theory and Noether's theorem.4.1}.
 \end{itemize}
 
 \subsection{gauge symmetry (gauge redundancy)}
 \begin{itemize}
 	\item $A_\mu$ 有 4 个分量, 但光子只有 2 个自由度 (偏振态).
 	
-	\item 首先, 考虑 $\tilde{A}_\mu$ 的场方程, 对于指标 $\mu = 0$ 有 (计算过程见 subsection \ref{subsection A.2.1})
-	\begin{equation} \label{11.2.11}
+	\item 首先, 考虑 $\tilde{A}_\mu$ 的场方程, 对于指标 $\mu = 0$ 有 (计算过程见 subsection \ref{subsection Dirac delta function & Fourier transformation.2.1})
+	\begin{equation} \label{Maxwell's equations.2.11}
 		\tilde{A}_0 = \frac{k^0}{\omega_k^2} \vec{k} \cdot \vec{\tilde{A}} \Longrightarrow A_0(t, \vec{x}) = \int d^3 y \, \frac{e^{- \mu |\vec{x} - \vec{y}|}}{4 \pi |\vec{x} - \vec{y}|} \nabla_y \cdot \frac{\partial \vec{A}(t, \vec{y})}{\partial t},
 	\end{equation}
 	这是一个约束条件, 将此式代入剩余的场方程, 得到
-	\begin{equation} \label{11.2.12}
+	\begin{equation} \label{Maxwell's equations.2.12}
 		(k^2 - \mu^2) \vec{\tilde{A}} = (k^2 - \mu^2) \frac{\vec{k} (\vec{k} \cdot \vec{\tilde{A}})}{\omega_k^2},
 	\end{equation}
 	因此:
@@ -108,7 +108,7 @@
 			\end{dcases} \Longrightarrow \tilde{A}_\mu(k) = \tilde{\mathcal{A}}_\mu(k) 2 \pi \delta(k^2) - i k_\mu \tilde{\lambda}(k),
 		\end{equation}
 		其中 $\vec{\tilde{\mathcal{A}}}(k), \tilde{\lambda}(k) = \frac{|\vec{\tilde{A}}|}{|\vec{k}|}$ 是任意函数, 且 $\mathrm{sign}(k^0) |\vec{k}| \tilde{\mathcal{A}}_0 - \vec{k} \cdot \vec{\tilde{\mathcal{A}}} = 0$. 因此
-		\begin{equation} \label{11.2.14}
+		\begin{equation} \label{Maxwell's equations.2.14}
 			A_\mu(x) = \partial_\mu \lambda(x) + \int \frac{d^3 k}{(2 \pi)^3 2 |\vec{k}|} \Big( \tilde{\mathcal{A}}_\mu(|\vec{k}|, \vec{k}) e^{- i (|\vec{k}| x^0 - \vec{k} \cdot \vec{x})} + \tilde{\mathcal{A}}^*_\mu(|\vec{k}|, \vec{k}) e^{i (|\vec{k}| x^0 - \vec{k} \cdot \vec{x})} \Big),
 		\end{equation}
 		第二项是 on shell 平面波解的叠加, 并且振幅满足 $k^\mu \tilde{\mathcal{A}}_\mu(|\vec{k}|, \vec{k}) = 0$.
@@ -127,16 +127,16 @@
 	\end{itemize}
 	
 	\begin{tcolorbox}[title=calculation:]
-		对 \eqref{11.2.12} 两边同时内积 $\vec{k}$, 有
+		对 \eqref{Maxwell's equations.2.12} 两边同时内积 $\vec{k}$, 有
 		\begin{equation}
 			(k^2 - \mu^2) (\vec{k} \cdot \vec{\tilde{A}}) = 0 \quad \text{or} \quad \omega_k = |\vec{k}|,
 		\end{equation}
-		因此 $\mu = 0$ 时 \eqref{11.2.12} 自然成立, 而 massive 情况下 $\tilde{A}_0 = \vec{k} \cdot \vec{\tilde{A}} = 0$ 除非 on shell.
+		因此 $\mu = 0$ 时 \eqref{Maxwell's equations.2.12} 自然成立, 而 massive 情况下 $\tilde{A}_0 = \vec{k} \cdot \vec{\tilde{A}} = 0$ 除非 on shell.
 	\end{tcolorbox}
 	
 	\item 除此之外还需要一个约束条件 (接下来默认 $\mu = 0$).
 	
-	\item 考虑 \eqref{11.2.14}, 注意到给定初始条件 $A_\mu(t_0, \vec{x}), \partial_\nu A_\mu(t_0, \vec{x})$ 无法唯一确定参数 $\lambda(x), \tilde{\mathcal{A}}_\mu(|\vec{k}|, \vec{k})$.
+	\item 考虑 \eqref{Maxwell's equations.2.14}, 注意到给定初始条件 $A_\mu(t_0, \vec{x}), \partial_\nu A_\mu(t_0, \vec{x})$ 无法唯一确定参数 $\lambda(x), \tilde{\mathcal{A}}_\mu(|\vec{k}|, \vec{k})$.
 	
 	\begin{tcolorbox}[title=calculation:]
 		对 $A_\mu$ 做平面波分解,
@@ -180,7 +180,7 @@
 	\begin{equation}
 		\nabla \cdot \vec{A} = 0,
 	\end{equation}
-	注意到方程 $\nabla^2 \lambda = - f$ 总是有解. 且根据 \eqref{11.2.11} 可知 $A_0(x) = 0$.
+	注意到方程 $\nabla^2 \lambda = - f$ 总是有解. 且根据 \eqref{Maxwell's equations.2.11} 可知 $A_0(x) = 0$.
 	\begin{itemize}
 		\item Coulomb gauge 下, $A_\mu$ 的通解是
 		\begin{equation}
