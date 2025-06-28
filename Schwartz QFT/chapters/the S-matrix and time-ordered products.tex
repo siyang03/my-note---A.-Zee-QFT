@@ -52,10 +52,10 @@
 			\text{LHS} = i \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} (e^{i \omega_p t} (\partial_t - i \omega_p) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t))) \Big|^\infty_{- \infty},
 		\end{equation}
 		注意到 $t = \pm \infty$ 时, fields are free, 所以
-		\begin{equation}
+		\begin{equation} \label{the S0matrix and time-ordered products.1.9}
 			\begin{dcases}
-				\lim_{t \rightarrow \pm \infty} a_{\vec{p}}(t) = e^{- i \omega_p t} a_{\vec{p}} \\
-				\lim_{t \rightarrow \pm \infty} a^\dag_{- \vec{p}}(t) = e^{i \omega_p t} a^\dag_{- \vec{p}}
+				\lim_{t \rightarrow \pm \infty} a_{\vec{p}}(t) \propto e^{- i \omega_p t} a_{\vec{p}} \\
+				\lim_{t \rightarrow \pm \infty} a^\dag_{- \vec{p}}(t) \propto e^{i \omega_p t} a^\dag_{- \vec{p}}
 			\end{dcases} \Longrightarrow \begin{dcases}
 				\lim_{t \rightarrow \pm \infty} (\partial_t - i \omega_p) a_{\vec{p}}(t) = - 2 i \omega_p a_{\vec{p}}(t) \\
 				\lim_{t \rightarrow \pm \infty} (\partial_t - i \omega_p) a^\dag_{- \vec{p}}(t) = 0
@@ -77,8 +77,10 @@
 	得到 LSZ reduction formula.
 \end{itemize}
 
-\section{LSZ for operators}
+\section{LSZ for operators} \label{the S-matrix and time ordered products.2}
 \begin{itemize}
+	\item $\ket{\Omega}$ 的具体形式见 subsection \ref{subsection Feynman rules.2.1}.
+	
 	\item 考虑
 	\begin{equation}
 		\phi(x) = e^{i P \cdot x} \phi(0) e^{- i P \cdot x},
@@ -92,7 +94,7 @@
 	\end{equation}
 	
 	\item LSZ reduction formula 的前提是场算符满足
-	\begin{equation}
+	\begin{equation} \label{the S-matrix and time-ordered products.2.3}
 		\begin{dcases}
 			\braket{\Omega | \phi(x) | \Omega} = 0 \\
 			\braket{p | \phi(x) | \Omega} = e^{i p \cdot x}
@@ -104,6 +106,17 @@
 		\begin{equation}
 			\phi(x) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}}(t) e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}}(t) e^{- i \vec{p} \cdot \vec{x}}),
 		\end{equation}
-		且 $a^\dag_{\vec{p}}(\pm \infty) \ket{\Omega} \in \mathrm{span}(\ket{p})$ 是一个单粒子态.
+		和 $a^\dag_{\vec{p}}(\pm \infty) \ket{\Omega} \in \mathrm{span}(\ket{p})$ 是一个单粒子态, 且 $\bra{\Omega} a^\dag_{\vec{p}}(+ \infty) = a_{\vec{p}}(- \infty) \ket{\Omega} = 0$.
 	\end{tcolorbox}
+	
+	\item 注意, 在 Heisenberg picture 中,
+	\begin{equation}
+		\phi(t = 0, \vec{x}) = \phi_0(\vec{x}) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}} e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}} e^{- i \vec{p} \cdot \vec{x}}).
+	\end{equation}
+	
+	\item \eqref{the S0matrix and time-ordered products.1.9} 和 $H \ket{\Omega} = 0$ (要求 $H$ 不含时) 矛盾 \textcolor{red}{(?)}, 因为 LSZ 考虑的 Hamiltonian 是
+	\begin{equation}
+		H = H_0 + V \theta(t - T) \theta(t + T), T \gg 0,
+	\end{equation}
+	所以 \eqref{the S-matrix and time-ordered products.2.3} 只在 $- T < t < T$ 成立.
 \end{itemize}

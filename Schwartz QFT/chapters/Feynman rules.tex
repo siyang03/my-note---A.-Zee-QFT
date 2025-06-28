@@ -79,6 +79,109 @@
 	\begin{align}
 		\braket{\Omega | T(\phi_1 \phi_2) | \Omega} &= i \int d^4 x \, ((\partial_x^2 + m^2) D_{x 1}) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
 		&= i \int d^4 x \, D_{x 1} (\partial_x^2 + m^2) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
-		&= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2) | \Omega}.
+		&= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2) | \Omega},
 	\end{align}
+	类似地, 4-point function 可以写作
+	\begin{align}
+		\braket{\Omega | T(\phi_1 \phi_2 \phi_3 \phi_4) | \Omega} =& D_{1 2} D_{3 4} + D_{1 3} D_{2 4} + D_{1 4} D_{2 3} \notag \\
+		& + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2 \phi_3 \phi_4) | \Omega} \notag \\
+		& + D_{1 2} i \int d^4 y \, D_{3 y} \braket{\Omega | T(- \frac{\delta}{\delta \phi_y} V(\phi_y) \phi_4) | \Omega} + \cdots
+	\end{align}
+	
+	\item 考虑 $V(\phi) = - \frac{g}{3!} \phi^3$, 那么 2-point function 为
+	\begin{align}
+		\braket{\Omega | T(\phi_1 \phi_2) | \Omega} &= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(\frac{g}{2!} \phi_x^2 \phi_2) | \Omega} \notag \\
+		&= D_{1 2} + i \int d^4 x \, D_{x 1} \Big( i \int d^4 y \, D_{y 2} \braket{\frac{g}{2!} \phi_x^2 \frac{g}{2!} \phi_y^2} + 2! D_{x 2} \braket{\frac{g}{2!} \phi_x} \Big),
+	\end{align}
+	其中
+	\begin{equation}
+		\begin{dcases}
+			\begin{aligned}
+				\braket{\phi_x} &= i \int d^4 y \, D_{y x} (\partial_y^2 + m^2) \braket{\phi_y} = i \int d^4 y \, D_{y x} \braket{\frac{g}{2!} \phi_y^2} \\
+				&= i \frac{g}{2!} \int d^4 y \, D_{y x} D_{y y} + O(g^2)
+			\end{aligned} \\
+			\begin{aligned}
+				\braket{\phi_x^2 \phi_y^2} &= D_{x x} D_{y y} + 2 D_{x y} D_{x y} + O(g)
+			\end{aligned}
+		\end{dcases},
+	\end{equation}
+	因此
+	\begin{align}
+		\braket{\phi_1 \phi_2} &= \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - D_{1 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{y y} D_{x 2}.pdf}}} + O(g^3) \notag \\
+		&= D_{1 2} + \frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2} + \frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2} + \frac{(i g)^2}{2} D_{1 x} D_{x y} D_{y y} D_{x 2} + O(g^3),
+	\end{align}
+	其中 $4, 2$ 是 symmetry factors.
+	
+	\item 下图的 symmetry factor 为 $1$,
+	\begin{equation}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.pdf}}} = (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.
+	\end{equation}
+\end{itemize}
+
+\section{Hamiltonian derivation}
+\begin{itemize}
+	\item interaction picture...
+\end{itemize}
+
+\subsection{vacuum matrix elements} \label{subsection Feynman rules.2.1}
+\begin{itemize}
+	\item section \ref{the S-matrix and time ordered products.2} 中注意到了 $\ket{\Omega}$ 的定义 (in Heisenberg picture),
+	\begin{equation}
+		\begin{dcases}
+			a_{\vec{p}}(- \infty) \ket{\Omega} = U^\dag(- \infty) a_{\vec{p}} U(- \infty) \ket{\Omega} = 0 \\
+			a_{\vec{p}}(+ \infty) \ket{\Omega} = U^\dag(+ \infty) a_{\vec{p}} U(+ \infty) \ket{\Omega} = 0
+		\end{dcases} \Longrightarrow U(\pm \infty) \ket{\Omega} \propto \ket{0} ,
+	\end{equation}
+	那么 Schrodinger picture 和 interaction picture 中分别有
+	\begin{equation}
+		\begin{dcases}
+			\ket{\Omega(t)} = \mathcal{N}_i U(t, - \infty) \ket{0} = \mathcal{N}_f U(t, + \infty) \ket{0} & \text{Schrodinger picture} \\
+			\ket{\Omega(t)}_I = \mathcal{N}_i U_I(t, - \infty) \ket{0} = \mathcal{N}_f U_I(t, + \infty) \ket{0} & \text{interaction picture}
+		\end{dcases}.
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		令
+		\begin{equation}
+			\ket{\Omega} \equiv \ket{\Omega(0)} = \mathcal{N}_i U(0, - \infty) \ket{0} = \mathcal{N}_f U(0, + \infty) \ket{0},
+		\end{equation}
+		且
+		\begin{equation}
+			\begin{dcases}
+				U_I(0, - \infty) U_0(0, - \infty) = U(0, - \infty) \\
+				U_I(0, + \infty) U_0(0, + \infty) = U(0, + \infty)
+			\end{dcases} \quad \text{and} \quad U_0(0, \pm \infty) \ket{0} = \ket{0},
+		\end{equation}
+		因此
+		\begin{equation}
+			\ket{\Omega}_I = \begin{dcases}
+				\mathcal{N}_i U_I(t, 0) U(0, - \infty) \ket{0} = \mathcal{N}_i U_I(t, - \infty) \ket{0} \\
+				\mathcal{N}_f U_I(t, 0) U(0, + \infty) \ket{0} = \mathcal{N}_f U_I(t, + \infty) \ket{0}
+			\end{dcases}.
+		\end{equation}
+	\end{tcolorbox}
+	
+	\begin{itemize}
+		\item 归一化要求 $\braket{\Omega | \Omega} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(- \infty, + \infty) | 0} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(- \infty, + \infty) | 0} = |\mathcal{N}_i|^2 = |\mathcal{N}_f|^2 = 1$.
+		
+		\item $H \ket{\Omega} = 0$ 因为 $[H, U(t_1, t_2)] = 0$ (前提是 Hamiltonian 不含时).
+	\end{itemize}
+	
+	\item 因此
+	\begin{equation}
+		\braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} = \frac{\braket{0 | T(\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)) | 0}}{\braket{0 | U_I(+ \infty, - \infty) | 0}}.
+	\end{equation}
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{align}
+			& \braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(+ \infty, 0) T((U(0, t_1) \phi_{S, 1} U(t_1, 0)) (U(0, t_2) \phi_{S, 2} U(t_2, 0)) \cdots) U(0, - \infty) | 0} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T((U_I(0, t_1) U_0(0, t_1) \phi_{S, 1} U_0(t_1, 0) U_I(t_1, 0)) \cdots) U_I(0, - \infty) | 0} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T((U_I(0, t_1) \phi_{0, 1} U_I(t_1, 0)) \cdots) U_I(0, - \infty) | 0} = \cdots
+		\end{align}
+		另外注意到
+		\begin{equation}
+			\mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(- \infty, + \infty) | 0} = 1.
+		\end{equation}
+	\end{tcolorbox}
 \end{itemize}
