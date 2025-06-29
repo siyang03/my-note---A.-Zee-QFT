@@ -26,10 +26,11 @@
 		可见 \eqref{the LSZ reduction formula.1.1} 中的 $\ket{i}, \ket{f}$ 都是 $t = 0$ 即 Heisenberg picture 中的形式.
 	\end{tcolorbox}
 	
-	\item LSZ 需要用到以下公式,
+	\item LSZ 需要用到以下公式 (其中 $p$ 是 on-shell),
 	\begin{equation}
-		i \int d^4 x \, e^{i p \cdot x} (\partial^2 + m^2) \phi(x) = \sqrt{(2 \pi)^3 2 \omega_p} (e^{i \omega_p t} a_{\vec{p}}(t)) \Big|^\infty_{- \infty}.
+		i \int d^4 x \, e^{i p \cdot x} (\partial^2 + m^2) \phi(x) = \sqrt{(2 \pi)^3 2 \omega_p} (e^{i \omega_p t} a_{\vec{p}}(t)) \Big|^\infty_{- \infty},
 	\end{equation}
+	注意到, 对于 free field, 等式两边等于零.
 	
 	\begin{tcolorbox}[title=proof:]
 		注意到
@@ -52,7 +53,7 @@
 			\text{LHS} = i \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} (e^{i \omega_p t} (\partial_t - i \omega_p) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t))) \Big|^\infty_{- \infty},
 		\end{equation}
 		注意到 $t = \pm \infty$ 时, fields are free, 所以
-		\begin{equation} \label{the S0matrix and time-ordered products.1.9}
+		\begin{equation} \label{the S-matrix and time-ordered products.1.9}
 			\begin{dcases}
 				\lim_{t \rightarrow \pm \infty} a_{\vec{p}}(t) \propto e^{- i \omega_p t} a_{\vec{p}} \\
 				\lim_{t \rightarrow \pm \infty} a^\dag_{- \vec{p}}(t) \propto e^{i \omega_p t} a^\dag_{- \vec{p}}
@@ -72,12 +73,34 @@
 		& \braket{f | S | i} \notag \\
 		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | a_{\vec{p}_3}(+ \infty) \cdots a_{\vec{p}_n}(+ \infty) a^\dag_{\vec{p}_1}(- \infty) a^\dag_{\vec{p}_2}(- \infty) | \Omega} \notag \\
 		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | T ((a_{\vec{p}_3}(+ \infty) - a_{\vec{p}_3}(- \infty)) \cdots (a^\dag_{\vec{p}_2}(\mathcolor{red}{-} \infty) - a^\dag_{\vec{p}_2}(\mathcolor{red}{+} \infty))) | \Omega} \notag \\
-		=& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega},
+		=& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
+		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \notag \\
+		& \braket{\Omega | T ((e^{i \omega_p (+ \infty)} a_{\vec{p}_3}(+ \infty) - e^{i \omega_p (- \infty)} a_{\vec{p}_3}(- \infty)) \cdots (e^{i \omega_p (- \infty)} a^\dag_{\vec{p}_2}(\mathcolor{red}{-} \infty) - e^{i \omega_p (+ \infty)} a^\dag_{\vec{p}_2}(\mathcolor{red}{+} \infty))) | \Omega}
 	\end{align}
 	得到 LSZ reduction formula.
+	
+	\begin{tcolorbox}[title=calculation:]
+		\begin{align}
+			& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
+			=& n! \braket{\Omega | \int_{- \infty}^\infty dt_1 \, i \int d^3 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \phi_1 \int_{- \infty}^{t_1} dt_2 \cdots \int_{- \infty}^{t_{n - 1}} dt_n \cdots | \Omega}
+		\end{align}
+		并注意到 (其中 $f(t) = F'(t)$, 且一般地 $[F(t_1), F(t_2)] \neq 0$)
+		\begin{align}
+			\int_a^b dt_1 \, f(t_1) \int_a^{t_1} dt_2 \, f(t_2) &= \int_a^b dt_1 \, f(t_1) (F(t_1) - F(a)) \notag \\
+			&= \int_a^b dt_1 \, f(t_1) F(t_1) - (F(b) - F(a)) F(a) \notag \\
+			&= - \int_a^b dt_1 \, F(t_1) f(t_1) + F(b) (F(b) - F(a)) \notag \\
+			&= \cdots \notag \\
+			&\overset{?}{=} \frac{1}{2} (F(b) (F(b) - F(a)) - (F(b) - F(a)) F(a)) \notag \\
+			&= \frac{1}{2} T((F(b) - F(a))^2),
+		\end{align}
+		因此
+		\begin{equation}
+			\int_a^b dt_1 \, f(t_1) \int_a^{t_1} dt_2 \, f(t_2) \cdots \int_a^{t_{n - 1}} dt_n \, f(t_n)
+		\end{equation}
+	\end{tcolorbox}
 \end{itemize}
 
-\section{LSZ for operators} \label{the S-matrix and time ordered products.2}
+\section{LSZ for operators} \label{the S-matrix and time-ordered products.2}
 \begin{itemize}
 	\item $\ket{\Omega}$ 的具体形式见 subsection \ref{subsection Feynman rules.2.1}.
 	
@@ -114,7 +137,7 @@
 		\phi(t = 0, \vec{x}) = \phi_0(\vec{x}) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}} e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}} e^{- i \vec{p} \cdot \vec{x}}).
 	\end{equation}
 	
-	\item \eqref{the S0matrix and time-ordered products.1.9} 和 $H \ket{\Omega} = 0$ (要求 $H$ 不含时) 矛盾 \textcolor{red}{(?)}, 因为 LSZ 考虑的 Hamiltonian 是
+	\item \eqref{the S-matrix and time-ordered products.1.9} 和 $H \ket{\Omega} = 0$ (要求 $H$ 不含时) 矛盾 \textcolor{red}{(?)}, 因为 LSZ 考虑的 Hamiltonian 是
 	\begin{equation}
 		H = H_0 + V \theta(t - T) \theta(t + T), T \gg 0,
 	\end{equation}

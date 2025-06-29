@@ -107,14 +107,14 @@
 	\end{equation}
 	因此
 	\begin{align}
-		\braket{\phi_1 \phi_2} &= \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - D_{1 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{y y} D_{x 2}.pdf}}} + O(g^3) \notag \\
+		\braket{\phi_1 \phi_2} &= \vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - D_{1 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2}.pdf}}} + \vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{y y} D_{x 2}.pdf}}} + O(g^3) \notag \\
 		&= D_{1 2} + \frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2} + \frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2} + \frac{(i g)^2}{2} D_{1 x} D_{x y} D_{y y} D_{x 2} + O(g^3),
 	\end{align}
 	其中 $4, 2$ 是 symmetry factors.
 	
 	\item 下图的 symmetry factor 为 $1$,
 	\begin{equation}
-		\vcenter{\hbox{\includegraphics[scale=1]{figures/position space Feynman rules - (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.pdf}}} = (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.pdf}}} = (i g)^3 D_{1 x} D_{x y} D_{y z} D_{z x} D_{y 2} D_{z 3}.
 	\end{equation}
 \end{itemize}
 
@@ -125,7 +125,7 @@
 
 \subsection{vacuum matrix elements} \label{subsection Feynman rules.2.1}
 \begin{itemize}
-	\item section \ref{the S-matrix and time ordered products.2} 中注意到了 $\ket{\Omega}$ 的定义 (in Heisenberg picture),
+	\item section \ref{the S-matrix and time-ordered products.2} 中注意到了 $\ket{\Omega}$ 的定义 (in Heisenberg picture),
 	\begin{equation}
 		\begin{dcases}
 			a_{\vec{p}}(- \infty) \ket{\Omega} = U^\dag(- \infty) a_{\vec{p}} U(- \infty) \ket{\Omega} = 0 \\
@@ -162,13 +162,13 @@
 	\end{tcolorbox}
 	
 	\begin{itemize}
-		\item 归一化要求 $\braket{\Omega | \Omega} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(- \infty, + \infty) | 0} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(- \infty, + \infty) | 0} = |\mathcal{N}_i|^2 = |\mathcal{N}_f|^2 = 1$.
+		\item 归一化要求 $\braket{\Omega | \Omega} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(+ \infty, - \infty) | 0} = \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, - \infty) | 0} = |\mathcal{N}_i|^2 = |\mathcal{N}_f|^2 = 1$.
 		
 		\item $H \ket{\Omega} = 0$ 因为 $[H, U(t_1, t_2)] = 0$ (前提是 Hamiltonian 不含时).
 	\end{itemize}
 	
 	\item 因此
-	\begin{equation}
+	\begin{equation} \label{Feynman rules.2.6}
 		\braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} = \frac{\braket{0 | T(\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)) | 0}}{\braket{0 | U_I(+ \infty, - \infty) | 0}}.
 	\end{equation}
 	
@@ -184,4 +184,69 @@
 			\mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(- \infty, + \infty) | 0} = 1.
 		\end{equation}
 	\end{tcolorbox}
+\end{itemize}
+
+\subsection{time-ordered products and contractions}
+\begin{itemize}
+	\item 用 Wick contraction 计算 \eqref{Feynman rules.2.6}, 得到
+	\begin{equation}
+		\braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} = \braket{0 | T(\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)) | 0}_\text{no bubbles}.
+	\end{equation}
+\end{itemize}
+
+\section{momentum-space Feynman rules}
+\begin{itemize}
+	\item 考虑如下 Feynman 图,
+	\begin{align}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/momentum-space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2}.pdf}}} =& \frac{(i g)^2}{2} \int d^4 x \, \int d^4 y \, D_{1 x} D_{x y}^2 D_{y 2} \notag \\
+		=& \frac{(i g)^2}{2} \int \frac{d^4 p_1}{(2 \pi)^4} \frac{i e^{i p_1 \cdot x_1}}{p_1^2 - m^2 + i \epsilon} \int \frac{d^4 p_2}{(2 \pi)^4} \frac{i e^{- i p_2 \cdot x_2}}{p_2^2 - m^2 + i \epsilon} \notag \\
+		& \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \frac{i}{(p_1 - p_3)^2 - m^2 + i \epsilon} (2 \pi)^4 \delta^{(4)}(p_1 - p_2),
+	\end{align}
+	代入 LSZ, 有
+	\begin{align}
+		\braket{p_2 | S | p_1} &= \cdots + i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) i \int d^4 x_2 \, e^{i p_2 \cdot x_2} (\partial_2^2 + m^2) \vcenter{\hbox{\includegraphics[scale=1]{figures/position-space Feynman rules - frac{(i g)^2}{2} D_{1 x} D_{x y} D_{x y} D_{y 2}.pdf}}} + \cdots \notag \\
+		&= \cdots + \frac{(i g)^2}{2} (2 \pi)^4 \delta^{(4)}(p_1 - p_2) \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \frac{i}{(p_1 - p_3)^2 - m^2 + i \epsilon} + \cdots,
+	\end{align}
+	所以
+	\begin{equation}
+		i \braket{p_2 | \mathcal{M} | p_1} = \cdots + \frac{(i g)^2}{2} \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \frac{i}{(p_1 - p_3)^2 - m^2 + i \epsilon} + \cdots
+	\end{equation}
+	
+	\item 再考虑 (LSZ 中的 $p_1, p_2$ 都 on-shell)
+	\begin{align}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/momentum-space Feynman rules - D_{1 2}.pdf}}} &= i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) i \int d^4 x_2 \, e^{i p_2 \cdot x_2} (\partial_2^2 + m^2) D_{1 2} \notag \\
+		&= i (2 \pi)^4 \delta^{(4)}(p_1 - p_2) (- p_1^2 + m^2) = 0,
+	\end{align}
+	这是因为 LSZ 算的是 $\braket{p_2 | i \mathcal{T} | p_1}$.
+\end{itemize}
+
+\subsection{disconnected graphs}
+\begin{itemize}
+	\item disconnected graphs are never important \textcolor{red}{(?)}.
+	
+	\item 考虑
+	\begin{align}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/momentum-space Feynman rules - frac{(i g)^2}{4} D_{1 x} D_{x x} D_{y y} D_{y 2}.pdf}}} &= \frac{(i g)^2}{4} \int d^4 x \int d^4 y \, D_{1 x} D_{x x} D_{y y} D_{y 2} \notag \\
+		&= \frac{(i g)^2}{4} \frac{i}{- m^2 + i \epsilon} \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \frac{i}{- m^2 + i \epsilon} \int \frac{d^4 p_4}{(2 \pi)^4} \frac{i}{p_4^2 - m^2 + i \epsilon},
+	\end{align}
+	那么
+	\begin{align}
+		\braket{p_2 | S | p_1} =& \cdots + \frac{(i g)^2}{4} (2 \pi)^4 \delta^{(4)}(p_1) \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \notag \\
+		& (2 \pi)^4 \delta^{(4)}(p_2) \int \frac{d^4 p_4}{(2 \pi)^4} \frac{i}{p_4^2 - m^2 + i \epsilon} + \cdots \notag \\
+		=& \cdots + \frac{(i g)^2}{4} (2 \pi)^4 \delta^{(4)}(p_1 - p_2) \notag \\
+		& \Big( (2 \pi)^4 \delta^{(4)}(p_1) \int \frac{d^4 p_3}{(2 \pi)^4} \frac{i}{p_3^2 - m^2 + i \epsilon} \int \frac{d^4 p_4}{(2 \pi)^4} \frac{i}{p_4^2 - m^2 + i \epsilon} \Big) + \cdots
+	\end{align}
+	
+	\item 再考虑
+	\begin{align}
+		\vcenter{\hbox{\includegraphics[scale=1]{figures/disconnected graphs - D_{1 3} D_{2 4}.pdf}}} =& i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) i \int d^4 x_2 \, e^{- i p_2 \cdot x_2} (\partial_2^2 + m^2) \notag \\
+		& i \int d^4 x_3 \, e^{i p_3 \cdot x_3} (\partial_3^2 + m^2) i \int d^4 x_4 \, e^{i p_4 \cdot x_4} (\partial_4^2 + m^2) D_{1 3} D_{2 4} \notag \\
+		=& i (2 \pi)^4 \delta^{(4)}(p_1 - p_3) (- p_1^2 + m^2) i (2 \pi)^4 \delta^{(4)}(p_2 - p_4) (- p_2^2 + m^2) \notag \\
+		=& i (2 \pi)^4 \delta^{(4)}(p_1 + p_2 - p_3 - p_4) (i (2 \pi)^4 \delta^{(4)}(p_1 - p_3) (- p_1^2 + m^2) (- p_2^2 + m^2)).
+	\end{align}
+\end{itemize}
+
+\section{Mandelstam variables}
+\begin{itemize}
+	\item 
 \end{itemize}
