@@ -12,43 +12,43 @@
 	
 	\item 一个重要的中间公式为
 	\begin{equation} \label{Feynman rules.1.2}
-		(\partial_x^2 + m^2) \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} = \braket{\Omega | T((\partial_x^2 + m^2) \phi(x) \phi(y)) | \Omega} - i \delta^{(4)}(x - y).
+		(\partial_x^2 + m^2) \braket{\Omega | T\{\phi(x) \phi(y)\} | \Omega} = \braket{\Omega | T\{(\partial_x^2 + m^2) \phi(x) \phi(y)\} | \Omega} - i \delta^{(4)}(x - y).
 	\end{equation}
 	
 	\begin{tcolorbox}[title=proof:]
 		考虑
 		\begin{align}
-			\partial_t \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} =& \partial_t (\braket{\Omega | \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(y) \phi(x) | \Omega} \theta(t' - t)) \notag \\
+			\partial_t \braket{\Omega | T\{\phi(x) \phi(y)\} | \Omega} =& \partial_t (\braket{\Omega | \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(y) \phi(x) | \Omega} \theta(t' - t)) \notag \\
 			=& \braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(x) \phi(y) | \Omega} \delta(t - t') \notag \\
 			& + \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \theta(t' - t) - \braket{\Omega | \phi(y) \phi(x) | \Omega} \delta(t' - t) \notag \\
-			=& \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega} + \braket{\Omega | [\phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
-			=& \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega},
+			=& \braket{\Omega | T \{\partial_t \phi(x) \phi(y)\} | \Omega} + \braket{\Omega | [\phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
+			=& \braket{\Omega | T \{\partial_t \phi(x) \phi(y)\} | \Omega},
 		\end{align}
 		那么
 		\begin{align}
-			\partial_t^2 \braket{\Omega | T(\phi(x) \phi(y)) | \Omega} =& \partial_t \braket{\Omega | T (\partial_t \phi(x) \phi(y)) | \Omega} \notag \\
+			\partial_t^2 \braket{\Omega | T\{\phi(x) \phi(y)\} | \Omega} =& \partial_t \braket{\Omega | T \{\partial_t \phi(x) \phi(y)\} | \Omega} \notag \\
 			=& \partial_t (\braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \theta(t' - t)) \notag \\
 			=& \braket{\Omega | \partial_t^2 \phi(x) \phi(y) | \Omega} \theta(t - t') + \braket{\Omega | \partial_t \phi(x) \phi(y) | \Omega} \delta(t - t') \notag \\
 			& + \braket{\Omega | \phi(y) \partial_t^2 \phi(x) | \Omega} \theta(t' - t) - \braket{\Omega | \phi(y) \partial_t \phi(x) | \Omega} \delta(t' - t) \notag \\
-			=& \braket{\Omega | T (\partial_t^2 \phi(x) \phi(y)) | \Omega} + \braket{\Omega | [\partial_t \phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
-			=& \braket{\Omega | T (\partial_t^2 \phi(x) \phi(y)) | \Omega} - i \delta^{(4)}(x - y).
+			=& \braket{\Omega | T \{\partial_t^2 \phi(x) \phi(y)\} | \Omega} + \braket{\Omega | [\partial_t \phi(t, \vec{x}), \phi(t, \vec{y})] | \Omega} \delta(t - t') \notag \\
+			=& \braket{\Omega | T \{\partial_t^2 \phi(x) \phi(y)\} | \Omega} - i \delta^{(4)}(x - y).
 		\end{align}
 	\end{tcolorbox}
 	
 	\item \eqref{Feynman rules.1.2} 可以推广为 (其中 $\phi_i$ 是 $\phi(x_i)$ 的简写)
 	\begin{align}
-		& (\partial_1^2 + m^2) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
-		=& \braket{\Omega | T((\partial_1^2 + m^2) \phi(x_1) \cdots \phi(x_n)) | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}. \label{Feynman rules.1.5}
+		& (\partial_1^2 + m^2) \braket{\Omega | T\{\phi(x_1) \cdots \phi(x_n)\} | \Omega} \notag \\
+		=& \braket{\Omega | T\{(\partial_1^2 + m^2) \phi(x_1) \cdots \phi(x_n)\} | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}. \label{Feynman rules.1.5}
 	\end{align}
 	
 	\begin{tcolorbox}[title=proof:]
 		首先
 		\begin{equation}
-			\partial_{t_1} \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} = \braket{\Omega | T(\partial_{t_1} \phi(x_1) \cdots \phi(x_n)) | \Omega},
+			\partial_{t_1} \braket{\Omega | T\{\phi(x_1) \cdots \phi(x_n)\} | \Omega} = \braket{\Omega | T\{\partial_{t_1} \phi(x_1) \cdots \phi(x_n)\} | \Omega},
 		\end{equation}
 		那么
 		\begin{equation}
-			\partial_{t_1}^2 \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} = \partial_{t_1} \braket{\Omega | T(\partial_{t_1} \phi(x_1) \cdots \phi(x_n)) | \Omega} = \cdots 
+			\partial_{t_1}^2 \braket{\Omega | T\{\phi(x_1) \cdots \phi(x_n)\} | \Omega} = \partial_{t_1} \braket{\Omega | T\{\partial_{t_1} \phi(x_1) \cdots \phi(x_n)\} | \Omega} = \cdots 
 		\end{equation}
 	\end{tcolorbox}
 	
@@ -59,8 +59,8 @@
 	
 	\item 结合 \eqref{Feynman rules.1.5} 和 \eqref{Feynman rules.1.8} 得到 Schwinger--Dyson equations,
 	\begin{align}
-		& (\partial_1^2 + m^2) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
-		=& \braket{\Omega | T(- \frac{\delta}{\delta \phi_1} V(\phi_1) \cdots \phi(x_n)) | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}.
+		& (\partial_1^2 + m^2) \braket{\Omega | T\{\phi(x_1) \cdots \phi(x_n)\} | \Omega} \notag \\
+		=& \braket{\Omega | T\{- \frac{\delta}{\delta \phi_1} V(\phi_1) \cdots \phi(x_n)\} | \Omega} - i \sum_{i = 2}^n \delta^{(4)}(x_i - x_1) \braket{\Omega | \phi_2 \cdots \phi_{i - 1} \phi_{i + 1} \cdots \phi_n | \Omega}.
 	\end{align}
 \end{itemize}
 
@@ -68,7 +68,7 @@
 \begin{itemize}
 	\item Feynman propagator 为 ($\phi_0(x)$ 是 free field, 本 chapter 不做特别说明都是存在相互作用的 Heisenberg picture)
 	\begin{equation}
-		D_F(x - y) := \braket{0 | T(\phi_0(x) \phi_0(y)) | 0} = \int \frac{d^4 k}{(2 \pi)^4} \frac{i}{k^2 - m^2 + i \epsilon} e^{i k \cdot (x - y)},
+		D_F(x - y) := \braket{0 | T\{\phi_0(x) \phi_0(y)\} | 0} = \int \frac{d^4 k}{(2 \pi)^4} \frac{i}{k^2 - m^2 + i \epsilon} e^{i k \cdot (x - y)},
 	\end{equation}
 	满足
 	\begin{equation}
@@ -77,20 +77,20 @@
 	
 	\item 2-point correlation function 可以重写作 (注意到 $\lim_{x \rightarrow \infty} D_{x y} = \lim_{x \rightarrow \infty} \partial_x D_{x y} = 0$)
 	\begin{align}
-		\braket{\Omega | T(\phi_1 \phi_2) | \Omega} &= i \int d^4 x \, ((\partial_x^2 + m^2) D_{x 1}) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
-		&= i \int d^4 x \, D_{x 1} (\partial_x^2 + m^2) \braket{\Omega | T(\phi_x \phi_2) | \Omega} \notag \\
-		&= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2) | \Omega},
+		\braket{\Omega | T\{\phi_1 \phi_2\} | \Omega} &= i \int d^4 x \, ((\partial_x^2 + m^2) D_{x 1}) \braket{\Omega | T\{\phi_x \phi_2\} | \Omega} \notag \\
+		&= i \int d^4 x \, D_{x 1} (\partial_x^2 + m^2) \braket{\Omega | T\{\phi_x \phi_2\} | \Omega} \notag \\
+		&= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T\{- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2\} | \Omega},
 	\end{align}
 	类似地, 4-point function 可以写作
 	\begin{align}
-		\braket{\Omega | T(\phi_1 \phi_2 \phi_3 \phi_4) | \Omega} =& D_{1 2} D_{3 4} + D_{1 3} D_{2 4} + D_{1 4} D_{2 3} \notag \\
-		& + i \int d^4 x \, D_{x 1} \braket{\Omega | T(- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2 \phi_3 \phi_4) | \Omega} \notag \\
-		& + D_{1 2} i \int d^4 y \, D_{3 y} \braket{\Omega | T(- \frac{\delta}{\delta \phi_y} V(\phi_y) \phi_4) | \Omega} + \cdots
+		\braket{\Omega | T\{\phi_1 \phi_2 \phi_3 \phi_4\} | \Omega} =& D_{1 2} D_{3 4} + D_{1 3} D_{2 4} + D_{1 4} D_{2 3} \notag \\
+		& + i \int d^4 x \, D_{x 1} \braket{\Omega | T\{- \frac{\delta}{\delta \phi_x} V(\phi_x) \phi_2 \phi_3 \phi_4\} | \Omega} \notag \\
+		& + D_{1 2} i \int d^4 y \, D_{3 y} \braket{\Omega | T\{- \frac{\delta}{\delta \phi_y} V(\phi_y) \phi_4\} | \Omega} + \cdots
 	\end{align}
 	
 	\item 考虑 $V(\phi) = - \frac{g}{3!} \phi^3$, 那么 2-point function 为
 	\begin{align}
-		\braket{\Omega | T(\phi_1 \phi_2) | \Omega} &= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T(\frac{g}{2!} \phi_x^2 \phi_2) | \Omega} \notag \\
+		\braket{\Omega | T\{\phi_1 \phi_2\} | \Omega} &= D_{1 2} + i \int d^4 x \, D_{x 1} \braket{\Omega | T\{\frac{g}{2!} \phi_x^2 \phi_2\} | \Omega} \notag \\
 		&= D_{1 2} + i \int d^4 x \, D_{x 1} \Big( i \int d^4 y \, D_{y 2} \braket{\frac{g}{2!} \phi_x^2 \frac{g}{2!} \phi_y^2} + 2! D_{x 2} \braket{\frac{g}{2!} \phi_x} \Big),
 	\end{align}
 	其中
@@ -169,15 +169,15 @@
 	
 	\item 因此
 	\begin{equation} \label{Feynman rules.2.6}
-		\braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} = \frac{\braket{0 | T(\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)) | 0}}{\braket{0 | U_I(+ \infty, - \infty) | 0}}.
+		\braket{\Omega | T\{\phi_1 \cdots \phi_n\} | \Omega} = \frac{\braket{0 | T\{\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)\} | 0}}{\braket{0 | U_I(+ \infty, - \infty) | 0}}.
 	\end{equation}
 	
 	\begin{tcolorbox}[title=calculation:]
 		\begin{align}
-			& \braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} \notag \\
-			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(+ \infty, 0) T((U(0, t_1) \phi_{S, 1} U(t_1, 0)) (U(0, t_2) \phi_{S, 2} U(t_2, 0)) \cdots) U(0, - \infty) | 0} \notag \\
-			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T((U_I(0, t_1) U_0(0, t_1) \phi_{S, 1} U_0(t_1, 0) U_I(t_1, 0)) \cdots) U_I(0, - \infty) | 0} \notag \\
-			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T((U_I(0, t_1) \phi_{0, 1} U_I(t_1, 0)) \cdots) U_I(0, - \infty) | 0} = \cdots
+			& \braket{\Omega | T\{\phi_1 \cdots \phi_n\} | \Omega} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U(+ \infty, 0) T\{(U(0, t_1) \phi_{S, 1} U(t_1, 0)) (U(0, t_2) \phi_{S, 2} U(t_2, 0)) \cdots\} U(0, - \infty) | 0} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T\{(U_I(0, t_1) U_0(0, t_1) \phi_{S, 1} U_0(t_1, 0) U_I(t_1, 0)) \cdots\} U_I(0, - \infty) | 0} \notag \\
+			&= \mathcal{N}^*_f \mathcal{N}_i \braket{0 | U_I(+ \infty, 0) T\{(U_I(0, t_1) \phi_{0, 1} U_I(t_1, 0)) \cdots\} U_I(0, - \infty) | 0} = \cdots
 		\end{align}
 		另外注意到
 		\begin{equation}
@@ -190,7 +190,7 @@
 \begin{itemize}
 	\item 用 Wick contraction 计算 \eqref{Feynman rules.2.6}, 得到
 	\begin{equation}
-		\braket{\Omega | T(\phi_1 \cdots \phi_n) | \Omega} = \braket{0 | T(\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)) | 0}_\text{no bubbles}.
+		\braket{\Omega | T\{\phi_1 \cdots \phi_n\} | \Omega} = \braket{0 | T\{\phi_{0, 1} \cdots \phi_{0, n} U_I(+ \infty, - \infty)\} | 0}_\text{no bubbles}.
 	\end{equation}
 \end{itemize}
 
@@ -217,7 +217,7 @@
 		\vcenter{\hbox{\includegraphics[scale=1]{figures/momentum-space Feynman rules - D_{1 2}.pdf}}} &= i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) i \int d^4 x_2 \, e^{i p_2 \cdot x_2} (\partial_2^2 + m^2) D_{1 2} \notag \\
 		&= i (2 \pi)^4 \delta^{(4)}(p_1 - p_2) (- p_1^2 + m^2) = 0,
 	\end{align}
-	这是因为 LSZ 算的是 $\braket{p_2 | i \mathcal{T} | p_1}$.
+	符合预期 (见 \eqref{the S-matrix and time-ordered products.1.4}).
 \end{itemize}
 
 \subsection{disconnected graphs}
@@ -248,5 +248,5 @@
 
 \section{Mandelstam variables}
 \begin{itemize}
-	\item 
+	\item 适用于 $2 \rightarrow 2$ 散射.
 \end{itemize}

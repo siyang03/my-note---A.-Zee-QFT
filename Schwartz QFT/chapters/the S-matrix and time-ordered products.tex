@@ -26,8 +26,8 @@
 		可见 \eqref{the LSZ reduction formula.1.1} 中的 $\ket{i}, \ket{f}$ 都是 $t = 0$ 即 Heisenberg picture 中的形式.
 	\end{tcolorbox}
 	
-	\item LSZ 需要用到以下公式 (其中 $p$ 是 on-shell),
-	\begin{equation}
+	\item LSZ 需要用到以下公式 (其中 $p$ is on-shell),
+	\begin{equation} \label{the S-matrix and time-ordered products.1.4}
 		i \int d^4 x \, e^{i p \cdot x} (\partial^2 + m^2) \phi(x) = \sqrt{(2 \pi)^3 2 \omega_p} (e^{i \omega_p t} a_{\vec{p}}(t)) \Big|^\infty_{- \infty},
 	\end{equation}
 	注意到, 对于 free field, 等式两边等于零.
@@ -35,16 +35,13 @@
 	\begin{tcolorbox}[title=proof:]
 		注意到
 		\begin{align}
-			& \phi(x) = \int \frac{d^3 p}{(2 \pi)^{3 / 2} \sqrt{2 \omega_p}} (a_{\vec{p}}(t) e^{i \vec{p} \cdot \vec{x}} + a^\dag_{\vec{p}}(t) e^{- i \vec{p} \cdot \vec{x}}) \notag \\
-			\Longrightarrow & (\partial^2 + m^2) \phi(x) = (\partial_t^2 + \omega_p^2) \phi(x),
+			\int d^3 x \, e^{i p \cdot x} (\partial^2 + m^2) \phi(x) &= \int d^3 x \, e^{i p \cdot x} (\partial_t^2 - \nabla^2 + m^2) \phi(x) \notag \\
+			&= \int d^3 x \, (e^{i p \cdot x} (\partial_t^2 + m^2) \phi(x) - \phi(x) \nabla^2 e^{i p \cdot x}) \notag \\
+			&= \int d^3 x \, e^{i p \cdot x} (\partial_t^2 + \omega_p^2) \phi(x) \notag \\
+			&= \int d^3 x \, \partial_t(e^{i p \cdot x} \dot{\phi} - i \omega_p e^{i p \cdot x} \phi) \\
+			&= \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} \partial_t \big( e^{i \omega_p t} (\partial_t - i \omega_p) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t)) \big)
 		\end{align}
-		代入, 得
-		\begin{align}
-			\text{LHS} &= i \int d^4 x \, e^{i p \cdot x} (\partial_t^2 + \omega_p^2) \phi(x) \notag \\
-			&= i \int dt \, e^{i \omega_p t} \int d^3 x \, e^{- i \vec{p} \cdot \vec{x}} (\partial_t^2 + \omega_p^2) \int \frac{d^3 q}{(2 \pi)^{3 / 2} \sqrt{2 \omega_q}} (a_{\vec{q}}(t) e^{i \vec{q} \cdot \vec{x}} + a^\dag_{\vec{q}}(t) e^{- i \vec{q} \cdot \vec{x}}) \notag \\
-			&= i \frac{(2 \pi)^{3 / 2}}{\sqrt{2 \omega_p}} \int dt \, e^{i \omega_p t} (\partial_t^2 + \omega_p^2) (a_{\vec{p}}(t) + a^\dag_{- \vec{p}}(t)),
-		\end{align}
-		注意到
+		其中注意到了
 		\begin{equation}
 			e^{i \omega_p t} (\partial_t^2 + \omega_p^2) O(t) = \partial_t(e^{i \omega_p t} (\partial_t - i \omega_p) O(t)),
 		\end{equation}
@@ -68,36 +65,34 @@
 		\end{equation}
 	\end{tcolorbox}
 	
-	\item 那么 (up to an infinite phase)
-	\begin{align}
-		& \braket{f | S | i} \notag \\
-		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | a_{\vec{p}_3}(+ \infty) \cdots a_{\vec{p}_n}(+ \infty) a^\dag_{\vec{p}_1}(- \infty) a^\dag_{\vec{p}_2}(- \infty) | \Omega} \notag \\
-		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | T ((a_{\vec{p}_3}(+ \infty) - a_{\vec{p}_3}(- \infty)) \cdots (a^\dag_{\vec{p}_2}(\mathcolor{red}{-} \infty) - a^\dag_{\vec{p}_2}(\mathcolor{red}{+} \infty))) | \Omega} \notag \\
-		=& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
-		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \notag \\
-		& \braket{\Omega | T ((e^{i \omega_p (+ \infty)} a_{\vec{p}_3}(+ \infty) - e^{i \omega_p (- \infty)} a_{\vec{p}_3}(- \infty)) \cdots (e^{i \omega_p (- \infty)} a^\dag_{\vec{p}_2}(\mathcolor{red}{-} \infty) - e^{i \omega_p (+ \infty)} a^\dag_{\vec{p}_2}(\mathcolor{red}{+} \infty))) | \Omega}
-	\end{align}
-	得到 LSZ reduction formula.
+	\item 考虑 $p_1 \neq p_2 \neq \cdots \neq p_n$ 的情况.
 	
-	\begin{tcolorbox}[title=calculation:]
-		\begin{align}
-			& \Big( i \int d^4 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T(\phi(x_1) \cdots \phi(x_n)) | \Omega} \notag \\
-			=& n! \braket{\Omega | \int_{- \infty}^\infty dt_1 \, i \int d^3 x_1 \, e^{- i p_1 \cdot x_1} (\partial_1^2 + m^2) \phi_1 \int_{- \infty}^{t_1} dt_2 \cdots \int_{- \infty}^{t_{n - 1}} dt_n \cdots | \Omega}
-		\end{align}
-		并注意到 (其中 $f(t) = F'(t)$, 且一般地 $[F(t_1), F(t_2)] \neq 0$)
-		\begin{align}
-			\int_a^b dt_1 \, f(t_1) \int_a^{t_1} dt_2 \, f(t_2) &= \int_a^b dt_1 \, f(t_1) (F(t_1) - F(a)) \notag \\
-			&= \int_a^b dt_1 \, f(t_1) F(t_1) - (F(b) - F(a)) F(a) \notag \\
-			&= - \int_a^b dt_1 \, F(t_1) f(t_1) + F(b) (F(b) - F(a)) \notag \\
-			&= \cdots \notag \\
-			&\overset{?}{=} \frac{1}{2} (F(b) (F(b) - F(a)) - (F(b) - F(a)) F(a)) \notag \\
-			&= \frac{1}{2} T((F(b) - F(a))^2),
-		\end{align}
-		因此
-		\begin{equation}
-			\int_a^b dt_1 \, f(t_1) \int_a^{t_1} dt_2 \, f(t_2) \cdots \int_a^{t_{n - 1}} dt_n \, f(t_n)
-		\end{equation}
-	\end{tcolorbox}
+	\item 考虑
+	\begin{align}
+		& \frac{d}{dt} T\{A_1(t_1) \cdots A_{n - 1}(t_{n - 1}) B(t)\} \notag \\
+		=& T\{A_1(t_1) \cdots A_n(t_n) \frac{dB(t)}{dt}\} + \sum_{i = 1}^n \delta(t - t_i) T\{A_1(t_1) \cdots [B(t_i), A_i(t_i)] \cdots A_n(t_n)\},
+	\end{align}
+	那么
+	\begin{align}
+		& \partial_{t_i}^2 T\{\phi_1 \cdots \phi_n\} \notag \\
+		=& \partial_{t_i} T\{\cdots \partial_{t_i} \phi_i \cdots\} + \sum_{j \neq i} \delta(\cdots) T\{\cdots \underbrace{[\phi(t_j, \vec{x}_i), \phi(t_j, \vec{x}_j)]}_{= 0} \cdots\} \notag \\
+		=& T\{\cdots \partial_{t_i}^2 \phi_i \cdots\} + \sum_{j \neq i} \delta(t_j - t_i) T\{\cdots [\dot{\phi}(t_j, \vec{x}_i), \phi(t_j, \vec{x}_j)] \cdots\} \notag \\
+		=& T\{\cdots \partial_{t_i}^2 \phi_i \cdots\} - i \sum_{j \neq i} \delta^{(4)}(x_j - x_i) T\{\cdots \phi_{j - 1} \phi_{j + 1} \cdots\},
+	\end{align}
+	所以
+	\begin{align}
+		& i \int d^4 x_i \, e^{i p_i \cdot x_i} (\partial_i^2 + m^2) T\{\phi_1 \cdots \phi_n\} \notag \\
+		=& i \int d^4 x_i \, e^{i p_i \cdot x_i} \Big( T\{\cdots (\partial_i^2 + m^2) \phi_i \cdots\} - i \sum_{j \neq i} \delta^{(4)}(x_j - x_i) T\{\cdots \phi_{j - 1} \phi_{j + 1} \cdots\} \Big) \notag \\
+		=& i \int dt_i \, T\{\cdots \int d^3 x_i \, \partial_{t_i}(e^{i p_i \cdot x_i} \dot{\phi}_i - i \omega_{p_i} e^{i p_i \cdot x_i} \phi_i) \cdots\} \notag \\
+		& + \sum_{j \neq i} e^{i p_i \cdot x_j} T\{\cdots \phi_{j - 1} \phi_{j + 1} \cdots\} \notag \\
+		=& i \int dt_i \, \Big( \partial_{t_i} T\{\cdots \int d^3 x_i \, (e^{i p_i \cdot x_i} \dot{\phi}_i - i \omega_{p_i} e^{i p_i \cdot x_i} \phi_i) \cdots\} \notag \\
+		& - \sum_{j \neq i} \delta(t_i - t_j) T\{\cdots \underbrace{[\int d^3 x_i \, e^{i (\omega_{p_i} \cdot t_j - \vec{p}_i \cdot \vec{x}_i)} (\dot{\phi}(t_j, \vec{x}_i) - i \omega_{p_i} \phi(t_j, \vec{x}_i)), \phi_j]}_{= - i e^{i p_i \cdot x_j}} \cdots\} \Big) \notag \\
+		& + \sum_{j \neq i} e^{i p_i \cdot x_j} T\{\cdots \phi_{j - 1} \phi_{j + 1} \cdots\} \label{the S-matrix and time-ordered products.1.13} \\
+		=& i \int dt_i \, \partial_{t_i} T\{\cdots \int d^3 x_i \, (e^{i p_i \cdot x_i} \dot{\phi}_i - i \omega_{p_i} e^{i p_i \cdot x_i} \phi_i) \cdots\} \notag \\
+		=& (2 \pi)^{3 / 2} \sqrt{2 \omega_{p_i}} \Big( e^{i \omega_{p_i} (+ \infty)} a_{\vec{p}_i}(+ \infty) T\{\cdots \phi_{i - 1} \phi_{i + 1} \cdots\} \notag \\
+		& - T\{\cdots \phi_{i - 1} \phi_{i + 1} \cdots\} e^{i \omega_{p_i} (- \infty)} a_{\vec{p}_i}(- \infty) \Big),
+	\end{align}
+	其中, \eqref{the S-matrix and time-ordered products.1.13} 将对易子抵消掉是很重要的一步.
 \end{itemize}
 
 \section{LSZ for operators} \label{the S-matrix and time-ordered products.2}
