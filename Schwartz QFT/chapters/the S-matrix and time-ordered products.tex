@@ -93,6 +93,25 @@
 		& - T\{\cdots \phi_{i - 1} \phi_{i + 1} \cdots\} e^{i \omega_{p_i} (- \infty)} a_{\vec{p}_i}(- \infty) \Big),
 	\end{align}
 	其中, \eqref{the S-matrix and time-ordered products.1.13} 将对易子抵消掉是很重要的一步.
+	
+	\begin{tcolorbox}[title=remark:]
+		注意 \eqref{the S-matrix and time-ordered products.1.13} 中用到的对易关系
+		\begin{equation}
+			[\underbrace{\int d^3 y \, e^{i (\omega_p t - \vec{p} \cdot \vec{y})} (\dot{\phi}(t, \vec{y}) - i \omega_p \phi(t, \vec{y}))}_{\overset{t \rightarrow \pm \infty}{=} - i (2 \pi)^{3 / 2} \sqrt{2 \omega_p} e^{i \omega_p t} a_{\vec{p}}(t)}, \phi(t, \vec{x})] = - i e^{i p \cdot x},
+		\end{equation}
+		对比
+		\begin{equation}
+			[- i (2 \pi)^{3 / 2} \sqrt{2 \omega_p} e^{i \omega_p t} a_{\vec{p}}(t), \phi(x)] = - i e^{i \omega_p t} U^\dag(t) [a_{\vec{p}}, \phi(0, \vec{x})] U(t) = - i e^{i p \cdot x}.
+		\end{equation}
+	\end{tcolorbox}
+	
+	\item 那么 (其中 $p_1, \cdots, p_m$ 是入射粒子, $p_{m + 1}, \cdots, p_n$ 是出射粒子)
+	\begin{align}
+		& \Big( i \int d^4 x_1 \, e^{i p_1 \cdot x_1} (\partial_1^2 + m^2) \Big) \cdots \Big( i \int d^4 x_n \, e^{- i p_n \cdot x_n} (\partial_n^2 + m^2) \Big) \braket{\Omega | T\{\phi_1 \cdots \phi_n\} | \Omega} \notag \\
+		=& (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | e^{i \omega_{p_1} (+ \infty)} a_{\vec{p}_1}(+ \infty) \cdots e^{- i \omega_{p_n} (- \infty)} a^\dag_{\vec{p}_n}(- \infty) | \Omega} \notag \\
+		& - (2 \pi)^{3 n / 2} \sqrt{2 \omega_{p_1} \cdots 2 \omega_{p_n}} \braket{\Omega | a_{\vec{p}_1}(+ \infty) \cdots a^\dag_{\vec{p}_n}(+ \infty) | \Omega} \notag \\
+		=& \braket{f | S - I | i}.
+	\end{align}
 \end{itemize}
 
 \section{LSZ for operators} \label{the S-matrix and time-ordered products.2}
